@@ -94,3 +94,27 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Fix analysis period — add date filter to mart query (trailing 12 months) and re-export, OR reframe narrative language. Then merge PR #1 to main. Then /ce:review and /qa for Heavy tier gates.
 
 ---
+
+## 2026-05-17 16:30
+
+**What changed:** Full 4-phase audit confirms data integrity; added dispute recovery insight from new fct_payments table.
+
+**Why:** User concern that upstream DB changes (new rows/tables) might invalidate the analysis. Verified fiscal year revenue and deductions are byte-for-byte identical. New tables (fct_chargebacks, fct_payments, fct_shipments) serve sibling projects and don't affect this one. Discovery: fct_payments shows $359K recovered against $324K dispute overhead (10.7% net ROI) — incorporated into narrative.
+
+**State:** All data verified correct against live DB. Meta tag fixed ($32M→removed). Operational section and allocation recommendation updated with recovery data. AUDIT.md documents full findings. Build passes. Not yet redeployed.
+
+**Next:** Redeploy to Cloudflare Pages with updated narrative. Then /ce:review and /qa remain as Heavy tier gates per PLAN.md.
+
+---
+
+## 2026-05-17 17:00
+
+**What changed:** Added prose-vs-data validation test (27 checks) and single-command data refresh script.
+
+**Why:** Automated protection against data drift. test_prose_data.py catches hardcoded MDX claims that no longer match JSON; refresh_data.py pulls fresh fiscal-year data from cinderhaven-db, updates generate_json.py, regenerates JSON, and validates in one command.
+
+**State:** Both scripts committed and passing. Prose validation confirms all 27 claims match data. Refresh script parses cleanly but requires flyctl auth to run end-to-end. Audit complete, recovery insight incorporated, all narrative updated. Not yet redeployed.
+
+**Next:** Redeploy to Cloudflare Pages. Then /ce:review and /qa for Heavy tier gates.
+
+---
