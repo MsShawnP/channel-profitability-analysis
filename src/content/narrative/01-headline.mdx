@@ -4,6 +4,17 @@ order: 1
 section: "headline"
 ---
 
-# Placeholder
+import ChannelChart from '../../components/charts/ChannelChart';
+import layers from '../../data/layers.json';
+import channels from '../../data/channels.json';
 
-This content will be written after the data export (U3) reveals the actual numbers.
+export const totalRevenue = channels.reduce((sum, c) => sum + c.gross_revenue, 0);
+export const totalDeductions = channels.reduce((sum, c) => sum + c.total_deductions, 0);
+export const dtcChannel = channels.find(c => c.channel_id === 'DTC');
+export const walmartChannel = channels.find(c => c.channel_id === 'walmart');
+
+# Where the money actually goes
+
+Cinderhaven recorded {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 1, notation: 'compact' }).format(totalRevenue)} in gross revenue across eleven channels last year. But gross revenue is a vanity metric. Between cost of goods, trade deductions, compliance fines, and dispute-resolution labour, every channel surrenders a different fraction of each dollar before it reaches contribution margin.
+
+The gap between what the income statement reports and what each channel actually earns ranges from 4% to 28%. That variance is where capital allocation decisions should start.
