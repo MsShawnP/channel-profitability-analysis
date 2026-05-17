@@ -201,110 +201,88 @@ ORDER BY quarter, r.retailer_name;
     return quarterly_rev, quarterly_ded
 
 
-def format_dict(d, indent=4):
-    """Format a dict as Python source code."""
-    prefix = " " * indent
-    lines = ["{"]
-    for i, (k, v) in enumerate(d.items()):
-        comma = "," if i < len(d) - 1 else ","
-        if isinstance(v, tuple):
-            lines.append(f'{prefix}"{k}": ({v[0]}, {v[1]}){comma}')
-        elif isinstance(v, dict):
-            inner = ", ".join(f'"{ik}": {iv}' for ik, iv in v.items())
-            lines.append(f'{prefix}"{k}": {{{inner}}}{comma}')
-        elif isinstance(v, float):
-            lines.append(f'{prefix}"{k}": {v}{comma}')
-        elif isinstance(v, int):
-            lines.append(f'{prefix}"{k}": {v}{comma}')
-        else:
-            lines.append(f'{prefix}"{k}": {repr(v)}{comma}')
-    lines.append(" " * (indent - 4) + "}")
-    return "\n".join(lines)
+
+def _safe_sub(content, pattern, replacement, label, flags=0):
+    """Replace pattern in content, raising if no match found."""
+    new_content, count = re.subn(pattern, replacement, content, count=1, flags=flags)
+    if count == 0:
+        raise RuntimeError(
+            f"refresh_data: failed to match {label} pattern in generate_json.py. "
+            "File may have been manually edited into an unexpected format."
+        )
+    return new_content
 
 
 def update_generate_script(revenue, deductions, disputes, cogs_ratios, quarterly_rev, quarterly_ded):
-    """Update the constants in generate_json.py with fresh data."""
-    content = GENERATE_SCRIPT.read_text()
+    """Update the constants in generate_json.py with fresh data.
 
-    # Update COGS_RATIOS
-    new_cogs = "COGS_RATIOS = {\n"
-    for name, ratio in cogs_ratios.items():
-        new_cogs += f'    "{name}": {ratio:.4f},\n'
-    new_cogs += "}"
-    content = re.sub(
-        r"COGS_RATIOS = \{[^}]+\}",
-        new_cogs,
-        content
-    )
+    Creates a .bak backup before writing. Restores on failure.
+    """
+    backup_path = GENERATE_SCRIPT.with_suffix(".py.bak")
+    original_content = GENERATE_SCRIPT.read_text()
+    backup_path.write_text(original_content)
 
-    # Update FISCAL_REVENUE
-    new_rev = "FISCAL_REVENUE = {\n"
-    for name, rev in revenue.items():
-        new_rev += f'    "{name}": {rev:.2f},\n'
-    new_rev += "}"
-    content = re.sub(
-        r"FISCAL_REVENUE = \{[^}]+\}",
-        new_rev,
-        content
-    )
+    try:
+        content = original_content
 
-    # Update DEDUCTIONS (multi-line nested dict)
-    new_ded = "DEDUCTIONS = {\n"
-    for channel, types in deductions.items():
-        new_ded += f'    "{channel}": {{\n'
-        for dtype, (amount, count) in types.items():
-            new_ded += f'        "{dtype}": ({amount}, {count}),\n'
-        new_ded += "    },\n"
-    new_ded += "}"
-    content = re.sub(
-        r"DEDUCTIONS = \{.*?\n\}",
-        new_ded,
-        content,
-        flags=re.DOTALL,
-    )
+        # Update COGS_RATIOS
+        new_cogs = "COGS_RATIOS = {\n"
+        for name, ratio in cogs_ratios.items():
+            new_cogs += f'    "{name}": {ratio:.4f},\n'
+        new_cogs += "}"
+        content = _safe_sub(content, r"COGS_RATIOS = \{[^}]+\}", new_cogs, "COGS_RATIOS")
 
-    # Update DISPUTE_DATA
-    new_disputes = "DISPUTE_DATA = {\n"
-    for name, d in disputes.items():
-        new_disputes += f'    "{name}": {{"disputes": {d["disputes"]}, "events": {d["events"]}, "hours": {d["hours"]:.2f}}},\n'
-    new_disputes += '    "DTC": {"disputes": 0, "events": 0, "hours": 0},\n'
-    new_disputes += "}"
-    content = re.sub(
-        r"DISPUTE_DATA = \{.*?\n\}",
-        new_disputes,
-        content,
-        flags=re.DOTALL,
-    )
+        # Update FISCAL_REVENUE
+        new_rev = "FISCAL_REVENUE = {\n"
+        for name, rev in revenue.items():
+            new_rev += f'    "{name}": {rev:.2f},\n'
+        new_rev += "}"
+        content = _safe_sub(content, r"FISCAL_REVENUE = \{[^}]+\}", new_rev, "FISCAL_REVENUE")
 
-    # Update QUARTERLY_REVENUE
-    new_qrev = "QUARTERLY_REVENUE = {\n"
-    for q in sorted(quarterly_rev.keys()):
-        channels = quarterly_rev[q]
-        inner = ", ".join(f'"{n}": {v:.2f}' for n, v in channels.items())
-        new_qrev += f'    "{q}": {{{inner}}},\n'
-    new_qrev += "}"
-    content = re.sub(
-        r"QUARTERLY_REVENUE = \{.*?\n\}",
-        new_qrev,
-        content,
-        flags=re.DOTALL,
-    )
+        # Update DEDUCTIONS (multi-line nested dict)
+        new_ded = "DEDUCTIONS = {\n"
+        for channel, types in deductions.items():
+            new_ded += f'    "{channel}": {{\n'
+            for dtype, (amount, count) in types.items():
+                new_ded += f'        "{dtype}": ({amount}, {count}),\n'
+            new_ded += "    },\n"
+        new_ded += "}"
+        content = _safe_sub(content, r"DEDUCTIONS = \{.*?\n\}", new_ded, "DEDUCTIONS", flags=re.DOTALL)
 
-    # Update QUARTERLY_DEDUCTIONS
-    new_qded = "QUARTERLY_DEDUCTIONS = {\n"
-    for q in sorted(quarterly_ded.keys()):
-        channels = quarterly_ded[q]
-        inner = ", ".join(f'"{n}": {v:.2f}' for n, v in channels.items())
-        new_qded += f'    "{q}": {{{inner}}},\n'
-    new_qded += "}"
-    content = re.sub(
-        r"QUARTERLY_DEDUCTIONS = \{.*?\n\}",
-        new_qded,
-        content,
-        flags=re.DOTALL,
-    )
+        # Update DISPUTE_DATA
+        new_disputes = "DISPUTE_DATA = {\n"
+        for name, d in disputes.items():
+            new_disputes += f'    "{name}": {{"disputes": {d["disputes"]}, "events": {d["events"]}, "hours": {d["hours"]:.2f}}},\n'
+        new_disputes += '    "DTC": {"disputes": 0, "events": 0, "hours": 0},\n'
+        new_disputes += "}"
+        content = _safe_sub(content, r"DISPUTE_DATA = \{.*?\n\}", new_disputes, "DISPUTE_DATA", flags=re.DOTALL)
 
-    GENERATE_SCRIPT.write_text(content)
+        # Update QUARTERLY_REVENUE
+        new_qrev = "QUARTERLY_REVENUE = {\n"
+        for q in sorted(quarterly_rev.keys()):
+            channels = quarterly_rev[q]
+            inner = ", ".join(f'"{n}": {v:.2f}' for n, v in channels.items())
+            new_qrev += f'    "{q}": {{{inner}}},\n'
+        new_qrev += "}"
+        content = _safe_sub(content, r"QUARTERLY_REVENUE = \{.*?\n\}", new_qrev, "QUARTERLY_REVENUE", flags=re.DOTALL)
+
+        # Update QUARTERLY_DEDUCTIONS
+        new_qded = "QUARTERLY_DEDUCTIONS = {\n"
+        for q in sorted(quarterly_ded.keys()):
+            channels = quarterly_ded[q]
+            inner = ", ".join(f'"{n}": {v:.2f}' for n, v in channels.items())
+            new_qded += f'    "{q}": {{{inner}}},\n'
+        new_qded += "}"
+        content = _safe_sub(content, r"QUARTERLY_DEDUCTIONS = \{.*?\n\}", new_qded, "QUARTERLY_DEDUCTIONS", flags=re.DOTALL)
+
+        GENERATE_SCRIPT.write_text(content)
+        backup_path.unlink()
+
+    except Exception:
+        # Restore original on any failure
+        GENERATE_SCRIPT.write_text(original_content)
+        backup_path.unlink(missing_ok=True)
+        raise
 
 
 def snapshot_json():

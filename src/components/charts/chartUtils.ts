@@ -39,6 +39,13 @@ export function getTealColor(rank: number, total: number): string {
  * Formats a dollar value compactly for chart labels and axes.
  * Examples: $1.2M, $345K, $0, -$50K
  */
+export const DIM_OPACITY = 0.2;
+
+export function getOpacity(pinnedItem: string | null, currentItem: string): number {
+  if (!pinnedItem) return 1;
+  return currentItem === pinnedItem ? 1 : DIM_OPACITY;
+}
+
 export function formatCompact(value: number): string {
   if (value === 0) return '$0';
 

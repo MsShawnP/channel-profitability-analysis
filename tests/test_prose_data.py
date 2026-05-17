@@ -84,9 +84,55 @@ class Results:
             )
 
 
+def validate_schema(channels, layers, trends):
+    """Verify JSON files have the fields that TypeScript components expect."""
+    errors = []
+
+    # channels.json schema
+    required_channel_fields = {"channel_name", "gross_revenue", "total_cogs",
+                               "total_deductions", "disputes_filed", "total_deduction_events"}
+    for ch in channels:
+        missing = required_channel_fields - set(ch.keys())
+        if missing:
+            errors.append("channels.json: {} missing fields: {}".format(
+                ch.get("channel_name", "?"), missing))
+
+    # layers.json schema
+    for layer in layers:
+        if "id" not in layer or "channels" not in layer:
+            errors.append("layers.json: layer missing 'id' or 'channels'")
+            continue
+        for ch in layer["channels"]:
+            if "channel_name" not in ch or "value" not in ch:
+                errors.append("layers.json layer {}: channel missing required fields".format(
+                    layer["id"]))
+
+    # trends.json schema
+    for q in trends:
+        if "quarter" not in q or "channels" not in q:
+            errors.append("trends.json: quarter entry missing 'quarter' or 'channels'")
+            continue
+        for ch in q["channels"]:
+            required = {"channel_name", "margin_pct", "revenue", "contribution"}
+            missing = required - set(ch.keys())
+            if missing:
+                errors.append("trends.json {}: {} missing {}".format(
+                    q["quarter"], ch.get("channel_name", "?"), missing))
+
+    return errors
+
+
 def run_validation():
     channels, layers, trends = load_data()
     r = Results()
+
+    # --- Schema validation ---
+    schema_errors = validate_schema(channels, layers, trends)
+    for err in schema_errors:
+        r.failed += 1
+        r.errors.append("  FAIL: Schema — " + err)
+    if not schema_errors:
+        r.passed += 1
 
     # --- 01-headline.mdx claims ---
     total_rev = sum(c["gross_revenue"] for c in channels)
@@ -161,9 +207,12 @@ def run_validation():
     wm_overhead = layer_value(layers, 3, "Walmart") - layer_value(layers, 4, "Walmart")
     r.check("Walmart overhead $181K", wm_overhead, 181_000, tolerance=0.01)
 
-    # Recovery claims: $359K recovered, 1.11:1 ratio
-    # These come from fct_payments, not from JSON — hardcoded in prose
-    # We validate the overhead side; recovery is verified by verify_roi.py
+    # Recovery claims: $359K recovered, 1.11:1 ratio (from verify_roi.py constants)
+    recovery_total = 358894.66
+    recovery_ratio = recovery_total / overhead_total
+    r.check("Recovery $359K", recovery_total, 359_000, tolerance=0.01)
+    r.check("Recovery ratio 1.11:1", recovery_ratio, 1.11, tolerance=0.01)
+
     r.check("Walmart disputes 1209", get_channel(channels, "Walmart")["disputes_filed"], 1209, tolerance=0.0)
 
     # --- 06-contribution.mdx claims ---

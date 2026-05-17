@@ -1,6 +1,12 @@
-import { useRef, useEffect, useState, useCallback } from 'react';
-import * as d3 from 'd3';
-import { getTealColor } from './chartUtils';
+import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
+import { select } from 'd3-selection';
+import { scaleLinear, scalePoint } from 'd3-scale';
+import { min, max, mean } from 'd3-array';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { line, curveMonotoneX } from 'd3-shape';
+import { easeCubicOut } from 'd3-ease';
+import 'd3-transition';
+import { getTealColor, getOpacity, DIM_OPACITY } from './chartUtils';
 
 interface TrendChannelData {
   channel_name: string;
@@ -14,7 +20,6 @@ interface TrendChannelData {
 
 interface TrendQuarter {
   quarter: string;
-  start_date: string;
   channels: TrendChannelData[];
 }
 
@@ -27,7 +32,6 @@ export interface TrendChartProps {
 const MARGIN = { top: 12, right: 140, bottom: 40, left: 50 };
 const CHART_HEIGHT = 300;
 const GRIDLINE_COLOR = '#e5e0d8';
-const DIM_OPACITY = 0.2;
 const TRANSITION_DURATION = 200;
 const DOT_RADIUS = 3;
 const MIN_LABEL_GAP = 13;
@@ -36,38 +40,44 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
   const svgRef = useRef<SVGSVGElement>(null);
   const [pinnedChannel, setPinnedChannel] = useState<string | null>(null);
 
-  const channelNames = (() => {
+  const channelNames = useMemo(() => {
     const names = new Set<string>();
     data.forEach(q => q.channels
       .filter(c => c.channel_type === channelType)
       .forEach(c => names.add(c.channel_name))
     );
     return [...names].sort((a, b) => {
-      const avgA = d3.mean(data, q => q.channels.find(c => c.channel_name === a)?.margin_pct) || 0;
-      const avgB = d3.mean(data, q => q.channels.find(c => c.channel_name === b)?.margin_pct) || 0;
+      const avgA = mean(data, q => q.channels.find(c => c.channel_name === a)?.margin_pct) || 0;
+      const avgB = mean(data, q => q.channels.find(c => c.channel_name === b)?.margin_pct) || 0;
       return avgB - avgA;
     });
-  })();
+  }, [data, channelType]);
 
-  const series = channelNames.map((name, i) => ({
+  const series = useMemo(() => channelNames.map((name, i) => ({
     name,
     color: getTealColor(i, channelNames.length),
     values: data.map(q => ({
       quarter: q.quarter,
       margin: q.channels.find(c => c.channel_name === name)?.margin_pct || 0,
     })),
-  }));
+  })), [data, channelNames]);
 
   const handleClick = useCallback((name: string) => {
     setPinnedChannel(current => current === name ? null : name);
   }, []);
 
-  const prefersReducedMotion = typeof window !== 'undefined'
-    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     if (!svgRef.current) return;
-    const svg = d3.select(svgRef.current);
+    const svg = select(svgRef.current);
     const chartWidth = svgRef.current.clientWidth || 700;
 
     svg.attr('viewBox', `0 0 ${chartWidth} ${CHART_HEIGHT}`);
@@ -80,16 +90,16 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
     g.attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
     const quarters = data.map(q => q.quarter);
-    const xScale = d3.scalePoint<string>()
+    const xScale = scalePoint<string>()
       .domain(quarters)
       .range([0, innerWidth])
       .padding(0.1);
 
     const allMargins = series.flatMap(s => s.values.map(v => v.margin));
-    const yMin = Math.floor((d3.min(allMargins) || 70) / 5) * 5 - 2;
-    const yMax = Math.ceil((d3.max(allMargins) || 100) / 5) * 5 + 2;
+    const yMin = Math.floor((min(allMargins) || 70) / 5) * 5 - 2;
+    const yMax = Math.ceil((max(allMargins) || 100) / 5) * 5 + 2;
 
-    const yScale = d3.scaleLinear()
+    const yScale = scaleLinear()
       .domain([yMin, yMax])
       .range([innerHeight, 0]);
 
@@ -109,10 +119,10 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
 
     const duration = prefersReducedMotion ? 0 : TRANSITION_DURATION;
 
-    const lineGen = d3.line<{ quarter: string; margin: number }>()
+    const lineGen = line<{ quarter: string; margin: number }>()
       .x(d => xScale(d.quarter) || 0)
       .y(d => yScale(d.margin))
-      .curve(d3.curveMonotoneX);
+      .curve(curveMonotoneX);
 
     // Lines
     const lines = g.selectAll<SVGPathElement, typeof series[0]>('path.trend-line')
@@ -131,7 +141,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
       update => {
         const u = update.attr('d', d => lineGen(d.values)).attr('stroke', d => d.color);
         if (duration > 0) {
-          u.transition().duration(duration).ease(d3.easeCubicOut)
+          u.transition().duration(duration).ease(easeCubicOut)
             .style('opacity', d => !pinnedChannel ? 1 : d.name === pinnedChannel ? 1 : DIM_OPACITY);
         } else {
           u.style('opacity', d => !pinnedChannel ? 1 : d.name === pinnedChannel ? 1 : DIM_OPACITY);
@@ -151,7 +161,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
       )
       .each(function(seriesData) {
         const opacity = !pinnedChannel ? 1 : seriesData.name === pinnedChannel ? 1 : DIM_OPACITY;
-        d3.select(this)
+        select(this)
           .selectAll<SVGCircleElement, { quarter: string; margin: number }>('circle')
           .data(seriesData.values, d => d.quarter)
           .join(
@@ -209,7 +219,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
           .attr('y', d => labelYMap.get(d.name) || d.y)
           .text(d => `${d.name} ${d.margin}%`);
         if (duration > 0) {
-          u.transition().duration(duration).ease(d3.easeCubicOut)
+          u.transition().duration(duration).ease(easeCubicOut)
             .style('opacity', d => !pinnedChannel ? 1 : d.name === pinnedChannel ? 1 : DIM_OPACITY);
         } else {
           u.style('opacity', d => !pinnedChannel ? 1 : d.name === pinnedChannel ? 1 : DIM_OPACITY);
@@ -223,7 +233,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
     let xAxisGroup = g.select<SVGGElement>('g.x-axis');
     if (xAxisGroup.empty()) xAxisGroup = g.append('g').attr('class', 'x-axis');
     xAxisGroup.attr('transform', `translate(0,${innerHeight})`)
-      .call(d3.axisBottom(xScale))
+      .call(axisBottom(xScale))
       .call(g => {
         g.select('.domain').remove();
         g.selectAll('.tick line').remove();
@@ -237,7 +247,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
     let yAxisGroup = g.select<SVGGElement>('g.y-axis');
     if (yAxisGroup.empty()) yAxisGroup = g.append('g').attr('class', 'y-axis');
     yAxisGroup.call(
-      d3.axisLeft(yScale)
+      axisLeft(yScale)
         .ticks(5)
         .tickFormat(d => `${d}%`)
     ).call(g => {
