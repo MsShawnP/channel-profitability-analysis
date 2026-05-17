@@ -7,11 +7,12 @@ section: "deductions"
 import ChannelChart from '../../components/charts/ChannelChart';
 import layers from '../../data/layers.json';
 import channels from '../../data/channels.json';
+import { formatCompact } from '../../components/charts/chartUtils';
 
-export const grossMarginLayer = layers[1];
 export const deductionsLayer = layers[2];
-export const walmartDeductions = channels.find(c => c.channel_id === 'walmart');
-export const costcoChannel = channels.find(c => c.channel_id === 'costco');
+export const retailers = deductionsLayer.channels.filter(c => c.channel_type === 'retailer');
+export const distributors = deductionsLayer.channels.filter(c => c.channel_type === 'distributor');
+export const dtc = deductionsLayer.channels.find(c => c.channel_type === 'DTC');
 
 ## {deductionsLayer.label}
 
@@ -19,13 +20,34 @@ export const costcoChannel = channels.find(c => c.channel_id === 'costco');
 
 Trade deductions are the first invisible tax. They never appear on the income statement as a line item — they arrive as post-invoice adjustments, chargebacks, and remittance shortfalls. Across all channels, Cinderhaven surrendered $1.5M to trade deductions last year.
 
-Walmart's $655K in deductions is the largest absolute number, but that reflects its revenue dominance. The more telling metric is deduction intensity: Costco loses 8.5% of revenue to deductions — nearly double Walmart's 4.7% rate — on a fraction of the volume. Short ships and promo billbacks account for the majority at every channel; unclassified deductions (labelled "vague" in remittance data) are the third-largest category, suggesting a documentation gap worth closing.
+Among retailers, Costco loses 8.5% of revenue to deductions — nearly double Walmart's 4.7% rate — on a fraction of the volume. Short ships and promo billbacks account for the majority; unclassified deductions (labelled "vague" in remittance data) are the third-largest category, suggesting a documentation gap worth closing.
+
+Distributors face the same deduction categories but at different intensities. UNFI's promo billbacks ($73K) outpace its short ships ($10K) — the inverse of the retailer pattern, where short ships dominate.
+
+<p class="segment-label">Retailers</p>
 
 <ChannelChart
   client:visible
-  data={deductionsLayer.channels}
-  layerLabel="Revenue After Trade Deductions"
+  data={retailers}
+  layerLabel="After Trade Deductions — Retailers"
   valueLabel="post-deduction revenue"
 />
+
+<p class="segment-label">Distributors</p>
+
+<ChannelChart
+  client:visible
+  data={distributors}
+  layerLabel="After Trade Deductions — Distributors"
+  valueLabel="post-deduction revenue"
+/>
+
+<p class="segment-label">Direct-to-Consumer</p>
+
+<div class="dtc-stat">
+  <p class="dtc-label">DTC — After Trade Deductions</p>
+  <p class="dtc-value">{formatCompact(dtc?.value || 0)}</p>
+  <p class="dtc-note">Unchanged — no trade partner to deduct</p>
+</div>
 
 <p class="chart-footnote">Source: Cinderhaven deductions ledger matched to orders. Trade deductions include short ships, promotional billbacks, slotting fees, and unclassified chargebacks. Click any bar to see the breakdown by deduction type.</p>
