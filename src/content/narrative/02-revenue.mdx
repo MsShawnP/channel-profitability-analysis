@@ -1,0 +1,27 @@
+---
+title: "Revenue by Channel"
+order: 2
+section: "revenue"
+---
+
+import ChannelChart from '../../components/charts/ChannelChart';
+import layers from '../../data/layers.json';
+
+export const revenueLayer = layers[0];
+
+## {revenueLayer.label}
+
+<p class="section-subtitle">{revenueLayer.subtitle}</p>
+
+Revenue concentration is the first thing to notice. Walmart alone accounts for 44% of the total — a dependency that makes every Walmart-specific deduction a material event. The top three channels (Walmart, UNFI, KeHE) represent 73% of gross revenue.
+
+This is not unusual for a specialty food brand at Cinderhaven's scale. Distribution economics favour consolidation: fewer ship-tos, higher fill rates, better slot efficiency. The question is whether that concentration survives once costs are allocated back.
+
+<ChannelChart
+  client:visible
+  data={revenueLayer.channels}
+  layerLabel="Gross Revenue by Channel"
+  valueLabel="gross revenue"
+/>
+
+<p class="chart-footnote">Source: Cinderhaven orders data, all channels, trailing twelve months. Revenue is gross invoiced amount before any deductions or adjustments.</p>

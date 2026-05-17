@@ -99,6 +99,20 @@ a:hover {
   color: var(--color-navy-hover);
 }
 
+.section-subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: -0.25em 0 1.5em;
+}
+
+.chart-footnote {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  max-width: 660px;
+  margin-top: 12px;
+}
+
 /* Focus-visible */
 :focus-visible {
   outline: 2px solid var(--color-text);
