@@ -118,3 +118,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Redeploy to Cloudflare Pages. Then /ce:review and /qa for Heavy tier gates.
 
 ---
+
+## 2026-05-17 17:15
+
+**What changed:** Completed /ce:review — 4-agent ensemble (correctness, maintainability, architecture, performance) found 16 issues, all fixed and merged.
+
+**Why:** Heavy tier gate. Key fixes: deleted deprecated export_data.py, hardened refresh_data.py against partial writes, scoped D3 imports, extracted MarginTable component, fixed SSR hydration mismatch, added schema + recovery validation to test suite. Net -657 lines.
+
+**State:** All review findings addressed (PR #3 merged). Build passes. Tests pass (30/30). Site not yet redeployed with review fixes. /ce:review gate complete.
+
+**Next:** Run /qa (browser testing) — the final Heavy tier gate.
+
+---
