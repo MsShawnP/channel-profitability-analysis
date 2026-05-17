@@ -54,8 +54,8 @@ deferred to a polish phase.
 - [x] Run /ce:plan to create implementation plan
 - [x] Run /ce:work to execute (U1–U7 complete, data refreshed)
 - [x] Fix analysis period (filter to trailing 12 months or reframe language)
-- [ ] Run /ce:review (reviewer ensemble)
-- [ ] Run /qa (browser testing)
+- [x] Run /ce:review (reviewer ensemble) — 2026-05-17, 16 findings fixed
+- [x] Run /qa (browser testing) — 2026-05-17, all checks pass
 
 ## Design notes
 
@@ -90,9 +90,9 @@ When an arc completes, archive its goal, completion date, and outcome
 here. Then start a new arc above. Provides continuity without bloating
 the active plan.
 
-### [Date completed] — [Goal]
-- Outcome: [what shipped or what was decided]
-- Tag: [git tag if one was created]
+### 2026-05-17 — Channel Profitability Narrative
+- Outcome: Economist-style scrollable narrative with interactive D3 charts, deployed to Cloudflare Pages. 8 sections covering revenue → contribution waterfall. Full data integrity audit, automated validation (30 checks), single-command refresh pipeline. 4-agent review ensemble, all findings addressed.
+- URL: https://channel-profitability-analysis.pages.dev
 
 ---
 
