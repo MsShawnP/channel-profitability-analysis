@@ -7,11 +7,11 @@ session. For session-by-session state, see HANDOFF.md.
 
 ## Goal
 
-Channel-by-channel profitability analysis for Cinderhaven (~$70M specialty
-food brand, 2024–2026 analysis period) delivered as a scrollable,
+Channel-by-channel profitability analysis for Cinderhaven (~$24M annual
+revenue, fiscal year to March 2026) delivered as a scrollable,
 Economist-style web narrative with interactive drill-downs. Tuned for
 executive communication. Data-driven story — wholesale channels retain
-21–34% of revenue after COGS, deductions, fines, and operational overhead.
+21–36% of revenue after COGS, deductions, fines, and operational overhead.
 DTC retains 73% due to full retail pricing and zero post-invoice costs.
 The data leads.
 
@@ -53,7 +53,7 @@ deferred to a polish phase.
 - [x] Run /ce:brainstorm to spec the approach
 - [x] Run /ce:plan to create implementation plan
 - [x] Run /ce:work to execute (U1–U7 complete, data refreshed)
-- [ ] Fix analysis period (filter to trailing 12 months or reframe language)
+- [x] Fix analysis period (filter to trailing 12 months or reframe language)
 - [ ] Run /ce:review (reviewer ensemble)
 - [ ] Run /qa (browser testing)
 
