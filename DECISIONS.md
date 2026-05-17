@@ -19,19 +19,28 @@ Each entry:
 
 ## Architecture & Pipeline
 
-[First arch decision goes here.]
+### 2026-05-16 — Astro + React/D3 islands (not React SPA)
+- **Why:** Narrative-first content benefits from static HTML with hydrated chart components. Better scroll performance, cleaner MDX authoring, deferred hydration via `client:visible`. Siblings use React SPAs because they're interactive tools, not articles.
+- **Scope:** Framework choice for this project's web deliverable
+- **Do not:** Switch to a React SPA or Streamlit. If the framework needs to change, it's a full restart.
 
 ---
 
 ## Data & Schema
 
-[Decisions about data sources, schemas, transformations]
+### 2026-05-16 — Canonical contribution in dbt mart, narrative layers in local Python
+- **Why:** Strict consistency across 4-5 sibling projects requires a single source of truth for "contribution by channel." Narrative-specific intermediate views (revenue before deductions, after deductions, etc.) are presentation logic local to this repo.
+- **Scope:** Data pipeline for this project; also affects cinderhaven-data-platform repo (new mart model)
+- **Do not:** Compute canonical contribution numbers in a local script. If the number could be cited by another project, it belongs in the platform mart.
 
 ---
 
 ## Visualization
 
-[Chart conventions, palette decisions, interactivity choices]
+### 2026-05-16 — Interactivity proves claims, not explores data
+- **Why:** The piece is a guided narrative for executives. Click-to-pin drill-downs let skeptics verify each claim. Free-form exploration would undermine the narrative authority and balloon scope.
+- **Scope:** All interactive elements in the deliverable
+- **Do not:** Add filters, parameter sliders, or "explore your own view" features. If a viewer can change the story, the story isn't being told.
 
 ---
 
