@@ -6,22 +6,43 @@ section: "revenue"
 
 import ChannelChart from '../../components/charts/ChannelChart';
 import layers from '../../data/layers.json';
+import { formatCompact } from '../../components/charts/chartUtils';
 
 export const revenueLayer = layers[0];
+export const retailers = revenueLayer.channels.filter(c => c.channel_type === 'retailer');
+export const distributors = revenueLayer.channels.filter(c => c.channel_type === 'distributor');
+export const dtc = revenueLayer.channels.find(c => c.channel_type === 'DTC');
 
 ## {revenueLayer.label}
 
 <p class="section-subtitle">{revenueLayer.subtitle}</p>
 
-Revenue concentration is the first thing to notice. Walmart alone accounts for 44% of the total — a dependency that makes every Walmart-specific deduction a material event. The top three channels (Walmart, UNFI, KeHE) represent 73% of gross revenue.
+Revenue concentration is the first thing to notice. Walmart alone accounts for 44% of total revenue — a dependency that makes every Walmart-specific deduction a material event. But comparing Walmart to UNFI is misleading: one is a retailer, the other a distributor. The business relationship, cost structure, and deduction profile are fundamentally different. What follows separates channels by segment so like is measured against like.
 
-This is not unusual for a specialty food brand at Cinderhaven's scale. Distribution economics favour consolidation: fewer ship-tos, higher fill rates, better slot efficiency. The question is whether that concentration survives once costs are allocated back.
+<p class="segment-label">Retailers</p>
 
 <ChannelChart
   client:visible
-  data={revenueLayer.channels}
-  layerLabel="Gross Revenue by Channel"
+  data={retailers}
+  layerLabel="Gross Revenue — Retailers"
   valueLabel="gross revenue"
 />
+
+<p class="segment-label">Distributors</p>
+
+<ChannelChart
+  client:visible
+  data={distributors}
+  layerLabel="Gross Revenue — Distributors"
+  valueLabel="gross revenue"
+/>
+
+<p class="segment-label">Direct-to-Consumer</p>
+
+<div class="dtc-stat">
+  <p class="dtc-label">DTC Revenue</p>
+  <p class="dtc-value">{formatCompact(dtc?.value || 0)}</p>
+  <p class="dtc-note">1% of total — no trade partner, no deductions</p>
+</div>
 
 <p class="chart-footnote">Source: Cinderhaven orders data, all channels, trailing twelve months. Revenue is gross invoiced amount before any deductions or adjustments.</p>

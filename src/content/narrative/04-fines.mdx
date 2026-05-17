@@ -6,8 +6,12 @@ section: "fines"
 
 import ChannelChart from '../../components/charts/ChannelChart';
 import layers from '../../data/layers.json';
+import { formatCompact } from '../../components/charts/chartUtils';
 
 export const finesLayer = layers[3];
+export const retailers = finesLayer.channels.filter(c => c.channel_type === 'retailer');
+export const distributors = finesLayer.channels.filter(c => c.channel_type === 'distributor');
+export const dtc = finesLayer.channels.find(c => c.channel_type === 'DTC');
 
 ## {finesLayer.label}
 
@@ -15,15 +19,34 @@ export const finesLayer = layers[3];
 
 Compliance fines are the second invisible tax. Unlike trade deductions — which reflect commercial terms — fines penalise operational failures: mislabelled cases, damaged pallets, late trucks, spoiled product. They signal process gaps, not negotiating outcomes.
 
-Walmart's $249K in fines leads in absolute terms, but Costco's fine structure is more punitive per incident. Costco levied $51K in label fines across just 16 events — roughly $3,200 per violation. Walmart's label fines average $469 each. The implication: a single Costco labelling error costs as much as seven at Walmart.
+Among retailers, Costco's fine structure is the most punitive per incident. Costco levied $51K in label fines across just 16 events — roughly $3,200 per violation. Walmart's label fines average $469 each. A single Costco labelling error costs as much as seven at Walmart.
 
-Label fines ($222K across all channels) are the largest fine category — larger than spoilage ($125K), late delivery ($114K), and damaged goods ($78K) combined minus spoilage. This is a process problem, not a logistics problem: labels are controllable at the warehouse.
+Distributors fine differently. UNFI's largest category is late delivery ($43K across 136 events), while KeHE's costs are spread more evenly across label fines, spoilage, and damaged goods. The distributor fine total ($146K) is smaller than Walmart's alone ($249K), but the per-event costs still warrant attention.
+
+<p class="segment-label">Retailers</p>
 
 <ChannelChart
   client:visible
-  data={finesLayer.channels}
-  layerLabel="Revenue After Compliance Fines"
+  data={retailers}
+  layerLabel="After Compliance Fines — Retailers"
   valueLabel="post-fine revenue"
 />
 
-<p class="chart-footnote">Source: Cinderhaven deductions ledger, quality and logistics categories. Compliance fines include label fines, pallet fines, spoilage, damaged goods, and late delivery penalties. DTC has no compliance fines (no retail partner to fine). Click any bar for the breakdown.</p>
+<p class="segment-label">Distributors</p>
+
+<ChannelChart
+  client:visible
+  data={distributors}
+  layerLabel="After Compliance Fines — Distributors"
+  valueLabel="post-fine revenue"
+/>
+
+<p class="segment-label">Direct-to-Consumer</p>
+
+<div class="dtc-stat">
+  <p class="dtc-label">DTC — After Compliance Fines</p>
+  <p class="dtc-value">{formatCompact(dtc?.value || 0)}</p>
+  <p class="dtc-note">Unchanged — no retail partner to fine</p>
+</div>
+
+<p class="chart-footnote">Source: Cinderhaven deductions ledger, quality and logistics categories. Compliance fines include label fines, pallet fines, spoilage, damaged goods, and late delivery penalties. Click any bar for the breakdown.</p>

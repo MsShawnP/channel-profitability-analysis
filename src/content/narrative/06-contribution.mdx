@@ -10,28 +10,32 @@ import layers from '../../data/layers.json';
 export const revenueLayer = layers[0];
 export const netLayer = layers[4];
 
-export const margins = revenueLayer.channels.map(ch => {
-  const net = netLayer.channels.find(n => n.channel_name === ch.channel_name);
-  return {
-    channel_name: ch.channel_name,
-    revenue: ch.value,
-    contribution: net?.value || 0,
-    margin_pct: net ? ((net.value / ch.value) * 100).toFixed(1) : '0.0',
-    erosion: ch.value - (net?.value || 0),
-  };
-}).sort((a, b) => b.revenue - a.revenue);
+export const buildMargins = (type) => revenueLayer.channels
+  .filter(ch => ch.channel_type === type)
+  .map(ch => {
+    const net = netLayer.channels.find(n => n.channel_name === ch.channel_name);
+    return {
+      channel_name: ch.channel_name,
+      revenue: ch.value,
+      contribution: net?.value || 0,
+      margin_pct: net ? ((net.value / ch.value) * 100).toFixed(1) : '0.0',
+      erosion: ch.value - (net?.value || 0),
+    };
+  }).sort((a, b) => b.revenue - a.revenue);
 
-export const totalRevenue = margins.reduce((s, m) => s + m.revenue, 0);
-export const totalContribution = margins.reduce((s, m) => s + m.contribution, 0);
+export const retailMargins = buildMargins('retailer');
+export const distMargins = buildMargins('distributor');
+export const dtcMargins = buildMargins('DTC');
+export const allMargins = [...retailMargins, ...distMargins, ...dtcMargins];
+
+export const totalRevenue = allMargins.reduce((s, m) => s + m.revenue, 0);
+export const totalContribution = allMargins.reduce((s, m) => s + m.contribution, 0);
 export const totalErosion = totalRevenue - totalContribution;
 
-## The full picture
+export const fmt = (v) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' }).format(v);
 
-Four layers of cost — COGS, trade deductions, compliance fines, and operational overhead — separate gross revenue from actual contribution. Across all channels, {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 1, notation: 'compact' }).format(totalErosion)} disappears between the top line and the bottom line. That is {((totalErosion / totalRevenue) * 100).toFixed(1)}% of revenue.
-
-But the erosion is not uniform. The table below reveals which channels retain the most — and least — of every dollar earned.
-
-<div style={{ overflowX: 'auto', marginTop: '2em' }}>
+export const MarginTable = ({ rows, highlight }) => (
+<div style={{ overflowX: 'auto' }}>
 <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: "var(--font-sans, 'Source Sans 3', sans-serif)", fontSize: '14px' }}>
 <thead>
 <tr style={{ borderBottom: '2px solid #d8d4c8', textAlign: 'left' }}>
@@ -43,19 +47,42 @@ But the erosion is not uniform. The table below reveals which channels retain th
 </tr>
 </thead>
 <tbody>
-{margins.map((m, i) => (
-<tr key={m.channel_name} style={{ borderBottom: '1px solid #e5e0d8', backgroundColor: m.channel_name === 'DTC' ? '#f0ede6' : 'transparent' }}>
+{rows.map((m) => (
+<tr key={m.channel_name} style={{ borderBottom: '1px solid #e5e0d8', backgroundColor: highlight && m.channel_name === highlight ? '#f0ede6' : 'transparent' }}>
 <td style={{ padding: '8px 12px' }}>{m.channel_name}</td>
-<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' }).format(m.revenue)}</td>
-<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' }).format(m.contribution)}</td>
+<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{fmt(m.revenue)}</td>
+<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{fmt(m.contribution)}</td>
 <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums', color: parseFloat(m.margin_pct) < 85 ? '#c54b4b' : '#2a2a2a' }}>{m.margin_pct}%</td>
-<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' }).format(m.erosion)}</td>
+<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{fmt(m.erosion)}</td>
 </tr>
 ))}
 </tbody>
 </table>
 </div>
+);
 
-<p class="chart-footnote">Margin = net contribution / gross revenue. Erosion = gross revenue minus net contribution. DTC row highlighted: zero deductions and zero fines, but the highest COGS ratio drives the lowest margin in the portfolio.</p>
+## The full picture
 
-The standout: DTC retains just 71.6% of revenue — the worst margin in the portfolio. Its zero deductions and zero fines cannot compensate for a COGS ratio (28.4%) that is triple the retail average (3.6%). Every dollar shifted from retail to DTC expecting better margins would, on these numbers, destroy value.
+Four layers of cost — COGS, trade deductions, compliance fines, and operational overhead — separate gross revenue from actual contribution. Across all channels, {fmt(totalErosion)} disappears between the top line and the bottom line. That is {((totalErosion / totalRevenue) * 100).toFixed(1)}% of revenue.
+
+But the erosion is not uniform, and it differs by segment. Retailers, distributors, and DTC each face a different cost stack.
+
+<p class="segment-label">Retailers</p>
+
+<MarginTable rows={retailMargins} />
+
+Retail contribution margins range from 87.5% (Harbor Fresh) to 92.2% (Whole Foods). Costco at 87.7% is an outlier among the large retailers — its high deduction intensity and punitive label fines drag it below peers. The mid-tier retailers (Southside, Prairie, Mountain Pantry) quietly retain 91–92% of revenue.
+
+<p class="segment-label">Distributors</p>
+
+<MarginTable rows={distMargins} />
+
+UNFI and KeHE retain 90.4% and 90.6% respectively — roughly in line with the retail average. Distributor erosion is driven less by fines and more by trade deductions (particularly promo billbacks and unclassified chargebacks).
+
+<p class="segment-label">Direct-to-Consumer</p>
+
+<MarginTable rows={dtcMargins} highlight="DTC" />
+
+DTC retains just 71.6% of revenue — the worst margin in the portfolio. Its zero deductions and zero fines cannot compensate for a COGS ratio (28.4%) that is triple the retail average (3.6%). Every dollar shifted from retail to DTC expecting better margins would, on these numbers, destroy value.
+
+<p class="chart-footnote">Margin = net contribution / gross revenue. Erosion = gross revenue minus net contribution. DTC has zero deductions and zero fines, but the highest COGS ratio drives the lowest margin in the portfolio.</p>
