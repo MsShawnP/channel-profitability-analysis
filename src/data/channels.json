@@ -4,7 +4,7 @@
     "channel_name": "Walmart",
     "channel_type": "retailer",
     "gross_revenue": 29483483.94,
-    "total_cogs": 994288.78,
+    "total_cogs": 17313349.14,
     "total_deductions": 5042956.66,
     "disputes_filed": 3406,
     "total_deduction_events": 6123
@@ -14,7 +14,7 @@
     "channel_name": "UNFI",
     "channel_type": "distributor",
     "gross_revenue": 10546700.1,
-    "total_cogs": 371899.58,
+    "total_cogs": 6355374.06,
     "total_deductions": 1755527.65,
     "disputes_filed": 901,
     "total_deduction_events": 1942
@@ -24,7 +24,7 @@
     "channel_name": "KeHE",
     "channel_type": "distributor",
     "gross_revenue": 7847864.28,
-    "total_cogs": 286420.54,
+    "total_cogs": 4681156.08,
     "total_deductions": 1168885.02,
     "disputes_filed": 608,
     "total_deduction_events": 1449
@@ -34,7 +34,7 @@
     "channel_name": "Whole Foods",
     "channel_type": "retailer",
     "gross_revenue": 7226400.24,
-    "total_cogs": 234915.7,
+    "total_cogs": 3835456.26,
     "total_deductions": 1297535.44,
     "disputes_filed": 642,
     "total_deduction_events": 2154
@@ -44,7 +44,7 @@
     "channel_name": "Costco",
     "channel_type": "retailer",
     "gross_revenue": 6135131.82,
-    "total_cogs": 172939.24,
+    "total_cogs": 3424061.22,
     "total_deductions": 820653.53,
     "disputes_filed": 140,
     "total_deduction_events": 332
@@ -64,7 +64,7 @@
     "channel_name": "Green Basket Market",
     "channel_type": "retailer",
     "gross_revenue": 1441118.88,
-    "total_cogs": 47177.66,
+    "total_cogs": 732063.72,
     "total_deductions": 239775.5,
     "disputes_filed": 156,
     "total_deduction_events": 487
@@ -74,7 +74,7 @@
     "channel_name": "Southside Grocers",
     "channel_type": "retailer",
     "gross_revenue": 1369598.04,
-    "total_cogs": 45025.78,
+    "total_cogs": 696918.48,
     "total_deductions": 209538.43,
     "disputes_filed": 102,
     "total_deduction_events": 358
@@ -84,7 +84,7 @@
     "channel_name": "Prairie Provisions",
     "channel_type": "retailer",
     "gross_revenue": 1037105.94,
-    "total_cogs": 34307.86,
+    "total_cogs": 526140.54,
     "total_deductions": 139485.66,
     "disputes_filed": 59,
     "total_deduction_events": 248
@@ -94,7 +94,7 @@
     "channel_name": "Mountain Pantry Co",
     "channel_type": "retailer",
     "gross_revenue": 640250.46,
-    "total_cogs": 21375.4,
+    "total_cogs": 326437.08,
     "total_deductions": 88370.76,
     "disputes_filed": 52,
     "total_deduction_events": 236
@@ -104,7 +104,7 @@
     "channel_name": "Harbor Fresh",
     "channel_type": "retailer",
     "gross_revenue": 569035.38,
-    "total_cogs": 18738.97,
+    "total_cogs": 289507.2,
     "total_deductions": 77646.73,
     "disputes_filed": 39,
     "total_deduction_events": 167

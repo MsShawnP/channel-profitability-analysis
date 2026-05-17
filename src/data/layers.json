@@ -80,60 +80,60 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 28489195.16,
+        "value": 12170134.8,
         "previous_value": 29483483.94,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 994288.78
+            "amount": 17313349.14
           }
         ]
       },
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 10174800.52,
+        "value": 4191326.04,
         "previous_value": 10546700.1,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 371899.58
+            "amount": 6355374.06
           }
         ]
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 7561443.74,
+        "value": 3166708.2,
         "previous_value": 7847864.28,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 286420.54
+            "amount": 4681156.08
           }
         ]
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 6991484.54,
+        "value": 3390943.98,
         "previous_value": 7226400.24,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 234915.7
+            "amount": 3835456.26
           }
         ]
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 5962192.58,
+        "value": 2711070.6,
         "previous_value": 6135131.82,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 172939.24
+            "amount": 3424061.22
           }
         ]
       },
@@ -152,60 +152,60 @@
       {
         "channel_name": "Green Basket Market",
         "channel_type": "retailer",
-        "value": 1393941.22,
+        "value": 709055.16,
         "previous_value": 1441118.88,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 47177.66
+            "amount": 732063.72
           }
         ]
       },
       {
         "channel_name": "Southside Grocers",
         "channel_type": "retailer",
-        "value": 1324572.26,
+        "value": 672679.56,
         "previous_value": 1369598.04,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 45025.78
+            "amount": 696918.48
           }
         ]
       },
       {
         "channel_name": "Prairie Provisions",
         "channel_type": "retailer",
-        "value": 1002798.08,
+        "value": 510965.4,
         "previous_value": 1037105.94,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 34307.86
+            "amount": 526140.54
           }
         ]
       },
       {
         "channel_name": "Mountain Pantry Co",
         "channel_type": "retailer",
-        "value": 618875.06,
+        "value": 313813.38,
         "previous_value": 640250.46,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 21375.4
+            "amount": 326437.08
           }
         ]
       },
       {
         "channel_name": "Harbor Fresh",
         "channel_type": "retailer",
-        "value": 550296.41,
+        "value": 279528.18,
         "previous_value": 569035.38,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 18738.97
+            "amount": 289507.2
           }
         ]
       }
@@ -219,8 +219,8 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 24317879.72,
-        "previous_value": 28489195.16,
+        "value": 7998819.36,
+        "previous_value": 12170134.8,
         "breakdown": [
           {
             "label": "Promo Billback",
@@ -255,8 +255,8 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 8935158.88,
-        "previous_value": 10174800.52,
+        "value": 2951684.4,
+        "previous_value": 4191326.04,
         "breakdown": [
           {
             "label": "Promo Billback",
@@ -291,8 +291,8 @@
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 6701224.28,
-        "previous_value": 7561443.74,
+        "value": 2306488.74,
+        "previous_value": 3166708.2,
         "breakdown": [
           {
             "label": "Promo Billback",
@@ -327,8 +327,8 @@
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 5875712.06,
-        "previous_value": 6991484.54,
+        "value": 2275171.5,
+        "previous_value": 3390943.98,
         "breakdown": [
           {
             "label": "Unclassified",
@@ -363,8 +363,8 @@
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 5337441.99,
-        "previous_value": 5962192.58,
+        "value": 2086320.01,
+        "previous_value": 2711070.6,
         "breakdown": [
           {
             "label": "Promo Billback",
@@ -406,8 +406,8 @@
       {
         "channel_name": "Green Basket Market",
         "channel_type": "retailer",
-        "value": 1174477.76,
-        "previous_value": 1393941.22,
+        "value": 489591.7,
+        "previous_value": 709055.16,
         "breakdown": [
           {
             "label": "Unclassified",
@@ -442,8 +442,8 @@
       {
         "channel_name": "Southside Grocers",
         "channel_type": "retailer",
-        "value": 1131820.94,
-        "previous_value": 1324572.26,
+        "value": 479928.24,
+        "previous_value": 672679.56,
         "breakdown": [
           {
             "label": "Unclassified",
@@ -478,8 +478,8 @@
       {
         "channel_name": "Prairie Provisions",
         "channel_type": "retailer",
-        "value": 874749.34,
-        "previous_value": 1002798.08,
+        "value": 382916.66,
+        "previous_value": 510965.4,
         "breakdown": [
           {
             "label": "Unclassified",
@@ -514,8 +514,8 @@
       {
         "channel_name": "Mountain Pantry Co",
         "channel_type": "retailer",
-        "value": 539557.25,
-        "previous_value": 618875.06,
+        "value": 234495.57,
+        "previous_value": 313813.38,
         "breakdown": [
           {
             "label": "Unclassified",
@@ -550,8 +550,8 @@
       {
         "channel_name": "Harbor Fresh",
         "channel_type": "retailer",
-        "value": 476086.39,
-        "previous_value": 550296.41,
+        "value": 205318.16,
+        "previous_value": 279528.18,
         "breakdown": [
           {
             "label": "Unclassified",
@@ -593,8 +593,8 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 23441400.43,
-        "previous_value": 24317879.72,
+        "value": 7122340.07,
+        "previous_value": 7998819.36,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -631,8 +631,8 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 8417939.68,
-        "previous_value": 8935158.88,
+        "value": 2434465.2,
+        "previous_value": 2951684.4,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -669,8 +669,8 @@
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 6391760.58,
-        "previous_value": 6701224.28,
+        "value": 1997025.04,
+        "previous_value": 2306488.74,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -707,8 +707,8 @@
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 5690527.58,
-        "previous_value": 5875712.06,
+        "value": 2089987.02,
+        "previous_value": 2275171.5,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -745,8 +745,8 @@
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 5134879.77,
-        "previous_value": 5337441.99,
+        "value": 1883757.79,
+        "previous_value": 2086320.01,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -790,8 +790,8 @@
       {
         "channel_name": "Green Basket Market",
         "channel_type": "retailer",
-        "value": 1152553.09,
-        "previous_value": 1174477.76,
+        "value": 467667.03,
+        "previous_value": 489591.7,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -828,8 +828,8 @@
       {
         "channel_name": "Southside Grocers",
         "channel_type": "retailer",
-        "value": 1113421.2,
-        "previous_value": 1131820.94,
+        "value": 461528.5,
+        "previous_value": 479928.24,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -866,8 +866,8 @@
       {
         "channel_name": "Prairie Provisions",
         "channel_type": "retailer",
-        "value": 861699.79,
-        "previous_value": 874749.34,
+        "value": 369867.11,
+        "previous_value": 382916.66,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -904,8 +904,8 @@
       {
         "channel_name": "Mountain Pantry Co",
         "channel_type": "retailer",
-        "value": 528891.67,
-        "previous_value": 539557.25,
+        "value": 223829.99,
+        "previous_value": 234495.57,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -942,8 +942,8 @@
       {
         "channel_name": "Harbor Fresh",
         "channel_type": "retailer",
-        "value": 471037.05,
-        "previous_value": 476086.39,
+        "value": 200268.82,
+        "previous_value": 205318.16,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -987,8 +987,8 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 22890240.03,
-        "previous_value": 23441400.43,
+        "value": 6571179.67,
+        "previous_value": 7122340.07,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -999,8 +999,8 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 8265406.18,
-        "previous_value": 8417939.68,
+        "value": 2281931.7,
+        "previous_value": 2434465.2,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1011,8 +1011,8 @@
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 6287395.83,
-        "previous_value": 6391760.58,
+        "value": 1892660.29,
+        "previous_value": 1997025.04,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1023,8 +1023,8 @@
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 5567884.43,
-        "previous_value": 5690527.58,
+        "value": 1967343.87,
+        "previous_value": 2089987.02,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1035,8 +1035,8 @@
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 5110796.97,
-        "previous_value": 5134879.77,
+        "value": 1859674.99,
+        "previous_value": 1883757.79,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1054,8 +1054,8 @@
       {
         "channel_name": "Green Basket Market",
         "channel_type": "retailer",
-        "value": 1122746.74,
-        "previous_value": 1152553.09,
+        "value": 437860.68,
+        "previous_value": 467667.03,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1066,8 +1066,8 @@
       {
         "channel_name": "Southside Grocers",
         "channel_type": "retailer",
-        "value": 1093576.55,
-        "previous_value": 1113421.2,
+        "value": 441683.85,
+        "previous_value": 461528.5,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1078,8 +1078,8 @@
       {
         "channel_name": "Prairie Provisions",
         "channel_type": "retailer",
-        "value": 849508.94,
-        "previous_value": 861699.79,
+        "value": 357676.26,
+        "previous_value": 369867.11,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1090,8 +1090,8 @@
       {
         "channel_name": "Mountain Pantry Co",
         "channel_type": "retailer",
-        "value": 517316.82,
-        "previous_value": 528891.67,
+        "value": 212255.14,
+        "previous_value": 223829.99,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -1102,8 +1102,8 @@
       {
         "channel_name": "Harbor Fresh",
         "channel_type": "retailer",
-        "value": 462898.15,
-        "previous_value": 471037.05,
+        "value": 192129.92,
+        "previous_value": 200268.82,
         "breakdown": [
           {
             "label": "Operational Overhead",
