@@ -1,0 +1,527 @@
+[
+  {
+    "quarter": "Q1 2025",
+    "start_date": "2025-01-01",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 2205749.94,
+        "cogs": 80899.79,
+        "deductions": 86231.08,
+        "contribution": 2038619.07,
+        "margin_pct": 92.4
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 842108.34,
+        "cogs": 33097.77,
+        "deductions": 31374.27,
+        "contribution": 777636.3,
+        "margin_pct": 92.3
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 681578.52,
+        "cogs": 26478.06,
+        "deductions": 23516.75,
+        "contribution": 631583.71,
+        "margin_pct": 92.7
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 533203.32,
+        "cogs": 18317.59,
+        "deductions": 24543.93,
+        "contribution": 490341.8,
+        "margin_pct": 92.0
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 459510.12,
+        "cogs": 15391.75,
+        "deductions": 35332.18,
+        "contribution": 408786.19,
+        "margin_pct": 89.0
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "revenue": 128661.96,
+        "cogs": 4620.61,
+        "deductions": 2516.07,
+        "contribution": 121525.28,
+        "margin_pct": 94.5
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "revenue": 120629.88,
+        "cogs": 4183.83,
+        "deductions": 2519.93,
+        "contribution": 113926.12,
+        "margin_pct": 94.4
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "revenue": 107121.84,
+        "cogs": 3596.33,
+        "deductions": 4566.13,
+        "contribution": 98959.38,
+        "margin_pct": 92.4
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "revenue": 62651.82,
+        "cogs": 2248.71,
+        "deductions": 1082.54,
+        "contribution": 59320.57,
+        "margin_pct": 94.7
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "revenue": 44828.24,
+        "cogs": 12746.58,
+        "deductions": 0.0,
+        "contribution": 32081.66,
+        "margin_pct": 71.6
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "revenue": 36144.66,
+        "cogs": 1228.07,
+        "deductions": 879.77,
+        "contribution": 34036.82,
+        "margin_pct": 94.2
+      }
+    ]
+  },
+  {
+    "quarter": "Q2 2025",
+    "start_date": "2025-04-01",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 2239846.14,
+        "cogs": 82532.91,
+        "deductions": 92598.03,
+        "contribution": 2064715.2,
+        "margin_pct": 92.2
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 1023493.5,
+        "cogs": 39097.02,
+        "deductions": 50208.42,
+        "contribution": 934188.06,
+        "margin_pct": 91.3
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 669289.2,
+        "cogs": 25802.04,
+        "deductions": 31296.28,
+        "contribution": 612190.88,
+        "margin_pct": 91.5
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 578624.7,
+        "cogs": 19461.09,
+        "deductions": 17219.39,
+        "contribution": 541944.22,
+        "margin_pct": 93.7
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 396172.44,
+        "cogs": 13295.92,
+        "deductions": 7442.38,
+        "contribution": 375434.14,
+        "margin_pct": 94.8
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "revenue": 153445.08,
+        "cogs": 5194.8,
+        "deductions": 12139.68,
+        "contribution": 136110.6,
+        "margin_pct": 88.7
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "revenue": 146496.66,
+        "cogs": 5011.49,
+        "deductions": 16481.6,
+        "contribution": 125003.57,
+        "margin_pct": 85.3
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "revenue": 132835.8,
+        "cogs": 4942.48,
+        "deductions": 2108.87,
+        "contribution": 125784.45,
+        "margin_pct": 94.7
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "revenue": 79787.22,
+        "cogs": 2896.57,
+        "deductions": 11203.8,
+        "contribution": 65686.85,
+        "margin_pct": 82.3
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "revenue": 55607.58,
+        "cogs": 15831.22,
+        "deductions": 0.0,
+        "contribution": 39776.36,
+        "margin_pct": 71.5
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "revenue": 51637.86,
+        "cogs": 1870.09,
+        "deductions": 1380.52,
+        "contribution": 48387.25,
+        "margin_pct": 93.7
+      }
+    ]
+  },
+  {
+    "quarter": "Q3 2025",
+    "start_date": "2025-07-01",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 2361299.22,
+        "cogs": 86613.06,
+        "deductions": 98103.79,
+        "contribution": 2176582.37,
+        "margin_pct": 92.2
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 986528.82,
+        "cogs": 37893.18,
+        "deductions": 47059.93,
+        "contribution": 901575.71,
+        "margin_pct": 91.4
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 684129.54,
+        "cogs": 26672.01,
+        "deductions": 14372.14,
+        "contribution": 643085.39,
+        "margin_pct": 94.0
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 525175.38,
+        "cogs": 17673.46,
+        "deductions": 23638.76,
+        "contribution": 483863.16,
+        "margin_pct": 92.1
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 403800.12,
+        "cogs": 13112.32,
+        "deductions": 43673.46,
+        "contribution": 347014.34,
+        "margin_pct": 85.9
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "revenue": 149799.12,
+        "cogs": 5103.09,
+        "deductions": 8599.73,
+        "contribution": 136096.3,
+        "margin_pct": 90.9
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "revenue": 137273.76,
+        "cogs": 4777.74,
+        "deductions": 2513.92,
+        "contribution": 129982.1,
+        "margin_pct": 94.7
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "revenue": 108904.08,
+        "cogs": 3941.2,
+        "deductions": 3176.94,
+        "contribution": 101785.94,
+        "margin_pct": 93.5
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "revenue": 55424.09,
+        "cogs": 15708.2,
+        "deductions": 0.0,
+        "contribution": 39715.89,
+        "margin_pct": 71.7
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "revenue": 52073.7,
+        "cogs": 1810.58,
+        "deductions": 987.47,
+        "contribution": 49275.65,
+        "margin_pct": 94.6
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "revenue": 35963.7,
+        "cogs": 1167.92,
+        "deductions": 1562.38,
+        "contribution": 33233.4,
+        "margin_pct": 92.4
+      }
+    ]
+  },
+  {
+    "quarter": "Q4 2025",
+    "start_date": "2025-10-01",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 2640306.9,
+        "cogs": 94532.24,
+        "deductions": 105791.32,
+        "contribution": 2439983.34,
+        "margin_pct": 92.4
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 766488.72,
+        "cogs": 30895.58,
+        "deductions": 38839.54,
+        "contribution": 696753.6,
+        "margin_pct": 90.9
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 702099.78,
+        "cogs": 28308.31,
+        "deductions": 41711.34,
+        "contribution": 632080.13,
+        "margin_pct": 90.0
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 613542.18,
+        "cogs": 21269.38,
+        "deductions": 27828.78,
+        "contribution": 564444.02,
+        "margin_pct": 92.0
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 359582.4,
+        "cogs": 11388.43,
+        "deductions": 11320.94,
+        "contribution": 336873.03,
+        "margin_pct": 93.7
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "revenue": 121541.58,
+        "cogs": 4232.18,
+        "deductions": 7352.69,
+        "contribution": 109956.71,
+        "margin_pct": 90.5
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "revenue": 110495.58,
+        "cogs": 4131.19,
+        "deductions": 5267.24,
+        "contribution": 101097.15,
+        "margin_pct": 91.5
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "revenue": 88464.12,
+        "cogs": 3184.21,
+        "deductions": 5689.25,
+        "contribution": 79590.66,
+        "margin_pct": 90.0
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "revenue": 79590.3,
+        "cogs": 22669.46,
+        "deductions": 0.0,
+        "contribution": 56920.84,
+        "margin_pct": 71.5
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "revenue": 68683.2,
+        "cogs": 2289.53,
+        "deductions": 4487.94,
+        "contribution": 61905.73,
+        "margin_pct": 90.1
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "revenue": 58275.48,
+        "cogs": 2259.53,
+        "deductions": 4365.63,
+        "contribution": 51650.32,
+        "margin_pct": 88.6
+      }
+    ]
+  },
+  {
+    "quarter": "Q1 2026",
+    "start_date": "2026-01-01",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 2263239.54,
+        "cogs": 79173.83,
+        "deductions": 170365.7,
+        "contribution": 2013700.01,
+        "margin_pct": 89.0
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 727731.42,
+        "cogs": 28780.86,
+        "deductions": 53375.96,
+        "contribution": 645574.6,
+        "margin_pct": 88.7
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 659773.68,
+        "cogs": 23271.61,
+        "deductions": 25043.42,
+        "contribution": 611458.65,
+        "margin_pct": 92.7
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 639195.66,
+        "cogs": 25774.57,
+        "deductions": 48167.32,
+        "contribution": 565253.77,
+        "margin_pct": 88.4
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 333029.88,
+        "cogs": 11282.42,
+        "deductions": 43592.48,
+        "contribution": 278154.98,
+        "margin_pct": 83.5
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "revenue": 142137.72,
+        "cogs": 5091.49,
+        "deductions": 5145.98,
+        "contribution": 131900.25,
+        "margin_pct": 92.8
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "revenue": 130514.64,
+        "cogs": 4649.6,
+        "deductions": 4553.7,
+        "contribution": 121311.34,
+        "margin_pct": 92.9
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "revenue": 95457.66,
+        "cogs": 3500.03,
+        "deductions": 1144.67,
+        "contribution": 90812.96,
+        "margin_pct": 95.1
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "revenue": 75884.88,
+        "cogs": 2561.07,
+        "deductions": 3969.79,
+        "contribution": 69354.02,
+        "margin_pct": 91.4
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "revenue": 60087.84,
+        "cogs": 2089.86,
+        "deductions": 865.58,
+        "contribution": 57132.4,
+        "margin_pct": 95.1
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "revenue": 45809.44,
+        "cogs": 13044.7,
+        "deductions": 0.0,
+        "contribution": 32764.74,
+        "margin_pct": 71.5
+      }
+    ]
+  }
+]

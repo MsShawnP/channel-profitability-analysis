@@ -12,6 +12,7 @@ const narrative = defineCollection({
       'deductions',
       'fines',
       'operational',
+      'trends',
       'contribution',
       'allocation',
     ]),
