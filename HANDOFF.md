@@ -58,3 +58,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Rebuild and redeploy to Cloudflare Pages, then push/merge worktree to main.
 
 ---
+
+## 2026-05-17 00:30 — Session wrap
+
+**What changed:** Redeployed to Cloudflare Pages with trend charts, pushed and merged to main. Note: Cinderhaven dataset is being improved with more realistic data derived from industry norms — figures in this analysis will shift when the updated dataset lands.
+
+**Why:** Completing the deploy/merge cycle for the trends work. Dataset note recorded so next session knows the numbers are provisional.
+
+**State:** All 8 narrative sections live at https://channel-profitability-analysis.pages.dev. Main branch up to date. U1–U7 implementation complete. /ce:review and /qa gates remain for Heavy tier. Dataset refresh pending from cinderhaven-data-platform.
+
+**Next:** Run /ce:review (reviewer ensemble), then /qa for browser testing. After dataset refresh, re-export layers.json, channels.json, and trends.json, then update any hardcoded figures in prose.
+
+---
