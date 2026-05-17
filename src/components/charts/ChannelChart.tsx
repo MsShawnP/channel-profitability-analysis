@@ -1,13 +1,17 @@
-import { useRef, useEffect, useState, useCallback } from 'react';
-import * as d3 from 'd3';
+import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
+import { select } from 'd3-selection';
+import { scaleLinear, scaleBand } from 'd3-scale';
+import { max } from 'd3-array';
+import { axisBottom } from 'd3-axis';
+import { easeCubicOut } from 'd3-ease';
+import 'd3-transition';
 import CalloutCard from './CalloutCard';
-import { formatCompact, getTealColor } from './chartUtils';
+import { formatCompact, getTealColor, getOpacity, DIM_OPACITY } from './chartUtils';
 import type { LayerBreakdownItem } from './CalloutCard';
 
 export interface ChannelData {
   channel_name: string;
   value: number;
-  previous_value?: number;
   breakdown?: LayerBreakdownItem[];
 }
 
@@ -22,7 +26,6 @@ const MARGIN = { top: 12, right: 80, bottom: 40, left: 140 };
 const BAR_HEIGHT = 36;
 const BAR_GAP = 8;
 const GRIDLINE_COLOR = '#e5e0d8';
-const DIM_OPACITY = 0.2;
 const TRANSITION_DURATION = 200;
 
 /**
@@ -34,8 +37,10 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
   const svgRef = useRef<SVGSVGElement>(null);
   const [pinnedChannel, setPinnedChannel] = useState<string | null>(null);
 
-  // Sort data by value descending to assign teal palette correctly
-  const sortedData = [...data].sort((a, b) => b.value - a.value);
+  const sortedData = useMemo(
+    () => [...data].sort((a, b) => b.value - a.value),
+    [data]
+  );
 
   const pinnedData = sortedData.find((d) => d.channel_name === pinnedChannel);
 
@@ -43,13 +48,18 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
     setPinnedChannel((current) => (current === channelName ? null : channelName));
   }, []);
 
-  // Check for reduced motion preference
-  const prefersReducedMotion = typeof window !== 'undefined'
-    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   // D3 rendering
   useEffect(() => {
-    const svg = d3.select(svgRef.current);
+    const svg = select(svgRef.current);
     if (!svgRef.current) return;
 
     const chartWidth = svgRef.current.clientWidth || 700;
@@ -62,12 +72,12 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
     const innerHeight = chartHeight - MARGIN.top - MARGIN.bottom;
 
     // Scales
-    const maxValue = d3.max(sortedData, (d) => d.value) || 0;
-    const xScale = d3.scaleLinear()
+    const maxValue = max(sortedData, (d) => d.value) || 0;
+    const xScale = scaleLinear()
       .domain([0, maxValue > 0 ? maxValue : 1])
       .range([0, innerWidth]);
 
-    const yScale = d3.scaleBand()
+    const yScale = scaleBand()
       .domain(sortedData.map((d) => d.channel_name))
       .range([0, innerHeight])
       .padding(BAR_GAP / (BAR_HEIGHT + BAR_GAP));
@@ -142,7 +152,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         if (duration > 0) {
           u.transition()
             .duration(duration)
-            .ease(d3.easeCubicOut)
+            .ease(easeCubicOut)
             .style('opacity', (d) => {
               if (!pinnedChannel) return 1;
               return d.channel_name === pinnedChannel ? 1 : DIM_OPACITY;
@@ -185,7 +195,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         if (duration > 0) {
           u.transition()
             .duration(duration)
-            .ease(d3.easeCubicOut)
+            .ease(easeCubicOut)
             .style('opacity', (d) => {
               if (!pinnedChannel) return 1;
               return d.channel_name === pinnedChannel ? 1 : DIM_OPACITY;
@@ -228,7 +238,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         if (duration > 0) {
           u.transition()
             .duration(duration)
-            .ease(d3.easeCubicOut)
+            .ease(easeCubicOut)
             .style('opacity', (d) => {
               if (!pinnedChannel) return 1;
               return d.channel_name === pinnedChannel ? 1 : DIM_OPACITY;
@@ -252,7 +262,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
     xAxisGroup
       .attr('transform', `translate(0,${innerHeight})`)
       .call(
-        d3.axisBottom(xScale)
+        axisBottom(xScale)
           .ticks(5)
           .tickFormat((d) => formatCompact(d as number))
       )
