@@ -7,12 +7,10 @@ section: "deductions"
 import ChannelChart from '../../components/charts/ChannelChart';
 import layers from '../../data/layers.json';
 import channels from '../../data/channels.json';
-import { formatCompact } from '../../components/charts/chartUtils';
-
 export const deductionsLayer = layers[2];
 export const retailers = deductionsLayer.channels.filter(c => c.channel_type === 'retailer');
 export const distributors = deductionsLayer.channels.filter(c => c.channel_type === 'distributor');
-export const dtc = deductionsLayer.channels.find(c => c.channel_type === 'DTC');
+export const dtc = deductionsLayer.channels.filter(c => c.channel_type === 'DTC');
 
 ## {deductionsLayer.label}
 
@@ -44,10 +42,11 @@ Distributors face the same deduction categories but at different intensities. UN
 
 <p class="segment-label">Direct-to-Consumer</p>
 
-<div class="dtc-stat">
-  <p class="dtc-label">DTC — After Trade Deductions</p>
-  <p class="dtc-value">{formatCompact(dtc?.value || 0)}</p>
-  <p class="dtc-note">Unchanged — no trade partner to deduct</p>
-</div>
+<ChannelChart
+  client:visible
+  data={dtc}
+  layerLabel="After Trade Deductions — DTC"
+  valueLabel="post-deduction revenue"
+/>
 
 <p class="chart-footnote">Source: Cinderhaven deductions ledger matched to orders. Trade deductions include short ships, promotional billbacks, slotting fees, and unclassified chargebacks. Click any bar to see the breakdown by deduction type.</p>
