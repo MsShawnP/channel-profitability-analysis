@@ -1,0 +1,131 @@
+@import './fonts.css';
+
+:root {
+  /* Page chrome */
+  --color-bg: #f8f6f1;
+  --color-text: #2a2a2a;
+  --color-text-secondary: #6b6b6b;
+  --color-gridline: #e5e0d8;
+  --color-border: #d8d4c8;
+
+  /* Data accents */
+  --color-navy: #1b3a5c;
+  --color-navy-hover: #14304b;
+  --color-steel: #4a7ba7;
+  --color-red: #c54b4b;
+  --color-warm-gray: #8c7d6d;
+  --color-light-gray: #b8afa6;
+
+  /* Sequential teal palette (ranked by magnitude) */
+  --teal-1: #0A3D3D;
+  --teal-2: #14605C;
+  --teal-3: #1F8078;
+  --teal-4: #2A9D93;
+  --teal-5: #45B5AA;
+  --teal-6: #6BCABD;
+  --teal-7: #93DCD2;
+  --teal-8: #BDEEE8;
+
+  /* Dark callout card */
+  --card-bg: #1a1a1a;
+  --card-text: #ffffff;
+  --card-subtitle: #d8d8d8;
+  --card-muted: #9a9a9a;
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-item-text: #ededed;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Layout */
+  --content-max-width: 900px;
+  --section-gap: 60px;
+  --border-radius: 2px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 48px 24px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  line-height: 1.3;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 660px;
+}
+
+a {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--color-navy-hover);
+}
+
+/* Focus-visible */
+:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  body {
+    padding: 32px 16px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}

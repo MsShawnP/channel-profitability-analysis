@@ -1,0 +1,50 @@
+@media print {
+  @page {
+    size: letter;
+    margin: 0.6in;
+
+    @bottom-left {
+      content: "Cinderhaven · Channel Profitability Analysis";
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 9pt;
+      color: #555;
+    }
+
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 9pt;
+      color: #555;
+    }
+  }
+
+  body {
+    background: white;
+    color: black;
+    padding: 0;
+    font-size: 11pt;
+  }
+
+  /* Hide interactive controls */
+  [data-interactive],
+  button,
+  [role="button"] {
+    display: none !important;
+  }
+
+  /* Ensure SVG charts print as vectors */
+  svg {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Prevent page breaks inside chart sections */
+  section {
+    break-inside: avoid;
+  }
+
+  /* Repeating table headers */
+  thead {
+    display: table-header-group;
+  }
+}

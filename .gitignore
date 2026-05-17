@@ -20,10 +20,11 @@ __pycache__/
 .venv/
 *.egg-info/
 
-# Node (if used)
+# Node / Astro
 node_modules/
-.next/
 dist/
+.astro/
+.wrangler/
 
 # Data files (if large)
 *.csv

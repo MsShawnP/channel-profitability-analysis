@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import NarrativeLayout from '../layouts/NarrativeLayout.astro';
+
+const sections = await getCollection('narrative');
+const sorted = sections.sort((a, b) => a.data.order - b.data.order);
+
+const rendered = await Promise.all(
+  sorted.map(async (section) => {
+    const { Content } = await render(section);
+    return { section, Content };
+  })
+);
+---
+
+<NarrativeLayout title="Channel Profitability Analysis — Cinderhaven">
+  {rendered.map(({ section, Content }) => (
+    <section id={section.data.section}>
+      <Content />
+    </section>
+  ))}
+</NarrativeLayout>
