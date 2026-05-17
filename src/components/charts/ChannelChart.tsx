@@ -118,11 +118,20 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         .attr('rx', 2)
         .attr('ry', 2)
         .style('cursor', 'pointer')
+        .attr('tabindex', 0)
+        .attr('role', 'button')
+        .attr('aria-label', (d) => `${d.channel_name}: ${formatCompact(d.value)}`)
         .style('opacity', (d) => {
           if (!pinnedChannel) return 1;
           return d.channel_name === pinnedChannel ? 1 : DIM_OPACITY;
         })
-        .on('click', (_, d) => handleBarClick(d.channel_name)),
+        .on('click', (_, d) => handleBarClick(d.channel_name))
+        .on('keydown', (event, d) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            handleBarClick(d.channel_name);
+          }
+        }),
       (update) => {
         const u = update
           .attr('y', (d) => yScale(d.channel_name) || 0)

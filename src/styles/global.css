@@ -99,6 +99,14 @@ a:hover {
   color: var(--color-navy-hover);
 }
 
+.orientation {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  border-left: 3px solid var(--color-border);
+  padding-left: 16px;
+  margin-bottom: 2em;
+}
+
 .section-subtitle {
   font-size: 14px;
   color: var(--color-text-secondary);
