@@ -34,3 +34,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Run /ce:work. Start U1 (Astro scaffolding in this repo) and U2 (dbt mart in cinderhaven-data-platform) in parallel. U1 is self-contained. U2 requires cross-repo work.
 
 ---
+
+## 2026-05-16 23:45
+
+**What changed:** Completed U5+U6 — all seven narrative sections wired end-to-end with real data, interactive charts, and Economist-style prose.
+
+**Why:** U5 proved the full pipeline (JSON → MDX → React → D3) with headline, revenue, and deductions sections. U6 completed the remaining four: fines, operational overhead, contribution margins, and capital allocation recommendations.
+
+**State:** All 7 sections render with 4 interactive D3 charts, click-to-pin callout cards, contribution table, and 3 ranked allocation recommendations. DTC has worst margin (71.6%), Costco highest deduction intensity (8.5%), label fines are $222K. U1–U6 complete. U7 (polish + deploy) remains.
+
+**Next:** Start U7 — add Cinderhaven cold-start orientation paragraph, review responsive/print, test production build, deploy to Cloudflare Pages.
+
+---
