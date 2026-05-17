@@ -46,3 +46,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Start U7 — add Cinderhaven cold-start orientation paragraph, review responsive/print, test production build, deploy to Cloudflare Pages.
 
 ---
+
+## 2026-05-17 00:15
+
+**What changed:** Added quarterly trend section with TrendChart component (D3 multi-line chart) showing margin evolution over 5 quarters. Updated all time period language to Economist-style "in the year to March 2026".
+
+**Why:** User requested time period clarity and trend-over-time visibility. CPG best practice: narratives fix the period in prose; trends show directionality as a separate chart. Key finding: Q1 2026 margin compression — Costco drops to 83.5%, Walmart to 89%, distributors drift down 4pts.
+
+**State:** Narrative now 8 sections (added "trends" between operational and contribution). TrendChart renders retailer and distributor multi-line charts with click-to-pin. trends.json contains 5 quarters of contribution data exported from the dbt mart. All sections use consistent "year to March 2026" time period. Site builds and renders correctly. Deployed version at Cloudflare Pages is stale (pre-trends).
+
+**Next:** Rebuild and redeploy to Cloudflare Pages, then push/merge worktree to main.
+
+---
