@@ -1,0 +1,31 @@
+---
+title: "Operational Overhead"
+order: 5
+section: "operational"
+---
+
+import ChannelChart from '../../components/charts/ChannelChart';
+import layers from '../../data/layers.json';
+import channels from '../../data/channels.json';
+
+export const netLayer = layers[4];
+export const totalDisputes = channels.reduce((sum, c) => sum + c.disputes_filed, 0);
+
+## {netLayer.label}
+
+<p class="section-subtitle">{netLayer.subtitle}</p>
+
+Every deduction and fine generates downstream work: someone has to triage the claim, decide whether to dispute, file the paperwork, and track the resolution. This labour is real cost that rarely appears in channel profitability models.
+
+Cinderhaven filed {totalDisputes.toLocaleString()} disputes across all channels last year. At an estimated $35/hour fully loaded and 30 minutes per dispute triage, that represents $236K in operational overhead — invisible on the income statement but real in the finance team's time.
+
+Walmart accounts for $130K of that overhead, driven by volume: 812 disputes on 1,436 deduction events. The dispute rate itself (57% of events disputed) is not unusual. What matters is that this $130K cost erodes Walmart's contribution by a further percentage point that most profitability models ignore entirely.
+
+<ChannelChart
+  client:visible
+  data={netLayer.channels}
+  layerLabel="Net Contribution by Channel"
+  valueLabel="net contribution"
+/>
+
+<p class="chart-footnote">Source: Operational overhead estimated at $35/hr &times; 0.5 hrs per dispute triage, applied to dispute counts from the deductions ledger. This is a conservative estimate — actual resolution time varies by channel and deduction type.</p>

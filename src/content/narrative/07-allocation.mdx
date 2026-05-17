@@ -1,0 +1,31 @@
+---
+title: "Capital Allocation"
+order: 7
+section: "allocation"
+---
+
+import channels from '../../data/channels.json';
+import layers from '../../data/layers.json';
+
+export const netLayer = layers[4];
+export const totalContribution = netLayer.channels.reduce((s, c) => s + c.value, 0);
+export const walmartContribution = netLayer.channels.find(c => c.channel_name === 'Walmart')?.value || 0;
+export const walmartShare = ((walmartContribution / totalContribution) * 100).toFixed(0);
+
+## What this means for capital allocation
+
+The numbers above point to three actions, in order of expected return.
+
+**1. Reduce label fines at Walmart and Costco.** Label fines cost Cinderhaven $222K last year — more than any other compliance category. At Walmart, the average label fine is $469; at Costco, it is $3,200. A labelling audit and updated QA gate at the warehouse would target the single largest controllable cost in the compliance stack. The payback period is measured in weeks, not quarters.
+
+**2. Investigate unclassified deductions.** "Unclassified" chargebacks total $277K across all channels — the third-largest trade deduction category. These are deductions Cinderhaven cannot explain from remittance data alone. Some portion is likely legitimate; some portion is recoverable. Closing the documentation gap (matching each deduction to a root cause) is the prerequisite to disputing or preventing them.
+
+**3. Do not reallocate from retail to DTC on margin assumptions.** DTC's 71.6% contribution margin is the lowest in the portfolio. The channel has advantages — zero deductions, zero fines, direct customer relationship — but its COGS structure makes it uncompetitive on a per-dollar basis. If Cinderhaven expands DTC, the rationale should be strategic (brand control, data, customer lifetime value), not margin-based. The data does not support a margin-based case.
+
+---
+
+<p style={{ fontSize: '14px', color: '#6b6b6b', marginTop: '2em', maxWidth: '660px' }}>
+Walmart contributes {walmartShare}% of net contribution — roughly the same as its 44% revenue share. Concentration risk remains: the channel mix is profitable, but fragile. Diversification should be measured against contribution share, not revenue share.
+</p>
+
+<p class="chart-footnote">Methodology: contribution margin calculated as (gross revenue &minus; COGS &minus; trade deductions &minus; promotional costs &minus; compliance fines &minus; operational overhead) / gross revenue. Operational overhead estimated at $35/hr fully loaded, 0.5 hrs per dispute triage. All figures trailing twelve months from Cinderhaven's operational data. This analysis does not include SGA, fixed costs, or channel-specific marketing spend, which would further differentiate contribution by channel.</p>
