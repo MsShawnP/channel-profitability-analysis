@@ -94,3 +94,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Fix analysis period — add date filter to mart query (trailing 12 months) and re-export, OR reframe narrative language. Then merge PR #1 to main. Then /ce:review and /qa for Heavy tier gates.
 
 ---
+
+## 2026-05-17 18:35 — Session wrap
+
+**Started from:** Analysis period wrong (3-year dataset with future dates). Needed fiscal year scoping.
+
+**Did:** Ran generate_json.py with fiscal year filter (Apr 2025 – Mar 2026), regenerated all JSON, updated all 8 narrative sections with correct figures and "in the year to March 2026" language. Resolved merge conflict, merged PR #1 to main, redeployed to Cloudflare Pages.
+
+**State:** Site live at https://channel-profitability-analysis.pages.dev with fiscal-year data (~$24M annual). Main branch up to date. Build clean, all figures verified. Analysis period fix complete.
+
+**Next:** Run /ce:review (reviewer ensemble) then /qa (browser testing) — the two remaining Heavy-tier gates.
+
+---

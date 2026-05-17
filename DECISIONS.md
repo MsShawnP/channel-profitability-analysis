@@ -38,6 +38,11 @@ Each entry:
 - **Scope:** Any re-export of channels.json, layers.json, trends.json
 - **Do not:** Rely on `scripts/export_data.py` (the old live-connection approach) without first solving the password problem
 
+### 2026-05-17 — Analysis period is the fiscal year to March 2026
+- **Why:** Dataset contains future dates (through Dec 2026). Fiscal year (Apr 2025 – Mar 2026) gives a coherent trailing-12-month view without projecting into the future. Figures are ~$24M annual, consistent with the Economist "in the year to" convention.
+- **Scope:** All data exports, narrative prose, and footnotes in this project
+- **Do not:** Use the full 3-year dataset or include months after today's date. If the dataset updates, re-run generate_json.py (it's already filtered to fiscal year).
+
 ---
 
 ## Visualization
