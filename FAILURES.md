@@ -30,4 +30,14 @@ failed and may have its own entry below]
 
 ## Entries
 
-[New entries get added here, most recent at the top]
+### 2026-05-17 — flyctl DB password extraction fails on Windows
+
+**Attempted:** Tried `flyctl ssh console -C "echo $OPERATOR_PASSWORD"`, `flyctl ssh console -C "env | grep -i pass"`, and `flyctl secrets list` to get the postgres password for use with `flyctl proxy` + local psql/python connection.
+
+**Why it didn't work:** SSH console on Windows doesn't handle shell expansion or pipes in the `-C` argument (treats `|` as a filename). `flyctl secrets list` only shows digests, not values. The `-c` flag on `flyctl postgres connect` is for config file path, not SQL commands.
+
+**What we tried instead:** Piped SQL directly through stdin to `flyctl postgres connect -a cinderhaven-db --database cinderhaven`. This works because fly handles auth internally via wireguard — no password needed. Requires `\pset pager off` first or output truncates at `--More--`.
+
+**Status:** Resolved
+
+**Tags:** flyctl, postgres, windows, database, export, password

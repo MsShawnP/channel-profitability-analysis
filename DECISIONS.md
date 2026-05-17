@@ -33,6 +33,11 @@ Each entry:
 - **Scope:** Data pipeline for this project; also affects cinderhaven-data-platform repo (new mart model)
 - **Do not:** Compute canonical contribution numbers in a local script. If the number could be cited by another project, it belongs in the platform mart.
 
+### 2026-05-17 — Data export uses generate_json.py with embedded constants
+- **Why:** Live DB connection from export scripts is fragile on Windows (password management, flyctl proxy). Extracting data via piped SQL to `flyctl postgres connect`, then embedding in a Python script that generates JSON, is reproducible without DB access.
+- **Scope:** Any re-export of channels.json, layers.json, trends.json
+- **Do not:** Rely on `scripts/export_data.py` (the old live-connection approach) without first solving the password problem
+
 ---
 
 ## Visualization
