@@ -3,7 +3,7 @@
 ## What this project is
 
 Channel-by-channel profitability analysis for a fictional specialty
-food brand (Cinderhaven, ~$70M over the 2024–2026 analysis period).
+food brand (Cinderhaven, ~$24M annual revenue, fiscal year to March 2026).
 First buyer-facing consumer of the Cinderhaven Data Platform. Tier 1
 flagship portfolio piece.
 
