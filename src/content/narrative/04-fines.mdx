@@ -1,0 +1,29 @@
+---
+title: "Compliance Fines"
+order: 4
+section: "fines"
+---
+
+import ChannelChart from '../../components/charts/ChannelChart';
+import layers from '../../data/layers.json';
+
+export const finesLayer = layers[3];
+
+## {finesLayer.label}
+
+<p class="section-subtitle">{finesLayer.subtitle}</p>
+
+Compliance fines are the second invisible tax. Unlike trade deductions — which reflect commercial terms — fines penalise operational failures: mislabelled cases, damaged pallets, late trucks, spoiled product. They signal process gaps, not negotiating outcomes.
+
+Walmart's $249K in fines leads in absolute terms, but Costco's fine structure is more punitive per incident. Costco levied $51K in label fines across just 16 events — roughly $3,200 per violation. Walmart's label fines average $469 each. The implication: a single Costco labelling error costs as much as seven at Walmart.
+
+Label fines ($222K across all channels) are the largest fine category — larger than spoilage ($125K), late delivery ($114K), and damaged goods ($78K) combined minus spoilage. This is a process problem, not a logistics problem: labels are controllable at the warehouse.
+
+<ChannelChart
+  client:visible
+  data={finesLayer.channels}
+  layerLabel="Revenue After Compliance Fines"
+  valueLabel="post-fine revenue"
+/>
+
+<p class="chart-footnote">Source: Cinderhaven deductions ledger, quality and logistics categories. Compliance fines include label fines, pallet fines, spoilage, damaged goods, and late delivery penalties. DTC has no compliance fines (no retail partner to fine). Click any bar for the breakdown.</p>

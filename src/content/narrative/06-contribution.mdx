@@ -1,0 +1,61 @@
+---
+title: "Contribution Margins"
+order: 6
+section: "contribution"
+---
+
+import channels from '../../data/channels.json';
+import layers from '../../data/layers.json';
+
+export const revenueLayer = layers[0];
+export const netLayer = layers[4];
+
+export const margins = revenueLayer.channels.map(ch => {
+  const net = netLayer.channels.find(n => n.channel_name === ch.channel_name);
+  return {
+    channel_name: ch.channel_name,
+    revenue: ch.value,
+    contribution: net?.value || 0,
+    margin_pct: net ? ((net.value / ch.value) * 100).toFixed(1) : '0.0',
+    erosion: ch.value - (net?.value || 0),
+  };
+}).sort((a, b) => b.revenue - a.revenue);
+
+export const totalRevenue = margins.reduce((s, m) => s + m.revenue, 0);
+export const totalContribution = margins.reduce((s, m) => s + m.contribution, 0);
+export const totalErosion = totalRevenue - totalContribution;
+
+## The full picture
+
+Four layers of cost — COGS, trade deductions, compliance fines, and operational overhead — separate gross revenue from actual contribution. Across all channels, {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 1, notation: 'compact' }).format(totalErosion)} disappears between the top line and the bottom line. That is {((totalErosion / totalRevenue) * 100).toFixed(1)}% of revenue.
+
+But the erosion is not uniform. The table below reveals which channels retain the most — and least — of every dollar earned.
+
+<div style={{ overflowX: 'auto', marginTop: '2em' }}>
+<table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: "var(--font-sans, 'Source Sans 3', sans-serif)", fontSize: '14px' }}>
+<thead>
+<tr style={{ borderBottom: '2px solid #d8d4c8', textAlign: 'left' }}>
+<th style={{ padding: '8px 12px', fontWeight: 600 }}>Channel</th>
+<th style={{ padding: '8px 12px', fontWeight: 600, textAlign: 'right' }}>Revenue</th>
+<th style={{ padding: '8px 12px', fontWeight: 600, textAlign: 'right' }}>Net Contribution</th>
+<th style={{ padding: '8px 12px', fontWeight: 600, textAlign: 'right' }}>Margin</th>
+<th style={{ padding: '8px 12px', fontWeight: 600, textAlign: 'right' }}>Erosion</th>
+</tr>
+</thead>
+<tbody>
+{margins.map((m, i) => (
+<tr key={m.channel_name} style={{ borderBottom: '1px solid #e5e0d8', backgroundColor: m.channel_name === 'DTC' ? '#f0ede6' : 'transparent' }}>
+<td style={{ padding: '8px 12px' }}>{m.channel_name}</td>
+<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' }).format(m.revenue)}</td>
+<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' }).format(m.contribution)}</td>
+<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums', color: parseFloat(m.margin_pct) < 85 ? '#c54b4b' : '#2a2a2a' }}>{m.margin_pct}%</td>
+<td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' }).format(m.erosion)}</td>
+</tr>
+))}
+</tbody>
+</table>
+</div>
+
+<p class="chart-footnote">Margin = net contribution / gross revenue. Erosion = gross revenue minus net contribution. DTC row highlighted: zero deductions and zero fines, but the highest COGS ratio drives the lowest margin in the portfolio.</p>
+
+The standout: DTC retains just 71.6% of revenue — the worst margin in the portfolio. Its zero deductions and zero fines cannot compensate for a COGS ratio (28.4%) that is triple the retail average (3.6%). Every dollar shifted from retail to DTC expecting better margins would, on these numbers, destroy value.
