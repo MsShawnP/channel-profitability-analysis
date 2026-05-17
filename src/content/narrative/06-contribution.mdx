@@ -65,24 +65,24 @@ export const MarginTable = ({ rows, highlight }) => (
 
 Four layers of cost — COGS, trade deductions, compliance fines, and operational overhead — separate gross revenue from actual contribution. Across all channels, {fmt(totalErosion)} disappears between the top line and the bottom line. That is {((totalErosion / totalRevenue) * 100).toFixed(1)}% of revenue.
 
-But the erosion is not uniform, and it differs by segment. Retailers, distributors, and DTC each face a different cost stack.
+But the erosion is not uniform, and it differs radically by segment. The cost stack that hits wholesale channels barely touches DTC.
 
 <p class="segment-label">Retailers</p>
 
 <MarginTable rows={retailMargins} />
 
-Retail contribution margins range from 87.5% (Harbor Fresh) to 92.2% (Whole Foods). Costco at 87.7% is an outlier among the large retailers — its high deduction intensity and punitive label fines drag it below peers. The mid-tier retailers (Southside, Prairie, Mountain Pantry) quietly retain 91–92% of revenue.
+Retail contribution margins range from 22.3% (Walmart) to 33.8% (Harbor Fresh). COGS is the primary driver — consuming 51–59% of revenue before any deductions begin. After trade deductions (10–15%) and compliance fines strip additional margin, the large nationals retain less than a quarter of each revenue dollar. The mid-tier retailers (Southside, Prairie, Harbor Fresh) outperform on margin — lower deduction rates and minimal fines compensate for their smaller scale.
 
 <p class="segment-label">Distributors</p>
 
 <MarginTable rows={distMargins} />
 
-UNFI and KeHE retain 90.4% and 90.6% respectively — roughly in line with the retail average. Distributor erosion is driven less by fines and more by trade deductions (particularly promo billbacks and unclassified chargebacks).
+UNFI and KeHE retain 21.6% and 24.1% respectively — the lowest margins in the wholesale portfolio. Distributor COGS runs 60% of revenue (higher than retail), and spoilage fines add a cost layer that retailers largely avoid. Together the distributors represent $18.4M in revenue but contribute only $4.2M after costs.
 
 <p class="segment-label">Direct-to-Consumer</p>
 
 <MarginTable rows={dtcMargins} highlight="DTC" />
 
-DTC retains just 71.6% of revenue — the worst margin in the portfolio. Its zero deductions and zero fines cannot compensate for a COGS ratio (28.4%) that is nearly eight times the retail average (3.6%). Every dollar shifted from retail to DTC expecting better margins would, on these numbers, destroy value.
+DTC retains 73.2% of revenue — the highest margin in the portfolio by a wide margin. Its COGS ratio (26.8%) is less than half the wholesale average because it sells at full retail price. Zero deductions and zero fines leave the gross margin intact. Every dollar of DTC revenue contributes more than three times what a wholesale dollar does.
 
-<p class="chart-footnote">Margin = net contribution / gross revenue. Erosion = gross revenue minus net contribution. DTC has zero deductions and zero fines, but the highest COGS ratio drives the lowest margin in the portfolio.</p>
+<p class="chart-footnote">Margin = net contribution / gross revenue. Erosion = gross revenue minus net contribution. DTC's lower COGS ratio reflects full retail pricing; wholesale channels sell at wholesale prices, compressing margins before deductions begin.</p>
