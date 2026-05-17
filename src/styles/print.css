@@ -25,11 +25,15 @@
     font-size: 11pt;
   }
 
-  /* Hide interactive controls */
+  /* Hide interactive controls but not chart bars */
   [data-interactive],
-  button,
-  [role="button"] {
+  button:not(svg *) {
     display: none !important;
+  }
+
+  /* Disable pointer events on chart elements in print */
+  svg [role="button"] {
+    pointer-events: none;
   }
 
   /* Ensure SVG charts print as vectors */

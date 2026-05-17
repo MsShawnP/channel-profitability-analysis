@@ -16,11 +16,11 @@ export const dtc = deductionsLayer.channels.filter(c => c.channel_type === 'DTC'
 
 <p class="section-subtitle">{deductionsLayer.subtitle}</p>
 
-Trade deductions are the first invisible tax. They never appear on the income statement as a line item — they arrive as post-invoice adjustments, chargebacks, and remittance shortfalls. Across all channels, Cinderhaven surrendered $1.5M to trade deductions in the year to March 2026.
+Trade deductions are the first invisible tax after COGS. They never appear on the income statement as a line item — they arrive as post-invoice adjustments, chargebacks, and remittance shortfalls. Across all channels, Cinderhaven surrendered $3.1M to trade deductions in the year to March 2026.
 
-Among retailers, Costco loses 8.5% of revenue to deductions — nearly double Walmart's 4.7% rate — on a fraction of the volume. Unclassified deductions (labelled "vague" in remittance data) are the largest category across all channels at $339K, ahead of promo billbacks and short ships — suggesting a documentation gap worth closing before anything else.
+Promotional billbacks are the largest trade deduction category at $1.7M, dominated by Walmart ($837K alone). Unclassified deductions — labelled "vague" in remittance data — total $1.2M, the second-largest category and the one most likely to yield recoveries if root-caused. Whole Foods has the highest trade deduction rate at 18.1% of revenue, followed by Walmart at 15.1%.
 
-Distributors face the same deduction categories but at different intensities. UNFI's promo billbacks ($73K) outpace its short ships ($10K) — the inverse of the retailer pattern, where short ships dominate.
+Distributors face the same deduction categories but at different intensities. UNFI's promo billbacks ($243K) and unclassified chargebacks ($172K) together account for 99% of its trade deductions. KeHE's pattern is similar: billbacks ($181K) and vague deductions ($127K) dominate.
 
 <p class="segment-label">Retailers</p>
 
@@ -49,4 +49,4 @@ Distributors face the same deduction categories but at different intensities. UN
   valueLabel="post-deduction revenue"
 />
 
-<p class="chart-footnote">Source: Cinderhaven deductions ledger matched to orders. Trade deductions include short ships, promotional billbacks, slotting fees, and unclassified chargebacks. Click any bar to see the breakdown by deduction type.</p>
+<p class="chart-footnote">Source: Cinderhaven deductions ledger matched to orders, fiscal year to March 2026. Trade deductions include short ships, promotional billbacks, slotting fees, and unclassified chargebacks. Click any bar to see the breakdown by deduction type.</p>

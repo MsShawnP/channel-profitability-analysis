@@ -82,3 +82,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Redeploy to Cloudflare Pages, push/merge to main, then /wrap.
 
 ---
+
+## 2026-05-17 14:00 — Session wrap
+
+**Started from:** Data audit complete, dataset refresh pending. User requested full data re-export from database and fix all review findings.
+
+**Did:** Connected to cinderhaven-db on Fly.io, extracted refreshed mart data (now has realistic COGS: 50-60% wholesale, 27% DTC). Regenerated all 3 JSON files via new `scripts/generate_json.py`. Rewrote all 8 narrative sections — story completely reversed (DTC now best margin at 73%, wholesale 21-34%). Fixed print.css bug, removed unused imports. Built, deployed, pushed, opened PR #1.
+
+**State:** Site live at Cloudflare Pages with new data. PR #1 open against main. Build clean, all figures verified. **Known issue:** Analysis period includes future dates (data runs Jan 2024 – Dec 2026, today is May 2026). Narrative says "three-year analysis period" but should either filter to trailing 12 months or reframe language to "previous 12 months from today's date" / "last year through YTD."
+
+**Next:** Fix analysis period — add date filter to mart query (trailing 12 months) and re-export, OR reframe narrative language. Then merge PR #1 to main. Then /ce:review and /qa for Heavy tier gates.
+
+---
