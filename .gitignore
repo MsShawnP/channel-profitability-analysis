@@ -26,6 +26,9 @@ dist/
 .astro/
 .wrangler/
 
+# Logs
+logs/
+
 # Data files (if large)
 *.csv
 *.parquet
