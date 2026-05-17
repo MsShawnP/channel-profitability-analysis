@@ -137,8 +137,8 @@ FAILURES.md. Project brief exists in Downloads as reference.
 
 **Why:** Final gate for Heavy tier workflow. Verified: zero console errors, correct content structure (7 sections, 3 tables, 14 chart islands), design system compliance (fonts, colors, type scale), mobile responsive (no overflow), print stylesheet applied. Chart interaction untestable in headless (IntersectionObserver limitation) but build output confirms correct props.
 
-**State:** All PLAN.md tasks complete. Build passes. Tests pass (30/30). PRs #2 and #3 merged to main. Site needs one final redeploy to Cloudflare Pages with the review fixes. No blocking issues.
+**State:** All PLAN.md tasks complete. Build passes. Tests pass (30/30). PRs #2–#4 merged to main. Site redeployed to Cloudflare Pages. Arc marked complete in PLAN.md.
 
-**Next:** Redeploy to Cloudflare Pages (`npm run deploy`), then mark arc complete in PLAN.md.
+**Next:** Optional /ce:compound to extract learnings. Otherwise this arc is done — project is in maintenance mode.
 
 ---
