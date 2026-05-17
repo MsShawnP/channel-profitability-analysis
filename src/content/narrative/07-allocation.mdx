@@ -4,28 +4,29 @@ order: 8
 section: "allocation"
 ---
 
-import channels from '../../data/channels.json';
 import layers from '../../data/layers.json';
 
 export const netLayer = layers[4];
 export const totalContribution = netLayer.channels.reduce((s, c) => s + c.value, 0);
 export const walmartContribution = netLayer.channels.find(c => c.channel_name === 'Walmart')?.value || 0;
 export const walmartShare = ((walmartContribution / totalContribution) * 100).toFixed(0);
+export const dtcContribution = netLayer.channels.find(c => c.channel_name === 'DTC')?.value || 0;
+export const dtcShare = ((dtcContribution / totalContribution) * 100).toFixed(0);
 
 ## What this means for capital allocation
 
 The numbers above point to three actions, in order of expected return.
 
-**1. Reduce label fines at Walmart and Costco.** Label fines cost Cinderhaven $222K in the year to March 2026 — more than any other compliance category. At Walmart, the average label fine is $469; at Costco, it is $3,200. A labelling audit and updated QA gate at the warehouse would target the single largest controllable cost in the compliance stack. The payback period is measured in weeks, not quarters.
+**1. Accelerate DTC growth.** DTC contributes 73 cents per revenue dollar — more than three times what wholesale channels deliver. At $3.9M in revenue, it already contributes {dtcShare}% of total net contribution on just 5.6% of revenue. The margin advantage is structural (full retail pricing, zero deductions, zero fines), not temporary. Every additional DTC dollar is worth three wholesale dollars in contribution terms.
 
-**2. Investigate unclassified deductions.** "Unclassified" chargebacks total $339K across all channels — the largest trade deduction category. These are deductions Cinderhaven cannot explain from remittance data alone. Some portion is likely legitimate; some portion is recoverable. Closing the documentation gap (matching each deduction to a root cause) is the prerequisite to disputing or preventing them.
+**2. Reduce spoilage across distributors.** Spoilage fines total $1.4M — more than all other compliance categories combined. UNFI alone accounts for $446K across 545 events. This signals a cold-chain or shelf-life problem that warrants joint investigation with the distributor partners. Unlike label fines (fixable with a QA gate), spoilage requires operational changes to packaging, logistics timing, or product mix.
 
-**3. Do not reallocate from retail to DTC on margin assumptions.** DTC's 71.6% contribution margin is the lowest in the portfolio. The channel has advantages — zero deductions, zero fines, direct customer relationship — but its COGS structure makes it uncompetitive on a per-dollar basis. If Cinderhaven expands DTC, the rationale should be strategic (brand control, data, customer lifetime value), not margin-based. The data does not support a margin-based case.
+**3. Root-cause unclassified deductions.** "Unclassified" chargebacks total $3.0M across all channels. These are deductions Cinderhaven cannot explain from remittance data alone. Some portion is legitimate; some portion is recoverable. Closing the documentation gap (matching each deduction to a root cause) is the prerequisite to disputing or preventing them. At Walmart, $1.2M in vague deductions represents an outsized recovery opportunity.
 
 ---
 
 <p style={{ fontSize: '14px', color: '#6b6b6b', marginTop: '2em', maxWidth: '660px' }}>
-Walmart contributes {walmartShare}% of net contribution — roughly the same as its 44% revenue share. Concentration risk remains: the channel mix is profitable, but fragile. Diversification should be measured against contribution share, not revenue share.
+Walmart contributes {walmartShare}% of net contribution on 42% of revenue — meaning its contribution-per-dollar is below average. Concentration risk is real but rebalancing toward DTC (73% margins) offers the most efficient diversification path.
 </p>
 
-<p class="chart-footnote">Methodology: contribution margin calculated as (gross revenue &minus; COGS &minus; trade deductions &minus; promotional costs &minus; compliance fines &minus; operational overhead) / gross revenue. Operational overhead estimated at $35/hr fully loaded, 0.5 hrs per dispute triage. All figures for the year to March 2026 from Cinderhaven's operational data. This analysis does not include SGA, fixed costs, or channel-specific marketing spend, which would further differentiate contribution by channel.</p>
+<p class="chart-footnote">Methodology: contribution margin calculated as (gross revenue &minus; COGS &minus; trade deductions &minus; promotional costs &minus; compliance fines &minus; operational overhead) / gross revenue. Operational overhead estimated at $35/hr fully loaded, ~4.8 hrs per dispute. All figures from Cinderhaven's 2024–2026 operational data. This analysis does not include SGA, fixed costs, or channel-specific marketing spend, which would further differentiate contribution by channel.</p>
