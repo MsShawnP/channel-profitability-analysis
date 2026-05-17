@@ -70,3 +70,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Run /ce:review (reviewer ensemble), then /qa for browser testing. After dataset refresh, re-export layers.json, channels.json, and trends.json, then update any hardcoded figures in prose.
 
 ---
+
+## 2026-05-17 12:40
+
+**What changed:** Data audit — fixed 4 factual errors in narrative prose. Erosion range (4%→8%), operational overhead formula (30min→5hrs to match $236K), DTC COGS multiplier (triple→nearly eight times), unclassified deductions ($277K third-largest→$339K largest).
+
+**Why:** Cross-checked every hardcoded figure in MDX prose against channels.json and layers.json. Found four claims that didn't match the data. All other figures verified correct.
+
+**State:** All narrative prose now reconciles with JSON data. Build succeeds. Site not yet redeployed with these fixes. Dataset refresh still pending from cinderhaven-data-platform — when it lands, re-run this audit.
+
+**Next:** Redeploy to Cloudflare Pages, push/merge to main, then /wrap.
+
+---
