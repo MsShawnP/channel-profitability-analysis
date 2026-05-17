@@ -1,0 +1,1100 @@
+[
+  {
+    "id": 0,
+    "label": "Revenue",
+    "subtitle": "What the CFO sees",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "value": 13952193.24,
+        "breakdown": []
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "value": 5132719.8,
+        "breakdown": []
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "value": 3951019.44,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "value": 3410516.22,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "value": 2061765.12,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "value": 781753.62,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "value": 744136.62,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "value": 665614.68,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "value": 365740.86,
+        "breakdown": []
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "value": 347608.62,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "value": 343612.92,
+        "breakdown": []
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "label": "Gross Margin",
+    "subtitle": "After cost of goods sold",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "value": 13445872.3,
+        "previous_value": 13952193.24,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 506320.94
+          }
+        ]
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "value": 4931199.11,
+        "previous_value": 5132719.8,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 201520.69
+          }
+        ]
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "value": 3794260.11,
+        "previous_value": 3951019.44,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 156759.33
+          }
+        ]
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "value": 3292746.03,
+        "previous_value": 3410516.22,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 117770.19
+          }
+        ]
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "value": 1993833.1,
+        "previous_value": 2061765.12,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 67932.02
+          }
+        ]
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "value": 754253.9,
+        "previous_value": 781753.62,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 27499.72
+          }
+        ]
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "value": 717455.72,
+        "previous_value": 744136.62,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 26680.9
+          }
+        ]
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "value": 641769.22,
+        "previous_value": 665614.68,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 23845.46
+          }
+        ]
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "value": 353044.34,
+        "previous_value": 365740.86,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 12696.52
+          }
+        ]
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "value": 248745.31,
+        "previous_value": 347608.62,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 98863.31
+          }
+        ]
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "value": 331123.0,
+        "previous_value": 343612.92,
+        "breakdown": [
+          {
+            "label": "Cost of Goods Sold",
+            "amount": 12489.92
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "label": "After Trade Deductions",
+    "subtitle": "Short ships, promo billbacks, slotting fees",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "value": 13037058.1,
+        "previous_value": 13445872.3,
+        "breakdown": [
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 181041.56,
+            "count": 719
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 104331.18,
+            "count": 79
+          },
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 94987.01,
+            "count": 54
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 25294.28,
+            "count": 3
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 3160.17
+          }
+        ]
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "value": 4760102.14,
+        "previous_value": 4931199.11,
+        "breakdown": [
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 73483.22,
+            "count": 105
+          },
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 69378.3,
+            "count": 51
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 17415.61,
+            "count": 5
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 10144.93,
+            "count": 84
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 674.91
+          }
+        ]
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "value": 3672274.91,
+        "previous_value": 3794260.11,
+        "breakdown": [
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 54063.09,
+            "count": 79
+          },
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 42915.08,
+            "count": 37
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 12779.94,
+            "count": 5
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 12227.09,
+            "count": 93
+          }
+        ]
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "value": 3199820.59,
+        "previous_value": 3292746.03,
+        "breakdown": [
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 47601.4,
+            "count": 37
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 18635.54,
+            "count": 38
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 15286.65,
+            "count": 4
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 9034.3,
+            "count": 66
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 2367.55
+          }
+        ]
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "value": 1919910.95,
+        "previous_value": 1993833.1,
+        "breakdown": [
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 41864.64,
+            "count": 3
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 16822.07,
+            "count": 24
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 12555.39,
+            "count": 5
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 2680.05
+          }
+        ]
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "value": 717031.93,
+        "previous_value": 754253.9,
+        "breakdown": [
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 22153.91,
+            "count": 15
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 7774.06,
+            "count": 27
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 2621.06,
+            "count": 3
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 2528.7,
+            "count": 15
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 2144.24
+          }
+        ]
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "value": 689710.31,
+        "previous_value": 717455.72,
+        "breakdown": [
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 19288.84,
+            "count": 15
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 2431.31,
+            "count": 18
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 2122.76,
+            "count": 2
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 1758.26,
+            "count": 8
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 2144.24
+          }
+        ]
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "value": 617891.56,
+        "previous_value": 641769.22,
+        "breakdown": [
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 16557.61,
+            "count": 10
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 2172.62,
+            "count": 10
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 1653.61,
+            "count": 12
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 1349.58,
+            "count": 2
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 2144.24
+          }
+        ]
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "value": 327432.34,
+        "previous_value": 353044.34,
+        "breakdown": [
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 20336.77,
+            "count": 11
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 1832.27,
+            "count": 14
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 947.31,
+            "count": 2
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 351.41,
+            "count": 2
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 2144.24
+          }
+        ]
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "value": 248745.31,
+        "previous_value": 248745.31,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "value": 319316.0,
+        "previous_value": 331123.0,
+        "breakdown": [
+          {
+            "label": "Unclassified",
+            "type": "vague",
+            "amount": 6087.09,
+            "count": 3
+          },
+          {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 2417.48,
+            "count": 17
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 719.65,
+            "count": 2
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 438.54,
+            "count": 2
+          },
+          {
+            "label": "Promotional Costs",
+            "amount": 2144.24
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "label": "After Compliance Fines",
+    "subtitle": "Label fines, pallet fines, late delivery penalties",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "value": 12788082.88,
+        "previous_value": 13037058.1,
+        "breakdown": [
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 134148.72,
+            "count": 286
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 43970.66,
+            "count": 179
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 38150.97,
+            "count": 35
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 21338.53,
+            "count": 26
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 11366.34,
+            "count": 55
+          }
+        ]
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "value": 4678336.98,
+        "previous_value": 4760102.14,
+        "breakdown": [
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 43250.0,
+            "count": 136
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 17151.85,
+            "count": 21
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 14122.8,
+            "count": 23
+          },
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 4676.3,
+            "count": 30
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 2564.21,
+            "count": 18
+          }
+        ]
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "value": 3608112.59,
+        "previous_value": 3672274.91,
+        "breakdown": [
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 19768.36,
+            "count": 41
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 16126.59,
+            "count": 22
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 15523.31,
+            "count": 31
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 10491.66,
+            "count": 100
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 2252.4,
+            "count": 15
+          }
+        ]
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "value": 3161302.58,
+        "previous_value": 3199820.59,
+        "breakdown": [
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 17179.11,
+            "count": 29
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 7085.31,
+            "count": 95
+          },
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 6940.92,
+            "count": 42
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 5554.07,
+            "count": 17
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 1758.6,
+            "count": 12
+          }
+        ]
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "value": 1815304.08,
+        "previous_value": 1919910.95,
+        "breakdown": [
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 51263.32,
+            "count": 16
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 29205.88,
+            "count": 7
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 15866.49,
+            "count": 5
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 7378.62,
+            "count": 13
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 892.56,
+            "count": 7
+          }
+        ]
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "value": 708784.97,
+        "previous_value": 717031.93,
+        "breakdown": [
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 4742.53,
+            "count": 10
+          },
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 1633.46,
+            "count": 10
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 1245.82,
+            "count": 3
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 494.76,
+            "count": 11
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 130.39,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "value": 684718.96,
+        "previous_value": 689710.31,
+        "breakdown": [
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 1865.76,
+            "count": 6
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 1318.66,
+            "count": 3
+          },
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 995.38,
+            "count": 6
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 509.21,
+            "count": 9
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 302.34,
+            "count": 2
+          }
+        ]
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "value": 613247.44,
+        "previous_value": 617891.56,
+        "breakdown": [
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 1635.65,
+            "count": 8
+          },
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 1383.65,
+            "count": 8
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 755.21,
+            "count": 14
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 550.43,
+            "count": 1
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 319.18,
+            "count": 2
+          }
+        ]
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "value": 323617.34,
+        "previous_value": 327432.34,
+        "breakdown": [
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 1837.24,
+            "count": 7
+          },
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 947.42,
+            "count": 6
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 446.28,
+            "count": 3
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 414.17,
+            "count": 10
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 169.89,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "value": 248745.31,
+        "previous_value": 248745.31,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "value": 317054.43,
+        "previous_value": 319316.0,
+        "breakdown": [
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 1198.62,
+            "count": 7
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 532.25,
+            "count": 13
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 333.1,
+            "count": 3
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 197.6,
+            "count": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "label": "Net Contribution",
+    "subtitle": "After dispute triage and operational overhead",
+    "channels": [
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "value": 12658453.73,
+        "previous_value": 12788082.88,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 129629.15
+          }
+        ]
+      },
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "value": 4642311.13,
+        "previous_value": 4678336.98,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 36025.85
+          }
+        ]
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "value": 3579402.09,
+        "previous_value": 3608112.59,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 28710.5
+          }
+        ]
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "value": 3142896.78,
+        "previous_value": 3161302.58,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 18405.8
+          }
+        ]
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "value": 1809102.08,
+        "previous_value": 1815304.08,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 6202.0
+          }
+        ]
+      },
+      {
+        "channel_name": "Green Basket Market",
+        "channel_type": "retailer",
+        "value": 703960.92,
+        "previous_value": 708784.97,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 4824.05
+          }
+        ]
+      },
+      {
+        "channel_name": "Southside Grocers",
+        "channel_type": "retailer",
+        "value": 680627.81,
+        "previous_value": 684718.96,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 4091.15
+          }
+        ]
+      },
+      {
+        "channel_name": "Prairie Provisions",
+        "channel_type": "retailer",
+        "value": 610193.69,
+        "previous_value": 613247.44,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 3053.75
+          }
+        ]
+      },
+      {
+        "channel_name": "Harbor Fresh",
+        "channel_type": "retailer",
+        "value": 320057.84,
+        "previous_value": 323617.34,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 3559.5
+          }
+        ]
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "DTC",
+        "value": 248745.31,
+        "previous_value": 248745.31,
+        "breakdown": []
+      },
+      {
+        "channel_name": "Mountain Pantry Co",
+        "channel_type": "retailer",
+        "value": 315364.63,
+        "previous_value": 317054.43,
+        "breakdown": [
+          {
+            "label": "Operational Overhead",
+            "amount": 1689.8
+          }
+        ]
+      }
+    ]
+  }
+]
