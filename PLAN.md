@@ -7,13 +7,13 @@ session. For session-by-session state, see HANDOFF.md.
 
 ## Goal
 
-Channel-by-channel profitability analysis for Cinderhaven ($25M specialty
-food brand) delivered as a scrollable, Economist-style web narrative with
-interactive drill-downs. Tuned for executive communication. Data-driven
-story — hypothesis is that dominant retail channels (Walmart, Costco) are
-far less profitable than their revenue share implies once fines, deductions,
-and compliance costs are accounted for. DTC (3% of revenue) serves as the
-reference point that makes this margin erosion visible. The data leads.
+Channel-by-channel profitability analysis for Cinderhaven (~$70M specialty
+food brand, 2024–2026 analysis period) delivered as a scrollable,
+Economist-style web narrative with interactive drill-downs. Tuned for
+executive communication. Data-driven story — wholesale channels retain
+21–34% of revenue after COGS, deductions, fines, and operational overhead.
+DTC retains 73% due to full retail pricing and zero post-invoice costs.
+The data leads.
 
 ## Why this arc, why now
 
@@ -52,7 +52,10 @@ deferred to a polish phase.
 - [x] Run /plan-eng-review for architecture gate
 - [x] Run /ce:brainstorm to spec the approach
 - [x] Run /ce:plan to create implementation plan
-- [ ] Run /ce:work to execute (start with U1 + U2 in parallel)
+- [x] Run /ce:work to execute (U1–U7 complete, data refreshed)
+- [ ] Fix analysis period (filter to trailing 12 months or reframe language)
+- [ ] Run /ce:review (reviewer ensemble)
+- [ ] Run /qa (browser testing)
 
 ## Design notes
 
