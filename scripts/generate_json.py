@@ -204,26 +204,36 @@ def _pg_connect():
 
 
 def fetch_live_channel_data():
-    """Fetch per-channel revenue and COGS ratio from mart_channel_contribution."""
+    """Fetch per-channel revenue from fact tables (retailer + distributor + DTC)."""
     conn = _pg_connect()
     if conn is None:
         return None, None
     try:
         with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
             cur.execute("""
-                SELECT channel_name, gross_revenue, total_cogs
-                FROM public_marts.mart_channel_contribution
+                SELECT retailer, revenue FROM (
+                    SELECT dr.retailer_name AS retailer,
+                           SUM(fo.total_value)::float AS revenue
+                    FROM public_marts.fct_retailer_orders fo
+                    JOIN public_marts.dim_retailers dr
+                         ON dr.retailer_id = fo.retailer_id
+                    GROUP BY dr.retailer_name
+                    UNION ALL
+                    SELECT dd.distributor_name AS retailer,
+                           SUM(fo.total_value)::float AS revenue
+                    FROM public_marts.fct_distributor_orders fo
+                    JOIN public_marts.dim_distributors dd
+                         ON dd.distributor_id = fo.distributor_id
+                    GROUP BY dd.distributor_name
+                    UNION ALL
+                    SELECT 'DTC' AS retailer,
+                           SUM(fo.gross_revenue)::float AS revenue
+                    FROM public_marts.fct_dtc_orders fo
+                ) combined ORDER BY revenue DESC
             """)
             rows = cur.fetchall()
-        revenue = {}
-        cogs_ratios = {}
-        for r in rows:
-            name = r["channel_name"]
-            rev = float(r["gross_revenue"])
-            cogs = float(r["total_cogs"])
-            revenue[name] = round(rev, 2)
-            cogs_ratios[name] = round(cogs / rev, 4) if rev > 0 else 0
-        return revenue, cogs_ratios
+        revenue = {r["retailer"]: round(r["revenue"], 2) for r in rows}
+        return revenue, None
     except Exception:
         return None, None
     finally:
@@ -411,14 +421,14 @@ def main():
     out_dir = Path(__file__).parent.parent / "src" / "data"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    live_rev, live_cogs = fetch_live_channel_data()
+    live_rev, _ = fetch_live_channel_data()
     if live_rev:
+        matched = 0
         for name in CHANNEL_ORDER:
             if name in live_rev:
                 FISCAL_REVENUE[name] = live_rev[name]
-            if name in live_cogs:
-                COGS_RATIOS[name] = live_cogs[name]
-        print("Revenue: live from Postgres (mart_channel_contribution)")
+                matched += 1
+        print(f"Revenue: live from Postgres ({matched}/{len(CHANNEL_ORDER)} channels matched)")
     else:
         print("Revenue: using hardcoded snapshot (Postgres unavailable)")
 
