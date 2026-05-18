@@ -1,16 +1,25 @@
 """
-Generate channels.json, layers.json, and trends.json from extracted database data.
-Scoped to fiscal year: April 2025 – March 2026 ("the year to March 2026").
+Generate channels.json, layers.json, and trends.json.
+Revenue and COGS from Postgres (mart_channel_contribution) when available,
+falling back to snapshot values for offline use.
 Run from project root: python scripts/generate_json.py
 """
 import json
+import os
 from pathlib import Path
 
+try:
+    import psycopg2
+    import psycopg2.extras
+    _HAS_PG = True
+except ImportError:
+    _HAS_PG = False
+
 # === FISCAL YEAR DATA (Apr 2025 – Mar 2026) ===
-# Revenue from fct_orders WHERE order_date >= '2025-04-01' AND < '2026-04-01'
+# Revenue from fct_retailer_orders WHERE order_date >= '2025-04-01' AND < '2026-04-01'
 # COGS computed using mart COGS ratios (industry-norm) applied to fiscal year revenue
-# Deductions from fct_deductions WHERE deduction_date in same range
-# DTC estimated as 1/3 of 3-year mart total (not in fct_orders)
+# Deductions from fct_retailer_deductions WHERE deduction_date in same range
+# DTC estimated as 1/3 of 3-year mart total (not in fct_retailer_orders)
 
 # COGS ratios from mart_channel_contribution (realistic industry norms)
 COGS_RATIOS = {
@@ -31,7 +40,7 @@ FISCAL_REVENUE = {
     "Harbor Fresh": 194193.30,
 }
 
-# Fiscal year deduction breakdowns (from fct_deductions, date-filtered)
+# Fiscal year deduction breakdowns (from fct_retailer_deductions, date-filtered)
 DEDUCTIONS = {
     "Walmart": {
         "promo_billback": (836799.53, 555), "vague": (456045.68, 335),
@@ -177,6 +186,48 @@ QUARTER_LABELS = {
     "2025-07-01": "Q3 2025", "2025-10-01": "Q4 2025",
     "2026-01-01": "Q1 2026",
 }
+
+
+def _pg_connect():
+    if not _HAS_PG:
+        return None
+    dsn = os.environ.get("DATABASE_URL")
+    if not dsn:
+        pw = os.environ.get("POSTGRES_PASSWORD")
+        if not pw:
+            return None
+        dsn = f"postgresql://postgres:REDACTED@localhost:5432/cinderhaven"
+    try:
+        return psycopg2.connect(dsn)
+    except Exception:
+        return None
+
+
+def fetch_live_channel_data():
+    """Fetch per-channel revenue and COGS ratio from mart_channel_contribution."""
+    conn = _pg_connect()
+    if conn is None:
+        return None, None
+    try:
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            cur.execute("""
+                SELECT channel_name, gross_revenue, total_cogs
+                FROM public_marts.mart_channel_contribution
+            """)
+            rows = cur.fetchall()
+        revenue = {}
+        cogs_ratios = {}
+        for r in rows:
+            name = r["channel_name"]
+            rev = float(r["gross_revenue"])
+            cogs = float(r["total_cogs"])
+            revenue[name] = round(rev, 2)
+            cogs_ratios[name] = round(cogs / rev, 4) if rev > 0 else 0
+        return revenue, cogs_ratios
+    except Exception:
+        return None, None
+    finally:
+        conn.close()
 
 
 def compute_channel_data():
@@ -360,6 +411,17 @@ def main():
     out_dir = Path(__file__).parent.parent / "src" / "data"
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    live_rev, live_cogs = fetch_live_channel_data()
+    if live_rev:
+        for name in CHANNEL_ORDER:
+            if name in live_rev:
+                FISCAL_REVENUE[name] = live_rev[name]
+            if name in live_cogs:
+                COGS_RATIOS[name] = live_cogs[name]
+        print("Revenue: live from Postgres (mart_channel_contribution)")
+    else:
+        print("Revenue: using hardcoded snapshot (Postgres unavailable)")
+
     channel_data = compute_channel_data()
 
     channels = generate_channels(channel_data)
@@ -379,7 +441,8 @@ def main():
 
     total_revenue = sum(ch["gross_revenue"] for ch in channel_data)
     total_contribution = sum(ch["layer_4"] for ch in channel_data)
-    print(f"\nFiscal year (Apr 2025 – Mar 2026):")
+    source = "live Postgres" if live_rev else "hardcoded snapshot"
+    print(f"\nChannel profitability ({source}):")
     print(f"  Total revenue: ${total_revenue:,.2f}")
     print(f"  Total contribution: ${total_contribution:,.2f}")
     print(f"  Overall margin: {(total_contribution/total_revenue)*100:.1f}%")
