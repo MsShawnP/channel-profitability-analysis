@@ -1,112 +1,102 @@
 [
   {
-    "channel_id": "walmart",
-    "channel_name": "Walmart",
-    "channel_type": "retailer",
-    "gross_revenue": 9726097.38,
-    "total_cogs": 5710191.77,
-    "total_deductions": 1777299.91,
-    "disputes_filed": 1209,
-    "total_deduction_events": 2133
-  },
-  {
     "channel_id": "unfi",
     "channel_name": "UNFI",
     "channel_type": "distributor",
-    "gross_revenue": 3812244.36,
-    "total_cogs": 2297258.45,
-    "total_deductions": 615744.24,
-    "disputes_filed": 322,
-    "total_deduction_events": 703
+    "gross_revenue": 563417.88,
+    "total_cogs": 48003.2,
+    "total_deductions": 6573.18,
+    "disputes_filed": 32,
+    "total_deduction_events": 103
+  },
+  {
+    "channel_id": "dpi_northwest",
+    "channel_name": "DPI Northwest",
+    "channel_type": "distributor",
+    "gross_revenue": 553833.12,
+    "total_cogs": 41869.78,
+    "total_deductions": 6943.89,
+    "disputes_filed": 32,
+    "total_deduction_events": 95
   },
   {
     "channel_id": "kehe",
     "channel_name": "KeHE",
     "channel_type": "distributor",
-    "gross_revenue": 2608189.44,
-    "total_cogs": 1555785.0,
-    "total_deductions": 420497.46,
-    "disputes_filed": 204,
-    "total_deduction_events": 510
-  },
-  {
-    "channel_id": "whole_foods",
-    "channel_name": "Whole Foods",
-    "channel_type": "retailer",
-    "gross_revenue": 2353212.0,
-    "total_cogs": 1249084.93,
-    "total_deductions": 494690.12,
-    "disputes_filed": 239,
-    "total_deduction_events": 795
-  },
-  {
-    "channel_id": "costco",
-    "channel_name": "Costco",
-    "channel_type": "retailer",
-    "gross_revenue": 2330023.5,
-    "total_cogs": 1300386.12,
-    "total_deductions": 278232.68,
-    "disputes_filed": 46,
-    "total_deduction_events": 121
+    "gross_revenue": 483792.12,
+    "total_cogs": 40928.81,
+    "total_deductions": 6922.01,
+    "disputes_filed": 35,
+    "total_deduction_events": 103
   },
   {
     "channel_id": "DTC",
     "channel_name": "DTC",
-    "channel_type": "DTC",
-    "gross_revenue": 1305223.0,
-    "total_cogs": 349408.2,
+    "channel_type": "dtc",
+    "gross_revenue": 367185.13,
+    "total_cogs": 29558.4,
     "total_deductions": 0,
     "disputes_filed": 0,
     "total_deduction_events": 0
   },
   {
-    "channel_id": "southside_grocers",
-    "channel_name": "Southside Grocers",
+    "channel_id": "sprouts",
+    "channel_name": "Sprouts",
     "channel_type": "retailer",
-    "gross_revenue": 511662.06,
-    "total_cogs": 260333.66,
-    "total_deductions": 83060.92,
-    "disputes_filed": 34,
-    "total_deduction_events": 134
+    "gross_revenue": 349267.68,
+    "total_cogs": 52180.59,
+    "total_deductions": 8293.36,
+    "disputes_filed": 121,
+    "total_deduction_events": 341
   },
   {
-    "channel_id": "green_basket_market",
-    "channel_name": "Green Basket Market",
+    "channel_id": "whole_foods",
+    "channel_name": "Whole Foods",
     "channel_type": "retailer",
-    "gross_revenue": 499933.74,
-    "total_cogs": 253966.34,
-    "total_deductions": 99352.19,
-    "disputes_filed": 60,
-    "total_deduction_events": 190
+    "gross_revenue": 339027.72,
+    "total_cogs": 47667.3,
+    "total_deductions": 7328.3,
+    "disputes_filed": 99,
+    "total_deduction_events": 312
   },
   {
-    "channel_id": "prairie_provisions",
-    "channel_name": "Prairie Provisions",
+    "channel_id": "regional_group",
+    "channel_name": "Regional Group",
     "channel_type": "retailer",
-    "gross_revenue": 350986.32,
-    "total_cogs": 178055.36,
-    "total_deductions": 44901.2,
-    "disputes_filed": 20,
-    "total_deduction_events": 94
+    "gross_revenue": 328431.12,
+    "total_cogs": 50939.67,
+    "total_deductions": 8043.64,
+    "disputes_filed": 139,
+    "total_deduction_events": 350
   },
   {
-    "channel_id": "mountain_pantry_co",
-    "channel_name": "Mountain Pantry Co",
+    "channel_id": "kroger",
+    "channel_name": "Kroger",
     "channel_type": "retailer",
-    "gross_revenue": 223895.82,
-    "total_cogs": 114164.48,
-    "total_deductions": 35758.93,
-    "disputes_filed": 21,
-    "total_deduction_events": 91
+    "gross_revenue": 327646.68,
+    "total_cogs": 52161.35,
+    "total_deductions": 8140.63,
+    "disputes_filed": 149,
+    "total_deduction_events": 373
   },
   {
-    "channel_id": "harbor_fresh",
-    "channel_name": "Harbor Fresh",
+    "channel_id": "walmart",
+    "channel_name": "Walmart",
     "channel_type": "retailer",
-    "gross_revenue": 194193.3,
-    "total_cogs": 98805.55,
-    "total_deductions": 25043.21,
-    "disputes_filed": 8,
-    "total_deduction_events": 43
+    "gross_revenue": 321690.0,
+    "total_cogs": 53014.51,
+    "total_deductions": 6995.53,
+    "disputes_filed": 144,
+    "total_deduction_events": 337
+  },
+  {
+    "channel_id": "costco",
+    "channel_name": "Costco",
+    "channel_type": "retailer",
+    "gross_revenue": 310973.76,
+    "total_cogs": 52461.27,
+    "total_deductions": 8168.33,
+    "disputes_filed": 159,
+    "total_deduction_events": 357
   }
 ]

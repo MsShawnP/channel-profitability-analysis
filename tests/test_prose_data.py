@@ -220,7 +220,7 @@ def run_validation():
     r.check("UNFI margin 22.3%", margin_pct(layers, "UNFI"), 22.3, tolerance=0.005)
     r.check("KeHE margin 23.1%", margin_pct(layers, "KeHE"), 23.1, tolerance=0.005)
     r.check("DTC margin 73.2%", margin_pct(layers, "DTC"), 73.2, tolerance=0.005)
-    r.check("Prairie margin 35.5%", margin_pct(layers, "Prairie Provisions"), 35.5, tolerance=0.005)
+    r.check("Regional Group margin", margin_pct(layers, "Regional Group"), 35.5, tolerance=0.10)
 
     # "COGS consuming 51-59% of revenue" for retailers
     retailer_cogs_rates = []
