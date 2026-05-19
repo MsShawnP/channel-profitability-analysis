@@ -137,127 +137,137 @@ def run_validation():
     # --- 01-headline.mdx claims ---
     total_rev = sum(c["gross_revenue"] for c in channels)
 
-    # "The gap... ranges from 27% to 79%"
+    # "The gap... ranges from 8% to 28%"
     all_margins = [margin_pct(layers, c["channel_name"]) for c in layers[0]["channels"]]
     all_erosion = [100 - m for m in all_margins]
-    r.check_range("Erosion range 27%-79%", min(all_erosion), max(all_erosion), 27, 79)
+    r.check_range("Erosion range 8%-28%", min(all_erosion), max(all_erosion), 8, 28)
 
-    # "DTC retains 73 cents"
+    # "DTC retains 92 cents"
     dtc_margin = margin_pct(layers, "DTC")
-    r.check("DTC retains 73 cents", dtc_margin, 73.0, tolerance=0.01)
+    r.check("DTC retains 92 cents", dtc_margin, 92.0, tolerance=0.01)
 
-    # "wholesale channels retain between 21 and 36 cents"
+    # "retailers retain 72 to 79 cents; distributors retain 89 to 90 cents"
     wholesale_margins = [margin_pct(layers, c["channel_name"])
                          for c in layers[0]["channels"]
                          if c["channel_name"] != "DTC"]
-    r.check_range("Wholesale retain 21-36 cents",
-                  min(wholesale_margins), max(wholesale_margins), 21, 36, tolerance=1.0)
+    r.check_range("Wholesale retain 72-90 cents",
+                  min(wholesale_margins), max(wholesale_margins), 72, 90, tolerance=1.0)
 
     # --- 03-deductions.mdx claims ---
     trade_total = layer_diff(layers, 1, 2)
-    r.check("Trade deductions $3.1M", trade_total, 3_100_000, tolerance=0.03)
+    r.check("Trade deductions $41K", trade_total, 41_000, tolerance=0.03)
 
     promo_total = sum_breakdown_type(layers, 2, "promo_billback")
-    r.check("Promo billbacks $1.7M", promo_total, 1_700_000, tolerance=0.03)
+    r.check("Promo billbacks $10K", promo_total, 10_000, tolerance=0.03)
 
-    vague_total = sum_breakdown_type(layers, 2, "vague")
-    r.check("Unclassified $1.2M", vague_total, 1_200_000, tolerance=0.03)
+    pricing_total = sum_breakdown_type(layers, 2, "pricing_error")
+    r.check("Pricing errors $9.7K", pricing_total, 9_700, tolerance=0.03)
 
-    # Whole Foods trade deduction rate 18.1%
-    wf_rev = get_channel(channels, "Whole Foods")["gross_revenue"]
-    wf_gross_margin = layer_value(layers, 1, "Whole Foods")
-    wf_after_trade = layer_value(layers, 2, "Whole Foods")
-    wf_trade = wf_gross_margin - wf_after_trade
-    wf_trade_rate = (wf_trade / wf_rev) * 100
-    r.check("Whole Foods trade rate 18.1%", wf_trade_rate, 18.1, tolerance=0.01)
-
-    # Walmart trade deduction rate 15.1%
-    wm_rev = get_channel(channels, "Walmart")["gross_revenue"]
-    wm_trade = layer_value(layers, 1, "Walmart") - layer_value(layers, 2, "Walmart")
-    wm_trade_rate = (wm_trade / wm_rev) * 100
-    r.check("Walmart trade rate 15.1%", wm_trade_rate, 15.1, tolerance=0.01)
+    # Costco trade deduction rate 2.1%
+    costco_rev = get_channel(channels, "Costco")["gross_revenue"]
+    costco_trade = layer_value(layers, 1, "Costco") - layer_value(layers, 2, "Costco")
+    costco_trade_rate = (costco_trade / costco_rev) * 100
+    r.check("Costco trade rate 2.1%", costco_trade_rate, 2.1, tolerance=0.05)
 
     # --- 04-fines.mdx claims ---
     fines_total = layer_diff(layers, 2, 3)
-    r.check("Compliance fines $778K", fines_total, 778_000, tolerance=0.01)
+    r.check("Compliance fines $34K", fines_total, 34_000, tolerance=0.03)
 
-    spoilage_total = sum_breakdown_type(layers, 3, "spoilage")
-    r.check("Spoilage $527K", spoilage_total, 527_000, tolerance=0.01)
+    damaged_total = sum_breakdown_type(layers, 3, "damaged")
+    r.check("Damaged goods $9.2K", damaged_total, 9_200, tolerance=0.03)
 
-    label_total = sum_breakdown_type(layers, 3, "label_fine")
-    r.check("Label fines $106K", label_total, 106_000, tolerance=0.01)
+    late_total = sum_breakdown_type(layers, 3, "late_delivery")
+    r.check("Late delivery $8.7K", late_total, 8_700, tolerance=0.03)
 
-    # UNFI spoilage $167K, 205 events
-    unfi_spoilage = next(
-        item for ch in layers[3]["channels"]
-        if ch["channel_name"] == "UNFI"
+    # Kroger highest retailer fines
+    kroger_fines = layer_value(layers, 2, "Kroger") - layer_value(layers, 3, "Kroger")
+    kroger_damaged = next(
+        item["amount"] for ch in layers[3]["channels"]
+        if ch["channel_name"] == "Kroger"
         for item in ch.get("breakdown", [])
-        if item.get("type") == "spoilage"
+        if item.get("type") == "damaged"
     )
-    r.check("UNFI spoilage $167K", unfi_spoilage["amount"], 167_000, tolerance=0.01)
+    r.check("Kroger damaged $1.4K", kroger_damaged, 1_400, tolerance=0.05)
+
+    # DPI Northwest late delivery $2.1K
+    dpi_late = next(
+        item["amount"] for ch in layers[3]["channels"]
+        if ch["channel_name"] == "DPI Northwest"
+        for item in ch.get("breakdown", [])
+        if item.get("type") == "late_delivery"
+    )
+    r.check("DPI NW late delivery $2.1K", dpi_late, 2_100, tolerance=0.03)
 
     # --- 05-operational.mdx claims ---
     overhead_total = layer_diff(layers, 3, 4)
-    r.check("Operational overhead $324K", overhead_total, 324_000, tolerance=0.01)
+    r.check("Operational overhead $137K", overhead_total, 137_000, tolerance=0.01)
 
     total_disputes = sum(c["disputes_filed"] for c in channels)
-    r.check("Total disputes count", total_disputes, 2163, tolerance=0.0)
+    r.check("Total disputes count", total_disputes, 910, tolerance=0.0)
 
-    # Walmart overhead $181K
+    # Costco overhead $24K, 159 disputes, 357 events
+    costco_overhead = layer_value(layers, 3, "Costco") - layer_value(layers, 4, "Costco")
+    r.check("Costco overhead $24K", costco_overhead, 24_000, tolerance=0.01)
+    r.check("Costco disputes 159", get_channel(channels, "Costco")["disputes_filed"], 159, tolerance=0.0)
+    r.check("Costco events 357", get_channel(channels, "Costco")["total_deduction_events"], 357, tolerance=0.0)
+
+    # Walmart overhead $22K, 144 disputes
     wm_overhead = layer_value(layers, 3, "Walmart") - layer_value(layers, 4, "Walmart")
-    r.check("Walmart overhead $181K", wm_overhead, 181_000, tolerance=0.01)
+    r.check("Walmart overhead $22K", wm_overhead, 22_000, tolerance=0.02)
+    r.check("Walmart disputes 144", get_channel(channels, "Walmart")["disputes_filed"], 144, tolerance=0.0)
 
-    # Recovery claims: $359K recovered, 1.11:1 ratio (from verify_roi.py constants)
-    recovery_total = 358894.66
+    # UNFI + KeHE overhead $10K
+    unfi_oh = layer_value(layers, 3, "UNFI") - layer_value(layers, 4, "UNFI")
+    kehe_oh = layer_value(layers, 3, "KeHE") - layer_value(layers, 4, "KeHE")
+    r.check("UNFI+KeHE overhead $10K", unfi_oh + kehe_oh, 10_000, tolerance=0.02)
+
+    # Recovery claims: $11K recovered, 0.08:1 ratio (from verify_roi.py)
+    recovery_total = 10989.62
     recovery_ratio = recovery_total / overhead_total
-    r.check("Recovery $359K", recovery_total, 359_000, tolerance=0.01)
-    r.check("Recovery ratio 1.11:1", recovery_ratio, 1.11, tolerance=0.01)
+    r.check("Recovery $11K", recovery_total, 11_000, tolerance=0.01)
+    r.check("Recovery ratio 0.08:1", recovery_ratio, 0.08, tolerance=0.02)
 
-    r.check("Walmart disputes 1209", get_channel(channels, "Walmart")["disputes_filed"], 1209, tolerance=0.0)
+    # --- 07-contribution.mdx claims ---
+    r.check("Walmart margin 74.1%", margin_pct(layers, "Walmart"), 74.1, tolerance=0.005)
+    r.check("UNFI margin 89.4%", margin_pct(layers, "UNFI"), 89.4, tolerance=0.005)
+    r.check("KeHE margin 89.0%", margin_pct(layers, "KeHE"), 89.0, tolerance=0.005)
+    r.check("DTC margin 92.0%", margin_pct(layers, "DTC"), 92.0, tolerance=0.005)
+    r.check("Regional Group margin 75.5%", margin_pct(layers, "Regional Group"), 75.5, tolerance=0.005)
+    r.check("Costco margin 72.1%", margin_pct(layers, "Costco"), 72.1, tolerance=0.005)
+    r.check("Whole Foods margin 79.0%", margin_pct(layers, "Whole Foods"), 79.0, tolerance=0.005)
 
-    # --- 06-contribution.mdx claims ---
-    r.check("Walmart margin 21.1%", margin_pct(layers, "Walmart"), 21.1, tolerance=0.005)
-    r.check("UNFI margin 22.3%", margin_pct(layers, "UNFI"), 22.3, tolerance=0.005)
-    r.check("KeHE margin 23.1%", margin_pct(layers, "KeHE"), 23.1, tolerance=0.005)
-    r.check("DTC margin 73.2%", margin_pct(layers, "DTC"), 73.2, tolerance=0.005)
-    r.check("Regional Group margin", margin_pct(layers, "Regional Group"), 35.5, tolerance=0.10)
-
-    # "COGS consuming 51-59% of revenue" for retailers
+    # Retailer COGS 14-17%
     retailer_cogs_rates = []
     for ch in layers[0]["channels"]:
-        if ch["channel_name"] != "DTC" and ch.get("channel_type") != "distributor":
+        if ch.get("channel_type") == "retailer":
             name = ch["channel_name"]
             cogs_ch = next(c for c in channels if c["channel_name"] == name)
             rate = (cogs_ch["total_cogs"] / cogs_ch["gross_revenue"]) * 100
             retailer_cogs_rates.append(rate)
-    r.check_range("Retailer COGS 51-59%", min(retailer_cogs_rates), max(retailer_cogs_rates), 51, 59)
+    r.check_range("Retailer COGS 14-17%", min(retailer_cogs_rates), max(retailer_cogs_rates), 14, 17)
 
-    # Distributors $6.4M revenue, $1.5M contribution
-    dist_rev = sum(layer_value(layers, 0, n) for n in ["UNFI", "KeHE"])
-    dist_contrib = sum(layer_value(layers, 4, n) for n in ["UNFI", "KeHE"])
-    r.check("Distributors revenue $6.4M", dist_rev, 6_400_000, tolerance=0.01)
-    r.check("Distributors contribution $1.5M", dist_contrib, 1_500_000, tolerance=0.05)
+    # All distributors: $1.6M revenue, $1.4M contribution
+    dist_names = [c["channel_name"] for c in channels if c["channel_type"] == "distributor"]
+    dist_rev = sum(layer_value(layers, 0, n) for n in dist_names)
+    dist_contrib = sum(layer_value(layers, 4, n) for n in dist_names)
+    r.check("Distributors revenue $1.6M", dist_rev, 1_600_000, tolerance=0.01)
+    r.check("Distributors contribution $1.4M", dist_contrib, 1_430_000, tolerance=0.01)
 
-    # --- 07-allocation.mdx claims ---
+    # --- 08-allocation.mdx claims ---
     dtc_rev = layer_value(layers, 0, "DTC")
-    r.check("DTC revenue $1.3M", dtc_rev, 1_300_000, tolerance=0.01)
+    r.check("DTC revenue $367K", dtc_rev, 367_000, tolerance=0.01)
 
-    wm_vague = next(
-        item["amount"] for ch in layers[2]["channels"]
-        if ch["channel_name"] == "Walmart"
-        for item in ch.get("breakdown", [])
-        if item.get("type") == "vague"
-    )
-    r.check("Walmart vague deductions $456K", wm_vague, 456_000, tolerance=0.01)
+    # Costco overhead $24K (also validated above, cross-check for allocation section)
+    r.check("Costco highest overhead $24K", costco_overhead, 24_000, tolerance=0.01)
 
     # --- 06-trends.mdx claims ---
-    # Costco margins swing from 23% to 39%
+    # Costco margins range 79.5%-81.4%
     costco_margins = [
         next(c["margin_pct"] for c in q["channels"] if c["channel_name"] == "Costco")
         for q in trends
     ]
-    r.check_range("Costco trend margin 23%-39%",
-                  min(costco_margins), max(costco_margins), 23, 39, tolerance=1.0)
+    r.check_range("Costco trend margin 79.5%-81.4%",
+                  min(costco_margins), max(costco_margins), 79.5, 81.4, tolerance=0.5)
 
     return r
 
