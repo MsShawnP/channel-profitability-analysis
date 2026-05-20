@@ -31,7 +31,7 @@ export interface TrendChartProps {
 
 const MARGIN = { top: 12, right: 140, bottom: 40, left: 50 };
 const CHART_HEIGHT = 300;
-const GRIDLINE_COLOR = '#e5e0d8';
+const GRIDLINE_COLOR = '#d9d9d9';
 const TRANSITION_DURATION = 200;
 const DOT_RADIUS = 3;
 const MIN_LABEL_GAP = 13;
@@ -240,7 +240,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
         g.selectAll('.tick text')
           .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
           .attr('font-size', '12px')
-          .attr('fill', '#6b6b6b');
+          .attr('fill', '#595959');
       });
 
     // Y axis
@@ -256,7 +256,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
       g.selectAll('.tick text')
         .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
         .attr('font-size', '12px')
-        .attr('fill', '#6b6b6b');
+        .attr('fill', '#595959');
     });
 
   }, [series, data, pinnedChannel, handleClick, prefersReducedMotion]);
@@ -268,7 +268,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
         fontSize: '22px',
         fontWeight: 700,
         lineHeight: 1.3,
-        color: '#2a2a2a',
+        color: '#333333',
         margin: '0 0 16px 0',
       }}>
         {label}

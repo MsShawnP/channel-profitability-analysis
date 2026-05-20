@@ -3,16 +3,16 @@
  * Formatting, palette lookup, and constants used across chart files.
  */
 
-/** Sequential teal palette ordered darkest (rank 0) to lightest (rank 7). */
+/** Hong Kong sequential teal — Lailara Design System v2. */
 export const TEAL_PALETTE: string[] = [
-  '#0A3D3D', // Rank 1 (largest)
-  '#14605C', // Rank 2
-  '#1F8078', // Rank 3
-  '#2A9D93', // Rank 4
-  '#45B5AA', // Rank 5
-  '#6BCABD', // Rank 6
-  '#93DCD2', // Rank 7
-  '#BDEEE8', // Rank 8 (smallest)
+  '#063d32', // HK-5  (darkest = largest)
+  '#0a5c4b', // HK-15
+  '#0e6e5a', // HK-25
+  '#158f75', // HK-35
+  '#1fa282', // HK-45
+  '#35b595', // HK-55
+  '#6dcdb5', // HK-70
+  '#b5e4d8', // HK-85 (lightest = smallest)
 ];
 
 /**

@@ -1,30 +1,31 @@
 @import './fonts.css';
 
 :root {
-  /* Page chrome */
-  --color-bg: #f8f6f1;
-  --color-text: #2a2a2a;
-  --color-text-secondary: #6b6b6b;
-  --color-gridline: #e5e0d8;
-  --color-border: #d8d4c8;
+  /* Page chrome — Lailara Design System v2 */
+  --color-bg: #f5f3ee;          /* Canvas (London-100 warmed) */
+  --color-text: #333333;        /* London-20 */
+  --color-text-secondary: #595959; /* London-35 */
+  --color-gridline: #d9d9d9;    /* London-85 */
+  --color-border: #d9d9d9;      /* London-85 */
+  --color-ink: #0d0d0d;         /* London-5 */
+  --color-reference: #666666;   /* London-40 */
+  --color-disabled: #b3b3b3;    /* London-70 */
 
-  /* Data accents */
-  --color-navy: #1b3a5c;
-  --color-navy-hover: #14304b;
-  --color-steel: #4a7ba7;
-  --color-red: #c54b4b;
-  --color-warm-gray: #8c7d6d;
-  --color-light-gray: #b8afa6;
+  /* Data accents — Chicago blue */
+  --color-navy: #1f2e7a;        /* Chicago-20 */
+  --color-navy-hover: #141e52;  /* Chicago-10 */
+  --color-navy-light: #8e9ad0;  /* Chicago-70 */
+  --color-red: #cc100a;         /* Red-42 — text and 1px rules only */
 
-  /* Sequential teal palette (ranked by magnitude) */
-  --teal-1: #0A3D3D;
-  --teal-2: #14605C;
-  --teal-3: #1F8078;
-  --teal-4: #2A9D93;
-  --teal-5: #45B5AA;
-  --teal-6: #6BCABD;
-  --teal-7: #93DCD2;
-  --teal-8: #BDEEE8;
+  /* Sequential teal palette — Hong Kong (ranked by magnitude) */
+  --teal-1: #063d32;            /* HK-5  (darkest = largest) */
+  --teal-2: #0a5c4b;            /* HK-15 */
+  --teal-3: #0e6e5a;            /* HK-25 */
+  --teal-4: #158f75;            /* HK-35 */
+  --teal-5: #1fa282;            /* HK-45 */
+  --teal-6: #35b595;            /* HK-55 */
+  --teal-7: #6dcdb5;            /* HK-70 */
+  --teal-8: #b5e4d8;            /* HK-85 (lightest = smallest) */
 
   /* Dark callout card */
   --card-bg: #1a1a1a;

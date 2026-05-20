@@ -142,3 +142,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Optional /ce:compound to extract learnings. Otherwise this arc is done — project is in maintenance mode.
 
 ---
+
+## 2026-05-20 12:15
+
+**What changed:** Fixed all color tokens across 7 files to match Lailara Design System v2. Every color was wrong; typography, layout, and interaction patterns were already correct.
+
+**Why:** Audit against the design system revealed ad-hoc hex values throughout — canvas, text, gridlines, navy accent (wrong hue entirely), red, and the full teal palette all diverged from the spec. Chicago blue replaced steel blue; Hong Kong HK-5–HK-85 replaced custom teals.
+
+**State:** All colors now match LAILARA_DESIGN_SYSTEM.md. Files changed: global.css, chartUtils.ts, ChannelChart.tsx, TrendChart.tsx, MarginTable.tsx, 08-allocation.mdx, print.css. Build passes, zero console errors, verified via preview_inspect. Not yet redeployed.
+
+**Next:** Redeploy to Cloudflare Pages with corrected colors.
+
+---

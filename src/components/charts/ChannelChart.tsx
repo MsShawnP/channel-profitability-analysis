@@ -25,7 +25,7 @@ export interface ChannelChartProps {
 const MARGIN = { top: 12, right: 80, bottom: 40, left: 140 };
 const BAR_HEIGHT = 36;
 const BAR_GAP = 8;
-const GRIDLINE_COLOR = '#e5e0d8';
+const GRIDLINE_COLOR = '#d9d9d9';
 const TRANSITION_DURATION = 200;
 
 /**
@@ -180,7 +180,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         .attr('dy', '0.35em')
         .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
         .attr('font-size', '12px')
-        .attr('fill', '#2a2a2a')
+        .attr('fill', '#333333')
         .text((d) => formatCompact(d.value))
         .style('opacity', (d) => {
           if (!pinnedChannel) return 1;
@@ -224,7 +224,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         .attr('text-anchor', 'end')
         .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
         .attr('font-size', '12px')
-        .attr('fill', '#2a2a2a')
+        .attr('fill', '#333333')
         .text((d) => d.channel_name)
         .style('opacity', (d) => {
           if (!pinnedChannel) return 1;
@@ -272,7 +272,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         g.selectAll('.tick text')
           .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
           .attr('font-size', '12px')
-          .attr('fill', '#6b6b6b');
+          .attr('fill', '#595959');
       });
 
   }, [sortedData, pinnedChannel, handleBarClick, prefersReducedMotion]);
@@ -288,7 +288,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         fontSize: '22px',
         fontWeight: 700,
         lineHeight: 1.3,
-        color: '#2a2a2a',
+        color: '#333333',
         margin: '0 0 16px 0',
       }}>
         {layerLabel}

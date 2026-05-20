@@ -24,7 +24,7 @@ export default function MarginTable({ rows, highlight }: MarginTableProps) {
     <div style={{ overflowX: 'auto' }}>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: "var(--font-sans, 'Source Sans 3', sans-serif)", fontSize: '14px' }}>
         <thead>
-          <tr style={{ borderBottom: '2px solid #d8d4c8', textAlign: 'left' }}>
+          <tr style={{ borderBottom: '2px solid #d9d9d9', textAlign: 'left' }}>
             <th style={{ padding: '8px 12px', fontWeight: 600 }}>Channel</th>
             <th style={{ padding: '8px 12px', fontWeight: 600, textAlign: 'right' }}>Revenue</th>
             <th style={{ padding: '8px 12px', fontWeight: 600, textAlign: 'right' }}>Net Contribution</th>
@@ -34,11 +34,11 @@ export default function MarginTable({ rows, highlight }: MarginTableProps) {
         </thead>
         <tbody>
           {rows.map((m) => (
-            <tr key={m.channel_name} style={{ borderBottom: '1px solid #e5e0d8', backgroundColor: highlight && m.channel_name === highlight ? '#f0ede6' : 'transparent' }}>
+            <tr key={m.channel_name} style={{ borderBottom: '1px solid #d9d9d9', backgroundColor: highlight && m.channel_name === highlight ? '#e4f5f0' : 'transparent' }}>
               <td style={{ padding: '8px 12px' }}>{m.channel_name}</td>
               <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{fmt(m.revenue)}</td>
               <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{fmt(m.contribution)}</td>
-              <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums', color: parseFloat(m.margin_pct) < 85 ? '#c54b4b' : '#2a2a2a' }}>{m.margin_pct}%</td>
+              <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums', color: parseFloat(m.margin_pct) < 85 ? '#cc100a' : '#333333' }}>{m.margin_pct}%</td>
               <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>{fmt(m.erosion)}</td>
             </tr>
           ))}
