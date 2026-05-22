@@ -206,6 +206,6 @@ FAILURES.md. Project brief exists in Downloads as reference.
 
 **State:** Site redeployed with DTC fix and security headers. Build passes. All tests pass (34/34 prose, 160+ math checks). `/improve` logged in PLAN.md Improvement History. Next review due 2026-06-22.
 
-**Next:** Commit and push. Otherwise maintenance mode.
+**Next:** Maintenance mode. No open tasks. Next /improve audit due 2026-06-22.
 
 ---

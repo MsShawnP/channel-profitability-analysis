@@ -79,6 +79,15 @@ Each entry:
 
 ---
 
+## Testing & QA
+
+### 2026-05-22 — Prose-data tests validate pipeline math, not UI rendering
+- **Why:** The DTC case mismatch (`"dtc"` vs `"DTC"`) passed all 34 automated tests but produced empty charts on the live site. Pipeline tests confirm numbers are correct; they cannot confirm components render those numbers. Visual verification (browser testing via /qa or preview) is required after any change to channel_type, channel_id, or filter logic.
+- **Scope:** Test suite design and QA workflow
+- **Do not:** Assume passing prose-data tests means the site renders correctly. Always run /qa or check the live site after data pipeline changes.
+
+---
+
 ## Reversed / Superseded
 
 When a decision is overturned:
