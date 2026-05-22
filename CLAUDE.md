@@ -26,6 +26,7 @@ TBD — determined during /clarify and /ce:brainstorm sessions.
 
 - CLAUDE.md (this file) — permanent rules and facts
 - DECISIONS.md — durable choices and reasoning
+- docs/solutions/ — documented learnings (searchable by frontmatter)
 - HANDOFF.md — current session state
 - PLAN.md — current work arc
 - FAILURES.md — things tried that didn't work
