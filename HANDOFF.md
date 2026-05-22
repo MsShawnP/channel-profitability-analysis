@@ -185,3 +185,27 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Run `/improve` for project health check. Otherwise maintenance mode.
 
 ---
+
+## 2026-05-22 — /improve pass (12 findings, all fixed)
+
+**What changed:** Full /improve audit (3 automated reviewers + manual) found 12 issues across 3 priority levels. All 12 fixed and redeployed.
+
+**Did:**
+- CRITICAL: Fixed DTC channel_type case mismatch (`"dtc"` → `"DTC"`) — live site was showing empty DTC charts across 5 sections
+- CRITICAL: Rewrote `refresh_data.py` — was referencing non-existent tables (`fct_orders`, `fct_deductions`) and wrong columns. Now uses correct schema (`fct_retailer_orders`, `fct_distributor_orders`, `fct_dtc_orders`, `fct_retailer_deductions`, `fct_distributor_deductions`) and covers both retailers and distributors
+- CRITICAL: Rewrote `verify_math.py` — was using hardcoded stale values with wrong channel indices. Now derives all values from JSON (160+ checks)
+- CRITICAL: Rewrote `verify_roi.py` — was completely stale. Now derives from layers.json
+- IMPORTANT: Rewrote README.md with correct revenue ($76.8M), stack, setup, pipeline, and validation docs
+- IMPORTANT: Filled in CLAUDE.md Stack section (was "TBD"), corrected revenue figure
+- IMPORTANT: Populated DECISIONS.md with 4 documented decisions (quarterly margin formula, Postgres SSOT, output format, voice)
+- IMPORTANT: `npm audit fix` resolved ws vulnerability (3 of 5 vulns); astro XSS deferred (breaking major version change, no user input on static site)
+- NICE TO HAVE: Expanded .gitignore (`.wrangler/`, `*.sqlite`, credentials, backups)
+- NICE TO HAVE: Added security headers via `public/_headers` (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy)
+- NICE TO HAVE: Marked AUDIT.md as historical with note about data refresh
+- Data review confirmed: all 120 calculation checks pass, trends/fiscal ~0.3% rounding gap is expected (different aggregation paths)
+
+**State:** Site redeployed with DTC fix and security headers. Build passes. All tests pass (34/34 prose, 160+ math checks). `/improve` logged in PLAN.md Improvement History. Next review due 2026-06-22.
+
+**Next:** Commit and push. Otherwise maintenance mode.
+
+---

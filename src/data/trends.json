@@ -31,7 +31,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 38338.66,
         "cogs": 6674.76,
         "deductions": 0,
@@ -126,7 +126,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 47597.63,
         "cogs": 8286.75,
         "deductions": 0,
@@ -221,7 +221,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 46882.85,
         "cogs": 8162.3,
         "deductions": 0,
@@ -316,7 +316,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 61057.42,
         "cogs": 10630.1,
         "deductions": 0,
@@ -411,7 +411,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 39586.25,
         "cogs": 6891.97,
         "deductions": 0,
@@ -506,7 +506,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 48098.82,
         "cogs": 8374.0,
         "deductions": 0,
@@ -601,7 +601,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 45839.43,
         "cogs": 7980.64,
         "deductions": 0,
@@ -696,7 +696,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 56054.77,
         "cogs": 9759.14,
         "deductions": 0,
@@ -791,7 +791,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 35748.25,
         "cogs": 6223.77,
         "deductions": 0,
@@ -886,7 +886,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 42778.6,
         "cogs": 7447.75,
         "deductions": 0,
@@ -981,7 +981,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 45076.15,
         "cogs": 7847.76,
         "deductions": 0,
@@ -1076,7 +1076,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "revenue": 63895.48,
         "cogs": 11124.2,
         "deductions": 0,

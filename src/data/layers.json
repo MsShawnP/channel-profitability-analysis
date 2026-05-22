@@ -24,7 +24,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "value": 572510.27,
         "breakdown": []
       },
@@ -109,7 +109,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "value": 472836.23,
         "previous_value": 572510.27,
         "breakdown": [
@@ -290,7 +290,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "value": 472836.23,
         "previous_value": 472836.23,
         "breakdown": []
@@ -580,7 +580,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "value": 472836.23,
         "previous_value": 472836.23,
         "breakdown": []
@@ -858,7 +858,7 @@
       },
       {
         "channel_name": "DTC",
-        "channel_type": "dtc",
+        "channel_type": "DTC",
         "value": 472836.23,
         "previous_value": 472836.23,
         "breakdown": []

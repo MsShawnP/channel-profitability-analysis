@@ -101,4 +101,23 @@ Track when this project was reviewed and improved via /improve.
 Each entry records what was found, what was fixed, and when to
 check again.
 
+### 2026-05-22 — Improvement pass
+- **Trigger:** User-initiated `/improve` after data refresh
+- **What was reviewed:** Code quality (4-agent ensemble), security, data/analysis correctness (120 calculation checks), manual audit of all files
+- **What was fixed:**
+  - CRITICAL: DTC channel_type case mismatch (`"dtc"` → `"DTC"`) — live site showed empty DTC charts
+  - CRITICAL: Rewrote `refresh_data.py` — was referencing non-existent tables/columns, now uses correct schema
+  - CRITICAL: Rewrote `verify_math.py` — was using hardcoded stale values, now derives from JSON
+  - CRITICAL: Rewrote `verify_roi.py` — was completely stale, now derives from JSON
+  - IMPORTANT: README rewritten with correct revenue figure, setup, pipeline, and validation docs
+  - IMPORTANT: CLAUDE.md Stack section filled in (was "TBD")
+  - IMPORTANT: DECISIONS.md populated with 4 documented decisions
+  - IMPORTANT: npm audit fix (ws vulnerability resolved; astro XSS deferred — breaking change, no user input)
+  - NICE TO HAVE: .gitignore expanded (.wrangler/, *.sqlite, credentials, backups)
+  - NICE TO HAVE: Security headers added (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy)
+  - NICE TO HAVE: AUDIT.md marked as historical with note about data refresh
+  - NICE TO HAVE: Trends/fiscal ~0.3% rounding gap confirmed as expected (different aggregation paths)
+- **Deferred:** Astro major version upgrade (5.9→6.3) for XSS fix — breaking change, low risk for static site with no user input
+- **Next review:** 2026-06-22
+
 <!-- Entries are added by /improve — don't delete this section -->

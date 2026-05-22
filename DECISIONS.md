@@ -49,15 +49,33 @@ Each entry:
 
 ---
 
+### 2026-05-17 — Quarterly trend margin excludes fines and operational overhead
+- **Why:** Compliance fines and operational overhead are reported with quarterly lags and would produce misleading quarter-by-quarter trends. The annual contribution margin includes all five layers; the quarterly trend uses a three-layer formula (revenue − COGS − deductions) / revenue. This is disclosed in the trends section footnote.
+- **Scope:** Trends section (06-trends.mdx) and trends.json generation
+- **Do not:** Add fines or overhead to quarterly margin without solving the reporting-lag problem first.
+
+### 2026-05-22 — Postgres is the SSOT; tools use JSON/SQLite intermediaries
+- **Why:** User directive. The Postgres database on Fly.io (cinderhaven-db) is the single source of truth. generate_json.py embeds snapshot constants extracted from Postgres for offline use. Scripts must never modify Postgres.
+- **Scope:** All data pipeline scripts (generate_json.py, refresh_data.py)
+- **Do not:** Write to or modify the Postgres database. Pull from it only.
+
+---
+
 ## Output Formats
 
-[Decisions about deliverable formats, structure, organization]
+### 2026-05-16 — Scrollable web narrative, not PDF or slides
+- **Why:** The Economist-style narrative format with interactive drill-downs is the differentiator. PDF/slides are a follow-on phase after the web version is solid. The format itself — progressive disclosure through scroll + click-to-pin — is what makes this portfolio piece unique.
+- **Scope:** Primary deliverable format
+- **Do not:** Add PDF export to this arc. It's explicitly out of scope in PLAN.md.
 
 ---
 
 ## Writing & Voice
 
-[Voice, style, terminology decisions specific to this project]
+### 2026-05-16 — Economist style, no marketing voice
+- **Why:** The narrative targets executives who are skeptical of consultant jargon. Sober, declarative, data-forward prose builds credibility. Marketing voice ("unlock value," "drive synergy") undermines it. The data leads; the prose follows.
+- **Scope:** All MDX narrative sections
+- **Do not:** Hedge findings or soften conclusions. If the data says a channel is underperforming, say so directly.
 
 ---
 

@@ -8,7 +8,7 @@ Read `../lailara-design-system/LAILARA_DESIGN_SYSTEM.md` before any visual work 
 ## What this project is
 
 Channel-by-channel profitability analysis for a fictional specialty
-food brand (Cinderhaven, ~$24M annual revenue, fiscal year to March 2026).
+food brand (Cinderhaven, ~$76.8M annual revenue across 10 channels).
 First buyer-facing consumer of the Cinderhaven Data Platform. Tier 1
 flagship portfolio piece.
 
@@ -20,7 +20,14 @@ Tier: Heavy
 
 ## Stack and tools
 
-TBD — determined during /clarify and /ce:brainstorm sessions.
+- **Framework:** Astro 5.9 (static site with React islands)
+- **Charts:** D3 v7 + React 19
+- **Content:** MDX narrative sections
+- **Data pipeline:** Python (`scripts/generate_json.py`) → JSON → MDX → React/D3
+- **Deployment:** Cloudflare Pages (via Wrangler)
+- **Typography:** Self-hosted Playfair Display + Source Sans 3
+- **Types:** TypeScript
+- **Data SSOT:** Postgres on Fly.io (`cinderhaven-db`)
 
 ## Project files
 

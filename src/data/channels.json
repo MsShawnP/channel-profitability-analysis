@@ -32,7 +32,7 @@
   {
     "channel_id": "DTC",
     "channel_name": "DTC",
-    "channel_type": "dtc",
+    "channel_type": "DTC",
     "gross_revenue": 572510.27,
     "total_cogs": 99674.04,
     "total_deductions": 0,

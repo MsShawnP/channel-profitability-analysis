@@ -1,11 +1,24 @@
 """Verify internal math consistency of all JSON data files."""
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 channels = json.loads((ROOT / "src/data/channels.json").read_text())
 layers = json.loads((ROOT / "src/data/layers.json").read_text())
 trends = json.loads((ROOT / "src/data/trends.json").read_text())
+
+errors = 0
+
+
+def check(label, actual, expected, tolerance=0.02):
+    global errors
+    if abs(actual - expected) > tolerance:
+        print(f"  FAIL: {label}: got {actual}, expected {expected}")
+        errors += 1
+    else:
+        print(f"  OK:   {label}")
+
 
 total_rev = sum(c["gross_revenue"] for c in channels)
 print("Total revenue: ${:,.2f}".format(total_rev))
@@ -15,74 +28,71 @@ total_contrib = sum(c["value"] for c in net_layer["channels"])
 print("Total net contribution: ${:,.2f}".format(total_contrib))
 print("Overall margin: {:.1f}%".format((total_contrib / total_rev) * 100))
 
+# Layer consistency: each layer's value should equal previous_value minus breakdown amounts
+print("\nLayer consistency checks:")
+for layer_idx in range(1, 5):
+    layer = layers[layer_idx]
+    for ch in layer["channels"]:
+        name = ch["channel_name"]
+        prev = ch.get("previous_value", 0)
+        breakdown_total = sum(item["amount"] for item in ch.get("breakdown", []))
+        expected_value = round(prev - breakdown_total, 2)
+        check(f"Layer {layer_idx} {name}", ch["value"], expected_value)
+
+# Cross-file: channels.json revenue matches layers[0]
+print("\nCross-file revenue checks:")
+for ch_data in channels:
+    name = ch_data["channel_name"]
+    layer0_ch = next(c for c in layers[0]["channels"] if c["channel_name"] == name)
+    check(f"{name} revenue", ch_data["gross_revenue"], layer0_ch["value"])
+
+# Cross-file: channels.json COGS matches layers[1] breakdown
+print("\nCross-file COGS checks:")
+for ch_data in channels:
+    name = ch_data["channel_name"]
+    layer1_ch = next(c for c in layers[1]["channels"] if c["channel_name"] == name)
+    cogs_from_layer = layer1_ch["breakdown"][0]["amount"] if layer1_ch["breakdown"] else 0
+    check(f"{name} COGS", ch_data["total_cogs"], cogs_from_layer)
+
+# Channel margins
 print("\nChannel margins:")
-rev_layer = layers[0]
-for rev_ch in rev_layer["channels"]:
+for rev_ch in layers[0]["channels"]:
     name = rev_ch["channel_name"]
     net_ch = next(c for c in net_layer["channels"] if c["channel_name"] == name)
     margin = (net_ch["value"] / rev_ch["value"]) * 100
     print("  {:20s}: {:.1f}%".format(name, margin))
 
+# Aggregate deduction totals from layer breakdowns
+print("\nAggregate totals from layers:")
 trade_total = sum(
-    layers[1]["channels"][i]["value"] - layers[2]["channels"][i]["value"]
-    for i in range(len(channels))
+    sum(item["amount"] for item in ch.get("breakdown", []))
+    for ch in layers[2]["channels"]
 )
-print("\nTrade deductions: ${:,.2f}".format(trade_total))
+print("  Trade deductions + promo: ${:,.2f}".format(trade_total))
 
 fines_total = sum(
-    layers[2]["channels"][i]["value"] - layers[3]["channels"][i]["value"]
-    for i in range(len(channels))
+    sum(item["amount"] for item in ch.get("breakdown", []))
+    for ch in layers[3]["channels"]
 )
-print("Compliance fines: ${:,.2f}".format(fines_total))
+print("  Compliance fines: ${:,.2f}".format(fines_total))
 
 overhead_total = sum(
-    layers[3]["channels"][i]["value"] - layers[4]["channels"][i]["value"]
-    for i in range(len(channels))
+    sum(item["amount"] for item in ch.get("breakdown", []))
+    for ch in layers[4]["channels"]
 )
-print("Operational overhead: ${:,.2f}".format(overhead_total))
+print("  Operational overhead: ${:,.2f}".format(overhead_total))
 
-print("\nDTC in quarterly trends:")
+# Trend data: margin_pct should equal (contribution/revenue)*100
+print("\nTrend margin checks (sample quarters):")
 for q in trends:
-    dtc = next((c for c in q["channels"] if c["channel_name"] == "DTC"), None)
-    if dtc:
-        print("  {}: rev=${:,.0f} margin={}%".format(q["quarter"], dtc["revenue"], dtc["margin_pct"]))
+    for ch in q["channels"]:
+        if ch["revenue"] > 0:
+            expected_margin = round((ch["contribution"] / ch["revenue"]) * 100, 1)
+            check(f"{q['quarter']} {ch['channel_name']} margin", ch["margin_pct"], expected_margin, tolerance=0.15)
 
-print("\nKey prose claim checks:")
-wf_rev = next(c for c in channels if c["channel_name"] == "Whole Foods")["gross_revenue"]
-wf_trade = layers[1]["channels"][3]["value"] - layers[2]["channels"][3]["value"]
-print("  Whole Foods trade ded rate: {:.1f}% (prose says 18.1%)".format((wf_trade / wf_rev) * 100))
-
-wm_trade = layers[1]["channels"][0]["value"] - layers[2]["channels"][0]["value"]
-print("  Walmart trade ded rate: {:.1f}% (prose says 15.1%)".format((wm_trade / channels[0]["gross_revenue"]) * 100))
-
-# Spoilage total
-spoilage_total = 0
-for ch in layers[3]["channels"]:
-    for item in ch.get("breakdown", []):
-        if item.get("type") == "spoilage":
-            spoilage_total += item["amount"]
-print("  Spoilage total: ${:,.0f} (prose says $527K)".format(spoilage_total))
-
-# Label fines total
-label_total = 0
-for ch in layers[3]["channels"]:
-    for item in ch.get("breakdown", []):
-        if item.get("type") == "label_fine":
-            label_total += item["amount"]
-print("  Label fines total: ${:,.0f} (prose says $106K)".format(label_total))
-
-# Vague total
-vague_total = 0
-for ch in layers[2]["channels"]:
-    for item in ch.get("breakdown", []):
-        if item.get("type") == "vague":
-            vague_total += item["amount"]
-print("  Unclassified total: ${:,.0f} (prose says $1.2M)".format(vague_total))
-
-# Promo billback total
-promo_total = 0
-for ch in layers[2]["channels"]:
-    for item in ch.get("breakdown", []):
-        if item.get("type") == "promo_billback":
-            promo_total += item["amount"]
-print("  Promo billbacks total: ${:,.0f} (prose says $1.7M)".format(promo_total))
+print(f"\n{'=' * 40}")
+if errors > 0:
+    print(f"FAILED: {errors} checks did not pass")
+    sys.exit(1)
+else:
+    print("ALL CHECKS PASSED")

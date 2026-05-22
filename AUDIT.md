@@ -1,4 +1,10 @@
-# Project Audit
+# Project Audit (Historical — May 2026)
+
+> **Note:** This audit was conducted 2026-05-17 against the original ~$24M
+> dataset. The data has since been refreshed to ~$76.8M (2026-05-22).
+> Specific dollar figures and percentages below reflect the pre-refresh
+> state. The structural findings (architecture, test gaps, pipeline design)
+> informed subsequent improvements. See HANDOFF.md for current state.
 
 ## Phase 1: Baseline Assessment
 **Date:** 2026-05-17

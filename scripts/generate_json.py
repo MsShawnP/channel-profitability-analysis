@@ -118,7 +118,7 @@ CHANNEL_IDS = {
 
 CHANNEL_TYPES = {
     "UNFI": "distributor", "DPI Northwest": "distributor", "KeHE": "distributor",
-    "DTC": "dtc",
+    "DTC": "DTC",
     "Sprouts": "retailer", "Whole Foods": "retailer",
     "Regional Group": "retailer",
     "Kroger": "retailer", "Walmart": "retailer", "Costco": "retailer",

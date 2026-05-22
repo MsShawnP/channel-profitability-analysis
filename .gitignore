@@ -26,6 +26,23 @@ dist/
 .astro/
 .wrangler/
 
+# Cloudflare
+.wrangler/
+
+# SQLite (intermediary caches)
+*.sqlite
+*.sqlite3
+*.db
+
+# Secrets / credentials
+*.key
+*.pem
+credentials.*
+
+# Backup files
+*.bak
+*.py.bak
+
 # Data files (if large)
 *.csv
 *.parquet
