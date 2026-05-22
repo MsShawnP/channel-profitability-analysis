@@ -39,24 +39,24 @@ export const fmt = (v) => new Intl.NumberFormat('en-US', { style: 'currency', cu
 
 Four layers of cost — COGS, trade deductions, compliance fines, and operational overhead — separate gross revenue from actual contribution. Across all channels, {fmt(totalErosion)} disappears between the top line and the bottom line. That is {((totalErosion / totalRevenue) * 100).toFixed(1)}% of revenue.
 
-But the erosion is not uniform, and it differs radically by segment. The cost stack that hits wholesale channels barely touches DTC.
+But the erosion is not uniform, and it differs by segment. Distributors retain 90 cents of every dollar; retailers surrender 17–20 cents; DTC falls between the two.
 
 <p class="segment-label">Retailers</p>
 
 <MarginTable rows={retailMargins} />
 
-Retail contribution margins range from 72% (Costco) to 79% (Whole Foods). COGS is the primary cost driver at 14–17% of revenue, followed by operational overhead from dispute triage. Whole Foods and Sprouts lead on margin; Costco and Walmart trail. The spread between the best and worst retailer is seven points — driven more by COGS ratios and overhead than by deduction intensity.
+Retail contribution margins range from 79.6% (Costco) to 82.7% (Whole Foods). COGS is the primary cost driver at 14–17% of revenue, followed by compliance fines and operational overhead from dispute triage. The spread between the best and worst retailer is three points — narrower than the gap between retailers and distributors. Together the six retailers generate $51.8M in revenue and contribute $42.0M after all costs.
 
 <p class="segment-label">Distributors</p>
 
 <MarginTable rows={distMargins} />
 
-UNFI, KeHE, and DPI Northwest retain 89–90% of revenue — the highest margins in the wholesale portfolio. Distributor COGS runs 8% of revenue (roughly half the retailer rate), and compliance fines are limited to damaged goods and late delivery. Together the three distributors represent $1.6M in revenue and contribute $1.4M after all costs.
+UNFI, KeHE, and DPI Northwest retain 89.9–90.9% of revenue — the highest margins in the portfolio. Distributor COGS runs 8–9% of revenue (roughly half the retailer rate), and compliance fines are limited to damaged goods and late delivery. Together the three distributors represent $24.5M in revenue and contribute $22.1M after all costs.
 
 <p class="segment-label">Direct-to-Consumer</p>
 
 <MarginTable rows={dtcMargins} highlight="DTC" />
 
-DTC retains 92.0% of revenue — the highest margin in the portfolio, though only modestly ahead of distributors (89–90%). Its COGS ratio (8.1%) is comparable to the distributor channels, and with zero deductions, zero fines, and zero dispute overhead, virtually the entire gross margin flows through.
+DTC retains 82.6% of revenue — better than retailers but below distributors. Its COGS ratio (17.4%) is comparable to retailers, not distributors, because DTC sells at full retail pricing on the same product cost base. With zero post-invoice deductions, zero fines, and zero dispute overhead, the margin advantage over retailers comes entirely from avoiding the deduction stack. But that advantage is not enough to match distributors, whose lower COGS ratios more than offset their modest deduction exposure.
 
-<p class="chart-footnote">Margin = net contribution / gross revenue. Erosion = gross revenue minus net contribution. DTC's lower COGS ratio reflects full retail pricing; wholesale channels sell at wholesale prices, compressing margins before deductions begin.</p>
+<p class="chart-footnote">Margin = net contribution / gross revenue. Erosion = gross revenue minus net contribution. DTC's higher COGS ratio reflects full retail pricing on the same product cost; wholesale channels sell at wholesale prices, spreading the fixed product cost over higher volumes.</p>

@@ -5,92 +5,92 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 50915.52,
-        "cogs": 4338.0,
-        "deductions": 707.15,
-        "contribution": 45870.37,
-        "margin_pct": 90.1
+        "revenue": 740038.56,
+        "cogs": 63051.29,
+        "deductions": 6015.4,
+        "contribution": 670971.87,
+        "margin_pct": 90.7
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 53710.08,
-        "cogs": 4060.48,
-        "deductions": 119.44,
-        "contribution": 49530.16,
-        "margin_pct": 92.2
+        "revenue": 337883.04,
+        "cogs": 25543.96,
+        "deductions": 2526.64,
+        "contribution": 309812.44,
+        "margin_pct": 91.7
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 36310.56,
-        "cogs": 3071.87,
-        "deductions": 313.84,
-        "contribution": 32924.85,
-        "margin_pct": 90.7
+        "revenue": 604097.76,
+        "cogs": 51106.67,
+        "deductions": 5471.28,
+        "contribution": 547519.81,
+        "margin_pct": 90.6
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 39383.52,
-        "cogs": 3170.37,
+        "revenue": 38338.66,
+        "cogs": 6674.76,
         "deductions": 0,
-        "contribution": 36213.15,
-        "margin_pct": 92.0
+        "contribution": 31663.9,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 34157.94,
-        "cogs": 5103.2,
-        "deductions": 479.61,
-        "contribution": 28575.13,
+        "revenue": 537777.84,
+        "cogs": 80344.01,
+        "deductions": 7486.57,
+        "contribution": 449947.26,
         "margin_pct": 83.7
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 37085.76,
-        "cogs": 5214.26,
-        "deductions": 373.38,
-        "contribution": 31498.12,
-        "margin_pct": 84.9
+        "revenue": 642028.56,
+        "cogs": 90269.22,
+        "deductions": 10722.08,
+        "contribution": 541037.26,
+        "margin_pct": 84.3
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 33409.02,
-        "cogs": 5181.74,
-        "deductions": 564.06,
-        "contribution": 27663.22,
-        "margin_pct": 82.8
+        "revenue": 388449.12,
+        "cogs": 60248.46,
+        "deductions": 4019.01,
+        "contribution": 324181.65,
+        "margin_pct": 83.5
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 31269.12,
-        "cogs": 4978.04,
-        "deductions": 509.27,
-        "contribution": 25781.81,
+        "revenue": 710033.76,
+        "cogs": 113037.37,
+        "deductions": 11484.64,
+        "contribution": 585511.75,
         "margin_pct": 82.5
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 34407.0,
-        "cogs": 5670.27,
-        "deductions": 473.78,
-        "contribution": 28262.95,
-        "margin_pct": 82.1
+        "revenue": 763554.0,
+        "cogs": 125833.7,
+        "deductions": 11580.06,
+        "contribution": 626140.24,
+        "margin_pct": 82.0
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 26399.52,
-        "cogs": 4453.6,
-        "deductions": 446.2,
-        "contribution": 21499.72,
-        "margin_pct": 81.4
+        "revenue": 433693.44,
+        "cogs": 73164.08,
+        "deductions": 4807.11,
+        "contribution": 355722.25,
+        "margin_pct": 82.0
       }
     ]
   },
@@ -100,92 +100,92 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 63253.32,
-        "cogs": 5389.18,
-        "deductions": 1055.61,
-        "contribution": 56808.53,
+        "revenue": 773337.6,
+        "cogs": 65888.36,
+        "deductions": 12916.17,
+        "contribution": 694533.07,
         "margin_pct": 89.8
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 56982.6,
-        "cogs": 4307.88,
-        "deductions": 68.32,
-        "contribution": 52606.4,
-        "margin_pct": 92.3
+        "revenue": 480131.52,
+        "cogs": 36297.94,
+        "deductions": 6617.83,
+        "contribution": 437215.75,
+        "margin_pct": 91.1
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 50223.72,
-        "cogs": 4248.93,
-        "deductions": 541.76,
-        "contribution": 45433.03,
-        "margin_pct": 90.5
+        "revenue": 599990.88,
+        "cogs": 50759.23,
+        "deductions": 10630.81,
+        "contribution": 538600.84,
+        "margin_pct": 89.8
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 44925.81,
-        "cogs": 3616.53,
+        "revenue": 47597.63,
+        "cogs": 8286.75,
         "deductions": 0,
-        "contribution": 41309.28,
-        "margin_pct": 91.9
+        "contribution": 39310.88,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 41547.24,
-        "cogs": 6207.16,
-        "deductions": 978.52,
-        "contribution": 34361.56,
-        "margin_pct": 82.7
+        "revenue": 671741.76,
+        "cogs": 100358.22,
+        "deductions": 16885.52,
+        "contribution": 554498.02,
+        "margin_pct": 82.5
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 36764.76,
-        "cogs": 5169.13,
-        "deductions": 1131.57,
-        "contribution": 30464.06,
-        "margin_pct": 82.9
+        "revenue": 828656.4,
+        "cogs": 116509.09,
+        "deductions": 20518.17,
+        "contribution": 691629.14,
+        "margin_pct": 83.5
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 35828.82,
-        "cogs": 5557.05,
-        "deductions": 926.64,
-        "contribution": 29345.13,
-        "margin_pct": 81.9
+        "revenue": 458830.56,
+        "cogs": 71164.62,
+        "deductions": 10410.6,
+        "contribution": 377255.34,
+        "margin_pct": 82.2
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 42865.92,
-        "cogs": 6824.25,
-        "deductions": 788.04,
-        "contribution": 35253.63,
-        "margin_pct": 82.2
+        "revenue": 775925.52,
+        "cogs": 123527.34,
+        "deductions": 18383.05,
+        "contribution": 634015.13,
+        "margin_pct": 81.7
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 33840.0,
-        "cogs": 5576.83,
-        "deductions": 939.77,
-        "contribution": 27323.4,
-        "margin_pct": 80.7
+        "revenue": 734754.0,
+        "cogs": 121087.46,
+        "deductions": 21547.53,
+        "contribution": 592119.01,
+        "margin_pct": 80.6
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 39300.48,
-        "cogs": 6629.99,
-        "deductions": 1436.57,
-        "contribution": 31233.92,
-        "margin_pct": 79.5
+        "revenue": 531711.36,
+        "cogs": 89699.71,
+        "deductions": 13278.67,
+        "contribution": 428732.98,
+        "margin_pct": 80.6
       }
     ]
   },
@@ -195,92 +195,92 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 63368.64,
-        "cogs": 5399.01,
-        "deductions": 1096.05,
-        "contribution": 56873.58,
-        "margin_pct": 89.8
+        "revenue": 820043.04,
+        "cogs": 69867.67,
+        "deductions": 11219.99,
+        "contribution": 738955.38,
+        "margin_pct": 90.1
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 75498.12,
-        "cogs": 5707.66,
-        "deductions": 917.46,
-        "contribution": 68873.0,
-        "margin_pct": 91.2
+        "revenue": 439206.24,
+        "cogs": 33203.99,
+        "deductions": 8664.28,
+        "contribution": 397337.97,
+        "margin_pct": 90.5
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 63789.12,
-        "cogs": 5396.56,
-        "deductions": 855.98,
-        "contribution": 57536.58,
-        "margin_pct": 90.2
+        "revenue": 601840.08,
+        "cogs": 50915.67,
+        "deductions": 8570.47,
+        "contribution": 542353.94,
+        "margin_pct": 90.1
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 43806.31,
-        "cogs": 3526.41,
+        "revenue": 46882.85,
+        "cogs": 8162.3,
         "deductions": 0,
-        "contribution": 40279.9,
-        "margin_pct": 91.9
+        "contribution": 38720.55,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 47728.92,
-        "cogs": 7130.7,
-        "deductions": 1057.71,
-        "contribution": 39540.51,
-        "margin_pct": 82.8
+        "revenue": 614320.08,
+        "cogs": 91779.42,
+        "deductions": 16759.33,
+        "contribution": 505781.33,
+        "margin_pct": 82.3
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 41478.3,
-        "cogs": 5831.85,
-        "deductions": 836.35,
-        "contribution": 34810.1,
-        "margin_pct": 83.9
+        "revenue": 734439.36,
+        "cogs": 103262.17,
+        "deductions": 21015.36,
+        "contribution": 610161.83,
+        "margin_pct": 83.1
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 37332.36,
-        "cogs": 5790.25,
-        "deductions": 1020.39,
-        "contribution": 30521.72,
+        "revenue": 474634.56,
+        "cogs": 73615.82,
+        "deductions": 12601.8,
+        "contribution": 388416.94,
         "margin_pct": 81.8
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 35529.18,
-        "cogs": 5656.25,
-        "deductions": 864.0,
-        "contribution": 29008.93,
-        "margin_pct": 81.6
+        "revenue": 796722.48,
+        "cogs": 126838.22,
+        "deductions": 23011.24,
+        "contribution": 646873.02,
+        "margin_pct": 81.2
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 44493.0,
-        "cogs": 7332.45,
-        "deductions": 915.46,
-        "contribution": 36245.09,
-        "margin_pct": 81.5
+        "revenue": 884832.0,
+        "cogs": 145820.31,
+        "deductions": 21754.29,
+        "contribution": 717257.4,
+        "margin_pct": 81.1
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 34996.32,
-        "cogs": 5903.88,
-        "deductions": 776.12,
-        "contribution": 28316.32,
-        "margin_pct": 80.9
+        "revenue": 520974.72,
+        "cogs": 87888.44,
+        "deductions": 10737.12,
+        "contribution": 422349.16,
+        "margin_pct": 81.1
       }
     ]
   },
@@ -290,92 +290,92 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 100437.6,
-        "cogs": 8557.28,
-        "deductions": 455.05,
-        "contribution": 91425.27,
-        "margin_pct": 91.0
+        "revenue": 1158884.16,
+        "cogs": 98736.93,
+        "deductions": 14384.02,
+        "contribution": 1045763.21,
+        "margin_pct": 90.2
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 107164.92,
-        "cogs": 8101.67,
-        "deductions": 2282.72,
-        "contribution": 96780.53,
-        "margin_pct": 90.3
+        "revenue": 583191.84,
+        "cogs": 44089.3,
+        "deductions": 9291.6,
+        "contribution": 529810.94,
+        "margin_pct": 90.8
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 64865.52,
-        "cogs": 5487.62,
-        "deductions": 814.72,
-        "contribution": 58563.18,
+        "revenue": 864382.32,
+        "cogs": 73126.74,
+        "deductions": 10382.72,
+        "contribution": 780872.86,
         "margin_pct": 90.3
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 58637.79,
-        "cogs": 4720.34,
+        "revenue": 61057.42,
+        "cogs": 10630.1,
         "deductions": 0,
-        "contribution": 53917.45,
-        "margin_pct": 92.0
+        "contribution": 50427.32,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 57955.26,
-        "cogs": 8658.52,
-        "deductions": 1292.23,
-        "contribution": 48004.51,
-        "margin_pct": 82.8
+        "revenue": 882586.08,
+        "cogs": 131858.36,
+        "deductions": 20829.44,
+        "contribution": 729898.28,
+        "margin_pct": 82.7
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 47878.32,
-        "cogs": 6731.69,
-        "deductions": 616.89,
-        "contribution": 40529.74,
-        "margin_pct": 84.7
+        "revenue": 990607.2,
+        "cogs": 139279.37,
+        "deductions": 19825.13,
+        "contribution": 831502.7,
+        "margin_pct": 83.9
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 49797.78,
-        "cogs": 7723.64,
-        "deductions": 1093.44,
-        "contribution": 40980.7,
-        "margin_pct": 82.3
+        "revenue": 593567.04,
+        "cogs": 92062.25,
+        "deductions": 14958.76,
+        "contribution": 486546.03,
+        "margin_pct": 82.0
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 48695.7,
-        "cogs": 7752.36,
-        "deductions": 1313.8,
-        "contribution": 39629.54,
-        "margin_pct": 81.4
+        "revenue": 1084892.88,
+        "cogs": 172714.95,
+        "deductions": 27611.1,
+        "contribution": 884566.83,
+        "margin_pct": 81.5
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 49933.5,
-        "cogs": 8229.04,
-        "deductions": 1093.16,
-        "contribution": 40611.3,
-        "margin_pct": 81.3
+        "revenue": 1158972.0,
+        "cogs": 190998.59,
+        "deductions": 27763.83,
+        "contribution": 940209.58,
+        "margin_pct": 81.1
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 54047.52,
-        "cogs": 9117.82,
-        "deductions": 1236.72,
-        "contribution": 43692.98,
-        "margin_pct": 80.8
+        "revenue": 712874.88,
+        "cogs": 120261.99,
+        "deductions": 15566.04,
+        "contribution": 577046.85,
+        "margin_pct": 80.9
       }
     ]
   },
@@ -385,92 +385,92 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 51715.56,
-        "cogs": 4406.17,
-        "deductions": 652.17,
-        "contribution": 46657.22,
-        "margin_pct": 90.2
+        "revenue": 803893.92,
+        "cogs": 68491.76,
+        "deductions": 18045.26,
+        "contribution": 717356.9,
+        "margin_pct": 89.2
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 44808.36,
-        "cogs": 3387.51,
-        "deductions": 758.79,
-        "contribution": 40662.06,
-        "margin_pct": 90.7
+        "revenue": 367007.52,
+        "cogs": 27745.77,
+        "deductions": 4612.08,
+        "contribution": 334649.67,
+        "margin_pct": 91.2
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 75135.48,
-        "cogs": 6356.46,
-        "deductions": 1196.33,
-        "contribution": 67582.69,
-        "margin_pct": 89.9
+        "revenue": 622286.16,
+        "cogs": 52645.41,
+        "deductions": 9835.88,
+        "contribution": 559804.87,
+        "margin_pct": 90.0
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 38253.4,
-        "cogs": 3079.4,
+        "revenue": 39586.25,
+        "cogs": 6891.97,
         "deductions": 0,
-        "contribution": 35174.0,
-        "margin_pct": 91.9
+        "contribution": 32694.28,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 34795.92,
-        "cogs": 5198.51,
-        "deductions": 1400.09,
-        "contribution": 28197.32,
-        "margin_pct": 81.0
+        "revenue": 594437.04,
+        "cogs": 88808.89,
+        "deductions": 20990.19,
+        "contribution": 484637.96,
+        "margin_pct": 81.5
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 36352.56,
-        "cogs": 5111.17,
-        "deductions": 1060.26,
-        "contribution": 30181.13,
-        "margin_pct": 83.0
+        "revenue": 618673.68,
+        "cogs": 86985.52,
+        "deductions": 21606.86,
+        "contribution": 510081.3,
+        "margin_pct": 82.4
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 35033.52,
-        "cogs": 5433.7,
-        "deductions": 664.4,
-        "contribution": 28935.42,
-        "margin_pct": 82.6
+        "revenue": 431552.4,
+        "cogs": 66933.78,
+        "deductions": 13592.55,
+        "contribution": 351026.07,
+        "margin_pct": 81.3
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 37436.82,
-        "cogs": 5959.94,
-        "deductions": 1063.25,
-        "contribution": 30413.63,
-        "margin_pct": 81.2
+        "revenue": 728585.76,
+        "cogs": 115990.85,
+        "deductions": 23193.19,
+        "contribution": 589401.72,
+        "margin_pct": 80.9
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 30003.0,
-        "cogs": 4944.49,
-        "deductions": 760.93,
-        "contribution": 24297.58,
-        "margin_pct": 81.0
+        "revenue": 746304.0,
+        "cogs": 122990.9,
+        "deductions": 25482.92,
+        "contribution": 597830.18,
+        "margin_pct": 80.1
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 30064.32,
-        "cogs": 5071.85,
-        "deductions": 974.34,
-        "contribution": 24018.13,
-        "margin_pct": 79.9
+        "revenue": 452695.68,
+        "cogs": 76369.76,
+        "deductions": 16174.82,
+        "contribution": 360151.1,
+        "margin_pct": 79.6
       }
     ]
   },
@@ -480,92 +480,92 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 67766.52,
-        "cogs": 5773.71,
-        "deductions": 1346.16,
-        "contribution": 60646.65,
-        "margin_pct": 89.5
+        "revenue": 789677.52,
+        "cogs": 67280.52,
+        "deductions": 12456.01,
+        "contribution": 709940.99,
+        "margin_pct": 89.9
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 84031.92,
-        "cogs": 6352.81,
-        "deductions": 1315.08,
-        "contribution": 76364.03,
-        "margin_pct": 90.9
+        "revenue": 463061.28,
+        "cogs": 35007.43,
+        "deductions": 6024.18,
+        "contribution": 422029.67,
+        "margin_pct": 91.1
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 58658.28,
-        "cogs": 4962.49,
-        "deductions": 800.28,
-        "contribution": 52895.51,
-        "margin_pct": 90.2
+        "revenue": 592820.4,
+        "cogs": 50152.61,
+        "deductions": 8357.2,
+        "contribution": 534310.59,
+        "margin_pct": 90.1
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 43323.88,
-        "cogs": 3487.57,
+        "revenue": 48098.82,
+        "cogs": 8374.0,
         "deductions": 0,
-        "contribution": 39836.31,
-        "margin_pct": 92.0
+        "contribution": 39724.82,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 44048.58,
-        "cogs": 6580.86,
-        "deductions": 1188.24,
-        "contribution": 36279.48,
-        "margin_pct": 82.4
+        "revenue": 681847.2,
+        "cogs": 101867.97,
+        "deductions": 22608.91,
+        "contribution": 557370.32,
+        "margin_pct": 81.7
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 40770.48,
-        "cogs": 5732.33,
-        "deductions": 1203.92,
-        "contribution": 33834.23,
-        "margin_pct": 83.0
+        "revenue": 728794.8,
+        "cogs": 102468.55,
+        "deductions": 18793.65,
+        "contribution": 607532.6,
+        "margin_pct": 83.4
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 40848.54,
-        "cogs": 6335.61,
-        "deductions": 1172.28,
-        "contribution": 33340.65,
-        "margin_pct": 81.6
+        "revenue": 500438.16,
+        "cogs": 77617.96,
+        "deductions": 13604.39,
+        "contribution": 409215.81,
+        "margin_pct": 81.8
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 40408.38,
-        "cogs": 6433.01,
-        "deductions": 1418.02,
-        "contribution": 32557.35,
-        "margin_pct": 80.6
+        "revenue": 891440.4,
+        "cogs": 141917.31,
+        "deductions": 22828.44,
+        "contribution": 726694.65,
+        "margin_pct": 81.5
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 34366.5,
-        "cogs": 5663.6,
-        "deductions": 986.33,
-        "contribution": 27716.57,
-        "margin_pct": 80.6
+        "revenue": 852426.0,
+        "cogs": 140479.8,
+        "deductions": 18081.78,
+        "contribution": 693864.42,
+        "margin_pct": 81.4
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 40350.24,
-        "cogs": 6807.09,
-        "deductions": 1080.47,
-        "contribution": 32462.68,
-        "margin_pct": 80.5
+        "revenue": 537264.0,
+        "cogs": 90636.44,
+        "deductions": 15332.12,
+        "contribution": 431295.44,
+        "margin_pct": 80.3
       }
     ]
   },
@@ -575,92 +575,92 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 68193.0,
-        "cogs": 5810.04,
-        "deductions": 775.95,
-        "contribution": 61607.01,
+        "revenue": 842655.36,
+        "cogs": 71794.24,
+        "deductions": 9688.02,
+        "contribution": 761173.1,
         "margin_pct": 90.3
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 55084.68,
-        "cogs": 4164.4,
-        "deductions": 904.9,
-        "contribution": 50015.38,
-        "margin_pct": 90.8
+        "revenue": 491182.56,
+        "cogs": 37133.4,
+        "deductions": 7319.38,
+        "contribution": 446729.78,
+        "margin_pct": 90.9
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 62687.88,
-        "cogs": 5303.39,
-        "deductions": 832.6,
-        "contribution": 56551.89,
-        "margin_pct": 90.2
+        "revenue": 696657.12,
+        "cogs": 58937.19,
+        "deductions": 10549.09,
+        "contribution": 627170.84,
+        "margin_pct": 90.0
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 43480.59,
-        "cogs": 3500.19,
+        "revenue": 45839.43,
+        "cogs": 7980.64,
         "deductions": 0,
-        "contribution": 39980.4,
-        "margin_pct": 91.9
+        "contribution": 37858.79,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 34502.28,
-        "cogs": 5154.64,
-        "deductions": 772.88,
-        "contribution": 28574.76,
-        "margin_pct": 82.8
+        "revenue": 670198.08,
+        "cogs": 100127.59,
+        "deductions": 16522.66,
+        "contribution": 553547.83,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 39763.98,
-        "cogs": 5590.82,
-        "deductions": 1059.04,
-        "contribution": 33114.12,
+        "revenue": 842059.68,
+        "cogs": 118393.59,
+        "deductions": 21958.74,
+        "contribution": 701707.35,
         "margin_pct": 83.3
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 44520.3,
-        "cogs": 6905.1,
-        "deductions": 1239.9,
-        "contribution": 36375.3,
-        "margin_pct": 81.7
+        "revenue": 515454.24,
+        "cogs": 79946.95,
+        "deductions": 13884.05,
+        "contribution": 421623.24,
+        "margin_pct": 81.8
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 40326.96,
-        "cogs": 6420.05,
-        "deductions": 1136.41,
-        "contribution": 32770.5,
-        "margin_pct": 81.3
+        "revenue": 841389.12,
+        "cogs": 133949.15,
+        "deductions": 22186.7,
+        "contribution": 685253.27,
+        "margin_pct": 81.4
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 43381.5,
-        "cogs": 7149.27,
-        "deductions": 781.07,
-        "contribution": 35451.16,
-        "margin_pct": 81.7
+        "revenue": 946008.0,
+        "cogs": 155902.12,
+        "deductions": 22874.51,
+        "contribution": 767231.37,
+        "margin_pct": 81.1
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 34691.04,
-        "cogs": 5852.38,
-        "deductions": 1213.85,
-        "contribution": 27624.81,
-        "margin_pct": 79.6
+        "revenue": 502686.72,
+        "cogs": 84803.25,
+        "deductions": 12132.89,
+        "contribution": 405750.58,
+        "margin_pct": 80.7
       }
     ]
   },
@@ -670,92 +670,472 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "revenue": 97767.72,
-        "cogs": 8329.81,
-        "deductions": 485.04,
-        "contribution": 88952.87,
-        "margin_pct": 91.0
+        "revenue": 1296819.36,
+        "cogs": 110489.01,
+        "deductions": 12273.23,
+        "contribution": 1174057.12,
+        "margin_pct": 90.5
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "revenue": 76552.44,
-        "cogs": 5787.36,
-        "deductions": 577.18,
-        "contribution": 70187.9,
-        "margin_pct": 91.7
+        "revenue": 636086.88,
+        "cogs": 48088.17,
+        "deductions": 4148.39,
+        "contribution": 583850.32,
+        "margin_pct": 91.8
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "revenue": 72121.56,
-        "cogs": 6101.48,
-        "deductions": 1566.5,
-        "contribution": 64453.58,
-        "margin_pct": 89.4
+        "revenue": 924224.64,
+        "cogs": 78189.4,
+        "deductions": 13659.71,
+        "contribution": 832375.53,
+        "margin_pct": 90.1
       },
       {
         "channel_name": "DTC",
         "channel_type": "dtc",
-        "revenue": 55373.83,
-        "cogs": 4457.59,
+        "revenue": 56054.77,
+        "cogs": 9759.14,
         "deductions": 0,
-        "contribution": 50916.24,
-        "margin_pct": 92.0
+        "contribution": 46295.63,
+        "margin_pct": 82.6
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "revenue": 54531.54,
-        "cogs": 8147.01,
-        "deductions": 1124.08,
-        "contribution": 45260.45,
-        "margin_pct": 83.0
+        "revenue": 884634.96,
+        "cogs": 132164.46,
+        "deductions": 18725.14,
+        "contribution": 733745.36,
+        "margin_pct": 82.9
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "revenue": 58933.56,
-        "cogs": 8286.06,
-        "deductions": 1046.89,
-        "contribution": 49600.61,
-        "margin_pct": 84.2
+        "revenue": 1069252.32,
+        "cogs": 150336.88,
+        "deductions": 23697.0,
+        "contribution": 895218.44,
+        "margin_pct": 83.7
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "revenue": 51660.78,
-        "cogs": 8012.59,
-        "deductions": 1362.53,
-        "contribution": 42285.66,
-        "margin_pct": 81.9
+        "revenue": 647198.64,
+        "cogs": 100380.51,
+        "deductions": 14178.28,
+        "contribution": 532639.85,
+        "margin_pct": 82.3
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "revenue": 51114.6,
-        "cogs": 8137.44,
-        "deductions": 1047.84,
-        "contribution": 41929.32,
+        "revenue": 1154401.44,
+        "cogs": 183780.71,
+        "deductions": 23931.3,
+        "contribution": 946689.43,
         "margin_pct": 82.0
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "revenue": 51265.5,
-        "cogs": 8448.55,
-        "deductions": 1045.03,
-        "contribution": 41771.92,
-        "margin_pct": 81.5
+        "revenue": 1109310.0,
+        "cogs": 182814.29,
+        "deductions": 27688.39,
+        "contribution": 898807.32,
+        "margin_pct": 81.0
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "revenue": 51124.32,
-        "cogs": 8624.67,
-        "deductions": 1004.06,
-        "contribution": 41495.59,
-        "margin_pct": 81.2
+        "revenue": 647331.84,
+        "cogs": 109204.88,
+        "deductions": 20131.86,
+        "contribution": 517995.1,
+        "margin_pct": 80.0
+      }
+    ]
+  },
+  {
+    "quarter": "Q1 2026",
+    "channels": [
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 706168.56,
+        "cogs": 60165.56,
+        "deductions": 16293.22,
+        "contribution": 629709.78,
+        "margin_pct": 89.2
+      },
+      {
+        "channel_name": "DPI Northwest",
+        "channel_type": "distributor",
+        "revenue": 327534.24,
+        "cogs": 24761.59,
+        "deductions": 5913.25,
+        "contribution": 296859.4,
+        "margin_pct": 90.6
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 504550.08,
+        "cogs": 42684.94,
+        "deductions": 9162.3,
+        "contribution": 452702.84,
+        "margin_pct": 89.7
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "dtc",
+        "revenue": 35748.25,
+        "cogs": 6223.77,
+        "deductions": 0,
+        "contribution": 29524.48,
+        "margin_pct": 82.6
+      },
+      {
+        "channel_name": "Sprouts",
+        "channel_type": "retailer",
+        "revenue": 551670.24,
+        "cogs": 82419.53,
+        "deductions": 18301.33,
+        "contribution": 450949.38,
+        "margin_pct": 81.7
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 580649.28,
+        "cogs": 81639.29,
+        "deductions": 21394.37,
+        "contribution": 477615.62,
+        "margin_pct": 82.3
+      },
+      {
+        "channel_name": "Regional Group",
+        "channel_type": "retailer",
+        "revenue": 425413.92,
+        "cogs": 65981.7,
+        "deductions": 13050.76,
+        "contribution": 346381.46,
+        "margin_pct": 81.4
+      },
+      {
+        "channel_name": "Kroger",
+        "channel_type": "retailer",
+        "revenue": 706677.84,
+        "cogs": 112503.11,
+        "deductions": 24643.55,
+        "contribution": 569531.18,
+        "margin_pct": 80.6
+      },
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 747438.0,
+        "cogs": 123177.78,
+        "deductions": 23716.52,
+        "contribution": 600543.7,
+        "margin_pct": 80.3
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 426055.68,
+        "cogs": 71875.59,
+        "deductions": 13132.65,
+        "contribution": 341047.44,
+        "margin_pct": 80.0
+      }
+    ]
+  },
+  {
+    "quarter": "Q2 2026",
+    "channels": [
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 808723.68,
+        "cogs": 68903.26,
+        "deductions": 10002.84,
+        "contribution": 729817.58,
+        "margin_pct": 90.2
+      },
+      {
+        "channel_name": "DPI Northwest",
+        "channel_type": "distributor",
+        "revenue": 440045.76,
+        "cogs": 33267.46,
+        "deductions": 4910.64,
+        "contribution": 401867.66,
+        "margin_pct": 91.3
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 702839.52,
+        "cogs": 59460.22,
+        "deductions": 9237.43,
+        "contribution": 634141.87,
+        "margin_pct": 90.2
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "dtc",
+        "revenue": 42778.6,
+        "cogs": 7447.75,
+        "deductions": 0,
+        "contribution": 35330.85,
+        "margin_pct": 82.6
+      },
+      {
+        "channel_name": "Sprouts",
+        "channel_type": "retailer",
+        "revenue": 529746.0,
+        "cogs": 79144.05,
+        "deductions": 18305.46,
+        "contribution": 432296.49,
+        "margin_pct": 81.6
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 791415.36,
+        "cogs": 111273.0,
+        "deductions": 18262.34,
+        "contribution": 661880.02,
+        "margin_pct": 83.6
+      },
+      {
+        "channel_name": "Regional Group",
+        "channel_type": "retailer",
+        "revenue": 460960.32,
+        "cogs": 71494.95,
+        "deductions": 12617.7,
+        "contribution": 376847.67,
+        "margin_pct": 81.8
+      },
+      {
+        "channel_name": "Kroger",
+        "channel_type": "retailer",
+        "revenue": 796644.96,
+        "cogs": 126825.88,
+        "deductions": 19903.34,
+        "contribution": 649915.74,
+        "margin_pct": 81.6
+      },
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 811806.0,
+        "cogs": 133785.63,
+        "deductions": 18357.65,
+        "contribution": 659662.72,
+        "margin_pct": 81.3
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 518204.16,
+        "cogs": 87421.04,
+        "deductions": 12529.18,
+        "contribution": 418253.94,
+        "margin_pct": 80.7
+      }
+    ]
+  },
+  {
+    "quarter": "Q3 2026",
+    "channels": [
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 708474.24,
+        "cogs": 60362.01,
+        "deductions": 8997.35,
+        "contribution": 639114.88,
+        "margin_pct": 90.2
+      },
+      {
+        "channel_name": "DPI Northwest",
+        "channel_type": "distributor",
+        "revenue": 475247.52,
+        "cogs": 35928.71,
+        "deductions": 7181.19,
+        "contribution": 432137.62,
+        "margin_pct": 90.9
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 708315.36,
+        "cogs": 59923.48,
+        "deductions": 9342.5,
+        "contribution": 639049.38,
+        "margin_pct": 90.2
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "dtc",
+        "revenue": 45076.15,
+        "cogs": 7847.76,
+        "deductions": 0,
+        "contribution": 37228.39,
+        "margin_pct": 82.6
+      },
+      {
+        "channel_name": "Sprouts",
+        "channel_type": "retailer",
+        "revenue": 671315.04,
+        "cogs": 100294.47,
+        "deductions": 17421.43,
+        "contribution": 553599.14,
+        "margin_pct": 82.5
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 805232.88,
+        "cogs": 113215.74,
+        "deductions": 25119.22,
+        "contribution": 666897.92,
+        "margin_pct": 82.8
+      },
+      {
+        "channel_name": "Regional Group",
+        "channel_type": "retailer",
+        "revenue": 525874.56,
+        "cogs": 81563.14,
+        "deductions": 12512.88,
+        "contribution": 431798.54,
+        "margin_pct": 82.1
+      },
+      {
+        "channel_name": "Kroger",
+        "channel_type": "retailer",
+        "revenue": 852390.48,
+        "cogs": 135700.56,
+        "deductions": 21367.6,
+        "contribution": 695322.32,
+        "margin_pct": 81.6
+      },
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 934014.0,
+        "cogs": 153925.51,
+        "deductions": 23822.39,
+        "contribution": 756266.1,
+        "margin_pct": 81.0
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 454170.24,
+        "cogs": 76618.52,
+        "deductions": 15560.92,
+        "contribution": 361990.8,
+        "margin_pct": 79.7
+      }
+    ]
+  },
+  {
+    "quarter": "Q4 2026",
+    "channels": [
+      {
+        "channel_name": "UNFI",
+        "channel_type": "distributor",
+        "revenue": 980221.2,
+        "cogs": 83514.85,
+        "deductions": 13410.14,
+        "contribution": 883296.21,
+        "margin_pct": 90.1
+      },
+      {
+        "channel_name": "DPI Northwest",
+        "channel_type": "distributor",
+        "revenue": 547789.44,
+        "cogs": 41412.88,
+        "deductions": 6958.5,
+        "contribution": 499418.06,
+        "margin_pct": 91.2
+      },
+      {
+        "channel_name": "KeHE",
+        "channel_type": "distributor",
+        "revenue": 962036.64,
+        "cogs": 81388.3,
+        "deductions": 11748.08,
+        "contribution": 868900.26,
+        "margin_pct": 90.3
+      },
+      {
+        "channel_name": "DTC",
+        "channel_type": "dtc",
+        "revenue": 63895.48,
+        "cogs": 11124.2,
+        "deductions": 0,
+        "contribution": 52771.28,
+        "margin_pct": 82.6
+      },
+      {
+        "channel_name": "Sprouts",
+        "channel_type": "retailer",
+        "revenue": 797519.28,
+        "cogs": 119149.38,
+        "deductions": 21790.33,
+        "contribution": 656579.57,
+        "margin_pct": 82.3
+      },
+      {
+        "channel_name": "Whole Foods",
+        "channel_type": "retailer",
+        "revenue": 1041038.4,
+        "cogs": 146370.0,
+        "deductions": 23074.7,
+        "contribution": 871593.7,
+        "margin_pct": 83.7
+      },
+      {
+        "channel_name": "Regional Group",
+        "channel_type": "retailer",
+        "revenue": 639624.48,
+        "cogs": 99205.76,
+        "deductions": 12802.8,
+        "contribution": 527615.92,
+        "margin_pct": 82.5
+      },
+      {
+        "channel_name": "Kroger",
+        "channel_type": "retailer",
+        "revenue": 1179229.92,
+        "cogs": 187733.4,
+        "deductions": 23838.43,
+        "contribution": 967658.09,
+        "margin_pct": 82.1
+      },
+      {
+        "channel_name": "Walmart",
+        "channel_type": "retailer",
+        "revenue": 1176924.0,
+        "cogs": 193957.08,
+        "deductions": 25783.86,
+        "contribution": 957183.06,
+        "margin_pct": 81.3
+      },
+      {
+        "channel_name": "Costco",
+        "channel_type": "retailer",
+        "revenue": 706170.24,
+        "cogs": 119130.92,
+        "deductions": 17605.83,
+        "contribution": 569433.49,
+        "margin_pct": 80.6
       }
     ]
   }

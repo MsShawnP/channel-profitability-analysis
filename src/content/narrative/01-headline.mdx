@@ -10,10 +10,10 @@ import channels from '../../data/channels.json';
 export const totalRevenue = channels.reduce((sum, c) => sum + c.gross_revenue, 0);
 export const totalDeductions = channels.reduce((sum, c) => sum + c.total_deductions, 0);
 
-<p class="orientation">Cinderhaven is a specialty food brand selling through eleven channels — three national retailers, two major distributors, a direct-to-consumer storefront, and five regional grocers. What follows is a channel-by-channel analysis of where contribution margin is actually earned, and where it quietly disappears.</p>
+<p class="orientation">Cinderhaven is a specialty food brand selling through ten channels — five national and regional retailers, three major distributors, a regional grocer group, and a direct-to-consumer storefront. What follows is a channel-by-channel analysis of where contribution margin is actually earned, and where it quietly disappears.</p>
 
 # Where the money actually goes
 
-Cinderhaven recorded {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 1, notation: 'compact' }).format(totalRevenue)} in gross revenue across eleven channels in the year to March 2026. But gross revenue is a vanity metric. Between cost of goods, trade deductions, compliance fines, and dispute-resolution labour, every channel surrenders a different fraction of each dollar before it reaches contribution margin.
+Cinderhaven recorded {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 1, notation: 'compact' }).format(totalRevenue)} in gross revenue across ten channels in the year to March 2026. But gross revenue is a vanity metric. Between cost of goods, trade deductions, compliance fines, and dispute-resolution labour, every channel surrenders a different fraction of each dollar before it reaches contribution margin.
 
-The gap between what the income statement reports and what each channel actually earns ranges from 8% to 28%. The direct-to-consumer channel retains 92 cents of every dollar; distributors retain 89 to 90 cents; retailers retain 72 to 79 cents. That variance — driven by COGS intensity and operational overhead from dispute triage — is where capital allocation decisions should start.
+The gap between what the income statement reports and what each channel actually earns ranges from 9% to 20%. Distributors retain 90 cents of every dollar; the direct-to-consumer channel retains 83 cents; retailers retain 80 to 83 cents. That variance — driven by COGS intensity and the operational overhead of retailer dispute triage — is where capital allocation decisions should start.

@@ -15,88 +15,88 @@ try:
 except ImportError:
     _HAS_PG = False
 
-# === SNAPSHOT DATA (full 2-year window, 2024-01-01 through 2025-12-31) ===
-# Extracted from Postgres 2026-05-18. Used as offline fallback when Postgres
+# === SNAPSHOT DATA (full dataset, all dates) ===
+# Extracted from Postgres 2026-05-22. Used as offline fallback when Postgres
 # is unavailable. Live path queries fact tables directly (no date filter).
 
 COGS_RATIOS = {
     "UNFI": 0.0852, "DPI Northwest": 0.0756, "KeHE": 0.0846,
-    "DTC": 0.0805,
+    "DTC": 0.1741,
     "Sprouts": 0.1494, "Whole Foods": 0.1406, "Regional Group": 0.1551,
     "Kroger": 0.1592, "Walmart": 0.1648, "Costco": 0.1687,
 }
 
 FISCAL_REVENUE = {
-    "UNFI": 563417.88, "DPI Northwest": 553833.12, "KeHE": 483792.12,
-    "DTC": 367185.13,
-    "Sprouts": 349267.68, "Whole Foods": 339027.72, "Regional Group": 328431.12,
-    "Kroger": 327646.68, "Walmart": 321690.00, "Costco": 310973.76,
+    "UNFI": 10450336.32, "DPI Northwest": 5602560.48, "KeHE": 8405927.76,
+    "DTC": 572510.27,
+    "Sprouts": 8106459.60, "Whole Foods": 9705060.00, "Regional Group": 6075642.72,
+    "Kroger": 10550521.68, "Walmart": 10894584.00, "Costco": 6467230.08,
 }
 
 DEDUCTIONS = {
     "UNFI": {
-        "promo_billback": (1115.81, 16), "pricing_error": (1538.06, 29),
-        "short_ship": (1020.59, 17), "damaged": (1600.98, 23),
-        "late_delivery": (1297.74, 18),
+        "promo_billback": (28299.77, 188), "pricing_error": (27958.68, 173),
+        "short_ship": (30716.69, 184), "damaged": (32656.85, 191),
+        "late_delivery": (26295.48, 166),
     },
     "DPI Northwest": {
-        "promo_billback": (1479.98, 20), "pricing_error": (1246.33, 18),
-        "short_ship": (1068.37, 17), "damaged": (1031.33, 17),
-        "late_delivery": (2117.88, 23),
+        "promo_billback": (13167.27, 83), "pricing_error": (18278.79, 117),
+        "short_ship": (16644.98, 94), "damaged": (13288.84, 88),
+        "late_delivery": (12959.84, 82),
     },
     "KeHE": {
-        "promo_billback": (1756.35, 28), "pricing_error": (1837.94, 23),
-        "short_ship": (1100.04, 17), "damaged": (1209.65, 15),
-        "late_delivery": (1018.03, 20),
+        "promo_billback": (23856.40, 137), "pricing_error": (22711.33, 155),
+        "short_ship": (21105.60, 131), "damaged": (21741.93, 144),
+        "late_delivery": (27900.75, 161),
     },
     "Sprouts": {
-        "promo_billback": (1207.25, 43), "pricing_error": (1118.19, 36),
-        "short_ship": (963.54, 36), "slotting": (789.66, 38),
-        "label_fine": (1002.37, 44), "spoilage": (712.49, 31),
-        "damaged": (808.76, 31), "pallet_fine": (839.33, 41), "late_delivery": (851.77, 41),
+        "promo_billback": (26076.71, 268), "pricing_error": (26161.47, 256),
+        "short_ship": (23103.29, 230), "slotting": (26675.91, 266),
+        "label_fine": (23496.94, 228), "spoilage": (23462.67, 239),
+        "damaged": (22621.38, 230), "pallet_fine": (23168.62, 238), "late_delivery": (22181.71, 233),
     },
     "Whole Foods": {
-        "promo_billback": (1072.84, 43), "pricing_error": (512.74, 28),
-        "short_ship": (997.74, 46), "slotting": (724.76, 28),
-        "label_fine": (637.13, 31), "spoilage": (1096.10, 42),
-        "damaged": (738.58, 33), "pallet_fine": (936.98, 36), "late_delivery": (611.43, 25),
+        "promo_billback": (24508.63, 235), "pricing_error": (23777.81, 226),
+        "short_ship": (26259.37, 266), "slotting": (27080.04, 266),
+        "label_fine": (28492.83, 263), "spoilage": (29837.61, 276),
+        "damaged": (28951.41, 243), "pallet_fine": (29092.92, 281), "late_delivery": (28453.72, 269),
     },
     "Regional Group": {
-        "promo_billback": (903.30, 40), "pricing_error": (864.93, 41),
-        "short_ship": (927.07, 38), "slotting": (786.98, 35),
-        "label_fine": (1068.92, 43), "spoilage": (737.92, 41),
-        "damaged": (615.86, 31), "pallet_fine": (905.89, 35), "late_delivery": (1232.77, 46),
+        "promo_billback": (16844.42, 184), "pricing_error": (14670.89, 160),
+        "short_ship": (15840.38, 178), "slotting": (17457.95, 186),
+        "label_fine": (15393.01, 167), "spoilage": (16468.22, 178),
+        "damaged": (17552.71, 198), "pallet_fine": (16414.43, 179), "late_delivery": (18217.23, 184),
     },
     "Kroger": {
-        "promo_billback": (717.56, 32), "pricing_error": (783.72, 38),
-        "short_ship": (951.96, 41), "slotting": (876.56, 45),
-        "label_fine": (655.16, 31), "spoilage": (1103.46, 48),
-        "damaged": (1370.39, 57), "pallet_fine": (1122.94, 48), "late_delivery": (558.88, 33),
+        "promo_billback": (25484.51, 290), "pricing_error": (28794.63, 322),
+        "short_ship": (28839.58, 303), "slotting": (28396.85, 312),
+        "label_fine": (29581.42, 316), "spoilage": (29956.72, 317),
+        "damaged": (30879.45, 332), "pallet_fine": (29759.91, 298), "late_delivery": (31608.55, 335),
     },
     "Walmart": {
-        "promo_billback": (624.27, 34), "pricing_error": (829.65, 35),
-        "short_ship": (727.58, 37), "slotting": (671.91, 39),
-        "label_fine": (825.69, 42), "spoilage": (656.21, 30),
-        "damaged": (1139.32, 52), "pallet_fine": (971.63, 40), "late_delivery": (549.27, 28),
+        "promo_billback": (29692.07, 324), "pricing_error": (32355.88, 344),
+        "short_ship": (33971.93, 377), "slotting": (25739.41, 292),
+        "label_fine": (29052.28, 327), "spoilage": (28771.96, 319),
+        "damaged": (30202.97, 316), "pallet_fine": (29533.79, 323), "late_delivery": (29418.05, 306),
     },
     "Costco": {
-        "promo_billback": (1159.50, 47), "pricing_error": (954.56, 36),
-        "short_ship": (984.17, 44), "slotting": (1072.64, 44),
-        "label_fine": (824.07, 35), "spoilage": (746.10, 44),
-        "damaged": (708.57, 32), "pallet_fine": (1215.39, 50), "late_delivery": (503.33, 25),
+        "promo_billback": (19679.80, 229), "pricing_error": (18559.07, 213),
+        "short_ship": (16322.63, 200), "slotting": (18544.95, 209),
+        "label_fine": (18721.02, 208), "spoilage": (20324.60, 221),
+        "damaged": (17656.49, 217), "pallet_fine": (18244.18, 215), "late_delivery": (19348.69, 212),
     },
 }
 
 DISPUTE_DATA = {
-    "Costco": {"disputes": 159, "events": 357, "hours": 683.7},
-    "Kroger": {"disputes": 149, "events": 373, "hours": 640.7},
-    "Walmart": {"disputes": 144, "events": 337, "hours": 619.2},
-    "Regional Group": {"disputes": 139, "events": 350, "hours": 598.0},
-    "Sprouts": {"disputes": 121, "events": 341, "hours": 520.3},
-    "Whole Foods": {"disputes": 99, "events": 312, "hours": 425.7},
-    "KeHE": {"disputes": 35, "events": 103, "hours": 150.5},
-    "UNFI": {"disputes": 32, "events": 103, "hours": 137.6},
-    "DPI Northwest": {"disputes": 32, "events": 95, "hours": 137.6},
+    "Walmart": {"disputes": 1143, "events": 2928, "hours": 2361.4},
+    "Kroger": {"disputes": 1099, "events": 2825, "hours": 2255.8},
+    "Whole Foods": {"disputes": 945, "events": 2325, "hours": 2038.8},
+    "Sprouts": {"disputes": 862, "events": 2188, "hours": 1909.1},
+    "Costco": {"disputes": 743, "events": 1924, "hours": 1597.3},
+    "Regional Group": {"disputes": 597, "events": 1614, "hours": 1231.1},
+    "UNFI": {"disputes": 315, "events": 902, "hours": 497.4},
+    "KeHE": {"disputes": 268, "events": 728, "hours": 442.6},
+    "DPI Northwest": {"disputes": 169, "events": 464, "hours": 270.5},
     "DTC": {"disputes": 0, "events": 0, "hours": 0},
 }
 
@@ -141,27 +141,35 @@ TYPE_LABELS = {
     "late_delivery": "Late Delivery",
 }
 
-# === QUARTERLY DATA for trends (Q1 2024 through Q4 2025) ===
+# === QUARTERLY DATA for trends (Q1 2024 through Q4 2026) ===
 QUARTERLY_REVENUE = {
-    "2024-01-01": {"UNFI": 50915.52, "DPI Northwest": 53710.08, "KeHE": 36310.56, "DTC": 39383.52, "Sprouts": 34157.94, "Whole Foods": 37085.76, "Regional Group": 33409.02, "Kroger": 31269.12, "Walmart": 34407.00, "Costco": 26399.52},
-    "2024-04-01": {"UNFI": 63253.32, "DPI Northwest": 56982.60, "KeHE": 50223.72, "DTC": 44925.81, "Sprouts": 41547.24, "Whole Foods": 36764.76, "Regional Group": 35828.82, "Kroger": 42865.92, "Walmart": 33840.00, "Costco": 39300.48},
-    "2024-07-01": {"UNFI": 63368.64, "DPI Northwest": 75498.12, "KeHE": 63789.12, "DTC": 43806.31, "Sprouts": 47728.92, "Whole Foods": 41478.30, "Regional Group": 37332.36, "Kroger": 35529.18, "Walmart": 44493.00, "Costco": 34996.32},
-    "2024-10-01": {"UNFI": 100437.60, "DPI Northwest": 107164.92, "KeHE": 64865.52, "DTC": 58637.79, "Sprouts": 57955.26, "Whole Foods": 47878.32, "Regional Group": 49797.78, "Kroger": 48695.70, "Walmart": 49933.50, "Costco": 54047.52},
-    "2025-01-01": {"UNFI": 51715.56, "DPI Northwest": 44808.36, "KeHE": 75135.48, "DTC": 38253.40, "Sprouts": 34795.92, "Whole Foods": 36352.56, "Regional Group": 35033.52, "Kroger": 37436.82, "Walmart": 30003.00, "Costco": 30064.32},
-    "2025-04-01": {"UNFI": 67766.52, "DPI Northwest": 84031.92, "KeHE": 58658.28, "DTC": 43323.88, "Sprouts": 44048.58, "Whole Foods": 40770.48, "Regional Group": 40848.54, "Kroger": 40408.38, "Walmart": 34366.50, "Costco": 40350.24},
-    "2025-07-01": {"UNFI": 68193.00, "DPI Northwest": 55084.68, "KeHE": 62687.88, "DTC": 43480.59, "Sprouts": 34502.28, "Whole Foods": 39763.98, "Regional Group": 44520.30, "Kroger": 40326.96, "Walmart": 43381.50, "Costco": 34691.04},
-    "2025-10-01": {"UNFI": 97767.72, "DPI Northwest": 76552.44, "KeHE": 72121.56, "DTC": 55373.83, "Sprouts": 54531.54, "Whole Foods": 58933.56, "Regional Group": 51660.78, "Kroger": 51114.60, "Walmart": 51265.50, "Costco": 51124.32},
+    "2024-01-01": {"UNFI": 740038.56, "DPI Northwest": 337883.04, "KeHE": 604097.76, "DTC": 38338.66, "Sprouts": 537777.84, "Whole Foods": 642028.56, "Regional Group": 388449.12, "Kroger": 710033.76, "Walmart": 763554.00, "Costco": 433693.44},
+    "2024-04-01": {"UNFI": 773337.60, "DPI Northwest": 480131.52, "KeHE": 599990.88, "DTC": 47597.63, "Sprouts": 671741.76, "Whole Foods": 828656.40, "Regional Group": 458830.56, "Kroger": 775925.52, "Walmart": 734754.00, "Costco": 531711.36},
+    "2024-07-01": {"UNFI": 820043.04, "DPI Northwest": 439206.24, "KeHE": 601840.08, "DTC": 46882.85, "Sprouts": 614320.08, "Whole Foods": 734439.36, "Regional Group": 474634.56, "Kroger": 796722.48, "Walmart": 884832.00, "Costco": 520974.72},
+    "2024-10-01": {"UNFI": 1158884.16, "DPI Northwest": 583191.84, "KeHE": 864382.32, "DTC": 61057.42, "Sprouts": 882586.08, "Whole Foods": 990607.20, "Regional Group": 593567.04, "Kroger": 1084892.88, "Walmart": 1158972.00, "Costco": 712874.88},
+    "2025-01-01": {"UNFI": 803893.92, "DPI Northwest": 367007.52, "KeHE": 622286.16, "DTC": 39586.25, "Sprouts": 594437.04, "Whole Foods": 618673.68, "Regional Group": 431552.40, "Kroger": 728585.76, "Walmart": 746304.00, "Costco": 452695.68},
+    "2025-04-01": {"UNFI": 789677.52, "DPI Northwest": 463061.28, "KeHE": 592820.40, "DTC": 48098.82, "Sprouts": 681847.20, "Whole Foods": 728794.80, "Regional Group": 500438.16, "Kroger": 891440.40, "Walmart": 852426.00, "Costco": 537264.00},
+    "2025-07-01": {"UNFI": 842655.36, "DPI Northwest": 491182.56, "KeHE": 696657.12, "DTC": 45839.43, "Sprouts": 670198.08, "Whole Foods": 842059.68, "Regional Group": 515454.24, "Kroger": 841389.12, "Walmart": 946008.00, "Costco": 502686.72},
+    "2025-10-01": {"UNFI": 1296819.36, "DPI Northwest": 636086.88, "KeHE": 924224.64, "DTC": 56054.77, "Sprouts": 884634.96, "Whole Foods": 1069252.32, "Regional Group": 647198.64, "Kroger": 1154401.44, "Walmart": 1109310.00, "Costco": 647331.84},
+    "2026-01-01": {"UNFI": 706168.56, "DPI Northwest": 327534.24, "KeHE": 504550.08, "DTC": 35748.25, "Sprouts": 551670.24, "Whole Foods": 580649.28, "Regional Group": 425413.92, "Kroger": 706677.84, "Walmart": 747438.00, "Costco": 426055.68},
+    "2026-04-01": {"UNFI": 808723.68, "DPI Northwest": 440045.76, "KeHE": 702839.52, "DTC": 42778.60, "Sprouts": 529746.00, "Whole Foods": 791415.36, "Regional Group": 460960.32, "Kroger": 796644.96, "Walmart": 811806.00, "Costco": 518204.16},
+    "2026-07-01": {"UNFI": 708474.24, "DPI Northwest": 475247.52, "KeHE": 708315.36, "DTC": 45076.15, "Sprouts": 671315.04, "Whole Foods": 805232.88, "Regional Group": 525874.56, "Kroger": 852390.48, "Walmart": 934014.00, "Costco": 454170.24},
+    "2026-10-01": {"UNFI": 980221.20, "DPI Northwest": 547789.44, "KeHE": 962036.64, "DTC": 63895.48, "Sprouts": 797519.28, "Whole Foods": 1041038.40, "Regional Group": 639624.48, "Kroger": 1179229.92, "Walmart": 1176924.00, "Costco": 706170.24},
 }
 
 QUARTERLY_DEDUCTIONS = {
-    "2024-01-01": {"UNFI": 707.15, "KeHE": 313.84, "DPI Northwest": 119.44, "Sprouts": 479.61, "Whole Foods": 373.38, "Regional Group": 564.06, "Kroger": 509.27, "Walmart": 473.78, "Costco": 446.20},
-    "2024-04-01": {"UNFI": 1055.61, "KeHE": 541.76, "DPI Northwest": 68.32, "Sprouts": 978.52, "Whole Foods": 1131.57, "Regional Group": 926.64, "Kroger": 788.04, "Walmart": 939.77, "Costco": 1436.57},
-    "2024-07-01": {"UNFI": 1096.05, "KeHE": 855.98, "DPI Northwest": 917.46, "Sprouts": 1057.71, "Whole Foods": 836.35, "Regional Group": 1020.39, "Kroger": 864.00, "Walmart": 915.46, "Costco": 776.12},
-    "2024-10-01": {"UNFI": 455.05, "KeHE": 814.72, "DPI Northwest": 2282.72, "Sprouts": 1292.23, "Whole Foods": 616.89, "Regional Group": 1093.44, "Kroger": 1313.80, "Walmart": 1093.16, "Costco": 1236.72},
-    "2025-01-01": {"UNFI": 652.17, "KeHE": 1196.33, "DPI Northwest": 758.79, "Sprouts": 1400.09, "Whole Foods": 1060.26, "Regional Group": 664.40, "Kroger": 1063.25, "Walmart": 760.93, "Costco": 974.34},
-    "2025-04-01": {"UNFI": 1346.16, "KeHE": 800.28, "DPI Northwest": 1315.08, "Sprouts": 1188.24, "Whole Foods": 1203.92, "Regional Group": 1172.28, "Kroger": 1418.02, "Walmart": 986.33, "Costco": 1080.47},
-    "2025-07-01": {"UNFI": 775.95, "KeHE": 832.60, "DPI Northwest": 904.90, "Sprouts": 772.88, "Whole Foods": 1059.04, "Regional Group": 1239.90, "Kroger": 1136.41, "Walmart": 781.07, "Costco": 1213.85},
-    "2025-10-01": {"UNFI": 485.04, "KeHE": 1566.50, "DPI Northwest": 577.18, "Sprouts": 1124.08, "Whole Foods": 1046.89, "Regional Group": 1362.53, "Kroger": 1047.84, "Walmart": 1045.03, "Costco": 1004.06},
+    "2024-01-01": {"UNFI": 6015.40, "KeHE": 5471.28, "DPI Northwest": 2526.64, "Sprouts": 7486.57, "Whole Foods": 10722.08, "Regional Group": 4019.01, "Kroger": 11484.64, "Walmart": 11580.06, "Costco": 4807.11},
+    "2024-04-01": {"UNFI": 12916.17, "KeHE": 10630.81, "DPI Northwest": 6617.83, "Sprouts": 16885.52, "Whole Foods": 20518.17, "Regional Group": 10410.60, "Kroger": 18383.05, "Walmart": 21547.53, "Costco": 13278.67},
+    "2024-07-01": {"UNFI": 11219.99, "KeHE": 8570.47, "DPI Northwest": 8664.28, "Sprouts": 16759.33, "Whole Foods": 21015.36, "Regional Group": 12601.80, "Kroger": 23011.24, "Walmart": 21754.29, "Costco": 10737.12},
+    "2024-10-01": {"UNFI": 14384.02, "KeHE": 10382.72, "DPI Northwest": 9291.60, "Sprouts": 20829.44, "Whole Foods": 19825.13, "Regional Group": 14958.76, "Kroger": 27611.10, "Walmart": 27763.83, "Costco": 15566.04},
+    "2025-01-01": {"UNFI": 18045.26, "KeHE": 9835.88, "DPI Northwest": 4612.08, "Sprouts": 20990.19, "Whole Foods": 21606.86, "Regional Group": 13592.55, "Kroger": 23193.19, "Walmart": 25482.92, "Costco": 16174.82},
+    "2025-04-01": {"UNFI": 12456.01, "KeHE": 8357.20, "DPI Northwest": 6024.18, "Sprouts": 22608.91, "Whole Foods": 18793.65, "Regional Group": 13604.39, "Kroger": 22828.44, "Walmart": 18081.78, "Costco": 15332.12},
+    "2025-07-01": {"UNFI": 9688.02, "KeHE": 10549.09, "DPI Northwest": 7319.38, "Sprouts": 16522.66, "Whole Foods": 21958.74, "Regional Group": 13884.05, "Kroger": 22186.70, "Walmart": 22874.51, "Costco": 12132.89},
+    "2025-10-01": {"UNFI": 12273.23, "KeHE": 13659.71, "DPI Northwest": 4148.39, "Sprouts": 18725.14, "Whole Foods": 23697.00, "Regional Group": 14178.28, "Kroger": 23931.30, "Walmart": 27688.39, "Costco": 20131.86},
+    "2026-01-01": {"UNFI": 16293.22, "KeHE": 9162.30, "DPI Northwest": 5913.25, "Sprouts": 18301.33, "Whole Foods": 21394.37, "Regional Group": 13050.76, "Kroger": 24643.55, "Walmart": 23716.52, "Costco": 13132.65},
+    "2026-04-01": {"UNFI": 10002.84, "KeHE": 9237.43, "DPI Northwest": 4910.64, "Sprouts": 18305.46, "Whole Foods": 18262.34, "Regional Group": 12617.70, "Kroger": 19903.34, "Walmart": 18357.65, "Costco": 12529.18},
+    "2026-07-01": {"UNFI": 8997.35, "KeHE": 9342.50, "DPI Northwest": 7181.19, "Sprouts": 17421.43, "Whole Foods": 25119.22, "Regional Group": 12512.88, "Kroger": 21367.60, "Walmart": 23822.39, "Costco": 15560.92},
+    "2026-10-01": {"UNFI": 13410.14, "KeHE": 11748.08, "DPI Northwest": 6958.50, "Sprouts": 21790.33, "Whole Foods": 23074.70, "Regional Group": 12802.80, "Kroger": 23838.43, "Walmart": 25783.86, "Costco": 17605.83},
 }
 
 QUARTER_LABELS = {
@@ -169,6 +177,8 @@ QUARTER_LABELS = {
     "2024-07-01": "Q3 2024", "2024-10-01": "Q4 2024",
     "2025-01-01": "Q1 2025", "2025-04-01": "Q2 2025",
     "2025-07-01": "Q3 2025", "2025-10-01": "Q4 2025",
+    "2026-01-01": "Q1 2026", "2026-04-01": "Q2 2026",
+    "2026-07-01": "Q3 2026", "2026-10-01": "Q4 2026",
 }
 
 
