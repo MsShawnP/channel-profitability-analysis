@@ -166,3 +166,22 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Run `/ce:compound` to extract learnings from this project. Otherwise project is in maintenance mode.
 
 ---
+
+## 2026-05-22 — Data refresh + compound + reconciliation
+
+**What changed:** Full data refresh from Postgres (17x revenue scale-up), narrative rewrite, compound learning doc, and SSOT reconciliation.
+
+**Did:**
+- Refreshed all snapshot constants in `generate_json.py` from live Postgres queries (revenue, COGS, deductions, disputes, quarterly data)
+- Rewrote all 8 MDX narrative files — story reversed: distributors now best margin (~90%), DTC middle (83%), retailers lowest (80–83%)
+- Updated all 34 test assertions in `test_prose_data.py` — all pass
+- Ran `/ce:compound` — inaugural learning doc at `docs/solutions/best-practices/data-narrative-consistency-validation-2026-05-22.md`
+- Verified full reconciliation: every snapshot constant matches Postgres exactly
+- Updated PLAN.md goal with correct post-refresh numbers
+- Redeployed to Cloudflare Pages
+
+**State:** Site live with refreshed data. All tests pass (34/34). All snapshot constants reconciled with Postgres SSOT. 4 commits pushed to origin. `/ce:compound` complete. Project in maintenance mode.
+
+**Next:** Run `/improve` for project health check. Otherwise maintenance mode.
+
+---
