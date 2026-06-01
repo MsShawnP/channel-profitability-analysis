@@ -4,7 +4,7 @@ Channel-by-channel profitability analysis for Cinderhaven, a fictional ~$76.8M s
 
 Part of the Cinderhaven portfolio — first buyer-facing consumer of the [Cinderhaven Data Platform](https://github.com/MsShawnP/cinderhaven-data-platform).
 
-Live: https://channel-profitability-analysis.pages.dev
+Live: https://channels.lailarallc.com
 
 ## Stack
 
