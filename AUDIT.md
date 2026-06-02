@@ -2,6 +2,8 @@
 
 > **Note:** This audit was conducted 2026-05-17 against the original ~$24M
 > dataset. The data has since been refreshed to ~$76.8M (2026-05-22).
+> Clarification: the $76.8M is the 3yr cumulative total across FY2024–FY2026;
+> the annual average is $25.6M/yr.
 > Specific dollar figures and percentages below reflect the pre-refresh
 > state. The structural findings (architecture, test gaps, pipeline design)
 > informed subsequent improvements. See HANDOFF.md for current state.
