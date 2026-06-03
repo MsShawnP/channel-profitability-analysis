@@ -91,7 +91,7 @@ the active plan.
 
 ### 2026-05-17 — Channel Profitability Narrative
 - Outcome: Economist-style scrollable narrative with interactive D3 charts, deployed to Cloudflare Pages. 8 sections covering revenue → contribution waterfall. Full data integrity audit, automated validation (30 checks), single-command refresh pipeline. 4-agent review ensemble, all findings addressed.
-- URL: https://channel-profitability-analysis.pages.dev
+- URL: https://channels.lailarallc.com
 
 ---
 
