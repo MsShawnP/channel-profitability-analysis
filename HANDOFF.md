@@ -65,7 +65,7 @@ FAILURES.md. Project brief exists in Downloads as reference.
 
 **Why:** Completing the deploy/merge cycle for the trends work. Dataset note recorded so next session knows the numbers are provisional.
 
-**State:** All 8 narrative sections live at https://channel-profitability-analysis.pages.dev. Main branch up to date. U1–U7 implementation complete. /ce:review and /qa gates remain for Heavy tier. Dataset refresh pending from cinderhaven-data-platform.
+**State:** All 8 narrative sections live at https://channels.lailarallc.com. Main branch up to date. U1–U7 implementation complete. /ce:review and /qa gates remain for Heavy tier. Dataset refresh pending from cinderhaven-data-platform.
 
 **Next:** Run /ce:review (reviewer ensemble), then /qa for browser testing. After dataset refresh, re-export layers.json, channels.json, and trends.json, then update any hardcoded figures in prose.
 
@@ -161,7 +161,7 @@ FAILURES.md. Project brief exists in Downloads as reference.
 
 **Why:** Previous deploy had ad-hoc colors; now matches Lailara Design System v2.
 
-**State:** Site live at https://channel-profitability-analysis.pages.dev with correct colors. All PLAN.md tasks complete. Main arc done. `/ce:compound` (extract learnings) is the only remaining Heavy-tier step. No failing tests, no broken builds.
+**State:** Site live at https://channels.lailarallc.com with correct colors. All PLAN.md tasks complete. Main arc done. `/ce:compound` (extract learnings) is the only remaining Heavy-tier step. No failing tests, no broken builds.
 
 **Next:** Run `/ce:compound` to extract learnings from this project. Otherwise project is in maintenance mode.
 
