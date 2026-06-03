@@ -1,6 +1,6 @@
 # Channel Profitability Analysis
 
-Channel-by-channel profitability analysis for Cinderhaven, a fictional ~$76.8M specialty food brand. Examines contribution margins across 10 retail, distributor, and DTC channels through a five-layer cost waterfall (COGS, trade deductions, compliance fines, operational overhead) to inform capital allocation decisions.
+Channel-by-channel profitability analysis for Cinderhaven, a fictional ~$25.6M/yr specialty food brand (3-year cumulative $76.8M). Examines contribution margins across 10 retail, distributor, and DTC channels through a five-layer cost waterfall (COGS, trade deductions, compliance fines, operational overhead) to inform capital allocation decisions.
 
 Part of the Cinderhaven portfolio — first buyer-facing consumer of the [Cinderhaven Data Platform](https://github.com/MsShawnP/cinderhaven-data-platform).
 
@@ -45,6 +45,10 @@ To regenerate JSON from existing snapshot constants (no DB needed):
 python scripts/generate_json.py
 ```
 
+## Data contract
+
+Canonical Cinderhaven conformance — 50 SKUs across 5 product lines and 6 contracted retailers.
+
 ## Validation
 
 ```bash
@@ -52,3 +56,6 @@ python tests/test_prose_data.py    # 34 checks: prose claims vs JSON data
 python scripts/verify_math.py      # layer consistency + cross-file checks
 python scripts/verify_roi.py       # dispute overhead breakdown
 ```
+
+---
+Built by [Lailara LLC](https://lailarallc.com) — data hygiene and analytics consulting for specialty food brands scaling into national retail.
