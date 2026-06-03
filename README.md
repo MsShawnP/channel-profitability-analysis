@@ -2,7 +2,7 @@
 
 Channel-by-channel profitability analysis for Cinderhaven, a fictional ~$25.6M/yr specialty food brand (3-year cumulative $76.8M). Examines contribution margins across 10 retail, distributor, and DTC channels through a five-layer cost waterfall (COGS, trade deductions, compliance fines, operational overhead) to inform capital allocation decisions.
 
-Part of the Cinderhaven portfolio — first buyer-facing consumer of the [Cinderhaven Data Platform](https://github.com/MsShawnP/cinderhaven-data-platform).
+Part of the Cinderhaven portfolio — first buyer-facing consumer of the Cinderhaven Data Platform.
 
 Live: https://channels.lailarallc.com
 
