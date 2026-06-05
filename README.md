@@ -45,9 +45,16 @@ To regenerate JSON from existing snapshot constants (no DB needed):
 python scripts/generate_json.py
 ```
 
-## Data contract
+## Data Contract
 
-Canonical Cinderhaven conformance — 50 SKUs across 5 product lines and 6 contracted retailers.
+This analysis consumes the full Cinderhaven canonical dataset:
+
+- **50 SKUs** across 5 product lines (Artisan Sauces, Pantry Staples, Specialty Condiments, Dried Goods, Snack Bites)
+- **6 contracted retailers:** Walmart, Costco, Whole Foods, Sprouts, Kroger, Regional Group
+- **3 distributors:** UNFI, KeHE, DPI Northwest
+- **1 DTC channel:** Shopify (10 channels total)
+
+All 10 channels are analyzed through the five-layer cost waterfall. The ~$25.6M annualized revenue figure derives from the canonical ~$25M baseline.
 
 ## Validation
 
