@@ -101,6 +101,7 @@ DISPUTE_DATA = {
 }
 
 OVERHEAD_RATE = 35.00  # $/hr fully loaded
+YEARS = 3  # FY2024–FY2026; snapshot constants are 3yr cumulative, JSON emits annual averages
 PROMO_COSTS_ANNUAL = {
     "UNFI": 444.00, "DPI Northwest": 266.00, "KeHE": 266.00,
     "DTC": 0,
@@ -155,6 +156,7 @@ QUARTERLY_REVENUE = {
     "2026-04-01": {"UNFI": 808723.68, "DPI Northwest": 440045.76, "KeHE": 702839.52, "DTC": 42778.60, "Sprouts": 529746.00, "Whole Foods": 791415.36, "Regional Group": 460960.32, "Kroger": 796644.96, "Walmart": 811806.00, "Costco": 518204.16},
     "2026-07-01": {"UNFI": 708474.24, "DPI Northwest": 475247.52, "KeHE": 708315.36, "DTC": 45076.15, "Sprouts": 671315.04, "Whole Foods": 805232.88, "Regional Group": 525874.56, "Kroger": 852390.48, "Walmart": 934014.00, "Costco": 454170.24},
     "2026-10-01": {"UNFI": 980221.20, "DPI Northwest": 547789.44, "KeHE": 962036.64, "DTC": 63895.48, "Sprouts": 797519.28, "Whole Foods": 1041038.40, "Regional Group": 639624.48, "Kroger": 1179229.92, "Walmart": 1176924.00, "Costco": 706170.24},
+    "2027-01-01": {"UNFI": 21399.12, "DPI Northwest": 14192.64, "KeHE": 21886.80, "DTC": 1555.96, "Sprouts": 18666.00, "Whole Foods": 32212.08, "Regional Group": 13644.72, "Kroger": 32187.12, "Walmart": 28242.00, "Costco": 23397.12},
 }
 
 QUARTERLY_DEDUCTIONS = {
@@ -170,6 +172,7 @@ QUARTERLY_DEDUCTIONS = {
     "2026-04-01": {"UNFI": 10002.84, "KeHE": 9237.43, "DPI Northwest": 4910.64, "Sprouts": 18305.46, "Whole Foods": 18262.34, "Regional Group": 12617.70, "Kroger": 19903.34, "Walmart": 18357.65, "Costco": 12529.18},
     "2026-07-01": {"UNFI": 8997.35, "KeHE": 9342.50, "DPI Northwest": 7181.19, "Sprouts": 17421.43, "Whole Foods": 25119.22, "Regional Group": 12512.88, "Kroger": 21367.60, "Walmart": 23822.39, "Costco": 15560.92},
     "2026-10-01": {"UNFI": 13410.14, "KeHE": 11748.08, "DPI Northwest": 6958.50, "Sprouts": 21790.33, "Whole Foods": 23074.70, "Regional Group": 12802.80, "Kroger": 23838.43, "Walmart": 25783.86, "Costco": 17605.83},
+    "2027-01-01": {"UNFI": 225.82, "DPI Northwest": 171.76, "KeHE": 368.54, "DTC": 0, "Sprouts": 322.39, "Whole Foods": 466.72, "Regional Group": 625.66, "Kroger": 919.04, "Walmart": 284.61, "Costco": 412.22},
 }
 
 QUARTER_LABELS = {
@@ -179,6 +182,7 @@ QUARTER_LABELS = {
     "2025-07-01": "Q3 2025", "2025-10-01": "Q4 2025",
     "2026-01-01": "Q1 2026", "2026-04-01": "Q2 2026",
     "2026-07-01": "Q3 2026", "2026-10-01": "Q4 2026",
+    "2027-01-01": "Q1 2027",
 }
 
 
@@ -235,23 +239,25 @@ def fetch_live_channel_data():
 
 
 def compute_channel_data():
-    """Compute all derived values for each channel."""
+    """Compute all derived values for each channel (annual averages)."""
     channels = []
     for name in CHANNEL_ORDER:
-        revenue = FISCAL_REVENUE[name]
+        revenue = round(FISCAL_REVENUE[name] / YEARS, 2)
         cogs = round(revenue * COGS_RATIOS[name], 2)
         gross_margin = round(revenue - cogs, 2)
 
-        # Sum trade deductions
         deductions = DEDUCTIONS.get(name, {})
-        trade_ded = sum(deductions.get(t, (0, 0))[0] for t in TRADE_TYPES)
-        quality_fines = sum(deductions.get(t, (0, 0))[0] for t in ["label_fine", "spoilage", "damaged", "pallet_fine"])
-        logistics_fines = deductions.get("late_delivery", (0, 0))[0]
-        total_deductions = trade_ded + quality_fines + logistics_fines
+        trade_ded = round(sum(deductions.get(t, (0, 0))[0] for t in TRADE_TYPES) / YEARS, 2)
+        quality_fines = round(sum(deductions.get(t, (0, 0))[0] for t in ["label_fine", "spoilage", "damaged", "pallet_fine"]) / YEARS, 2)
+        logistics_fines = round(deductions.get("late_delivery", (0, 0))[0] / YEARS, 2)
+        total_deductions = round(trade_ded + quality_fines + logistics_fines, 2)
 
         promo = PROMO_COSTS_ANNUAL.get(name, 0)
         dispute = DISPUTE_DATA.get(name, {"disputes": 0, "events": 0, "hours": 0})
-        overhead = round(dispute["hours"] * OVERHEAD_RATE, 2)
+        disputes_annual = round(dispute["disputes"] / YEARS)
+        events_annual = round(dispute["events"] / YEARS)
+        hours_annual = round(dispute["hours"] / YEARS, 1)
+        overhead = round(hours_annual * OVERHEAD_RATE, 2)
 
         layer_1 = gross_margin
         layer_2 = round(layer_1 - trade_ded - promo, 2)
@@ -271,8 +277,8 @@ def compute_channel_data():
             "total_deductions": round(total_deductions, 2),
             "promo_costs": promo,
             "operational_overhead": overhead,
-            "disputes_filed": dispute["disputes"],
-            "total_deduction_events": dispute["events"],
+            "disputes_filed": disputes_annual,
+            "total_deduction_events": events_annual,
             "layer_1": layer_1,
             "layer_2": layer_2,
             "layer_3": layer_3,
@@ -329,7 +335,8 @@ def generate_layers(channel_data):
                 amount, count = DEDUCTIONS[name].get(dtype, (0, 0))
                 if amount > 0:
                     breakdown.append({"label": TYPE_LABELS[dtype], "type": dtype,
-                                      "amount": amount, "count": count})
+                                      "amount": round(amount / YEARS, 2),
+                                      "count": round(count / YEARS)})
             breakdown.sort(key=lambda x: x["amount"], reverse=True)
         if ch["promo_costs"] > 0:
             breakdown.append({"label": "Promotional Costs", "amount": ch["promo_costs"]})
@@ -354,7 +361,8 @@ def generate_layers(channel_data):
                 amount, count = DEDUCTIONS[name].get(dtype, (0, 0))
                 if amount > 0:
                     breakdown.append({"label": TYPE_LABELS[dtype], "type": dtype,
-                                      "amount": amount, "count": count})
+                                      "amount": round(amount / YEARS, 2),
+                                      "count": round(count / YEARS)})
             breakdown.sort(key=lambda x: x["amount"], reverse=True)
         layer3_channels.append({
             "channel_name": name, "channel_type": ch["channel_type"],
@@ -446,9 +454,9 @@ def main():
     total_revenue = sum(ch["gross_revenue"] for ch in channel_data)
     total_contribution = sum(ch["layer_4"] for ch in channel_data)
     source = "live Postgres" if live_rev else "hardcoded snapshot"
-    print(f"\nChannel profitability ({source}):")
-    print(f"  Total revenue: ${total_revenue:,.2f}")
-    print(f"  Total contribution: ${total_contribution:,.2f}")
+    print(f"\nChannel profitability — annual averages, FY2024–FY2026 ({source}):")
+    print(f"  Total revenue/yr: ${total_revenue:,.2f}")
+    print(f"  Total contribution/yr: ${total_contribution:,.2f}")
     print(f"  Overall margin: {(total_contribution/total_revenue)*100:.1f}%")
 
     for ch in channel_data:

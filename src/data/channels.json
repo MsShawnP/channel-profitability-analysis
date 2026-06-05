@@ -3,39 +3,39 @@
     "channel_id": "unfi",
     "channel_name": "UNFI",
     "channel_type": "distributor",
-    "gross_revenue": 10450336.32,
-    "total_cogs": 890368.65,
-    "total_deductions": 145927.47,
-    "disputes_filed": 315,
-    "total_deduction_events": 902
+    "gross_revenue": 3483445.44,
+    "total_cogs": 296789.55,
+    "total_deductions": 48642.49,
+    "disputes_filed": 105,
+    "total_deduction_events": 301
   },
   {
     "channel_id": "dpi_northwest",
     "channel_name": "DPI Northwest",
     "channel_type": "distributor",
-    "gross_revenue": 5602560.48,
-    "total_cogs": 423553.57,
-    "total_deductions": 74339.72,
-    "disputes_filed": 169,
-    "total_deduction_events": 464
+    "gross_revenue": 1867520.16,
+    "total_cogs": 141184.52,
+    "total_deductions": 24779.91,
+    "disputes_filed": 56,
+    "total_deduction_events": 155
   },
   {
     "channel_id": "kehe",
     "channel_name": "KeHE",
     "channel_type": "distributor",
-    "gross_revenue": 8405927.76,
-    "total_cogs": 711141.49,
-    "total_deductions": 117316.01,
-    "disputes_filed": 268,
-    "total_deduction_events": 728
+    "gross_revenue": 2801975.92,
+    "total_cogs": 237047.16,
+    "total_deductions": 39105.34,
+    "disputes_filed": 89,
+    "total_deduction_events": 243
   },
   {
     "channel_id": "DTC",
     "channel_name": "DTC",
     "channel_type": "DTC",
-    "gross_revenue": 572510.27,
-    "total_cogs": 99674.04,
-    "total_deductions": 0,
+    "gross_revenue": 190836.76,
+    "total_cogs": 33224.68,
+    "total_deductions": 0.0,
     "disputes_filed": 0,
     "total_deduction_events": 0
   },
@@ -43,60 +43,60 @@
     "channel_id": "sprouts",
     "channel_name": "Sprouts",
     "channel_type": "retailer",
-    "gross_revenue": 8106459.6,
-    "total_cogs": 1211105.06,
-    "total_deductions": 216948.7,
-    "disputes_filed": 862,
-    "total_deduction_events": 2188
+    "gross_revenue": 2702153.2,
+    "total_cogs": 403701.69,
+    "total_deductions": 72316.23,
+    "disputes_filed": 287,
+    "total_deduction_events": 729
   },
   {
     "channel_id": "whole_foods",
     "channel_name": "Whole Foods",
     "channel_type": "retailer",
-    "gross_revenue": 9705060.0,
-    "total_cogs": 1364531.44,
-    "total_deductions": 246454.34,
-    "disputes_filed": 945,
-    "total_deduction_events": 2325
+    "gross_revenue": 3235020.0,
+    "total_cogs": 454843.81,
+    "total_deductions": 82151.44,
+    "disputes_filed": 315,
+    "total_deduction_events": 775
   },
   {
     "channel_id": "regional_group",
     "channel_name": "Regional Group",
     "channel_type": "retailer",
-    "gross_revenue": 6075642.72,
-    "total_cogs": 942332.19,
-    "total_deductions": 148859.24,
-    "disputes_filed": 597,
-    "total_deduction_events": 1614
+    "gross_revenue": 2025214.24,
+    "total_cogs": 314110.73,
+    "total_deductions": 49619.75,
+    "disputes_filed": 199,
+    "total_deduction_events": 538
   },
   {
     "channel_id": "kroger",
     "channel_name": "Kroger",
     "channel_type": "retailer",
-    "gross_revenue": 10550521.68,
-    "total_cogs": 1679643.05,
-    "total_deductions": 263301.62,
-    "disputes_filed": 1099,
-    "total_deduction_events": 2825
+    "gross_revenue": 3516840.56,
+    "total_cogs": 559881.02,
+    "total_deductions": 87767.21,
+    "disputes_filed": 366,
+    "total_deduction_events": 942
   },
   {
     "channel_id": "walmart",
     "channel_name": "Walmart",
     "channel_type": "retailer",
-    "gross_revenue": 10894584.0,
-    "total_cogs": 1795427.44,
-    "total_deductions": 268738.34,
-    "disputes_filed": 1143,
-    "total_deduction_events": 2928
+    "gross_revenue": 3631528.0,
+    "total_cogs": 598475.81,
+    "total_deductions": 89579.45,
+    "disputes_filed": 381,
+    "total_deduction_events": 976
   },
   {
     "channel_id": "costco",
     "channel_name": "Costco",
     "channel_type": "retailer",
-    "gross_revenue": 6467230.08,
-    "total_cogs": 1091021.71,
-    "total_deductions": 167401.43,
-    "disputes_filed": 743,
-    "total_deduction_events": 1924
+    "gross_revenue": 2155743.36,
+    "total_cogs": 363673.9,
+    "total_deductions": 55800.48,
+    "disputes_filed": 248,
+    "total_deduction_events": 641
   }
 ]
