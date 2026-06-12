@@ -19,11 +19,16 @@ except ImportError:
 # Extracted from Postgres 2026-05-22. Used as offline fallback when Postgres
 # is unavailable. Live path queries fact tables directly (no date filter).
 
+# Catalog-true ratios: SUM(units ordered x raw.sku_costs.cogs_per_unit) /
+# invoiced revenue per channel, certified replica 2026-06-12. Distributors
+# buy the same units at lower prices, so their COGS ratio is HIGHER than
+# retail. The previous hand-entered ratios (7.6-16.9% wholesale) were ~3x
+# low and inverted.
 COGS_RATIOS = {
-    "UNFI": 0.0852, "DPI Northwest": 0.0756, "KeHE": 0.0846,
-    "DTC": 0.1741,
-    "Sprouts": 0.1494, "Whole Foods": 0.1406, "Regional Group": 0.1551,
-    "Kroger": 0.1592, "Walmart": 0.1648, "Costco": 0.1687,
+    "UNFI": 0.5349, "DPI Northwest": 0.5453, "KeHE": 0.5233,
+    "DTC": 0.1740,
+    "Sprouts": 0.4387, "Whole Foods": 0.4163, "Regional Group": 0.4634,
+    "Kroger": 0.4637, "Walmart": 0.4818, "Costco": 0.5015,
 }
 
 FISCAL_REVENUE = {
