@@ -7,61 +7,61 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 3483445.44,
+        "value": 3215195.84,
         "breakdown": []
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 1867520.16,
+        "value": 1809538.72,
         "breakdown": []
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 2801975.92,
+        "value": 2954775.04,
         "breakdown": []
       },
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 190836.76,
+        "value": 188708.44,
         "breakdown": []
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 2702153.2,
+        "value": 2753248.24,
         "breakdown": []
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 3235020.0,
+        "value": 3277454.56,
         "breakdown": []
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 2025214.24,
+        "value": 2026861.76,
         "breakdown": []
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 3516840.56,
+        "value": 3519207.6,
         "breakdown": []
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 3631528.0,
+        "value": 3596550.0,
         "breakdown": []
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 2155743.36,
+        "value": 2202936.96,
         "breakdown": []
       }
     ]
@@ -74,120 +74,120 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 3186655.89,
-        "previous_value": 3483445.44,
+        "value": 1495387.59,
+        "previous_value": 3215195.84,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 296789.55
+            "amount": 1719808.25
           }
         ]
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 1726335.64,
-        "previous_value": 1867520.16,
+        "value": 822797.26,
+        "previous_value": 1809538.72,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 141184.52
+            "amount": 986741.46
           }
         ]
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 2564928.76,
-        "previous_value": 2801975.92,
+        "value": 1408541.26,
+        "previous_value": 2954775.04,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 237047.16
+            "amount": 1546233.78
           }
         ]
       },
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 157612.08,
-        "previous_value": 190836.76,
+        "value": 155873.17,
+        "previous_value": 188708.44,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 33224.68
+            "amount": 32835.27
           }
         ]
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 2298451.51,
-        "previous_value": 2702153.2,
+        "value": 1545398.24,
+        "previous_value": 2753248.24,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 403701.69
+            "amount": 1207850.0
           }
         ]
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 2780176.19,
-        "previous_value": 3235020.0,
+        "value": 1913050.23,
+        "previous_value": 3277454.56,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 454843.81
+            "amount": 1364404.33
           }
         ]
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 1711103.51,
-        "previous_value": 2025214.24,
+        "value": 1087614.02,
+        "previous_value": 2026861.76,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 314110.73
+            "amount": 939247.74
           }
         ]
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 2956959.54,
-        "previous_value": 3516840.56,
+        "value": 1887351.04,
+        "previous_value": 3519207.6,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 559881.02
+            "amount": 1631856.56
           }
         ]
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 3033052.19,
-        "previous_value": 3631528.0,
+        "value": 1863732.21,
+        "previous_value": 3596550.0,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 598475.81
+            "amount": 1732817.79
           }
         ]
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 1792069.46,
-        "previous_value": 2155743.36,
+        "value": 1098164.07,
+        "previous_value": 2202936.96,
         "breakdown": [
           {
             "label": "Cost of Goods Sold",
-            "amount": 363673.9
+            "amount": 1104772.89
           }
         ]
       }
@@ -201,8 +201,8 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 3157220.18,
-        "previous_value": 3186655.89,
+        "value": 1465951.88,
+        "previous_value": 1495387.59,
         "breakdown": [
           {
             "label": "Short Ship",
@@ -231,8 +231,8 @@
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 1710039.29,
-        "previous_value": 1726335.64,
+        "value": 806500.91,
+        "previous_value": 822797.26,
         "breakdown": [
           {
             "label": "Pricing Error",
@@ -261,8 +261,8 @@
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 2542104.98,
-        "previous_value": 2564928.76,
+        "value": 1385717.48,
+        "previous_value": 1408541.26,
         "breakdown": [
           {
             "label": "Promo Billback",
@@ -291,15 +291,15 @@
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 157612.08,
-        "previous_value": 157612.08,
+        "value": 155873.17,
+        "previous_value": 155873.17,
         "breakdown": []
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 2263907.72,
-        "previous_value": 2298451.51,
+        "value": 1510854.45,
+        "previous_value": 1545398.24,
         "breakdown": [
           {
             "label": "Slotting Fees",
@@ -334,8 +334,8 @@
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 2745160.91,
-        "previous_value": 2780176.19,
+        "value": 1878034.95,
+        "previous_value": 1913050.23,
         "breakdown": [
           {
             "label": "Slotting Fees",
@@ -370,8 +370,8 @@
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 1688960.96,
-        "previous_value": 1711103.51,
+        "value": 1065471.47,
+        "previous_value": 1087614.02,
         "breakdown": [
           {
             "label": "Slotting Fees",
@@ -406,8 +406,8 @@
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 2919249.68,
-        "previous_value": 2956959.54,
+        "value": 1849641.18,
+        "previous_value": 1887351.04,
         "breakdown": [
           {
             "label": "Short Ship",
@@ -442,8 +442,8 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 2990852.76,
-        "previous_value": 3033052.19,
+        "value": 1821532.78,
+        "previous_value": 1863732.21,
         "breakdown": [
           {
             "label": "Short Ship",
@@ -478,8 +478,8 @@
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 1765480.64,
-        "previous_value": 1792069.46,
+        "value": 1071575.25,
+        "previous_value": 1098164.07,
         "breakdown": [
           {
             "label": "Promo Billback",
@@ -521,8 +521,8 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 3137569.4,
-        "previous_value": 3157220.18,
+        "value": 1446301.1,
+        "previous_value": 1465951.88,
         "breakdown": [
           {
             "label": "Damaged Goods",
@@ -541,8 +541,8 @@
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 1701289.73,
-        "previous_value": 1710039.29,
+        "value": 797751.35,
+        "previous_value": 806500.91,
         "breakdown": [
           {
             "label": "Damaged Goods",
@@ -561,8 +561,8 @@
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 2525557.42,
-        "previous_value": 2542104.98,
+        "value": 1369169.92,
+        "previous_value": 1385717.48,
         "breakdown": [
           {
             "label": "Late Delivery",
@@ -581,15 +581,15 @@
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 157612.08,
-        "previous_value": 157612.08,
+        "value": 155873.17,
+        "previous_value": 155873.17,
         "breakdown": []
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 2225597.28,
-        "previous_value": 2263907.72,
+        "value": 1472544.01,
+        "previous_value": 1510854.45,
         "breakdown": [
           {
             "label": "Label Fines",
@@ -626,8 +626,8 @@
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 2696884.75,
-        "previous_value": 2745160.91,
+        "value": 1829758.79,
+        "previous_value": 1878034.95,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -664,8 +664,8 @@
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 1660945.76,
-        "previous_value": 1688960.96,
+        "value": 1037456.27,
+        "previous_value": 1065471.47,
         "breakdown": [
           {
             "label": "Late Delivery",
@@ -702,8 +702,8 @@
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 2868654.33,
-        "previous_value": 2919249.68,
+        "value": 1799045.83,
+        "previous_value": 1849641.18,
         "breakdown": [
           {
             "label": "Late Delivery",
@@ -740,8 +740,8 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 2941859.74,
-        "previous_value": 2990852.76,
+        "value": 1772539.76,
+        "previous_value": 1821532.78,
         "breakdown": [
           {
             "label": "Damaged Goods",
@@ -778,8 +778,8 @@
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 1734048.98,
-        "previous_value": 1765480.64,
+        "value": 1040143.59,
+        "previous_value": 1071575.25,
         "breakdown": [
           {
             "label": "Spoilage",
@@ -823,8 +823,8 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 3131766.4,
-        "previous_value": 3137569.4,
+        "value": 1440498.1,
+        "previous_value": 1446301.1,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -835,8 +835,8 @@
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 1698132.73,
-        "previous_value": 1701289.73,
+        "value": 794594.35,
+        "previous_value": 797751.35,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -847,8 +847,8 @@
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 2520394.92,
-        "previous_value": 2525557.42,
+        "value": 1364007.42,
+        "previous_value": 1369169.92,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -859,15 +859,15 @@
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 157612.08,
-        "previous_value": 157612.08,
+        "value": 155873.17,
+        "previous_value": 155873.17,
         "breakdown": []
       },
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 2203323.28,
-        "previous_value": 2225597.28,
+        "value": 1450270.01,
+        "previous_value": 1472544.01,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -878,8 +878,8 @@
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 2673098.75,
-        "previous_value": 2696884.75,
+        "value": 1805972.79,
+        "previous_value": 1829758.79,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -890,8 +890,8 @@
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 1646581.76,
-        "previous_value": 1660945.76,
+        "value": 1023092.27,
+        "previous_value": 1037456.27,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -902,8 +902,8 @@
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 2842337.83,
-        "previous_value": 2868654.33,
+        "value": 1772729.33,
+        "previous_value": 1799045.83,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -914,8 +914,8 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 2914311.24,
-        "previous_value": 2941859.74,
+        "value": 1744991.26,
+        "previous_value": 1772539.76,
         "breakdown": [
           {
             "label": "Operational Overhead",
@@ -926,8 +926,8 @@
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 1715414.98,
-        "previous_value": 1734048.98,
+        "value": 1021509.59,
+        "previous_value": 1040143.59,
         "breakdown": [
           {
             "label": "Operational Overhead",
