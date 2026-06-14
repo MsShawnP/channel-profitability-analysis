@@ -48,7 +48,7 @@ def margin_pct(layers, channel_name):
 
 r.check("Walmart margin 80.3%", margin_pct(layers, "Walmart"), 80.3, tolerance=0.005)
 r.check("Trade deductions $785K", trade_total, 785_000, tolerance=0.03)
-r.check_range("Erosion range 9%-20%", min(all_erosion), max(all_erosion), 9, 20.5)
+r.check_range("Erosion range 17%-56%", min(all_erosion), max(all_erosion), 17, 56)
 ```
 
 Key design choices:
