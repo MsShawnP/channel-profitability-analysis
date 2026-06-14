@@ -201,26 +201,26 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 1465951.88,
+        "value": 1467029.56,
         "previous_value": 1495387.59,
         "breakdown": [
           {
+            "label": "Pricing Error",
+            "type": "pricing_error",
+            "amount": 10287.82,
+            "count": 64
+          },
+          {
             "label": "Short Ship",
             "type": "short_ship",
-            "amount": 10238.9,
-            "count": 61
+            "amount": 9500.87,
+            "count": 124
           },
           {
             "label": "Promo Billback",
             "type": "promo_billback",
-            "amount": 9433.26,
-            "count": 63
-          },
-          {
-            "label": "Pricing Error",
-            "type": "pricing_error",
-            "amount": 9319.56,
-            "count": 58
+            "amount": 8125.33,
+            "count": 52
           },
           {
             "label": "Promotional Costs",
@@ -231,26 +231,26 @@
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 806500.91,
+        "value": 809619.95,
         "previous_value": 822797.26,
         "breakdown": [
           {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 4653.09,
+            "count": 33
+          },
+          {
             "label": "Pricing Error",
             "type": "pricing_error",
-            "amount": 6092.93,
-            "count": 39
+            "amount": 4194.17,
+            "count": 31
           },
           {
             "label": "Short Ship",
             "type": "short_ship",
-            "amount": 5548.33,
-            "count": 31
-          },
-          {
-            "label": "Promo Billback",
-            "type": "promo_billback",
-            "amount": 4389.09,
-            "count": 28
+            "amount": 4064.04,
+            "count": 59
           },
           {
             "label": "Promotional Costs",
@@ -261,26 +261,26 @@
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 1385717.48,
+        "value": 1383254.64,
         "previous_value": 1408541.26,
         "breakdown": [
           {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 9111.93,
+            "count": 114
+          },
+          {
             "label": "Promo Billback",
             "type": "promo_billback",
-            "amount": 7952.13,
-            "count": 46
+            "amount": 8240.24,
+            "count": 48
           },
           {
             "label": "Pricing Error",
             "type": "pricing_error",
-            "amount": 7570.44,
-            "count": 52
-          },
-          {
-            "label": "Short Ship",
-            "type": "short_ship",
-            "amount": 7035.2,
-            "count": 44
+            "amount": 7668.45,
+            "count": 48
           },
           {
             "label": "Promotional Costs",
@@ -298,32 +298,32 @@
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 1510854.45,
+        "value": 1508837.61,
         "previous_value": 1545398.24,
         "breakdown": [
           {
-            "label": "Slotting Fees",
-            "type": "slotting",
-            "amount": 8891.97,
-            "count": 89
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 11360.3,
+            "count": 387
           },
           {
             "label": "Pricing Error",
             "type": "pricing_error",
-            "amount": 8720.49,
-            "count": 85
+            "amount": 8657.68,
+            "count": 82
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 8274.87,
+            "count": 79
           },
           {
             "label": "Promo Billback",
             "type": "promo_billback",
-            "amount": 8692.24,
-            "count": 89
-          },
-          {
-            "label": "Short Ship",
-            "type": "short_ship",
-            "amount": 7701.1,
-            "count": 77
+            "amount": 7729.78,
+            "count": 81
           },
           {
             "label": "Promotional Costs",
@@ -334,32 +334,32 @@
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 1878034.95,
+        "value": 1870303.58,
         "previous_value": 1913050.23,
         "breakdown": [
           {
-            "label": "Slotting Fees",
-            "type": "slotting",
-            "amount": 9026.68,
-            "count": 89
-          },
-          {
             "label": "Short Ship",
             "type": "short_ship",
-            "amount": 8753.12,
-            "count": 89
-          },
-          {
-            "label": "Promo Billback",
-            "type": "promo_billback",
-            "amount": 8169.54,
-            "count": 78
+            "amount": 13054.77,
+            "count": 429
           },
           {
             "label": "Pricing Error",
             "type": "pricing_error",
-            "amount": 7925.94,
-            "count": 75
+            "amount": 10177.0,
+            "count": 91
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 9363.9,
+            "count": 91
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 9010.99,
+            "count": 87
           },
           {
             "label": "Promotional Costs",
@@ -370,32 +370,32 @@
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 1065471.47,
+        "value": 1063062.42,
         "previous_value": 1087614.02,
         "breakdown": [
           {
-            "label": "Slotting Fees",
-            "type": "slotting",
-            "amount": 5819.32,
-            "count": 62
-          },
-          {
-            "label": "Promo Billback",
-            "type": "promo_billback",
-            "amount": 5614.81,
-            "count": 61
-          },
-          {
             "label": "Short Ship",
             "type": "short_ship",
-            "amount": 5280.13,
-            "count": 59
+            "amount": 6750.11,
+            "count": 234
+          },
+          {
+            "label": "Slotting Fees",
+            "type": "slotting",
+            "amount": 6251.92,
+            "count": 60
           },
           {
             "label": "Pricing Error",
             "type": "pricing_error",
-            "amount": 4890.3,
-            "count": 53
+            "amount": 5514.41,
+            "count": 55
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 5497.16,
+            "count": 60
           },
           {
             "label": "Promotional Costs",
@@ -406,32 +406,32 @@
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 1849641.18,
+        "value": 1836600.35,
         "previous_value": 1887351.04,
         "breakdown": [
           {
             "label": "Short Ship",
             "type": "short_ship",
-            "amount": 9613.19,
-            "count": 101
-          },
-          {
-            "label": "Pricing Error",
-            "type": "pricing_error",
-            "amount": 9598.21,
-            "count": 107
+            "amount": 21424.31,
+            "count": 713
           },
           {
             "label": "Slotting Fees",
             "type": "slotting",
-            "amount": 9465.62,
-            "count": 104
+            "amount": 10127.38,
+            "count": 109
           },
           {
             "label": "Promo Billback",
             "type": "promo_billback",
-            "amount": 8494.84,
-            "count": 97
+            "amount": 9758.29,
+            "count": 104
+          },
+          {
+            "label": "Pricing Error",
+            "type": "pricing_error",
+            "amount": 8902.71,
+            "count": 96
           },
           {
             "label": "Promotional Costs",
@@ -442,32 +442,32 @@
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 1821532.78,
+        "value": 1809035.54,
         "previous_value": 1863732.21,
         "breakdown": [
           {
             "label": "Short Ship",
             "type": "short_ship",
-            "amount": 11323.98,
-            "count": 126
-          },
-          {
-            "label": "Pricing Error",
-            "type": "pricing_error",
-            "amount": 10785.29,
-            "count": 115
-          },
-          {
-            "label": "Promo Billback",
-            "type": "promo_billback",
-            "amount": 9897.36,
-            "count": 108
+            "amount": 23964.91,
+            "count": 838
           },
           {
             "label": "Slotting Fees",
             "type": "slotting",
-            "amount": 8579.8,
-            "count": 97
+            "amount": 10016.8,
+            "count": 110
+          },
+          {
+            "label": "Pricing Error",
+            "type": "pricing_error",
+            "amount": 9922.82,
+            "count": 111
+          },
+          {
+            "label": "Promo Billback",
+            "type": "promo_billback",
+            "amount": 9179.14,
+            "count": 105
           },
           {
             "label": "Promotional Costs",
@@ -478,32 +478,32 @@
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 1071575.25,
+        "value": 1065437.64,
         "previous_value": 1098164.07,
         "breakdown": [
           {
+            "label": "Short Ship",
+            "type": "short_ship",
+            "amount": 11198.48,
+            "count": 386
+          },
+          {
             "label": "Promo Billback",
             "type": "promo_billback",
-            "amount": 6559.93,
-            "count": 76
+            "amount": 6832.47,
+            "count": 75
           },
           {
             "label": "Pricing Error",
             "type": "pricing_error",
-            "amount": 6186.36,
-            "count": 71
+            "amount": 6314.48,
+            "count": 70
           },
           {
             "label": "Slotting Fees",
             "type": "slotting",
-            "amount": 6181.65,
-            "count": 70
-          },
-          {
-            "label": "Short Ship",
-            "type": "short_ship",
-            "amount": 5440.88,
-            "count": 67
+            "amount": 6161.01,
+            "count": 71
           },
           {
             "label": "Promotional Costs",
@@ -521,60 +521,60 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 1446301.1,
-        "previous_value": 1465951.88,
+        "value": 1454180.19,
+        "previous_value": 1467029.56,
         "breakdown": [
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 10885.62,
-            "count": 64
+            "amount": 10411.36,
+            "count": 61
           },
           {
             "label": "Late Delivery",
             "type": "late_delivery",
-            "amount": 8765.16,
-            "count": 55
+            "amount": 2438.01,
+            "count": 37
           }
         ]
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 797751.35,
-        "previous_value": 806500.91,
+        "value": 804597.52,
+        "previous_value": 809619.95,
         "breakdown": [
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 4429.61,
-            "count": 29
+            "amount": 3588.57,
+            "count": 25
           },
           {
             "label": "Late Delivery",
             "type": "late_delivery",
-            "amount": 4319.95,
-            "count": 27
+            "amount": 1433.86,
+            "count": 22
           }
         ]
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 1369169.92,
-        "previous_value": 1385717.48,
+        "value": 1372409.2,
+        "previous_value": 1383254.64,
         "breakdown": [
-          {
-            "label": "Late Delivery",
-            "type": "late_delivery",
-            "amount": 9300.25,
-            "count": 54
-          },
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 7247.31,
-            "count": 48
+            "amount": 8302.58,
+            "count": 52
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 2542.86,
+            "count": 38
           }
         ]
       },
@@ -588,228 +588,216 @@
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 1472544.01,
-        "previous_value": 1510854.45,
+        "value": 1476707.73,
+        "previous_value": 1508837.61,
         "breakdown": [
           {
             "label": "Label Fines",
             "type": "label_fine",
-            "amount": 7832.31,
-            "count": 76
-          },
-          {
-            "label": "Spoilage",
-            "type": "spoilage",
-            "amount": 7820.89,
-            "count": 80
-          },
-          {
-            "label": "Pallet Fines",
-            "type": "pallet_fine",
-            "amount": 7722.87,
-            "count": 79
+            "amount": 8227.07,
+            "count": 84
           },
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 7540.46,
-            "count": 77
+            "amount": 8075.49,
+            "count": 79
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 7825.84,
+            "count": 83
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 7646.87,
+            "count": 78
           },
           {
             "label": "Late Delivery",
             "type": "late_delivery",
-            "amount": 7393.9,
-            "count": 78
+            "amount": 354.6,
+            "count": 10
           }
         ]
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 1829758.79,
-        "previous_value": 1878034.95,
+        "value": 1832422.28,
+        "previous_value": 1870303.58,
         "breakdown": [
-          {
-            "label": "Spoilage",
-            "type": "spoilage",
-            "amount": 9945.87,
-            "count": 92
-          },
-          {
-            "label": "Pallet Fines",
-            "type": "pallet_fine",
-            "amount": 9697.64,
-            "count": 94
-          },
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 9650.47,
-            "count": 81
+            "amount": 10898.44,
+            "count": 99
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 9037.33,
+            "count": 88
           },
           {
             "label": "Label Fines",
             "type": "label_fine",
-            "amount": 9497.61,
-            "count": 88
+            "amount": 8877.5,
+            "count": 85
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 8738.31,
+            "count": 91
           },
           {
             "label": "Late Delivery",
             "type": "late_delivery",
-            "amount": 9484.57,
-            "count": 90
+            "amount": 329.72,
+            "count": 9
           }
         ]
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 1037456.27,
-        "previous_value": 1065471.47,
+        "value": 1041489.95,
+        "previous_value": 1063062.42,
         "breakdown": [
           {
-            "label": "Late Delivery",
-            "type": "late_delivery",
-            "amount": 6072.41,
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 5634.76,
             "count": 61
           },
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 5850.9,
-            "count": 66
-          },
-          {
-            "label": "Spoilage",
-            "type": "spoilage",
-            "amount": 5489.41,
-            "count": 59
-          },
-          {
-            "label": "Pallet Fines",
-            "type": "pallet_fine",
-            "amount": 5471.48,
-            "count": 60
+            "amount": 5622.38,
+            "count": 58
           },
           {
             "label": "Label Fines",
             "type": "label_fine",
-            "amount": 5131.0,
-            "count": 56
+            "amount": 5174.55,
+            "count": 57
+          },
+          {
+            "label": "Pallet Fines",
+            "type": "pallet_fine",
+            "amount": 5140.78,
+            "count": 59
           }
         ]
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 1799045.83,
-        "previous_value": 1849641.18,
+        "value": 1797010.65,
+        "previous_value": 1836600.35,
         "breakdown": [
           {
-            "label": "Late Delivery",
-            "type": "late_delivery",
-            "amount": 10536.18,
-            "count": 112
-          },
-          {
-            "label": "Damaged Goods",
-            "type": "damaged",
-            "amount": 10293.15,
-            "count": 111
-          },
-          {
-            "label": "Spoilage",
-            "type": "spoilage",
-            "amount": 9985.57,
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 9967.08,
             "count": 106
           },
           {
             "label": "Pallet Fines",
             "type": "pallet_fine",
-            "amount": 9919.97,
-            "count": 99
+            "amount": 9935.16,
+            "count": 104
           },
           {
-            "label": "Label Fines",
-            "type": "label_fine",
-            "amount": 9860.47,
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 9756.46,
             "count": 105
+          },
+          {
+            "label": "Damaged Goods",
+            "type": "damaged",
+            "amount": 9466.67,
+            "count": 101
+          },
+          {
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 464.33,
+            "count": 14
           }
         ]
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 1772539.76,
-        "previous_value": 1821532.78,
+        "value": 1765832.46,
+        "previous_value": 1809035.54,
         "breakdown": [
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 11097.01,
+            "count": 115
+          },
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 10067.66,
-            "count": 105
+            "amount": 10811.06,
+            "count": 113
           },
           {
             "label": "Pallet Fines",
             "type": "pallet_fine",
-            "amount": 9844.6,
-            "count": 108
-          },
-          {
-            "label": "Late Delivery",
-            "type": "late_delivery",
-            "amount": 9806.02,
-            "count": 102
+            "amount": 10349.94,
+            "count": 106
           },
           {
             "label": "Label Fines",
             "type": "label_fine",
-            "amount": 9684.09,
-            "count": 109
+            "amount": 9453.34,
+            "count": 105
           },
           {
-            "label": "Spoilage",
-            "type": "spoilage",
-            "amount": 9590.65,
-            "count": 106
+            "label": "Late Delivery",
+            "type": "late_delivery",
+            "amount": 1491.72,
+            "count": 44
           }
         ]
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 1040143.59,
-        "previous_value": 1071575.25,
+        "value": 1040632.23,
+        "previous_value": 1065437.64,
         "breakdown": [
-          {
-            "label": "Spoilage",
-            "type": "spoilage",
-            "amount": 6774.87,
-            "count": 74
-          },
-          {
-            "label": "Late Delivery",
-            "type": "late_delivery",
-            "amount": 6449.56,
-            "count": 71
-          },
-          {
-            "label": "Label Fines",
-            "type": "label_fine",
-            "amount": 6240.34,
-            "count": 69
-          },
           {
             "label": "Pallet Fines",
             "type": "pallet_fine",
-            "amount": 6081.39,
-            "count": 72
+            "amount": 6461.78,
+            "count": 77
+          },
+          {
+            "label": "Spoilage",
+            "type": "spoilage",
+            "amount": 6357.9,
+            "count": 78
           },
           {
             "label": "Damaged Goods",
             "type": "damaged",
-            "amount": 5885.5,
-            "count": 72
+            "amount": 6321.53,
+            "count": 69
+          },
+          {
+            "label": "Label Fines",
+            "type": "label_fine",
+            "amount": 5664.2,
+            "count": 66
           }
         ]
       }
@@ -823,36 +811,36 @@
       {
         "channel_name": "UNFI",
         "channel_type": "distributor",
-        "value": 1440498.1,
-        "previous_value": 1446301.1,
+        "value": 1445570.19,
+        "previous_value": 1454180.19,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 5803.0
+            "amount": 8610.0
           }
         ]
       },
       {
         "channel_name": "DPI Northwest",
         "channel_type": "distributor",
-        "value": 794594.35,
-        "previous_value": 797751.35,
+        "value": 800604.02,
+        "previous_value": 804597.52,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 3157.0
+            "amount": 3993.5
           }
         ]
       },
       {
         "channel_name": "KeHE",
         "channel_type": "distributor",
-        "value": 1364007.42,
-        "previous_value": 1369169.92,
+        "value": 1365307.7,
+        "previous_value": 1372409.2,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 5162.5
+            "amount": 7101.5
           }
         ]
       },
@@ -866,72 +854,72 @@
       {
         "channel_name": "Sprouts",
         "channel_type": "retailer",
-        "value": 1450270.01,
-        "previous_value": 1472544.01,
+        "value": 1452687.23,
+        "previous_value": 1476707.73,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 22274.0
+            "amount": 24020.5
           }
         ]
       },
       {
         "channel_name": "Whole Foods",
         "channel_type": "retailer",
-        "value": 1805972.79,
-        "previous_value": 1829758.79,
+        "value": 1806553.78,
+        "previous_value": 1832422.28,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 23786.0
+            "amount": 25868.5
           }
         ]
       },
       {
         "channel_name": "Regional Group",
         "channel_type": "retailer",
-        "value": 1023092.27,
-        "previous_value": 1037456.27,
+        "value": 1025074.95,
+        "previous_value": 1041489.95,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 14364.0
+            "amount": 16415.0
           }
         ]
       },
       {
         "channel_name": "Kroger",
         "channel_type": "retailer",
-        "value": 1772729.33,
-        "previous_value": 1799045.83,
+        "value": 1760526.65,
+        "previous_value": 1797010.65,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 26316.5
+            "amount": 36484.0
           }
         ]
       },
       {
         "channel_name": "Walmart",
         "channel_type": "retailer",
-        "value": 1744991.26,
-        "previous_value": 1772539.76,
+        "value": 1723993.46,
+        "previous_value": 1765832.46,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 27548.5
+            "amount": 41839.0
           }
         ]
       },
       {
         "channel_name": "Costco",
         "channel_type": "retailer",
-        "value": 1021509.59,
-        "previous_value": 1040143.59,
+        "value": 1018935.73,
+        "previous_value": 1040632.23,
         "breakdown": [
           {
             "label": "Operational Overhead",
-            "amount": 18634.0
+            "amount": 21696.5
           }
         ]
       }

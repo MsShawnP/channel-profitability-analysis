@@ -5,9 +5,9 @@
     "channel_type": "distributor",
     "gross_revenue": 3215195.84,
     "total_cogs": 1719808.25,
-    "total_deductions": 48642.49,
-    "disputes_filed": 105,
-    "total_deduction_events": 301
+    "total_deductions": 40763.4,
+    "disputes_filed": 135,
+    "total_deduction_events": 338
   },
   {
     "channel_id": "dpi_northwest",
@@ -15,9 +15,9 @@
     "channel_type": "distributor",
     "gross_revenue": 1809538.72,
     "total_cogs": 986741.46,
-    "total_deductions": 24779.91,
-    "disputes_filed": 56,
-    "total_deduction_events": 155
+    "total_deductions": 17933.74,
+    "disputes_filed": 65,
+    "total_deduction_events": 170
   },
   {
     "channel_id": "kehe",
@@ -25,9 +25,9 @@
     "channel_type": "distributor",
     "gross_revenue": 2954775.04,
     "total_cogs": 1546233.78,
-    "total_deductions": 39105.34,
-    "disputes_filed": 89,
-    "total_deduction_events": 243
+    "total_deductions": 35866.06,
+    "disputes_filed": 108,
+    "total_deduction_events": 300
   },
   {
     "channel_id": "DTC",
@@ -45,9 +45,9 @@
     "channel_type": "retailer",
     "gross_revenue": 2753248.24,
     "total_cogs": 1207850.0,
-    "total_deductions": 72316.23,
-    "disputes_filed": 287,
-    "total_deduction_events": 729
+    "total_deductions": 68152.51,
+    "disputes_filed": 371,
+    "total_deduction_events": 963
   },
   {
     "channel_id": "whole_foods",
@@ -55,9 +55,9 @@
     "channel_type": "retailer",
     "gross_revenue": 3277454.56,
     "total_cogs": 1364404.33,
-    "total_deductions": 82151.44,
-    "disputes_filed": 315,
-    "total_deduction_events": 775
+    "total_deductions": 79487.95,
+    "disputes_filed": 413,
+    "total_deduction_events": 1069
   },
   {
     "channel_id": "regional_group",
@@ -65,9 +65,9 @@
     "channel_type": "retailer",
     "gross_revenue": 2026861.76,
     "total_cogs": 939247.74,
-    "total_deductions": 49619.75,
-    "disputes_filed": 199,
-    "total_deduction_events": 538
+    "total_deductions": 45586.07,
+    "disputes_filed": 249,
+    "total_deduction_events": 644
   },
   {
     "channel_id": "kroger",
@@ -75,9 +75,9 @@
     "channel_type": "retailer",
     "gross_revenue": 3519207.6,
     "total_cogs": 1631856.56,
-    "total_deductions": 87767.21,
-    "disputes_filed": 366,
-    "total_deduction_events": 942
+    "total_deductions": 89802.39,
+    "disputes_filed": 572,
+    "total_deduction_events": 1452
   },
   {
     "channel_id": "walmart",
@@ -85,9 +85,9 @@
     "channel_type": "retailer",
     "gross_revenue": 3596550.0,
     "total_cogs": 1732817.79,
-    "total_deductions": 89579.45,
-    "disputes_filed": 381,
-    "total_deduction_events": 976
+    "total_deductions": 96286.75,
+    "disputes_filed": 637,
+    "total_deduction_events": 1648
   },
   {
     "channel_id": "costco",
@@ -95,8 +95,8 @@
     "channel_type": "retailer",
     "gross_revenue": 2202936.96,
     "total_cogs": 1104772.89,
-    "total_deductions": 55800.48,
-    "disputes_filed": 248,
-    "total_deduction_events": 641
+    "total_deductions": 55311.84,
+    "disputes_filed": 342,
+    "total_deduction_events": 892
   }
 ]
