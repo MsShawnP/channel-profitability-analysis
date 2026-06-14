@@ -70,9 +70,9 @@ class TestCinderhavenCanonicalRegression:
     # ------------------------------------------------------------------
 
     def test_total_revenue_range(self, channels):
-        """Total gross revenue should be ~$76.8M (reasonable range: $70M-$85M)."""
+        """Total gross revenue should be ~$25.5M/yr (reasonable range: $23M-$28M)."""
         total = sum(c["gross_revenue"] for c in channels)
-        assert 70_000_000 < total < 85_000_000, (
+        assert 23_000_000 < total < 28_000_000, (
             f"Total revenue ${total:,.0f} outside expected range"
         )
 
