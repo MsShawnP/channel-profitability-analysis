@@ -55,3 +55,17 @@ failed and may have its own entry below]
 **Status:** Resolved
 
 **Tags:** powershell, python, f-string, here-string, windows, escaping
+
+---
+
+### 2026-06-19 — flyctl postgres connect password auth failure
+
+**Attempted:** Queried cinderhaven-db schema via `flyctl postgres connect -a cinderhaven-db` with piped SQL (same pattern that worked in previous sessions). flyctl auth is valid (`flyctl auth whoami` returns correct user).
+
+**Why it didn't work:** Server reachable (`Connecting to fdaa:74:6a73:a7b:896:c9af:d934:2...`) but returns `FATAL: password authentication failed for user "postgres"`. Likely cause: Fly.io rotated the internal postgres password since last successful connection, or the unmanaged Postgres instance needs a credential reset.
+
+**What we tried instead:** Answered the scouting question from existing query patterns in `refresh_data.py` instead. All 5 waterfall layers have date columns in Postgres — confirmed from the SQL already in the codebase.
+
+**Status:** Open — needs credential reset before next data refresh
+
+**Tags:** flyctl, postgres, auth, password, fly.io, database

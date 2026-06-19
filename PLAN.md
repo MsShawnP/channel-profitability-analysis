@@ -7,78 +7,116 @@ session. For session-by-session state, see HANDOFF.md.
 
 ## Goal
 
-Channel-by-channel profitability analysis for Cinderhaven ($25.6M/yr annual average (3yr cumulative $76.8M) across 10 channels) delivered as a scrollable, Economist-style
-web narrative with interactive drill-downs. Tuned for executive
-communication. Data-driven story — retailers retain 46–55% of revenue
-after COGS, deductions, fines, and operational overhead. Distributors retain
-44–46%. DTC retains 83% but at much smaller scale ($189K). The data leads.
+Replace the static Economist-style prose report with an interactive
+drill-down channel-analysis tool. Same business question ("where is
+contribution earned, where should capital go"), fundamentally different
+delivery. Cinderhaven, $25.6M/yr annual average across 10 channels.
+
+Tier: Heavy
 
 ## Why this arc, why now
 
-Tier 1 flagship portfolio piece. First buyer-facing consumer of the
-Cinderhaven Data Platform. Demonstrates ability to distill complex
-financial data into clear executive-ready narrative.
+The static report was the v1 proof of concept. It proved the data story
+works. But static prose with hardcoded figures breaks every time the
+pipeline updates, the voice can't adapt to filtered views, and the
+format doesn't let users interrogate the data. The redesign turns a
+read-only report into a tool executives can use.
 
-Differentiation from Trade Spend Diagnostic: that project answers "how
-much margin is leaking and where" (a diagnostic). This project answers
-"given the true contribution by channel, where should capital go instead"
-(a strategic recommendation). Same data, different question.
+Still Tier 1 flagship portfolio piece. Still the first buyer-facing
+consumer of the Cinderhaven Data Platform.
 
 ## Business question this arc answers
 
 Where is contribution actually being earned across channels, and how
 should that reshape capital allocation decisions?
 
+## Architecture (from /clarify, 2026-06-19)
+
+- **Drill-down model:** All Channels → Segment (Retail/Distribution/DTC)
+  → Individual Channel. In-place content transitions with breadcrumb nav.
+  Full interpretive prose at all 3 levels.
+- **Time filtering:** 3 fiscal years (FY2024–FY2026), quarterly slices,
+  and arbitrary custom date ranges. Default: FY2026.
+- **Prose engine:** Rule-based dynamic generation. Every number and
+  interpretive claim computed from filtered data at runtime. Economist
+  voice via authored sentence templates with conditional logic. No static
+  MDX prose survives.
+- **Charts:** 7 types — waterfall, stacked bar, slope, heatmap,
+  sparklines, bullet, Marimekko. All D3, all design-system-compliant,
+  all filter-responsive. Single release, no phasing.
+- **Frame:** Lailara design system port (header, footer, `--ll-*` tokens,
+  layout contract).
+- **Accessibility:** Accessible SVG baseline — aria-labels, hidden data
+  table fallbacks, keyboard navigation.
+- **Deploy:** Current site goes dark immediately (maintenance page at
+  channels.lailarallc.com). Single release replaces it.
+
+## Critical dependency — RESOLVED (2026-06-19)
+
+Postgres data granularity for all 5 waterfall layers confirmed at
+quarterly grain. Fines and overhead are in the same deduction tables as
+trade deductions (`fct_retailer_deductions`, `fct_distributor_deductions`),
+which have `deduction_date`. The v1 pipeline chose not to use quarterly
+fines/overhead (DECISIONS.md: "reported with quarterly lags"), but the
+underlying data supports it. COGS uses static ratios per channel — apply
+to quarterly revenue for quarterly gross margin, or join `raw.sku_costs`
+if time-varying COGS matters.
+
+Note: DB password auth failed during scouting (2026-06-19). Findings
+are derived from existing query patterns in `refresh_data.py`, not a
+live query. Confirm live when auth is restored.
+
 ## Constraints
 
 - No Streamlit
 - Lailara design system (Playfair Display + Source Sans 3, sequential teal palette, Economist chart rules)
-- Strict data consistency with 4-5 sibling Cinderhaven projects
-- Data source: cinderhaven-data-platform repo (synthetic)
-- Tech stack: open (to be decided in /ce:brainstorm)
+- Strict data consistency with sibling Cinderhaven projects
+- Data source: Postgres on Fly.io (cinderhaven-db) — SSOT
+- Stack: Astro 5.9 + React 19 + D3 v7 (carry forward from v1)
+- Desktop/tablet target — no mobile-first
+- No print stylesheet
+- No PDF export
+- No Amazon channel
+- Single release — no phased launch
 - Timeline: no hard deadline — excellence is the constraint
 
 ## Tasks
 
-Work in vertical slices — one section/feature end-to-end before moving
-to the next. Visualizations get reviewed in their own slice, not
-deferred to a polish phase.
+Work in vertical slices. Visualizations get reviewed in their own slice.
 
-- [x] Run /clarify to scope the work
-- [x] Run /office-hours to stress-test the idea
-- [x] Run /plan-ceo-review for product gate
-- [x] Run /plan-eng-review for architecture gate
-- [x] Run /ce:brainstorm to spec the approach
-- [x] Run /ce:plan to create implementation plan
-- [x] Run /ce:work to execute (U1–U7 complete, data refreshed)
-- [x] Fix analysis period (filter to trailing 12 months or reframe language)
-- [x] Run /ce:review (reviewer ensemble) — 2026-05-17, 16 findings fixed
-- [x] Run /qa (browser testing) — 2026-05-17, all checks pass
-
-## Design notes
-
-- Cold-start orientation: the deliverable needs a brief (2-3 sentence)
-  Cinderhaven context at the top for viewers arriving without having seen
-  the other portfolio projects. Enough to understand the brand, scale, and
-  channel mix — then straight into the analysis.
+- [x] Run /clarify to scope the redesign — 2026-06-19
+- [ ] Deploy maintenance page (take current site dark)
+- [ ] Scout Postgres quarterly granularity for fines + overhead
+- [ ] Run /office-hours to stress-test the redesign idea
+- [ ] Run /plan-ceo-review for product gate
+- [ ] Run /plan-eng-review for architecture gate
+- [ ] Run /ce:brainstorm to spec the approach
+- [ ] Run /ce:plan to create implementation plan
+- [ ] Run /ce:work to execute
+- [ ] Run /ce:review (reviewer ensemble)
+- [ ] Run /qa (browser testing)
 
 ## Out of scope for this arc
 
-- Slide/PDF export (follow-on phase after web narrative is solid)
+- Slide/PDF export
 - Amazon as a channel
-- Free-form dashboard exploration (interactivity supports narrative claims only)
-- Reshaping data to fit a preconceived conclusion
-- Industry benchmark comparisons (unless data platform already includes them)
+- Mobile-first responsive design
+- Print stylesheet
+- LLM-generated prose (ruled out — rule-based engine chosen)
+- Free-form dashboard exploration beyond the 3-level drill-down
 
 ## Definition of done for this arc
 
-- [ ] Analysis is rigorous — accounts for fines, deductions, and channel-specific costs
-- [ ] Numbers reconcile with sibling Cinderhaven projects (strict consistency)
-- [ ] Narrative reads as Economist-style executive communication (no jargon, no hedging)
-- [ ] Charts are polished per Lailara design system (not default/Excel-looking)
-- [ ] Interactive drill-downs support each major claim
-- [ ] A non-data-scientist executive could follow the story and act on it
-- [ ] Deployed as a scrollable web page
+- [ ] 3-level drill-down works (All → Segment → Channel) with breadcrumb nav
+- [ ] Time filtering works (FY, quarter, custom range) across all views
+- [ ] Rule-based prose engine generates Economist-style interpretive text for all 3 levels
+- [ ] All 7 chart types render with filtered data and design system tokens
+- [ ] 5-layer waterfall (Revenue → COGS → Deductions → Fines → Net Contribution) at every level
+- [ ] Lailara design system frame (header, footer, tokens, layout contract)
+- [ ] Accessible SVG baseline (aria-labels, data table fallbacks, keyboard nav)
+- [ ] Numbers reconcile with sibling Cinderhaven projects
+- [ ] Deployed at channels.lailarallc.com replacing the maintenance page
+- [ ] A non-data-scientist executive could drill down and act on findings
 
 ---
 
@@ -88,7 +126,12 @@ When an arc completes, archive its goal, completion date, and outcome
 here. Then start a new arc above. Provides continuity without bloating
 the active plan.
 
-### 2026-05-17 — Channel Profitability Narrative
+### 2026-06-19 — Static Report (v1) — Complete, superseded by redesign
+- Outcome: Economist-style scrollable narrative with interactive D3 charts. 8 sections, 5-layer waterfall, 30+ automated validation checks. Multiple data refreshes and reconciliation passes. All Heavy-tier gates passed.
+- URL: https://channels.lailarallc.com (going dark — replaced by maintenance page during redesign)
+- Superseded by: Interactive drill-down redesign (current arc)
+
+### 2026-05-17 — Channel Profitability Narrative (original build)
 - Outcome: Economist-style scrollable narrative with interactive D3 charts, deployed to Cloudflare Pages. 8 sections covering revenue → contribution waterfall. Full data integrity audit, automated validation (30 checks), single-command refresh pipeline. 4-agent review ensemble, all findings addressed.
 - URL: https://channels.lailarallc.com
 

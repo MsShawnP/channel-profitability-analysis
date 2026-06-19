@@ -221,3 +221,21 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Maintenance mode. PLAN.md Goal section has stale margin figures (cosmetic — arc is complete). Next /improve audit due 2026-06-22 (3 days).
 
 ---
+
+## 2026-06-19 — Redesign clarify + maintenance page (session wrap)
+
+**Started from:** User pasted full redesign brainstorm spec. Ran /clarify interview.
+
+**Did:**
+- Completed /clarify interview (11 questions). Key decisions: rule-based prose engine (not LLM), all 7 chart types in single release, 3-level drill-down with full interpretive prose at each level, custom date range filtering, no mobile/print, in-place content transitions with breadcrumbs.
+- Updated PLAN.md with new arc (old arc archived to history).
+- Deployed maintenance page to channels.lailarallc.com — current site is dark. Maintenance page uses Lailara design system (correct tokens, fonts, layout).
+- Backed up original index.astro as `index.astro.bak`.
+- Scouted Postgres quarterly data granularity. Finding: all 5 waterfall layers have date columns — fines and overhead are in the same deduction tables as trade deductions. The v1 "quarterly lags" was a modeling choice, not a data limitation. COGS uses static ratios (apply to quarterly revenue).
+- DB password auth failed during scouting — logged in FAILURES.md. Findings derived from existing query patterns, not live query.
+
+**State:** Maintenance page live at channels.lailarallc.com. PLAN.md has full redesign scope. /clarify complete. Critical data dependency resolved (all layers have quarterly grain). DB auth needs credential reset before next data refresh.
+
+**Next:** Fix DB auth (credential reset on Fly.io). Then continue Heavy-tier workflow: /office-hours → /plan-ceo-review → /plan-eng-review → /ce:brainstorm → /ce:plan → /ce:work.
+
+---
