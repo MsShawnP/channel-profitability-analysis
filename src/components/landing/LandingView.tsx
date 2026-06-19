@@ -1,6 +1,4 @@
 import { useMemo } from 'react';
-import channelsData from '../../data/channels.json';
-import layersData from '../../data/layers.json';
 import { computeSegmentSummaries, buildWaterfallSteps } from '../../lib/computeMetrics';
 import WaterfallChart from '../charts/WaterfallChart';
 import { SEGMENT_COLORS, FONTS, CHART_COLORS, formatCompact } from '../charts/chartUtils';
@@ -12,13 +10,16 @@ const SEGMENT_COLOR_MAP: Record<string, string> = {
   DTC: SEGMENT_COLORS.dtc,
 };
 
-export default function LandingView() {
+interface LandingViewProps {
+  channels: Channel[];
+  layers: Layer[];
+  onDrillToSegment: (segmentType: string) => void;
+}
+
+export default function LandingView({ channels, layers, onDrillToSegment }: LandingViewProps) {
   const segments = useMemo(
-    () => computeSegmentSummaries(
-      channelsData as Channel[],
-      layersData as Layer[],
-    ),
-    [],
+    () => computeSegmentSummaries(channels, layers),
+    [channels, layers],
   );
 
   return (
@@ -33,11 +34,19 @@ export default function LandingView() {
         const color = SEGMENT_COLOR_MAP[seg.type];
 
         return (
-          <div key={seg.type} style={{
-            border: `1px solid ${CHART_COLORS.gridline}`,
-            borderRadius: '2px',
-            padding: '24px 16px',
-          }}>
+          <div
+            key={seg.type}
+            onClick={() => onDrillToSegment(seg.type)}
+            style={{
+              border: `1px solid ${CHART_COLORS.gridline}`,
+              borderRadius: '2px',
+              padding: '24px 16px',
+              cursor: 'pointer',
+              transition: 'border-color 0.15s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.borderColor = color)}
+            onMouseLeave={e => (e.currentTarget.style.borderColor = CHART_COLORS.gridline)}
+          >
             <h3 style={{
               fontFamily: FONTS.serif,
               fontSize: '20px',

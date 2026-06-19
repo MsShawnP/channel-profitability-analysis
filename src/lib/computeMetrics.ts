@@ -14,7 +14,7 @@ export interface LayerChannel {
   channel_type: string;
   value: number;
   previous_value?: number;
-  breakdown?: Array<{ label: string; type?: string; amount: number; count?: number }>;
+  breakdown?: BreakdownItem[];
 }
 
 export interface Layer {
@@ -24,9 +24,14 @@ export interface Layer {
   channels: LayerChannel[];
 }
 
-export interface SegmentSummary {
-  name: string;
-  type: string;
+export interface BreakdownItem {
+  label: string;
+  type?: string;
+  amount: number;
+  count?: number;
+}
+
+export interface CostProfile {
   revenue: number;
   cogs: number;
   grossMargin: number;
@@ -37,7 +42,20 @@ export interface SegmentSummary {
   disputeOverhead: number;
   netContribution: number;
   marginPct: number;
+}
+
+export interface SegmentSummary extends CostProfile {
+  name: string;
+  type: string;
   channelCount: number;
+}
+
+export interface ChannelSummary extends CostProfile {
+  name: string;
+  type: string;
+  deductionBreakdown: BreakdownItem[];
+  fineBreakdown: BreakdownItem[];
+  overheadBreakdown: BreakdownItem[];
 }
 
 export interface WaterfallStep {
@@ -47,7 +65,7 @@ export interface WaterfallStep {
   runningTotal: number;
 }
 
-const SEGMENT_DISPLAY: Record<string, string> = {
+export const SEGMENT_DISPLAY: Record<string, string> = {
   retailer: 'Retailers',
   distributor: 'Distributors',
   DTC: 'DTC',
@@ -92,13 +110,52 @@ export function computeSegmentSummaries(channels: Channel[], layers: Layer[]): S
   });
 }
 
-export function buildWaterfallSteps(segment: SegmentSummary): WaterfallStep[] {
+export function computeChannelSummary(channelName: string, layers: Layer[]): ChannelSummary | null {
+  const findInLayer = (layerId: number) => {
+    const layer = layers.find(l => l.id === layerId);
+    return layer?.channels.find(c => c.channel_name === channelName) ?? null;
+  };
+
+  const l0 = findInLayer(0);
+  if (!l0) return null;
+
+  const l1 = findInLayer(1);
+  const l2 = findInLayer(2);
+  const l3 = findInLayer(3);
+  const l4 = findInLayer(4);
+
+  const revenue = l0.value;
+  const afterCogs = l1?.value ?? revenue;
+  const afterDeductions = l2?.value ?? afterCogs;
+  const afterFines = l3?.value ?? afterDeductions;
+  const netContribution = l4?.value ?? afterFines;
+
+  return {
+    name: channelName,
+    type: l0.channel_type,
+    revenue,
+    cogs: revenue - afterCogs,
+    grossMargin: afterCogs,
+    tradeDeductions: afterCogs - afterDeductions,
+    afterDeductions,
+    complianceFines: afterDeductions - afterFines,
+    afterFines,
+    disputeOverhead: afterFines - netContribution,
+    netContribution,
+    marginPct: revenue > 0 ? (netContribution / revenue) * 100 : 0,
+    deductionBreakdown: (l2?.breakdown ?? []).filter(b => b.amount > 0),
+    fineBreakdown: (l3?.breakdown ?? []).filter(b => b.amount > 0),
+    overheadBreakdown: (l4?.breakdown ?? []).filter(b => b.amount > 0),
+  };
+}
+
+export function buildWaterfallSteps(profile: CostProfile): WaterfallStep[] {
   return [
-    { label: 'Revenue', value: segment.revenue, type: 'start', runningTotal: segment.revenue },
-    { label: 'COGS', value: segment.cogs, type: 'subtract', runningTotal: segment.grossMargin },
-    { label: 'Deductions', value: segment.tradeDeductions, type: 'subtract', runningTotal: segment.afterDeductions },
-    { label: 'Fines', value: segment.complianceFines, type: 'subtract', runningTotal: segment.afterFines },
-    { label: 'Overhead', value: segment.disputeOverhead, type: 'subtract', runningTotal: segment.netContribution },
-    { label: 'Net', value: segment.netContribution, type: 'total', runningTotal: segment.netContribution },
+    { label: 'Revenue', value: profile.revenue, type: 'start', runningTotal: profile.revenue },
+    { label: 'COGS', value: profile.cogs, type: 'subtract', runningTotal: profile.grossMargin },
+    { label: 'Deductions', value: profile.tradeDeductions, type: 'subtract', runningTotal: profile.afterDeductions },
+    { label: 'Fines', value: profile.complianceFines, type: 'subtract', runningTotal: profile.afterFines },
+    { label: 'Overhead', value: profile.disputeOverhead, type: 'subtract', runningTotal: profile.netContribution },
+    { label: 'Net', value: profile.netContribution, type: 'total', runningTotal: profile.netContribution },
   ];
 }
