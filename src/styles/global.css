@@ -1,49 +1,6 @@
-@import './fonts.css';
-
-:root {
-  /* Page chrome — Lailara Design System v2 */
-  --color-bg: #f5f3ee;          /* Canvas (London-100 warmed) */
-  --color-text: #333333;        /* London-20 */
-  --color-text-secondary: #595959; /* London-35 */
-  --color-gridline: #d9d9d9;    /* London-85 */
-  --color-border: #d9d9d9;      /* London-85 */
-  --color-ink: #0d0d0d;         /* London-5 */
-  --color-reference: #666666;   /* London-40 */
-  --color-disabled: #b3b3b3;    /* London-70 */
-
-  /* Data accents — Chicago blue */
-  --color-navy: #1f2e7a;        /* Chicago-20 */
-  --color-navy-hover: #141e52;  /* Chicago-10 */
-  --color-navy-light: #8e9ad0;  /* Chicago-70 */
-  --color-red: #cc100a;         /* Red-42 — text and 1px rules only */
-
-  /* Sequential teal palette — Hong Kong (ranked by magnitude) */
-  --teal-1: #063d32;            /* HK-5  (darkest = largest) */
-  --teal-2: #0a5c4b;            /* HK-15 */
-  --teal-3: #0e6e5a;            /* HK-25 */
-  --teal-4: #158f75;            /* HK-35 */
-  --teal-5: #1fa282;            /* HK-45 */
-  --teal-6: #35b595;            /* HK-55 */
-  --teal-7: #6dcdb5;            /* HK-70 */
-  --teal-8: #b5e4d8;            /* HK-85 (lightest = smallest) */
-
-  /* Dark callout card */
-  --card-bg: #1a1a1a;
-  --card-text: #ffffff;
-  --card-subtitle: #d8d8d8;
-  --card-muted: #9a9a9a;
-  --card-border: rgba(255, 255, 255, 0.12);
-  --card-item-text: #ededed;
-
-  /* Typography */
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-  /* Layout */
-  --content-max-width: 900px;
-  --section-gap: 60px;
-  --border-radius: 2px;
-}
+/* lailara-frame.css provides all design-system tokens (--ll-*),
+   font-face declarations, and the page shell (header/footer/container).
+   This file adds only project-specific utility classes. */
 
 *,
 *::before,
@@ -58,17 +15,17 @@ html {
 
 body {
   margin: 0;
-  padding: 48px 24px;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans);
+  padding: 0;
+  background: var(--ll-canvas);
+  color: var(--ll-london-20);
+  font-family: var(--ll-sans);
   font-size: 17px;
   font-weight: 400;
   line-height: 1.6;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-serif);
+  font-family: var(--ll-serif);
   line-height: 1.3;
   margin: 0 0 0.5em;
 }
@@ -86,92 +43,90 @@ h2 {
 
 p {
   margin: 0 0 1em;
-  max-width: 660px;
+  max-width: var(--ll-body-max-width);
 }
 
 a {
-  color: var(--color-navy);
+  color: var(--ll-chicago-20);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--color-navy-hover);
+  color: var(--ll-chicago-10);
 }
 
 .orientation {
   font-size: 15px;
-  color: var(--color-text-secondary);
-  border-left: 3px solid var(--color-border);
+  color: var(--ll-london-35);
+  border-left: 3px solid var(--ll-london-85);
   padding-left: 16px;
   margin-bottom: 2em;
 }
 
 .section-subtitle {
   font-size: 14px;
-  color: var(--color-text-secondary);
+  color: var(--ll-london-35);
   margin: -0.25em 0 1.5em;
 }
 
 .chart-footnote {
   font-size: 11px;
   font-style: italic;
-  color: var(--color-text-secondary);
-  max-width: 660px;
+  color: var(--ll-london-35);
+  max-width: var(--ll-body-max-width);
   margin-top: 12px;
 }
 
 .segment-label {
-  font-family: var(--font-sans);
+  font-family: var(--ll-sans);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-text-secondary);
+  color: var(--ll-london-35);
   margin: 2em 0 0.5em;
 }
 
 .dtc-stat {
-  background: var(--card-bg);
-  color: var(--card-text);
-  border-radius: 2px;
+  background: var(--ll-card-bg);
+  color: var(--ll-card-text);
+  border-radius: var(--ll-radius);
   padding: 20px 24px;
   margin: 1em 0;
   max-width: 320px;
 }
 
 .dtc-stat .dtc-label {
-  font-family: var(--font-sans);
+  font-family: var(--ll-sans);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--card-subtitle);
+  color: var(--ll-card-subtitle);
   margin: 0 0 4px;
 }
 
 .dtc-stat .dtc-value {
-  font-family: var(--font-serif);
+  font-family: var(--ll-serif);
   font-size: 28px;
   font-weight: 700;
   margin: 0;
 }
 
 .dtc-stat .dtc-note {
-  font-family: var(--font-sans);
+  font-family: var(--ll-sans);
   font-size: 13px;
-  color: var(--card-muted);
+  color: var(--ll-card-muted);
   margin: 6px 0 0;
 }
 
-/* Focus-visible */
 :focus-visible {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--ll-london-20);
   outline-offset: 2px;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -180,10 +135,8 @@ a:hover {
   }
 }
 
-/* Mobile */
 @media (max-width: 640px) {
   body {
-    padding: 32px 16px;
     font-size: 15px;
   }
 

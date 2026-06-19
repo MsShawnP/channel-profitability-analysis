@@ -18,21 +18,29 @@ const { title } = Astro.props;
     <meta property="og:type" content="article" />
     <link rel="preload" href="/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/lailara-frame.css" />
     <link rel="stylesheet" href="/src/styles/global.css" />
-    <link rel="stylesheet" href="/src/styles/print.css" media="print" />
   </head>
   <body>
-    <main class="narrative">
-      <slot />
-    </main>
-    <style>
-      .narrative {
-        max-width: var(--content-max-width);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: var(--section-gap);
-      }
-    </style>
+    <div class="lailara-page">
+      <header class="lailara-header">
+        <nav class="lailara-nav-inner">
+          <a href="https://lailarallc.com" class="lailara-wordmark">Lailara LLC</a>
+          <span class="lailara-tool-name">Channel Profitability</span>
+        </nav>
+      </header>
+
+      <main class="lailara-main">
+        <div class="lailara-container">
+          <slot />
+        </div>
+      </main>
+
+      <footer class="lailara-footer">
+        <div class="lailara-footer-inner">
+          <p>Built by <a href="https://lailarallc.com">Lailara LLC</a> &mdash; data hygiene and analytics consulting for specialty food brands scaling into national retail.</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

@@ -6,7 +6,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 import { line, curveMonotoneX } from 'd3-shape';
 import { easeCubicOut } from 'd3-ease';
 import 'd3-transition';
-import { getTealColor, getOpacity, DIM_OPACITY } from './chartUtils';
+import { getSequentialColor, getOpacity, DIM_OPACITY, CHART_COLORS, FONTS } from './chartUtils';
 
 interface TrendChannelData {
   channel_name: string;
@@ -31,7 +31,7 @@ export interface TrendChartProps {
 
 const MARGIN = { top: 12, right: 140, bottom: 40, left: 50 };
 const CHART_HEIGHT = 300;
-const GRIDLINE_COLOR = '#d9d9d9';
+const GRIDLINE_COLOR = CHART_COLORS.gridline;
 const TRANSITION_DURATION = 200;
 const DOT_RADIUS = 3;
 const MIN_LABEL_GAP = 13;
@@ -55,7 +55,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
 
   const series = useMemo(() => channelNames.map((name, i) => ({
     name,
-    color: getTealColor(i, channelNames.length),
+    color: getSequentialColor(i, channelNames.length),
     values: data.map(q => ({
       quarter: q.quarter,
       margin: q.channels.find(c => c.channel_name === name)?.margin_pct || 0,
@@ -206,7 +206,7 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
         .attr('x', (xScale(lastQuarter) || 0) + 8)
         .attr('y', d => labelYMap.get(d.name) || d.y)
         .attr('dy', '0.35em')
-        .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
+        .attr('font-family', FONTS.sans)
         .attr('font-size', '11px')
         .attr('fill', d => d.color)
         .style('cursor', 'pointer')
@@ -238,9 +238,9 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
         g.select('.domain').remove();
         g.selectAll('.tick line').remove();
         g.selectAll('.tick text')
-          .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
+          .attr('font-family', FONTS.sans)
           .attr('font-size', '12px')
-          .attr('fill', '#595959');
+          .attr('fill', CHART_COLORS.axisText);
       });
 
     // Y axis
@@ -254,9 +254,9 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
       g.select('.domain').remove();
       g.selectAll('.tick line').remove();
       g.selectAll('.tick text')
-        .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
+        .attr('font-family', FONTS.sans)
         .attr('font-size', '12px')
-        .attr('fill', '#595959');
+        .attr('fill', CHART_COLORS.axisText);
     });
 
   }, [series, data, pinnedChannel, handleClick, prefersReducedMotion]);
@@ -264,11 +264,11 @@ export default function TrendChart({ data, channelType, label }: TrendChartProps
   return (
     <div className="channel-chart-container">
       <h3 style={{
-        fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
+        fontFamily: FONTS.serif,
         fontSize: '22px',
         fontWeight: 700,
         lineHeight: 1.3,
-        color: '#333333',
+        color: CHART_COLORS.ink,
         margin: '0 0 16px 0',
       }}>
         {label}

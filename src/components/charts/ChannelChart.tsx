@@ -6,7 +6,7 @@ import { axisBottom } from 'd3-axis';
 import { easeCubicOut } from 'd3-ease';
 import 'd3-transition';
 import CalloutCard from './CalloutCard';
-import { formatCompact, getTealColor, getOpacity, DIM_OPACITY } from './chartUtils';
+import { formatCompact, getSequentialColor, getOpacity, DIM_OPACITY, CHART_COLORS, FONTS } from './chartUtils';
 import type { LayerBreakdownItem } from './CalloutCard';
 
 export interface ChannelData {
@@ -25,7 +25,7 @@ export interface ChannelChartProps {
 const MARGIN = { top: 12, right: 80, bottom: 40, left: 140 };
 const BAR_HEIGHT = 36;
 const BAR_GAP = 8;
-const GRIDLINE_COLOR = '#d9d9d9';
+const GRIDLINE_COLOR = CHART_COLORS.gridline;
 const TRANSITION_DURATION = 200;
 
 /**
@@ -124,7 +124,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         .attr('y', (d) => yScale(d.channel_name) || 0)
         .attr('width', (d) => Math.max(0, xScale(d.value)))
         .attr('height', yScale.bandwidth())
-        .attr('fill', (_, i) => getTealColor(i, sortedData.length))
+        .attr('fill', (_, i) => getSequentialColor(i, sortedData.length))
         .attr('rx', 2)
         .attr('ry', 2)
         .style('cursor', 'pointer')
@@ -147,7 +147,7 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
           .attr('y', (d) => yScale(d.channel_name) || 0)
           .attr('width', (d) => Math.max(0, xScale(d.value)))
           .attr('height', yScale.bandwidth())
-          .attr('fill', (_, i) => getTealColor(i, sortedData.length));
+          .attr('fill', (_, i) => getSequentialColor(i, sortedData.length));
 
         if (duration > 0) {
           u.transition()
@@ -178,9 +178,9 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         .attr('x', (d) => xScale(d.value) + 6)
         .attr('y', (d) => (yScale(d.channel_name) || 0) + yScale.bandwidth() / 2)
         .attr('dy', '0.35em')
-        .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
+        .attr('font-family', FONTS.sans)
         .attr('font-size', '12px')
-        .attr('fill', '#333333')
+        .attr('fill', CHART_COLORS.axisText)
         .text((d) => formatCompact(d.value))
         .style('opacity', (d) => {
           if (!pinnedChannel) return 1;
@@ -222,9 +222,9 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         .attr('y', (d) => (yScale(d.channel_name) || 0) + yScale.bandwidth() / 2)
         .attr('dy', '0.35em')
         .attr('text-anchor', 'end')
-        .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
+        .attr('font-family', FONTS.sans)
         .attr('font-size', '12px')
-        .attr('fill', '#333333')
+        .attr('fill', CHART_COLORS.axisText)
         .text((d) => d.channel_name)
         .style('opacity', (d) => {
           if (!pinnedChannel) return 1;
@@ -270,9 +270,9 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
         g.select('.domain').remove();
         g.selectAll('.tick line').remove();
         g.selectAll('.tick text')
-          .attr('font-family', "var(--font-sans, 'Source Sans 3', sans-serif)")
+          .attr('font-family', FONTS.sans)
           .attr('font-size', '12px')
-          .attr('fill', '#595959');
+          .attr('fill', CHART_COLORS.axisText);
       });
 
   }, [sortedData, pinnedChannel, handleBarClick, prefersReducedMotion]);
@@ -284,11 +284,11 @@ export default function ChannelChart({ data, layerLabel, valueLabel }: ChannelCh
     <div className="channel-chart-container">
       {/* Chart title */}
       <h3 style={{
-        fontFamily: "var(--font-serif, 'Playfair Display', Georgia, 'Times New Roman', serif)",
+        fontFamily: FONTS.serif,
         fontSize: '22px',
         fontWeight: 700,
         lineHeight: 1.3,
-        color: '#333333',
+        color: CHART_COLORS.ink,
         margin: '0 0 16px 0',
       }}>
         {layerLabel}

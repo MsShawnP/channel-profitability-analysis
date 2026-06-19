@@ -1,4 +1,4 @@
-import { formatCompact } from './chartUtils';
+import { formatCompact, FONTS } from './chartUtils';
 
 export interface LayerBreakdownItem {
   label: string;
@@ -11,10 +11,6 @@ interface CalloutCardProps {
   breakdown?: LayerBreakdownItem[];
 }
 
-/**
- * Dark detail card rendered above the chart when a channel is pinned.
- * Shows channel name, total value, and line-item breakdown.
- */
 export default function CalloutCard({ channelName, totalValue, breakdown }: CalloutCardProps) {
   return (
     <div style={styles.card}>
@@ -41,8 +37,8 @@ export default function CalloutCard({ channelName, totalValue, breakdown }: Call
 
 const styles: Record<string, React.CSSProperties> = {
   card: {
-    background: '#1a1a1a',
-    borderRadius: '2px',
+    background: 'var(--ll-card-bg, #1a1a1a)',
+    borderRadius: 'var(--ll-radius, 2px)',
     padding: '20px 24px',
     marginBottom: '16px',
   },
@@ -53,14 +49,14 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: '12px',
   },
   channelName: {
-    color: '#ffffff',
-    fontFamily: "var(--font-sans, 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif)",
+    color: 'var(--ll-card-text, #ffffff)',
+    fontFamily: FONTS.sans,
     fontSize: '18px',
     fontWeight: 600,
   },
   totalValue: {
-    color: '#ffffff',
-    fontFamily: "var(--font-serif, 'Playfair Display', Georgia, 'Times New Roman', serif)",
+    color: 'var(--ll-card-text, #ffffff)',
+    fontFamily: FONTS.serif,
     fontSize: '28px',
     fontWeight: 700,
   },
@@ -73,7 +69,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   divider: {
     height: '1px',
-    background: 'rgba(255, 255, 255, 0.12)',
+    background: 'var(--ll-card-border, rgba(255, 255, 255, 0.12))',
     margin: '8px 0',
   },
   rowContent: {
@@ -82,14 +78,14 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
   },
   itemLabel: {
-    color: '#ededed',
-    fontFamily: "var(--font-sans, 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif)",
+    color: 'var(--ll-card-item, #ededed)',
+    fontFamily: FONTS.sans,
     fontSize: '14px',
     fontWeight: 400,
   },
   itemAmount: {
-    color: '#d8d8d8',
-    fontFamily: "var(--font-sans, 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif)",
+    color: 'var(--ll-card-subtitle, #d8d8d8)',
+    fontFamily: FONTS.sans,
     fontSize: '14px',
     fontWeight: 400,
   },
