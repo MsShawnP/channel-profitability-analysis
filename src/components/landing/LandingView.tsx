@@ -1,8 +1,11 @@
 import { useMemo } from 'react';
 import { computeSegmentSummaries, buildWaterfallSteps } from '../../lib/computeMetrics';
 import WaterfallChart from '../charts/WaterfallChart';
+import RevenueChart from '../charts/RevenueChart';
+import MarginEvolutionChart from '../charts/MarginEvolutionChart';
+import OverheadScatterChart from '../charts/OverheadScatterChart';
 import { SEGMENT_COLORS, FONTS, CHART_COLORS, formatCompact } from '../charts/chartUtils';
-import type { Channel, Layer } from '../../lib/computeMetrics';
+import type { Channel, Layer, TrendQuarter } from '../../lib/computeMetrics';
 
 const SEGMENT_COLOR_MAP: Record<string, string> = {
   retailer: SEGMENT_COLORS.retailer,
@@ -13,17 +16,36 @@ const SEGMENT_COLOR_MAP: Record<string, string> = {
 interface LandingViewProps {
   channels: Channel[];
   layers: Layer[];
+  trends: TrendQuarter[];
+  baseLayers: Layer[];
   periodLabel: string;
   onDrillToSegment: (segmentType: string) => void;
 }
 
-export default function LandingView({ channels, layers, periodLabel, onDrillToSegment }: LandingViewProps) {
+export default function LandingView({ channels, layers, trends, baseLayers, periodLabel, onDrillToSegment }: LandingViewProps) {
   const segments = useMemo(
     () => computeSegmentSummaries(channels, layers),
     [channels, layers],
   );
 
+  const revenueItems = useMemo(
+    () => channels.map(c => ({ name: c.channel_name, type: c.channel_type, revenue: c.gross_revenue })),
+    [channels],
+  );
+
+  const overheadItems = useMemo(() => {
+    const l4 = baseLayers.find(l => l.id === 4);
+    const l3 = baseLayers.find(l => l.id === 3);
+    if (!l4 || !l3) return [];
+    return channels.filter(c => c.disputes_filed > 0).map(c => {
+      const prev = l3.channels.find(lc => lc.channel_name === c.channel_name)?.value ?? 0;
+      const net = l4.channels.find(lc => lc.channel_name === c.channel_name)?.value ?? 0;
+      return { name: c.channel_name, type: c.channel_type, disputes: c.disputes_filed, overhead: prev - net, revenue: c.gross_revenue };
+    });
+  }, [channels, baseLayers]);
+
   return (
+    <div>
     <div style={{
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
@@ -114,6 +136,30 @@ export default function LandingView({ channels, layers, periodLabel, onDrillToSe
           </div>
         );
       })}
+    </div>
+
+    <div style={{ marginTop: '48px', maxWidth: '700px' }}>
+      <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
+        Revenue by Channel
+      </h3>
+      <RevenueChart items={revenueItems} footnote={periodLabel} />
+    </div>
+
+    <div style={{ marginTop: '48px' }}>
+      <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
+        Margin Evolution
+      </h3>
+      <MarginEvolutionChart trends={trends} footnote="All quarters, all channels" />
+    </div>
+
+    {overheadItems.length > 0 && (
+      <div style={{ marginTop: '48px', maxWidth: '700px' }}>
+        <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
+          Dispute Overhead
+        </h3>
+        <OverheadScatterChart items={overheadItems} footnote="Full range, annual data" />
+      </div>
+    )}
     </div>
   );
 }

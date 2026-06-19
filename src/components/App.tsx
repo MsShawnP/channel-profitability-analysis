@@ -162,6 +162,8 @@ export default function App() {
         <LandingView
           channels={channels}
           layers={layers}
+          trends={trends}
+          baseLayers={baseLayers}
           periodLabel={periodLabel}
           onDrillToSegment={drillToSegment}
         />
@@ -181,6 +183,7 @@ export default function App() {
         <ChannelView
           channelName={drill.channelName}
           layers={layers}
+          trends={trends}
           periodLabel={periodLabel}
         />
       )}

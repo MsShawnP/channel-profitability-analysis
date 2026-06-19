@@ -1,12 +1,14 @@
 import { useMemo } from 'react';
 import { computeChannelSummary, buildWaterfallSteps, SEGMENT_DISPLAY } from '../../lib/computeMetrics';
 import WaterfallChart from '../charts/WaterfallChart';
+import MarginEvolutionChart from '../charts/MarginEvolutionChart';
 import { FONTS, CHART_COLORS, WATERFALL_COLORS, formatCompact } from '../charts/chartUtils';
-import type { Layer, BreakdownItem } from '../../lib/computeMetrics';
+import type { Layer, BreakdownItem, TrendQuarter } from '../../lib/computeMetrics';
 
 interface ChannelViewProps {
   channelName: string;
   layers: Layer[];
+  trends: TrendQuarter[];
   periodLabel: string;
 }
 
@@ -90,7 +92,7 @@ function BreakdownSection({ title, items, color }: { title: string; items: Break
   );
 }
 
-export default function ChannelView({ channelName, layers, periodLabel }: ChannelViewProps) {
+export default function ChannelView({ channelName, layers, trends, periodLabel }: ChannelViewProps) {
   const summary = useMemo(
     () => computeChannelSummary(channelName, layers),
     [channelName, layers],
@@ -187,6 +189,23 @@ export default function ChannelView({ channelName, layers, periodLabel }: Channe
             color={WATERFALL_COLORS.cost}
           />
         )}
+      </div>
+
+      <div style={{ marginTop: '48px' }}>
+        <h3 style={{
+          fontFamily: FONTS.serif,
+          fontSize: '18px',
+          fontWeight: 700,
+          color: CHART_COLORS.ink,
+          margin: '0 0 8px',
+        }}>
+          Margin Trend
+        </h3>
+        <MarginEvolutionChart
+          trends={trends}
+          channelFilter={[channelName]}
+          footnote="All quarters"
+        />
       </div>
     </div>
   );
