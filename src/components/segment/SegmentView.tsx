@@ -13,6 +13,7 @@ interface SegmentViewProps {
   segmentType: string;
   channels: Channel[];
   layers: Layer[];
+  periodLabel: string;
   onDrillToChannel: (channelName: string) => void;
 }
 
@@ -22,7 +23,7 @@ const SEGMENT_COLOR_MAP: Record<string, string> = {
   DTC: SEGMENT_COLORS.dtc,
 };
 
-export default function SegmentView({ segmentType, channels, layers, onDrillToChannel }: SegmentViewProps) {
+export default function SegmentView({ segmentType, channels, layers, periodLabel, onDrillToChannel }: SegmentViewProps) {
   const segment = useMemo(() => {
     const all = computeSegmentSummaries(channels, layers);
     return all.find(s => s.type === segmentType)!;
@@ -89,7 +90,7 @@ export default function SegmentView({ segmentType, channels, layers, onDrillToCh
           <WaterfallChart
             steps={steps}
             height={210}
-            footnote={`3-year cumulative across all ${segment.channelCount} ${SEGMENT_DISPLAY[segmentType].toLowerCase()}`}
+            footnote={`${periodLabel}, all ${segment.channelCount} ${SEGMENT_DISPLAY[segmentType].toLowerCase()}`}
           />
         </div>
       </div>

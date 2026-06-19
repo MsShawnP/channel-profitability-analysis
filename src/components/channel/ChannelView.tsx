@@ -7,6 +7,7 @@ import type { Layer, BreakdownItem } from '../../lib/computeMetrics';
 interface ChannelViewProps {
   channelName: string;
   layers: Layer[];
+  periodLabel: string;
 }
 
 function BreakdownSection({ title, items, color }: { title: string; items: BreakdownItem[]; color: string }) {
@@ -89,7 +90,7 @@ function BreakdownSection({ title, items, color }: { title: string; items: Break
   );
 }
 
-export default function ChannelView({ channelName, layers }: ChannelViewProps) {
+export default function ChannelView({ channelName, layers, periodLabel }: ChannelViewProps) {
   const summary = useMemo(
     () => computeChannelSummary(channelName, layers),
     [channelName, layers],
@@ -160,7 +161,7 @@ export default function ChannelView({ channelName, layers }: ChannelViewProps) {
         <WaterfallChart
           steps={steps}
           height={210}
-          footnote="3-year cumulative"
+          footnote={periodLabel}
         />
       </div>
 

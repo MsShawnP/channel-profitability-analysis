@@ -13,10 +13,11 @@ const SEGMENT_COLOR_MAP: Record<string, string> = {
 interface LandingViewProps {
   channels: Channel[];
   layers: Layer[];
+  periodLabel: string;
   onDrillToSegment: (segmentType: string) => void;
 }
 
-export default function LandingView({ channels, layers, onDrillToSegment }: LandingViewProps) {
+export default function LandingView({ channels, layers, periodLabel, onDrillToSegment }: LandingViewProps) {
   const segments = useMemo(
     () => computeSegmentSummaries(channels, layers),
     [channels, layers],
@@ -108,7 +109,7 @@ export default function LandingView({ channels, layers, onDrillToSegment }: Land
             <WaterfallChart
               steps={steps}
               height={190}
-              footnote={`3-year cumulative, all ${seg.channelCount} ${seg.name.toLowerCase()}`}
+              footnote={`${periodLabel}, all ${seg.channelCount} ${seg.type === 'DTC' ? 'DTC' : seg.name.toLowerCase()}`}
             />
           </div>
         );

@@ -9,6 +9,101 @@ export interface Channel {
   total_deduction_events: number;
 }
 
+export interface TrendChannel {
+  channel_name: string;
+  channel_type: string;
+  revenue: number;
+  cogs: number;
+  deductions: number;
+  contribution: number;
+  margin_pct: number;
+}
+
+export interface TrendQuarter {
+  quarter: string;
+  channels: TrendChannel[];
+}
+
+export interface FiscalYear {
+  label: string;
+  quarters: string[];
+}
+
+// FY runs Q2-Q1 (e.g. FY2026 = Q2'25 through Q1'26)
+export const FISCAL_YEARS: FiscalYear[] = [
+  { label: 'FY2024', quarters: ['Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024'] },
+  { label: 'FY2025', quarters: ['Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025'] },
+  { label: 'FY2026', quarters: ['Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026'] },
+];
+
+export const ALL_QUARTERS = FISCAL_YEARS.flatMap(fy => fy.quarters);
+
+export function getQuartersForFilter(filter: string): string[] {
+  if (filter === 'full') return ALL_QUARTERS;
+  const fy = FISCAL_YEARS.find(f => f.label === filter);
+  if (fy) return fy.quarters;
+  if (ALL_QUARTERS.includes(filter)) return [filter];
+  return ALL_QUARTERS;
+}
+
+export function getFilterLabel(filter: string): string {
+  if (filter === 'full') return 'FY2024–FY2026';
+  const fy = FISCAL_YEARS.find(f => f.label === filter);
+  if (fy) return fy.label;
+  if (ALL_QUARTERS.includes(filter)) {
+    const [q, yr] = filter.split(' ');
+    return `${q}’${yr.slice(2)}`;
+  }
+  return 'FY2024–FY2026';
+}
+
+export function synthesizeFromTrends(
+  trends: TrendQuarter[],
+  quarters: string[],
+): { channels: Channel[]; layers: Layer[] } {
+  const filtered = trends.filter(t => quarters.includes(t.quarter));
+
+  const agg = new Map<string, { type: string; revenue: number; cogs: number; deductions: number; contribution: number }>();
+  for (const q of filtered) {
+    for (const c of q.channels) {
+      const prev = agg.get(c.channel_name) ?? { type: c.channel_type, revenue: 0, cogs: 0, deductions: 0, contribution: 0 };
+      prev.revenue += c.revenue;
+      prev.cogs += c.cogs;
+      prev.deductions += c.deductions;
+      prev.contribution += c.contribution;
+      agg.set(c.channel_name, prev);
+    }
+  }
+
+  const channels: Channel[] = Array.from(agg.entries()).map(([name, d]) => ({
+    channel_id: name.toLowerCase().replace(/\s+/g, '-'),
+    channel_name: name,
+    channel_type: d.type,
+    gross_revenue: d.revenue,
+    total_cogs: d.cogs,
+    total_deductions: d.deductions,
+    disputes_filed: 0,
+    total_deduction_events: 0,
+  }));
+
+  const layerChannels = (fn: (d: { type: string; revenue: number; cogs: number; deductions: number; contribution: number }) => number): LayerChannel[] =>
+    Array.from(agg.entries()).map(([name, d]) => ({
+      channel_name: name,
+      channel_type: d.type,
+      value: fn(d),
+    }));
+
+  const layers: Layer[] = [
+    { id: 0, label: 'Revenue', subtitle: '', channels: layerChannels(d => d.revenue) },
+    { id: 1, label: 'Gross Margin', subtitle: '', channels: layerChannels(d => d.revenue - d.cogs) },
+    { id: 2, label: 'After Deductions', subtitle: '', channels: layerChannels(d => d.contribution) },
+    { id: 3, label: 'After Fines', subtitle: '', channels: layerChannels(d => d.contribution) },
+    { id: 4, label: 'Net Contribution', subtitle: '', channels: layerChannels(d => d.contribution) },
+  ];
+
+  return { channels, layers };
+}
+
 export interface LayerChannel {
   channel_name: string;
   channel_type: string;
@@ -150,7 +245,7 @@ export function computeChannelSummary(channelName: string, layers: Layer[]): Cha
 }
 
 export function buildWaterfallSteps(profile: CostProfile): WaterfallStep[] {
-  return [
+  const all: WaterfallStep[] = [
     { label: 'Revenue', value: profile.revenue, type: 'start', runningTotal: profile.revenue },
     { label: 'COGS', value: profile.cogs, type: 'subtract', runningTotal: profile.grossMargin },
     { label: 'Deductions', value: profile.tradeDeductions, type: 'subtract', runningTotal: profile.afterDeductions },
@@ -158,4 +253,5 @@ export function buildWaterfallSteps(profile: CostProfile): WaterfallStep[] {
     { label: 'Overhead', value: profile.disputeOverhead, type: 'subtract', runningTotal: profile.netContribution },
     { label: 'Net', value: profile.netContribution, type: 'total', runningTotal: profile.netContribution },
   ];
+  return all.filter(s => s.type !== 'subtract' || s.value > 0.01);
 }

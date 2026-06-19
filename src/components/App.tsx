@@ -1,23 +1,43 @@
 import { useState, useCallback, useMemo } from 'react';
 import channelsData from '../data/channels.json';
 import layersData from '../data/layers.json';
+import trendsData from '../data/trends.json';
 import LandingView from './landing/LandingView';
 import SegmentView from './segment/SegmentView';
 import ChannelView from './channel/ChannelView';
+import TimeFilter from './TimeFilter';
 import { FONTS, CHART_COLORS } from './charts/chartUtils';
-import { SEGMENT_DISPLAY } from '../lib/computeMetrics';
-import type { Channel, Layer } from '../lib/computeMetrics';
+import {
+  SEGMENT_DISPLAY,
+  getQuartersForFilter,
+  getFilterLabel,
+  synthesizeFromTrends,
+} from '../lib/computeMetrics';
+import type { Channel, Layer, TrendQuarter } from '../lib/computeMetrics';
 
 type DrillState =
   | { level: 'all' }
   | { level: 'segment'; segmentType: string }
   | { level: 'channel'; segmentType: string; channelName: string };
 
-const channels = channelsData as Channel[];
-const layers = layersData as Layer[];
+const baseChannels = channelsData as Channel[];
+const baseLayers = layersData as Layer[];
+const trends = trendsData as TrendQuarter[];
+const DEFAULT_TIME_FILTER = 'FY2026';
 
 export default function App() {
   const [drill, setDrill] = useState<DrillState>({ level: 'all' });
+  const [timeFilter, setTimeFilter] = useState(DEFAULT_TIME_FILTER);
+
+  const { channels, layers, periodLabel } = useMemo(() => {
+    const label = getFilterLabel(timeFilter);
+    if (timeFilter === 'full') {
+      return { channels: baseChannels, layers: baseLayers, periodLabel: label };
+    }
+    const quarters = getQuartersForFilter(timeFilter);
+    const synth = synthesizeFromTrends(trends, quarters);
+    return { channels: synth.channels, layers: synth.layers, periodLabel: label };
+  }, [timeFilter]);
 
   const drillToSegment = useCallback((segmentType: string) => {
     setDrill({ level: 'segment', segmentType });
@@ -36,10 +56,14 @@ export default function App() {
   const segmentChannels = useMemo(() => {
     if (drill.level === 'all') return [];
     return channels.filter(c => c.channel_type === drill.segmentType);
-  }, [drill]);
+  }, [drill, channels]);
 
   return (
     <div>
+      <div style={{ marginBottom: '20px' }}>
+        <TimeFilter value={timeFilter} onChange={setTimeFilter} />
+      </div>
+
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -100,7 +124,7 @@ export default function App() {
             if (drill.level === 'all') {
               drillToSegment(val);
             } else {
-              drillToChannel(drill.level === 'all' ? '' : drill.segmentType, val);
+              drillToChannel(drill.segmentType, val);
             }
           }}
           style={{
@@ -138,6 +162,7 @@ export default function App() {
         <LandingView
           channels={channels}
           layers={layers}
+          periodLabel={periodLabel}
           onDrillToSegment={drillToSegment}
         />
       )}
@@ -147,6 +172,7 @@ export default function App() {
           segmentType={drill.segmentType}
           channels={channels}
           layers={layers}
+          periodLabel={periodLabel}
           onDrillToChannel={(name) => drillToChannel(drill.segmentType, name)}
         />
       )}
@@ -155,6 +181,7 @@ export default function App() {
         <ChannelView
           channelName={drill.channelName}
           layers={layers}
+          periodLabel={periodLabel}
         />
       )}
     </div>
