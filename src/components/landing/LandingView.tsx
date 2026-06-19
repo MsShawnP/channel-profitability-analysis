@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
-import { computeSegmentSummaries, buildWaterfallSteps } from '../../lib/computeMetrics';
+import { computeSegmentSummaries, computeChannelSummary, buildWaterfallSteps } from '../../lib/computeMetrics';
 import WaterfallChart from '../charts/WaterfallChart';
 import RevenueChart from '../charts/RevenueChart';
 import MarginEvolutionChart from '../charts/MarginEvolutionChart';
 import OverheadScatterChart from '../charts/OverheadScatterChart';
+import ActionCards from './ActionCards';
 import { SEGMENT_COLORS, FONTS, CHART_COLORS, formatCompact } from '../charts/chartUtils';
 import type { Channel, Layer, TrendQuarter } from '../../lib/computeMetrics';
 
@@ -17,12 +18,13 @@ interface LandingViewProps {
   channels: Channel[];
   layers: Layer[];
   trends: TrendQuarter[];
+  baseChannels: Channel[];
   baseLayers: Layer[];
   periodLabel: string;
   onDrillToSegment: (segmentType: string) => void;
 }
 
-export default function LandingView({ channels, layers, trends, baseLayers, periodLabel, onDrillToSegment }: LandingViewProps) {
+export default function LandingView({ channels, layers, trends, baseChannels, baseLayers, periodLabel, onDrillToSegment }: LandingViewProps) {
   const segments = useMemo(
     () => computeSegmentSummaries(channels, layers),
     [channels, layers],
@@ -43,6 +45,25 @@ export default function LandingView({ channels, layers, trends, baseLayers, peri
       return { name: c.channel_name, type: c.channel_type, disputes: c.disputes_filed, overhead: prev - net, revenue: c.gross_revenue };
     });
   }, [channels, baseLayers]);
+
+  const actionCardData = useMemo(() => {
+    const baseSegments = computeSegmentSummaries(baseChannels, baseLayers);
+    const retailSeg = baseSegments.find(s => s.type === 'retailer');
+    const distSeg = baseSegments.find(s => s.type === 'distributor');
+    const costco = computeChannelSummary('Costco', baseLayers);
+    const walmart = baseChannels.find(c => c.channel_name === 'Walmart');
+    const walmartSummary = computeChannelSummary('Walmart', baseLayers);
+
+    return {
+      retailMarginPct: retailSeg?.marginPct ?? 0,
+      distributorMarginPct: distSeg?.marginPct ?? 0,
+      totalOverhead: baseSegments.reduce((s, seg) => s + seg.disputeOverhead, 0),
+      walmartOverhead: walmartSummary?.disputeOverhead ?? 0,
+      walmartDisputes: walmart?.disputes_filed ?? 0,
+      costcoMarginPct: costco?.marginPct ?? 0,
+      costcoDeductionRate: costco ? (costco.tradeDeductions / costco.revenue) * 100 : 0,
+    };
+  }, [baseChannels, baseLayers]);
 
   return (
     <div>
@@ -160,6 +181,13 @@ export default function LandingView({ channels, layers, trends, baseLayers, peri
         <OverheadScatterChart items={overheadItems} footnote="Full range, annual data" />
       </div>
     )}
+
+    <div style={{ marginTop: '64px' }}>
+      <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 16px' }}>
+        Capital Allocation
+      </h3>
+      <ActionCards {...actionCardData} />
+    </div>
     </div>
   );
 }

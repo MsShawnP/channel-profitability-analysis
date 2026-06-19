@@ -163,6 +163,7 @@ export default function App() {
           channels={channels}
           layers={layers}
           trends={trends}
+          baseChannels={baseChannels}
           baseLayers={baseLayers}
           periodLabel={periodLabel}
           onDrillToSegment={drillToSegment}
