@@ -1,0 +1,56 @@
+project: channel-profitability-analysis
+base_url: https://channels.lailarallc.com
+
+routes:
+  - path: /
+    name: Full Narrative
+
+forbidden_content:
+  - pattern: "TODO|FIXME|HACK|XXX"
+    severity: warning
+    reason: Dev markers in production code
+  - pattern: "password\\s*=|api_key\\s*=|secret\\s*="
+    severity: fail
+    reason: Possible hardcoded credentials
+    exclude:
+      - "*.md"
+
+dom_checks:
+  - route: /
+    elements:
+      - selector: main.narrative
+        label: Main narrative container
+      - selector: "section#headline"
+        label: Headline section
+      - selector: "section#headline h1"
+        label: Headline heading
+      - selector: "section#headline p.orientation"
+        label: Orientation paragraph
+      - selector: "section#revenue"
+        label: Revenue section
+      - selector: "section#deductions"
+        label: Trade deductions section
+      - selector: "section#fines"
+        label: Compliance fines section
+      - selector: "section#operational"
+        label: Operational overhead section
+      - selector: "section#trends"
+        label: Quarterly trends section
+      - selector: "section#contribution"
+        label: Contribution margin section
+      - selector: "section#allocation"
+        label: Capital allocation section
+      - selector: p.chart-footnote
+        label: At least one chart footnote
+      - selector: svg
+        label: At least one chart rendered
+    absent:
+      - selector: ".error-state"
+        label: No error state shown
+      - selector: ".astro-error"
+        label: No Astro build error
+
+layout:
+  - route: /
+    assertions:
+      - type: no_horizontal_scroll

@@ -41,3 +41,17 @@ failed and may have its own entry below]
 **Status:** Resolved
 
 **Tags:** flyctl, postgres, windows, database, export, password
+
+---
+
+### 2026-06-19 — PowerShell here-strings break with Python f-string curly braces
+
+**Attempted:** Used PowerShell `@'...'@` here-strings to pass multi-line Python scripts containing f-strings (e.g., `print(f"value={x:.1f}")`) via `python -c`.
+
+**Why it didn't work:** PowerShell's single-quoted here-string `@'...'@` doesn't expand variables, but the Python f-string `{}` braces still confused the parser — the script failed with `SyntaxError: '(' was never closed` or similar brace-matching errors.
+
+**What we tried instead:** Wrote the Python code to a temp `.py` file, ran it with `python tmp_compute.py`, then deleted the file. Clean separation of languages.
+
+**Status:** Resolved
+
+**Tags:** powershell, python, f-string, here-string, windows, escaping

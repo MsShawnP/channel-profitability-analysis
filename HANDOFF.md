@@ -209,3 +209,15 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **Next:** Maintenance mode. No open tasks. Next /improve audit due 2026-06-22.
 
 ---
+
+## 2026-06-19 — Post-COGS data reconciliation (session wrap)
+
+**Started from:** Phase 5 change report flagged "9–20% margin variance" as unresolvable. COGS fix had left stale figures across prose and tests.
+
+**Did:** Traced 9–20% figure to old headline prose. Rewrote 06-trends.mdx (narrative direction was inverted). Fixed 28 test assertions + 1 canonical regression test → 11/11 passing. Applied 18 number swaps across 03-deductions, 04-fines, 05-operational, 08-allocation. Fixed 08-allocation Costco margin (79.6%→46.3%) and trade rate (1.1%→1.5%). Scaffolded review.yaml, ran first UI review. Deployed to Cloudflare Pages.
+
+**State:** 11/11 tests passing. All prose figures match pipeline JSON. Site deployed with correct figures. review.yaml in place for future UI reviews.
+
+**Next:** Maintenance mode. PLAN.md Goal section has stale margin figures (cosmetic — arc is complete). Next /improve audit due 2026-06-22 (3 days).
+
+---

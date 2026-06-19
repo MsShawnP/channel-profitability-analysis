@@ -9,9 +9,9 @@ session. For session-by-session state, see HANDOFF.md.
 
 Channel-by-channel profitability analysis for Cinderhaven ($25.6M/yr annual average (3yr cumulative $76.8M) across 10 channels) delivered as a scrollable, Economist-style
 web narrative with interactive drill-downs. Tuned for executive
-communication. Data-driven story — distributors retain ~90% of revenue
-after COGS, deductions, fines, and operational overhead. Retailers retain
-80–83%. DTC retains 83% but at much smaller scale ($573K). The data leads.
+communication. Data-driven story — retailers retain 46–55% of revenue
+after COGS, deductions, fines, and operational overhead. Distributors retain
+44–46%. DTC retains 83% but at much smaller scale ($189K). The data leads.
 
 ## Why this arc, why now
 
