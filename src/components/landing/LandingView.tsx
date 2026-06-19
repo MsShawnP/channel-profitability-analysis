@@ -4,6 +4,7 @@ import WaterfallChart from '../charts/WaterfallChart';
 import RevenueChart from '../charts/RevenueChart';
 import MarginEvolutionChart from '../charts/MarginEvolutionChart';
 import OverheadScatterChart from '../charts/OverheadScatterChart';
+import MarginTable from '../charts/MarginTable';
 import ActionCards from './ActionCards';
 import { SEGMENT_COLORS, FONTS, CHART_COLORS, formatCompact } from '../charts/chartUtils';
 import type { Channel, Layer, TrendQuarter } from '../../lib/computeMetrics';
@@ -64,6 +65,20 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
       costcoDeductionRate: costco ? (costco.tradeDeductions / costco.revenue) * 100 : 0,
     };
   }, [baseChannels, baseLayers]);
+
+  const tableRows = useMemo(() => {
+    return channels.map(c => {
+      const summary = computeChannelSummary(c.channel_name, layers);
+      return {
+        channel_name: c.channel_name,
+        channel_type: c.channel_type,
+        revenue: summary?.revenue ?? c.gross_revenue,
+        contribution: summary?.netContribution ?? 0,
+        margin_pct: summary?.marginPct ?? 0,
+        erosion: (summary?.revenue ?? 0) - (summary?.netContribution ?? 0),
+      };
+    });
+  }, [channels, layers]);
 
   return (
     <div>
@@ -181,6 +196,13 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
         <OverheadScatterChart items={overheadItems} footnote="Full range, annual data" />
       </div>
     )}
+
+    <div style={{ marginTop: '48px' }}>
+      <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
+        The Full Picture
+      </h3>
+      <MarginTable rows={tableRows} periodLabel={periodLabel} />
+    </div>
 
     <div style={{ marginTop: '64px' }}>
       <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 16px' }}>
