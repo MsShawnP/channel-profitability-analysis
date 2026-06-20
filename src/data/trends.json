@@ -8,6 +8,9 @@
         "revenue": 736379.76,
         "cogs": 393889.53,
         "deductions": 5447.46,
+        "fines": 2191.86,
+        "overhead": 1647.97,
+        "disputes_filed": 25,
         "contribution": 337042.77,
         "margin_pct": 45.8
       },
@@ -17,6 +20,9 @@
         "revenue": 330475.2,
         "cogs": 180208.13,
         "deductions": 2143.41,
+        "fines": 782.75,
+        "overhead": 703.85,
+        "disputes_filed": 11,
         "contribution": 148123.66,
         "margin_pct": 44.8
       },
@@ -26,6 +32,9 @@
         "revenue": 604097.76,
         "cogs": 316124.36,
         "deductions": 3724.4,
+        "fines": 1449.51,
+        "overhead": 1097.71,
+        "disputes_filed": 17,
         "contribution": 284249.0,
         "margin_pct": 47.1
       },
@@ -35,6 +44,9 @@
         "revenue": 38036.8,
         "cogs": 6618.4,
         "deductions": 10597.7,
+        "fines": 1513.0,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 20820.7,
         "margin_pct": 54.7
       },
@@ -44,6 +56,9 @@
         "revenue": 530768.88,
         "cogs": 232848.31,
         "deductions": 7099.12,
+        "fines": 3760.86,
+        "overhead": 3649.19,
+        "disputes_filed": 57,
         "contribution": 290821.45,
         "margin_pct": 54.8
       },
@@ -53,6 +68,9 @@
         "revenue": 631216.32,
         "cogs": 262775.35,
         "deductions": 7333.1,
+        "fines": 3953.75,
+        "overhead": 4022.38,
+        "disputes_filed": 63,
         "contribution": 361107.87,
         "margin_pct": 57.2
       },
@@ -62,6 +80,9 @@
         "revenue": 380916.48,
         "cogs": 176516.7,
         "deductions": 3602.07,
+        "fines": 1892.74,
+        "overhead": 2460.93,
+        "disputes_filed": 37,
         "contribution": 200797.71,
         "margin_pct": 52.7
       },
@@ -71,6 +92,9 @@
         "revenue": 702533.76,
         "cogs": 325764.9,
         "deductions": 9011.6,
+        "fines": 4812.04,
+        "overhead": 5211.55,
+        "disputes_filed": 81,
         "contribution": 367757.26,
         "margin_pct": 52.3
       },
@@ -80,6 +104,9 @@
         "revenue": 757692.0,
         "cogs": 365056.01,
         "deductions": 11640.48,
+        "fines": 6351.19,
+        "overhead": 6037.8,
+        "disputes_filed": 93,
         "contribution": 380995.51,
         "margin_pct": 50.3
       },
@@ -89,6 +116,9 @@
         "revenue": 429390.72,
         "cogs": 215339.45,
         "deductions": 7102.46,
+        "fines": 3709.28,
+        "overhead": 3315.91,
+        "disputes_filed": 51,
         "contribution": 206948.81,
         "margin_pct": 48.2
       }
@@ -103,6 +133,9 @@
         "revenue": 773676.72,
         "cogs": 413839.68,
         "deductions": 10611.39,
+        "fines": 4269.64,
+        "overhead": 1731.44,
+        "disputes_filed": 27,
         "contribution": 349225.65,
         "margin_pct": 45.1
       },
@@ -112,6 +145,9 @@
         "revenue": 487539.36,
         "cogs": 265855.21,
         "deductions": 3502.62,
+        "fines": 1279.12,
+        "overhead": 1038.36,
+        "disputes_filed": 16,
         "contribution": 218181.53,
         "margin_pct": 44.8
       },
@@ -121,6 +157,9 @@
         "revenue": 599063.52,
         "cogs": 313489.94,
         "deductions": 6827.02,
+        "fines": 2657.02,
+        "overhead": 1088.56,
+        "disputes_filed": 17,
         "contribution": 278746.56,
         "margin_pct": 46.5
       },
@@ -130,6 +169,9 @@
         "revenue": 47071.02,
         "cogs": 8190.36,
         "deductions": 13201.96,
+        "fines": 1884.8,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 25678.7,
         "margin_pct": 54.6
       },
@@ -139,6 +181,9 @@
         "revenue": 666715.92,
         "cogs": 292488.27,
         "deductions": 17142.6,
+        "fines": 9081.53,
+        "overhead": 4583.87,
+        "disputes_filed": 72,
         "contribution": 357085.05,
         "margin_pct": 53.6
       },
@@ -148,6 +193,9 @@
         "revenue": 833267.28,
         "cogs": 346889.17,
         "deductions": 16829.51,
+        "fines": 9073.87,
+        "overhead": 5309.93,
+        "disputes_filed": 83,
         "contribution": 469548.6,
         "margin_pct": 56.4
       },
@@ -157,6 +205,9 @@
         "revenue": 465517.2,
         "cogs": 215720.67,
         "deductions": 10746.8,
+        "fines": 5647.01,
+        "overhead": 3007.5,
+        "disputes_filed": 46,
         "contribution": 239049.73,
         "margin_pct": 51.4
       },
@@ -166,6 +217,9 @@
         "revenue": 777931.44,
         "cogs": 360726.81,
         "deductions": 18609.37,
+        "fines": 9937.09,
+        "overhead": 5770.87,
+        "disputes_filed": 89,
         "contribution": 398595.26,
         "margin_pct": 51.2
       },
@@ -175,6 +229,9 @@
         "revenue": 735012.0,
         "cogs": 354128.78,
         "deductions": 21349.2,
+        "fines": 11648.4,
+        "overhead": 5857.07,
+        "disputes_filed": 90,
         "contribution": 359534.02,
         "margin_pct": 48.9
       },
@@ -184,6 +241,9 @@
         "revenue": 529706.88,
         "cogs": 265648.0,
         "deductions": 13126.94,
+        "fines": 6855.58,
+        "overhead": 4090.59,
+        "disputes_filed": 63,
         "contribution": 250931.94,
         "margin_pct": 47.4
       }
@@ -198,6 +258,9 @@
         "revenue": 818175.6,
         "cogs": 437642.13,
         "deductions": 10611.71,
+        "fines": 4269.77,
+        "overhead": 1831.03,
+        "disputes_filed": 28,
         "contribution": 369921.76,
         "margin_pct": 45.2
       },
@@ -207,6 +270,9 @@
         "revenue": 439206.24,
         "cogs": 239499.16,
         "deductions": 5036.45,
+        "fines": 1839.26,
+        "overhead": 935.42,
+        "disputes_filed": 15,
         "contribution": 194670.63,
         "margin_pct": 44.3
       },
@@ -216,6 +282,9 @@
         "revenue": 598666.08,
         "cogs": 313281.96,
         "deductions": 8570.57,
+        "fines": 3335.6,
+        "overhead": 1087.84,
+        "disputes_filed": 17,
         "contribution": 276813.55,
         "margin_pct": 46.2
       },
@@ -225,6 +294,9 @@
         "revenue": 47151.09,
         "cogs": 8204.29,
         "deductions": 13633.83,
+        "fines": 1946.46,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 25312.97,
         "margin_pct": 53.7
       },
@@ -234,6 +306,9 @@
         "revenue": 620046.0,
         "cogs": 272014.18,
         "deductions": 15146.24,
+        "fines": 8023.93,
+        "overhead": 4263.0,
+        "disputes_filed": 67,
         "contribution": 332885.58,
         "margin_pct": 53.7
       },
@@ -243,6 +318,9 @@
         "revenue": 734188.8,
         "cogs": 305642.8,
         "deductions": 21046.43,
+        "fines": 11347.49,
+        "overhead": 4678.56,
+        "disputes_filed": 73,
         "contribution": 407499.57,
         "margin_pct": 55.5
       },
@@ -252,6 +330,9 @@
         "revenue": 474628.32,
         "cogs": 219942.76,
         "deductions": 11219.41,
+        "fines": 5895.35,
+        "overhead": 3066.37,
+        "disputes_filed": 47,
         "contribution": 243466.15,
         "margin_pct": 51.3
       },
@@ -261,6 +342,9 @@
         "revenue": 794873.04,
         "cogs": 368582.63,
         "deductions": 22079.49,
+        "fines": 11790.08,
+        "overhead": 5896.55,
+        "disputes_filed": 91,
         "contribution": 404210.92,
         "margin_pct": 50.9
       },
@@ -270,6 +354,9 @@
         "revenue": 874746.0,
         "cogs": 421452.62,
         "deductions": 22117.61,
+        "fines": 12067.65,
+        "overhead": 6970.57,
+        "disputes_filed": 108,
         "contribution": 431175.77,
         "margin_pct": 49.3
       },
@@ -279,6 +366,9 @@
         "revenue": 524102.4,
         "cogs": 262837.35,
         "deductions": 11941.49,
+        "fines": 6236.48,
+        "overhead": 4047.31,
+        "disputes_filed": 63,
         "contribution": 249323.56,
         "margin_pct": 47.6
       }
@@ -293,6 +383,9 @@
         "revenue": 1083226.56,
         "cogs": 579417.89,
         "deductions": 12655.31,
+        "fines": 5092.04,
+        "overhead": 2424.2,
+        "disputes_filed": 37,
         "contribution": 491153.36,
         "margin_pct": 45.3
       },
@@ -302,6 +395,9 @@
         "revenue": 595752.96,
         "cogs": 324864.09,
         "deductions": 5525.62,
+        "fines": 2017.9,
+        "overhead": 1268.84,
+        "disputes_filed": 20,
         "contribution": 265363.25,
         "margin_pct": 44.5
       },
@@ -311,6 +407,9 @@
         "revenue": 997982.88,
         "cogs": 522244.44,
         "deductions": 13485.31,
+        "fines": 5248.38,
+        "overhead": 1813.43,
+        "disputes_filed": 28,
         "contribution": 462253.13,
         "margin_pct": 46.3
       },
@@ -320,6 +419,9 @@
         "revenue": 57395.82,
         "cogs": 9986.87,
         "deductions": 18135.62,
+        "fines": 2589.16,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 29273.33,
         "margin_pct": 51.0
       },
@@ -329,6 +431,9 @@
         "revenue": 804500.64,
         "cogs": 352934.43,
         "deductions": 20016.47,
+        "fines": 10604.0,
+        "overhead": 5531.18,
+        "disputes_filed": 87,
         "contribution": 431549.74,
         "margin_pct": 53.6
       },
@@ -338,6 +443,9 @@
         "revenue": 1086188.16,
         "cogs": 452180.13,
         "deductions": 21875.63,
+        "fines": 11794.56,
+        "overhead": 6921.65,
+        "disputes_filed": 109,
         "contribution": 612132.4,
         "margin_pct": 56.4
       },
@@ -347,6 +455,9 @@
         "revenue": 659103.84,
         "cogs": 305428.72,
         "deductions": 13459.12,
+        "fines": 7072.23,
+        "overhead": 4258.18,
+        "disputes_filed": 65,
         "contribution": 340216.0,
         "margin_pct": 51.6
       },
@@ -356,6 +467,9 @@
         "revenue": 1158130.32,
         "cogs": 537025.03,
         "deductions": 27284.68,
+        "fines": 14569.56,
+        "overhead": 8591.27,
+        "disputes_filed": 133,
         "contribution": 593820.61,
         "margin_pct": 51.3
       },
@@ -365,6 +479,9 @@
         "revenue": 1158528.0,
         "cogs": 558178.79,
         "deductions": 28218.81,
+        "fines": 15396.54,
+        "overhead": 9231.94,
+        "disputes_filed": 142,
         "contribution": 572130.4,
         "margin_pct": 49.4
       },
@@ -374,6 +491,9 @@
         "revenue": 693365.76,
         "cogs": 347722.93,
         "deductions": 17759.85,
+        "fines": 9275.13,
+        "overhead": 5354.42,
+        "disputes_filed": 83,
         "contribution": 327882.98,
         "margin_pct": 47.3
       }
@@ -388,6 +508,9 @@
         "revenue": 764571.6,
         "cogs": 408969.35,
         "deductions": 15381.64,
+        "fines": 6189.02,
+        "overhead": 1711.07,
+        "disputes_filed": 26,
         "contribution": 340220.61,
         "margin_pct": 44.5
       },
@@ -397,6 +520,9 @@
         "revenue": 337571.52,
         "cogs": 184077.75,
         "deductions": 5811.08,
+        "fines": 2122.14,
+        "overhead": 718.96,
+        "disputes_filed": 11,
         "contribution": 147682.69,
         "margin_pct": 43.7
       },
@@ -406,6 +532,9 @@
         "revenue": 640286.88,
         "cogs": 335062.12,
         "deductions": 9771.78,
+        "fines": 3803.1,
+        "overhead": 1163.46,
+        "disputes_filed": 18,
         "contribution": 295452.98,
         "margin_pct": 46.1
       },
@@ -415,6 +544,9 @@
         "revenue": 41793.19,
         "cogs": 7272.02,
         "deductions": 12478.75,
+        "fines": 1781.55,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 22042.42,
         "margin_pct": 52.7
       },
@@ -424,6 +556,9 @@
         "revenue": 604277.52,
         "cogs": 265096.55,
         "deductions": 18402.39,
+        "fines": 9748.92,
+        "overhead": 4154.59,
+        "disputes_filed": 65,
         "contribution": 320778.58,
         "margin_pct": 53.1
       },
@@ -433,6 +568,9 @@
         "revenue": 660021.84,
         "cogs": 274767.09,
         "deductions": 24240.22,
+        "fines": 13069.47,
+        "overhead": 4205.94,
+        "disputes_filed": 66,
         "contribution": 361014.53,
         "margin_pct": 54.7
       },
@@ -442,6 +580,9 @@
         "revenue": 405015.6,
         "cogs": 187684.23,
         "deductions": 12686.93,
+        "fines": 6666.47,
+        "overhead": 2616.63,
+        "disputes_filed": 40,
         "contribution": 204644.44,
         "margin_pct": 50.5
       },
@@ -451,6 +592,9 @@
         "revenue": 732306.96,
         "cogs": 339570.74,
         "deductions": 26863.13,
+        "fines": 14344.46,
+        "overhead": 5432.42,
+        "disputes_filed": 84,
         "contribution": 365873.09,
         "margin_pct": 50.0
       },
@@ -460,6 +604,9 @@
         "revenue": 736404.0,
         "cogs": 354799.45,
         "deductions": 26604.9,
+        "fines": 14515.97,
+        "overhead": 5868.17,
+        "disputes_filed": 91,
         "contribution": 354999.65,
         "margin_pct": 48.2
       },
@@ -469,6 +616,9 @@
         "revenue": 414120.96,
         "cogs": 207681.66,
         "deductions": 13224.59,
+        "fines": 6906.58,
+        "overhead": 3197.99,
+        "disputes_filed": 50,
         "contribution": 193214.71,
         "margin_pct": 46.7
       }
@@ -483,6 +633,9 @@
         "revenue": 713710.56,
         "cogs": 381763.78,
         "deductions": 10338.94,
+        "fines": 4160.02,
+        "overhead": 1597.24,
+        "disputes_filed": 25,
         "contribution": 321607.84,
         "margin_pct": 45.1
       },
@@ -492,6 +645,9 @@
         "revenue": 453092.64,
         "cogs": 247071.42,
         "deductions": 4041.98,
+        "fines": 1476.09,
+        "overhead": 965.0,
+        "disputes_filed": 15,
         "contribution": 201979.24,
         "margin_pct": 44.6
       },
@@ -501,6 +657,9 @@
         "revenue": 716297.28,
         "cogs": 374838.37,
         "deductions": 8694.3,
+        "fines": 3383.76,
+        "overhead": 1301.58,
+        "disputes_filed": 20,
         "contribution": 332764.61,
         "margin_pct": 46.5
       },
@@ -510,6 +669,9 @@
         "revenue": 47414.13,
         "cogs": 8250.06,
         "deductions": 13578.96,
+        "fines": 1938.62,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 25585.11,
         "margin_pct": 54.0
       },
@@ -519,6 +681,9 @@
         "revenue": 627695.28,
         "cogs": 275369.92,
         "deductions": 16062.9,
+        "fines": 8509.55,
+        "overhead": 4315.59,
+        "disputes_filed": 68,
         "contribution": 336262.46,
         "margin_pct": 53.6
       },
@@ -528,6 +693,9 @@
         "revenue": 781570.32,
         "cogs": 325367.72,
         "deductions": 18153.79,
+        "fines": 9787.88,
+        "overhead": 4980.49,
+        "disputes_filed": 78,
         "contribution": 438048.81,
         "margin_pct": 56.0
       },
@@ -537,6 +705,9 @@
         "revenue": 466826.4,
         "cogs": 216327.35,
         "deductions": 9594.31,
+        "fines": 5041.43,
+        "overhead": 3015.96,
+        "disputes_filed": 46,
         "contribution": 240904.74,
         "margin_pct": 51.6
       },
@@ -546,6 +717,9 @@
         "revenue": 859376.88,
         "cogs": 398493.06,
         "deductions": 22169.15,
+        "fines": 11837.96,
+        "overhead": 6375.05,
+        "disputes_filed": 99,
         "contribution": 438714.67,
         "margin_pct": 51.1
       },
@@ -555,6 +729,9 @@
         "revenue": 834786.0,
         "cogs": 402199.89,
         "deductions": 25909.12,
+        "fines": 14136.35,
+        "overhead": 6652.14,
+        "disputes_filed": 103,
         "contribution": 406676.99,
         "margin_pct": 48.7
       },
@@ -564,6 +741,9 @@
         "revenue": 530876.16,
         "cogs": 266234.39,
         "deductions": 13040.76,
+        "fines": 6810.57,
+        "overhead": 4099.62,
+        "disputes_filed": 64,
         "contribution": 251601.01,
         "margin_pct": 47.4
       }
@@ -578,6 +758,9 @@
         "revenue": 783793.2,
         "cogs": 419250.98,
         "deductions": 10294.44,
+        "fines": 4142.11,
+        "overhead": 1754.08,
+        "disputes_filed": 27,
         "contribution": 354247.78,
         "margin_pct": 45.2
       },
@@ -587,6 +770,9 @@
         "revenue": 500992.8,
         "cogs": 273191.37,
         "deductions": 3436.18,
+        "fines": 1254.86,
+        "overhead": 1067.02,
+        "disputes_filed": 17,
         "contribution": 224365.25,
         "margin_pct": 44.8
       },
@@ -596,6 +782,9 @@
         "revenue": 702199.2,
         "cogs": 367460.84,
         "deductions": 8973.8,
+        "fines": 3492.53,
+        "overhead": 1275.96,
+        "disputes_filed": 20,
         "contribution": 325764.56,
         "margin_pct": 46.4
       },
@@ -605,6 +794,9 @@
         "revenue": 43143.72,
         "cogs": 7507.01,
         "deductions": 12320.15,
+        "fines": 1758.91,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 23316.56,
         "margin_pct": 54.0
       },
@@ -614,6 +806,9 @@
         "revenue": 666017.28,
         "cogs": 292181.78,
         "deductions": 17889.49,
+        "fines": 9477.21,
+        "overhead": 4579.07,
+        "disputes_filed": 72,
         "contribution": 355946.01,
         "margin_pct": 53.4
       },
@@ -623,6 +818,9 @@
         "revenue": 826634.64,
         "cogs": 344128.0,
         "deductions": 22117.01,
+        "fines": 11924.71,
+        "overhead": 5267.66,
+        "disputes_filed": 83,
         "contribution": 460389.63,
         "margin_pct": 55.7
       },
@@ -632,6 +830,9 @@
         "revenue": 497460.72,
         "cogs": 230523.3,
         "deductions": 11450.68,
+        "fines": 6016.87,
+        "overhead": 3213.88,
+        "disputes_filed": 49,
         "contribution": 255486.74,
         "margin_pct": 51.4
       },
@@ -641,6 +842,9 @@
         "revenue": 841364.88,
         "cogs": 390140.89,
         "deductions": 21403.16,
+        "fines": 11428.93,
+        "overhead": 6241.43,
+        "disputes_filed": 97,
         "contribution": 429820.83,
         "margin_pct": 51.1
       },
@@ -650,6 +854,9 @@
         "revenue": 877194.0,
         "cogs": 422632.07,
         "deductions": 22416.36,
+        "fines": 12230.65,
+        "overhead": 6990.08,
+        "disputes_filed": 108,
         "contribution": 432145.57,
         "margin_pct": 49.3
       },
@@ -659,6 +866,9 @@
         "revenue": 533577.6,
         "cogs": 267589.17,
         "deductions": 15139.47,
+        "fines": 7906.63,
+        "overhead": 4120.48,
+        "disputes_filed": 64,
         "contribution": 250848.96,
         "margin_pct": 47.0
       }
@@ -673,6 +883,9 @@
         "revenue": 843865.92,
         "cogs": 451383.88,
         "deductions": 8953.63,
+        "fines": 3602.62,
+        "overhead": 1888.52,
+        "disputes_filed": 29,
         "contribution": 383528.41,
         "margin_pct": 45.4
       },
@@ -682,6 +895,9 @@
         "revenue": 545946.72,
         "cogs": 297704.75,
         "deductions": 8429.99,
+        "fines": 3078.54,
+        "overhead": 1162.76,
+        "disputes_filed": 18,
         "contribution": 239811.98,
         "margin_pct": 43.9
       },
@@ -691,6 +907,9 @@
         "revenue": 947960.64,
         "cogs": 496067.8,
         "deductions": 10011.09,
+        "fines": 3896.24,
+        "overhead": 1722.54,
+        "disputes_filed": 27,
         "contribution": 441881.75,
         "margin_pct": 46.6
       },
@@ -700,6 +919,9 @@
         "revenue": 59159.58,
         "cogs": 10293.77,
         "deductions": 18890.78,
+        "fines": 2696.98,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 29975.03,
         "margin_pct": 50.7
       },
@@ -709,6 +931,9 @@
         "revenue": 940725.36,
         "cogs": 412696.22,
         "deductions": 20189.47,
+        "fines": 10695.65,
+        "overhead": 6467.77,
+        "disputes_filed": 101,
         "contribution": 507839.67,
         "margin_pct": 54.0
       },
@@ -718,6 +943,9 @@
         "revenue": 1103853.36,
         "cogs": 459534.15,
         "deductions": 23846.84,
+        "fines": 12857.37,
+        "overhead": 7034.22,
+        "disputes_filed": 110,
         "contribution": 620472.37,
         "margin_pct": 56.2
       },
@@ -727,6 +955,9 @@
         "revenue": 649236.0,
         "cogs": 300855.96,
         "deductions": 13583.03,
+        "fines": 7137.34,
+        "overhead": 4194.43,
+        "disputes_filed": 64,
         "contribution": 334797.01,
         "margin_pct": 51.6
       },
@@ -736,6 +967,9 @@
         "revenue": 1117475.76,
         "cogs": 518173.51,
         "deductions": 23680.18,
+        "fines": 12644.82,
+        "overhead": 8289.68,
+        "disputes_filed": 128,
         "contribution": 575622.07,
         "margin_pct": 51.5
       },
@@ -745,6 +979,9 @@
         "revenue": 1229928.0,
         "cogs": 592579.31,
         "deductions": 30297.26,
+        "fines": 16530.57,
+        "overhead": 9800.9,
+        "disputes_filed": 151,
         "contribution": 607051.43,
         "margin_pct": 49.4
       },
@@ -754,6 +991,9 @@
         "revenue": 752290.56,
         "cogs": 377273.72,
         "deductions": 14218.89,
+        "fines": 7425.86,
+        "overhead": 5809.46,
+        "disputes_filed": 90,
         "contribution": 360797.95,
         "margin_pct": 48.0
       }
@@ -768,6 +1008,9 @@
         "revenue": 639274.56,
         "cogs": 341947.96,
         "deductions": 8826.22,
+        "fines": 3551.35,
+        "overhead": 1430.66,
+        "disputes_filed": 22,
         "contribution": 288500.38,
         "margin_pct": 45.1
       },
@@ -777,6 +1020,9 @@
         "revenue": 300680.16,
         "cogs": 163960.89,
         "deductions": 3502.24,
+        "fines": 1278.98,
+        "overhead": 640.39,
+        "disputes_filed": 10,
         "contribution": 133217.03,
         "margin_pct": 44.3
       },
@@ -786,6 +1032,9 @@
         "revenue": 619940.16,
         "cogs": 324414.69,
         "deductions": 11061.55,
+        "fines": 4305.07,
+        "overhead": 1126.49,
+        "disputes_filed": 18,
         "contribution": 284463.92,
         "margin_pct": 45.9
       },
@@ -795,6 +1044,9 @@
         "revenue": 37686.36,
         "cogs": 6557.43,
         "deductions": 11263.85,
+        "fines": 1608.1,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 19865.08,
         "margin_pct": 52.7
       },
@@ -804,6 +1056,9 @@
         "revenue": 576412.08,
         "cogs": 252871.98,
         "deductions": 19478.48,
+        "fines": 10319.0,
+        "overhead": 3963.0,
+        "disputes_filed": 62,
         "contribution": 304061.62,
         "margin_pct": 52.8
       },
@@ -813,6 +1068,9 @@
         "revenue": 627978.96,
         "cogs": 261427.64,
         "deductions": 19187.65,
+        "fines": 10345.3,
+        "overhead": 4001.75,
+        "disputes_filed": 63,
         "contribution": 347363.67,
         "margin_pct": 55.3
       },
@@ -822,6 +1080,9 @@
         "revenue": 406133.28,
         "cogs": 188202.16,
         "deductions": 15130.71,
+        "fines": 7950.58,
+        "overhead": 2623.85,
+        "disputes_filed": 40,
         "contribution": 202800.41,
         "margin_pct": 49.9
       },
@@ -831,6 +1092,9 @@
         "revenue": 784469.52,
         "cogs": 363758.52,
         "deductions": 27769.83,
+        "fines": 14828.63,
+        "overhead": 5819.37,
+        "disputes_filed": 90,
         "contribution": 392941.17,
         "margin_pct": 50.1
       },
@@ -840,6 +1104,9 @@
         "revenue": 689790.0,
         "cogs": 332340.82,
         "deductions": 26524.77,
+        "fines": 14472.25,
+        "overhead": 5496.71,
+        "disputes_filed": 85,
         "contribution": 330924.41,
         "margin_pct": 48.0
       },
@@ -849,6 +1116,9 @@
         "revenue": 497306.88,
         "cogs": 249399.4,
         "deductions": 17449.75,
+        "fines": 9113.18,
+        "overhead": 3840.38,
+        "disputes_filed": 60,
         "contribution": 230457.73,
         "margin_pct": 46.3
       }
@@ -863,6 +1133,9 @@
         "revenue": 704353.68,
         "cogs": 376758.78,
         "deductions": 8075.8,
+        "fines": 3249.41,
+        "overhead": 1576.3,
+        "disputes_filed": 24,
         "contribution": 319519.1,
         "margin_pct": 45.4
       },
@@ -872,6 +1145,9 @@
         "revenue": 434718.24,
         "cogs": 237051.86,
         "deductions": 3857.31,
+        "fines": 1408.65,
+        "overhead": 925.87,
+        "disputes_filed": 14,
         "contribution": 193809.07,
         "margin_pct": 44.6
       },
@@ -881,6 +1157,9 @@
         "revenue": 703010.64,
         "cogs": 367885.47,
         "deductions": 8913.31,
+        "fines": 3468.99,
+        "overhead": 1277.44,
+        "disputes_filed": 20,
         "contribution": 326211.86,
         "margin_pct": 46.4
       },
@@ -890,6 +1169,9 @@
         "revenue": 43862.04,
         "cogs": 7631.99,
         "deductions": 12889.56,
+        "fines": 1840.2,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 23340.49,
         "margin_pct": 53.2
       },
@@ -899,6 +1181,9 @@
         "revenue": 713106.48,
         "cogs": 312839.81,
         "deductions": 16901.08,
+        "fines": 8953.58,
+        "overhead": 4902.82,
+        "disputes_filed": 77,
         "contribution": 383365.59,
         "margin_pct": 53.8
       },
@@ -908,6 +1193,9 @@
         "revenue": 765715.44,
         "cogs": 318767.34,
         "deductions": 18934.56,
+        "fines": 10208.84,
+        "overhead": 4879.46,
+        "disputes_filed": 77,
         "contribution": 428013.54,
         "margin_pct": 55.9
       },
@@ -917,6 +1205,9 @@
         "revenue": 491775.36,
         "cogs": 227888.7,
         "deductions": 9780.97,
+        "fines": 5139.51,
+        "overhead": 3177.15,
+        "disputes_filed": 48,
         "contribution": 254105.69,
         "margin_pct": 51.7
       },
@@ -926,6 +1217,9 @@
         "revenue": 859692.96,
         "cogs": 398639.63,
         "deductions": 21531.21,
+        "fines": 11497.31,
+        "overhead": 6377.39,
+        "disputes_filed": 99,
         "contribution": 439522.12,
         "margin_pct": 51.1
       },
@@ -935,6 +1229,9 @@
         "revenue": 838830.0,
         "cogs": 404148.29,
         "deductions": 21935.87,
+        "fines": 11968.49,
+        "overhead": 6684.37,
+        "disputes_filed": 103,
         "contribution": 412745.84,
         "margin_pct": 49.2
       },
@@ -944,6 +1241,9 @@
         "revenue": 501287.04,
         "cogs": 251395.45,
         "deductions": 12883.91,
+        "fines": 6728.66,
+        "overhead": 3871.12,
+        "disputes_filed": 60,
         "contribution": 237007.68,
         "margin_pct": 47.3
       }
@@ -958,6 +1258,9 @@
         "revenue": 808690.32,
         "cogs": 432568.45,
         "deductions": 8190.04,
+        "fines": 3295.38,
+        "overhead": 1809.8,
+        "disputes_filed": 28,
         "contribution": 367931.83,
         "margin_pct": 45.5
       },
@@ -967,6 +1270,9 @@
         "revenue": 410625.6,
         "cogs": 223914.14,
         "deductions": 3847.73,
+        "fines": 1405.15,
+        "overhead": 874.55,
+        "disputes_filed": 14,
         "contribution": 182863.73,
         "margin_pct": 44.5
       },
@@ -976,6 +1282,9 @@
         "revenue": 744493.44,
         "cogs": 389593.42,
         "deductions": 8050.5,
+        "fines": 3133.19,
+        "overhead": 1352.82,
+        "disputes_filed": 21,
         "contribution": 346849.52,
         "margin_pct": 46.6
       },
@@ -985,6 +1294,9 @@
         "revenue": 41697.18,
         "cogs": 7255.31,
         "deductions": 12123.76,
+        "fines": 1730.87,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 22318.11,
         "margin_pct": 53.5
       },
@@ -994,6 +1306,9 @@
         "revenue": 666447.84,
         "cogs": 292370.67,
         "deductions": 16737.16,
+        "fines": 8866.74,
+        "overhead": 4582.03,
+        "disputes_filed": 72,
         "contribution": 357340.01,
         "margin_pct": 53.6
       },
@@ -1003,6 +1318,9 @@
         "revenue": 751898.64,
         "cogs": 313015.4,
         "deductions": 21645.01,
+        "fines": 11670.22,
+        "overhead": 4791.41,
+        "disputes_filed": 75,
         "contribution": 417238.23,
         "margin_pct": 55.5
       },
@@ -1012,6 +1330,9 @@
         "revenue": 457241.76,
         "cogs": 211885.83,
         "deductions": 11270.85,
+        "fines": 5922.38,
+        "overhead": 2954.04,
+        "disputes_filed": 45,
         "contribution": 234085.08,
         "margin_pct": 51.2
       },
@@ -1021,6 +1342,9 @@
         "revenue": 763318.8,
         "cogs": 353950.93,
         "deductions": 23463.8,
+        "fines": 12529.28,
+        "overhead": 5662.47,
+        "disputes_filed": 88,
         "contribution": 385904.07,
         "margin_pct": 50.6
       },
@@ -1030,6 +1354,9 @@
         "revenue": 813822.0,
         "cogs": 392099.44,
         "deductions": 21785.53,
+        "fines": 11886.46,
+        "overhead": 6485.09,
+        "disputes_filed": 100,
         "contribution": 399937.03,
         "margin_pct": 49.1
       },
@@ -1039,6 +1366,9 @@
         "revenue": 470718.72,
         "cogs": 236065.44,
         "deductions": 14708.27,
+        "fines": 7681.44,
+        "overhead": 3635.06,
+        "disputes_filed": 56,
         "contribution": 219945.01,
         "margin_pct": 46.7
       }
@@ -1053,6 +1383,9 @@
         "revenue": 957223.44,
         "cogs": 512018.82,
         "deductions": 12093.89,
+        "fines": 4866.14,
+        "overhead": 2142.21,
+        "disputes_filed": 33,
         "contribution": 433110.73,
         "margin_pct": 45.2
       },
@@ -1062,6 +1395,9 @@
         "revenue": 579406.08,
         "cogs": 315950.14,
         "deductions": 4398.03,
+        "fines": 1606.11,
+        "overhead": 1234.02,
+        "disputes_filed": 19,
         "contribution": 259057.91,
         "margin_pct": 44.7
       },
@@ -1071,6 +1407,9 @@
         "revenue": 953955.36,
         "cogs": 499204.84,
         "deductions": 8664.94,
+        "fines": 3372.33,
+        "overhead": 1733.43,
+        "disputes_filed": 27,
         "contribution": 446085.58,
         "margin_pct": 46.8
       },
@@ -1080,6 +1419,9 @@
         "revenue": 59426.5,
         "cogs": 10340.21,
         "deductions": 18808.01,
+        "fines": 2685.16,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 30278.28,
         "margin_pct": 51.0
       },
@@ -1089,6 +1431,9 @@
         "revenue": 825065.52,
         "cogs": 361956.24,
         "deductions": 18960.81,
+        "fines": 10044.75,
+        "overhead": 5672.57,
+        "disputes_filed": 89,
         "contribution": 444148.47,
         "margin_pct": 53.8
       },
@@ -1098,6 +1443,9 @@
         "revenue": 1010808.96,
         "cogs": 420799.77,
         "deductions": 21947.92,
+        "fines": 11833.54,
+        "overhead": 6441.3,
+        "disputes_filed": 101,
         "contribution": 568061.27,
         "margin_pct": 56.2
       },
@@ -1107,6 +1455,9 @@
         "revenue": 711400.32,
         "cogs": 329662.91,
         "deductions": 13714.33,
+        "fines": 7206.33,
+        "overhead": 4596.05,
+        "disputes_filed": 70,
         "contribution": 368023.08,
         "margin_pct": 51.7
       },
@@ -1116,6 +1467,9 @@
         "revenue": 1143063.6,
         "cogs": 530038.59,
         "deductions": 25283.86,
+        "fines": 13501.16,
+        "overhead": 8479.5,
+        "disputes_filed": 131,
         "contribution": 587741.15,
         "margin_pct": 51.4
       },
@@ -1125,6 +1479,9 @@
         "revenue": 1220400.0,
         "cogs": 587988.72,
         "deductions": 29446.72,
+        "fines": 16066.51,
+        "overhead": 9724.98,
+        "disputes_filed": 150,
         "contribution": 602964.56,
         "margin_pct": 49.4
       },
@@ -1134,6 +1491,9 @@
         "revenue": 706959.36,
         "cogs": 354540.12,
         "deductions": 15161.51,
+        "fines": 7918.14,
+        "overhead": 5459.39,
+        "disputes_filed": 85,
         "contribution": 337257.73,
         "margin_pct": 47.7
       }
@@ -1148,6 +1508,9 @@
         "revenue": 18645.6,
         "cogs": 9973.53,
         "deductions": 809.72,
+        "fines": 325.8,
+        "overhead": 41.73,
+        "disputes_filed": 1,
         "contribution": 7862.35,
         "margin_pct": 42.2
       },
@@ -1157,6 +1520,9 @@
         "revenue": 12608.64,
         "cogs": 6875.49,
         "deductions": 268.56,
+        "fines": 98.08,
+        "overhead": 26.85,
+        "disputes_filed": 0,
         "contribution": 5464.59,
         "margin_pct": 43.3
       },
@@ -1166,6 +1532,9 @@
         "revenue": 36371.28,
         "cogs": 19033.09,
         "deductions": 849.62,
+        "fines": 330.67,
+        "overhead": 66.09,
+        "disputes_filed": 1,
         "contribution": 16488.57,
         "margin_pct": 45.3
       },
@@ -1175,6 +1544,9 @@
         "revenue": 2287.9,
         "cogs": 398.09,
         "deductions": 582.63,
+        "fines": 83.18,
+        "overhead": 0.0,
+        "disputes_filed": 0,
         "contribution": 1307.18,
         "margin_pct": 57.1
       },
@@ -1184,6 +1556,9 @@
         "revenue": 17965.92,
         "cogs": 7881.65,
         "deductions": 431.3,
+        "fines": 228.49,
+        "overhead": 123.52,
+        "disputes_filed": 2,
         "contribution": 9652.97,
         "margin_pct": 53.7
       },
@@ -1193,6 +1568,9 @@
         "revenue": 19020.96,
         "cogs": 7918.43,
         "deductions": 1306.17,
+        "fines": 704.24,
+        "overhead": 121.21,
+        "disputes_filed": 2,
         "contribution": 9796.36,
         "margin_pct": 51.5
       },
@@ -1202,6 +1580,9 @@
         "revenue": 15330.0,
         "cogs": 7103.92,
         "deductions": 519.0,
+        "fines": 272.71,
+        "overhead": 99.04,
+        "disputes_filed": 2,
         "contribution": 7707.08,
         "margin_pct": 50.3
       },
@@ -1211,6 +1592,9 @@
         "revenue": 23084.88,
         "cogs": 10704.46,
         "deductions": 257.71,
+        "fines": 137.61,
+        "overhead": 171.25,
+        "disputes_filed": 3,
         "contribution": 12122.71,
         "margin_pct": 52.5
       },
@@ -1220,6 +1604,9 @@
         "revenue": 22518.0,
         "cogs": 10849.17,
         "deductions": 613.63,
+        "fines": 334.8,
+        "overhead": 179.44,
+        "disputes_filed": 3,
         "contribution": 11055.2,
         "margin_pct": 49.1
       },
@@ -1229,6 +1616,9 @@
         "revenue": 25107.84,
         "cogs": 12591.58,
         "deductions": 177.62,
+        "fines": 92.76,
+        "overhead": 193.89,
+        "disputes_filed": 3,
         "contribution": 12338.64,
         "margin_pct": 49.1
       }

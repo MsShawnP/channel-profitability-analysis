@@ -41,18 +41,18 @@ FISCAL_REVENUE = {
 DEDUCTIONS = {
     "UNFI": {
         "promo_billback": (24376.00, 155), "pricing_error": (30863.47, 193),
-        "short_ship": (28502.62, 373), "damaged": (31234.08, 182),
-        "late_delivery": (7314.02, 110),
+        "short_ship": (4074.00, 171), "damaged": (31234.08, 182),
+        "late_delivery": (8699.24, 131),
     },
     "DPI Northwest": {
         "promo_billback": (13959.28, 98), "pricing_error": (12582.52, 94),
-        "short_ship": (12192.12, 177), "damaged": (10765.70, 75),
-        "late_delivery": (4301.58, 67),
+        "short_ship": (2228.46, 91), "damaged": (10765.70, 75),
+        "late_delivery": (5785.04, 84),
     },
     "KeHE": {
         "promo_billback": (24720.73, 144), "pricing_error": (23005.35, 145),
-        "short_ship": (27335.78, 342), "damaged": (24907.74, 155),
-        "late_delivery": (7628.59, 113),
+        "short_ship": (3315.96, 140), "damaged": (24907.74, 155),
+        "late_delivery": (7615.06, 112),
     },
     "DTC": {
         "shipping_fulfillment": (113885.24, 18497),
@@ -62,52 +62,52 @@ DEDUCTIONS = {
     },
     "Sprouts": {
         "promo_billback": (23189.33, 243), "pricing_error": (25973.04, 246),
-        "short_ship": (34080.89, 1160), "slotting": (24824.62, 237),
+        "short_ship": (11423.13, 575), "slotting": (24824.62, 237),
         "label_fine": (24681.22, 253), "spoilage": (22940.62, 233),
-        "damaged": (24226.48, 237), "pallet_fine": (23477.52, 249), "late_delivery": (1063.79, 30),
+        "damaged": (24226.48, 237), "pallet_fine": (23477.52, 249), "late_delivery": (896.48, 26),
     },
     "Whole Foods": {
         "promo_billback": (28091.69, 274), "pricing_error": (30531.00, 272),
-        "short_ship": (39164.30, 1287), "slotting": (27032.97, 262),
+        "short_ship": (11460.79, 565), "slotting": (27032.97, 262),
         "label_fine": (26632.49, 254), "spoilage": (27111.99, 264),
-        "damaged": (32695.33, 296), "pallet_fine": (26214.92, 272), "late_delivery": (989.15, 26),
+        "damaged": (32695.33, 296), "pallet_fine": (26214.92, 272), "late_delivery": (968.75, 25),
     },
     "Regional Group": {
         "promo_billback": (16491.49, 180), "pricing_error": (16543.22, 166),
-        "short_ship": (20250.33, 702), "slotting": (18755.75, 179),
+        "short_ship": (6655.48, 338), "slotting": (18755.75, 179),
         "label_fine": (15523.65, 171), "spoilage": (16904.28, 183),
         "damaged": (16867.14, 175), "pallet_fine": (15422.35, 177),
     },
     "Kroger": {
         "promo_billback": (29274.87, 313), "pricing_error": (26708.14, 287),
-        "short_ship": (64272.92, 2140), "slotting": (30382.15, 327),
+        "short_ship": (17320.02, 869), "slotting": (30382.15, 327),
         "label_fine": (29901.25, 317), "spoilage": (29269.37, 314),
-        "damaged": (28400.02, 303), "pallet_fine": (29805.47, 311), "late_delivery": (1392.98, 43),
+        "damaged": (28400.02, 303), "pallet_fine": (29805.47, 311), "late_delivery": (1431.12, 42),
     },
     "Walmart": {
         "promo_billback": (27537.41, 315), "pricing_error": (29768.47, 333),
-        "short_ship": (71894.73, 2515), "slotting": (30050.41, 329),
+        "short_ship": (20861.94, 1049), "slotting": (30050.41, 329),
         "label_fine": (28360.03, 316), "spoilage": (33291.04, 346),
-        "damaged": (32433.19, 340), "pallet_fine": (31049.82, 318), "late_delivery": (4475.16, 131),
+        "damaged": (32433.19, 340), "pallet_fine": (31049.82, 318), "late_delivery": (4810.68, 141),
     },
     "Costco": {
         "promo_billback": (20497.41, 225), "pricing_error": (18943.43, 210),
-        "short_ship": (33595.43, 1159), "slotting": (18483.02, 212),
+        "short_ship": (10150.71, 508), "slotting": (18483.02, 212),
         "label_fine": (16992.60, 199), "spoilage": (19073.70, 233),
         "damaged": (18964.59, 207), "pallet_fine": (19385.33, 231),
     },
 }
 
 DISPUTE_DATA = {
-    "Walmart": {"disputes": 1912, "events": 4943, "hours": 3586.21},
-    "Kroger": {"disputes": 1717, "events": 4355, "hours": 3127.06},
-    "Whole Foods": {"disputes": 1238, "events": 3207, "hours": 2217.38},
-    "Sprouts": {"disputes": 1114, "events": 2888, "hours": 2058.90},
-    "Costco": {"disputes": 1027, "events": 2676, "hours": 1859.57},
-    "Regional Group": {"disputes": 748, "events": 1933, "hours": 1406.98},
-    "UNFI": {"disputes": 406, "events": 1013, "hours": 738.01},
-    "KeHE": {"disputes": 325, "events": 899, "hours": 608.66},
-    "DPI Northwest": {"disputes": 195, "events": 511, "hours": 342.42},
+    "Walmart": {"disputes": 1326, "events": 3487, "hours": 2456.55},
+    "Kroger": {"disputes": 1213, "events": 3083, "hours": 2237.68},
+    "Whole Foods": {"disputes": 984, "events": 2484, "hours": 1790.17},
+    "Sprouts": {"disputes": 891, "events": 2299, "hours": 1622.52},
+    "Costco": {"disputes": 791, "events": 2025, "hours": 1458.16},
+    "Regional Group": {"disputes": 596, "events": 1569, "hours": 1122.40},
+    "UNFI": {"disputes": 333, "events": 832, "hours": 616.75},
+    "KeHE": {"disputes": 251, "events": 696, "hours": 460.21},
+    "DPI Northwest": {"disputes": 180, "events": 442, "hours": 330.34},
     "DTC": {"disputes": 0, "events": 0, "hours": 0},
 }
 
@@ -417,6 +417,19 @@ def generate_layers(channel_data):
 
 def generate_trends():
     """Generate quarterly trends using mart COGS ratios applied to quarterly revenue."""
+    # Structural ratio: what fraction of total deductions are compliance fines (vs trade)
+    fine_ratios = {}
+    for name in CHANNEL_ORDER:
+        deds = DEDUCTIONS.get(name, {})
+        if CHANNEL_TYPES[name] == "DTC":
+            fines_total = sum(deds.get(t, (0, 0))[0] for t in DTC_RETURNS_TYPES)
+            trade_total = sum(deds.get(t, (0, 0))[0] for t in DTC_CHANNEL_COST_TYPES)
+        else:
+            fines_total = sum(deds.get(t, (0, 0))[0] for t in ["label_fine", "spoilage", "damaged", "pallet_fine", "late_delivery"])
+            trade_total = sum(deds.get(t, (0, 0))[0] for t in TRADE_TYPES)
+        total = trade_total + fines_total
+        fine_ratios[name] = fines_total / total if total > 0 else 0
+
     trends = []
     for quarter_key in sorted(QUARTERLY_REVENUE.keys()):
         quarter_label = QUARTER_LABELS[quarter_key]
@@ -429,12 +442,23 @@ def generate_trends():
             contribution = round(revenue - cogs - deductions, 2)
             margin_pct = round((contribution / revenue) * 100, 1) if revenue > 0 else 0
 
+            fines = round(deductions * fine_ratios[name], 2)
+
+            annual_revenue = FISCAL_REVENUE[name] / YEARS
+            rev_share = revenue / annual_revenue if annual_revenue > 0 else 0
+            dispute = DISPUTE_DATA.get(name, {"disputes": 0, "events": 0, "hours": 0})
+            overhead = round((dispute["hours"] / YEARS) * OVERHEAD_RATE * rev_share, 2)
+            disputes_filed = round((dispute["disputes"] / YEARS) * rev_share)
+
             quarter_data.append({
                 "channel_name": name,
                 "channel_type": CHANNEL_TYPES[name],
                 "revenue": round(revenue, 2),
                 "cogs": cogs,
                 "deductions": round(deductions, 2),
+                "fines": fines,
+                "overhead": overhead,
+                "disputes_filed": disputes_filed,
                 "contribution": contribution,
                 "margin_pct": margin_pct,
             })
