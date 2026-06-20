@@ -150,7 +150,7 @@ export default function ChannelView({ channelName, layers, trends, periodLabel }
         </div>
       </div>
 
-      <div style={{ maxWidth: '600px', marginBottom: '40px' }}>
+      <div style={{ marginBottom: '40px' }}>
         <h3 style={{
           fontFamily: FONTS.serif,
           fontSize: '18px',

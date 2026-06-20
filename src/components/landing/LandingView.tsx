@@ -174,7 +174,7 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
       })}
     </div>
 
-    <div style={{ marginTop: '48px', maxWidth: '700px' }}>
+    <div style={{ marginTop: '48px' }}>
       <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
         Revenue by Channel
       </h3>
@@ -189,7 +189,7 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
     </div>
 
     {overheadItems.length > 0 && (
-      <div style={{ marginTop: '48px', maxWidth: '700px' }}>
+      <div style={{ marginTop: '48px' }}>
         <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
           Dispute Overhead
         </h3>

@@ -77,7 +77,7 @@ export default function SegmentView({ segmentType, channels, layers, periodLabel
           {segment.channelCount} channels · {formatCompact(segment.revenue)} revenue · {formatCompact(segment.netContribution)} net contribution
         </p>
 
-        <div style={{ maxWidth: '600px' }}>
+        <div>
           <h3 style={{
             fontFamily: FONTS.serif,
             fontSize: '18px',
