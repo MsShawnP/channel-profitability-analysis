@@ -54,6 +54,12 @@ DEDUCTIONS = {
         "short_ship": (27335.78, 342), "damaged": (24907.74, 155),
         "late_delivery": (7628.59, 113),
     },
+    "DTC": {
+        "shipping_fulfillment": (113885.24, 18497),
+        "platform_payment_fees": (30563.33, 18497),
+        "returns_refunds": (21966.79, 820),
+        "chargebacks_dtc": (2090.20, 71),
+    },
     "Sprouts": {
         "promo_billback": (23189.33, 243), "pricing_error": (25973.04, 246),
         "short_ship": (34080.89, 1160), "slotting": (24824.62, 237),
@@ -139,12 +145,19 @@ CHANNEL_ORDER = [
 TRADE_TYPES = ["promo_billback", "pricing_error", "short_ship", "slotting"]
 COMPLIANCE_TYPES = ["label_fine", "spoilage", "damaged", "pallet_fine", "late_delivery"]
 
+DTC_CHANNEL_COST_TYPES = ["shipping_fulfillment", "platform_payment_fees"]
+DTC_RETURNS_TYPES = ["returns_refunds", "chargebacks_dtc"]
+
 TYPE_LABELS = {
     "promo_billback": "Promo Billback", "pricing_error": "Pricing Error",
     "short_ship": "Short Ship", "slotting": "Slotting Fees",
     "label_fine": "Label Fines", "spoilage": "Spoilage",
     "damaged": "Damaged Goods", "pallet_fine": "Pallet Fines",
     "late_delivery": "Late Delivery",
+    "shipping_fulfillment": "Shipping & Fulfillment",
+    "platform_payment_fees": "Platform & Payment Fees",
+    "returns_refunds": "Returns & Refunds",
+    "chargebacks_dtc": "Chargebacks",
 }
 
 # === QUARTERLY DATA for trends (Q1 2024 through Q4 2026) ===
@@ -165,19 +178,19 @@ QUARTERLY_REVENUE = {
 }
 
 QUARTERLY_DEDUCTIONS = {
-    "2023-01-01": {"UNFI": 5447.46, "KeHE": 3724.40, "DPI Northwest": 2143.41, "Sprouts": 7099.12, "Whole Foods": 7333.10, "Regional Group": 3602.07, "Kroger": 9011.60, "Walmart": 11640.48, "Costco": 7102.46},
-    "2023-04-01": {"UNFI": 10611.39, "KeHE": 6827.02, "DPI Northwest": 3502.62, "Sprouts": 17142.60, "Whole Foods": 16829.51, "Regional Group": 10746.80, "Kroger": 18609.37, "Walmart": 21349.20, "Costco": 13126.94},
-    "2023-07-01": {"UNFI": 10611.71, "KeHE": 8570.57, "DPI Northwest": 5036.45, "Sprouts": 15146.24, "Whole Foods": 21046.43, "Regional Group": 11219.41, "Kroger": 22079.49, "Walmart": 22117.61, "Costco": 11941.49},
-    "2023-10-01": {"UNFI": 12655.31, "KeHE": 13485.31, "DPI Northwest": 5525.62, "Sprouts": 20016.47, "Whole Foods": 21875.63, "Regional Group": 13459.12, "Kroger": 27284.68, "Walmart": 28218.81, "Costco": 17759.85},
-    "2024-01-01": {"UNFI": 15381.64, "KeHE": 9771.78, "DPI Northwest": 5811.08, "Sprouts": 18402.39, "Whole Foods": 24240.22, "Regional Group": 12686.93, "Kroger": 26863.13, "Walmart": 26604.90, "Costco": 13224.59},
-    "2024-04-01": {"UNFI": 10338.94, "KeHE": 8694.30, "DPI Northwest": 4041.98, "Sprouts": 16062.90, "Whole Foods": 18153.79, "Regional Group": 9594.31, "Kroger": 22169.15, "Walmart": 25909.12, "Costco": 13040.76},
-    "2024-07-01": {"UNFI": 10294.44, "KeHE": 8973.80, "DPI Northwest": 3436.18, "Sprouts": 17889.49, "Whole Foods": 22117.01, "Regional Group": 11450.68, "Kroger": 21403.16, "Walmart": 22416.36, "Costco": 15139.47},
-    "2024-10-01": {"UNFI": 8953.63, "KeHE": 10011.09, "DPI Northwest": 8429.99, "Sprouts": 20189.47, "Whole Foods": 23846.84, "Regional Group": 13583.03, "Kroger": 23680.18, "Walmart": 30297.26, "Costco": 14218.89},
-    "2025-01-01": {"UNFI": 8826.22, "KeHE": 11061.55, "DPI Northwest": 3502.24, "Sprouts": 19478.48, "Whole Foods": 19187.65, "Regional Group": 15130.71, "Kroger": 27769.83, "Walmart": 26524.77, "Costco": 17449.75},
-    "2025-04-01": {"UNFI": 8075.80, "KeHE": 8913.31, "DPI Northwest": 3857.31, "Sprouts": 16901.08, "Whole Foods": 18934.56, "Regional Group": 9780.97, "Kroger": 21531.21, "Walmart": 21935.87, "Costco": 12883.91},
-    "2025-07-01": {"UNFI": 8190.04, "KeHE": 8050.50, "DPI Northwest": 3847.73, "Sprouts": 16737.16, "Whole Foods": 21645.01, "Regional Group": 11270.85, "Kroger": 23463.80, "Walmart": 21785.53, "Costco": 14708.27},
-    "2025-10-01": {"UNFI": 12093.89, "KeHE": 8664.94, "DPI Northwest": 4398.03, "Sprouts": 18960.81, "Whole Foods": 21947.92, "Regional Group": 13714.33, "Kroger": 25283.86, "Walmart": 29446.72, "Costco": 15161.51},
-    "2026-01-01": {"UNFI": 809.72, "KeHE": 849.62, "DPI Northwest": 268.56, "DTC": 0, "Sprouts": 431.30, "Whole Foods": 1306.17, "Regional Group": 519.00, "Kroger": 257.71, "Walmart": 613.63, "Costco": 177.62},
+    "2023-01-01": {"UNFI": 5447.46, "KeHE": 3724.40, "DPI Northwest": 2143.41, "DTC": 10597.70, "Sprouts": 7099.12, "Whole Foods": 7333.10, "Regional Group": 3602.07, "Kroger": 9011.60, "Walmart": 11640.48, "Costco": 7102.46},
+    "2023-04-01": {"UNFI": 10611.39, "KeHE": 6827.02, "DPI Northwest": 3502.62, "DTC": 13201.96, "Sprouts": 17142.60, "Whole Foods": 16829.51, "Regional Group": 10746.80, "Kroger": 18609.37, "Walmart": 21349.20, "Costco": 13126.94},
+    "2023-07-01": {"UNFI": 10611.71, "KeHE": 8570.57, "DPI Northwest": 5036.45, "DTC": 13633.83, "Sprouts": 15146.24, "Whole Foods": 21046.43, "Regional Group": 11219.41, "Kroger": 22079.49, "Walmart": 22117.61, "Costco": 11941.49},
+    "2023-10-01": {"UNFI": 12655.31, "KeHE": 13485.31, "DPI Northwest": 5525.62, "DTC": 18135.62, "Sprouts": 20016.47, "Whole Foods": 21875.63, "Regional Group": 13459.12, "Kroger": 27284.68, "Walmart": 28218.81, "Costco": 17759.85},
+    "2024-01-01": {"UNFI": 15381.64, "KeHE": 9771.78, "DPI Northwest": 5811.08, "DTC": 12478.75, "Sprouts": 18402.39, "Whole Foods": 24240.22, "Regional Group": 12686.93, "Kroger": 26863.13, "Walmart": 26604.90, "Costco": 13224.59},
+    "2024-04-01": {"UNFI": 10338.94, "KeHE": 8694.30, "DPI Northwest": 4041.98, "DTC": 13578.96, "Sprouts": 16062.90, "Whole Foods": 18153.79, "Regional Group": 9594.31, "Kroger": 22169.15, "Walmart": 25909.12, "Costco": 13040.76},
+    "2024-07-01": {"UNFI": 10294.44, "KeHE": 8973.80, "DPI Northwest": 3436.18, "DTC": 12320.15, "Sprouts": 17889.49, "Whole Foods": 22117.01, "Regional Group": 11450.68, "Kroger": 21403.16, "Walmart": 22416.36, "Costco": 15139.47},
+    "2024-10-01": {"UNFI": 8953.63, "KeHE": 10011.09, "DPI Northwest": 8429.99, "DTC": 18890.78, "Sprouts": 20189.47, "Whole Foods": 23846.84, "Regional Group": 13583.03, "Kroger": 23680.18, "Walmart": 30297.26, "Costco": 14218.89},
+    "2025-01-01": {"UNFI": 8826.22, "KeHE": 11061.55, "DPI Northwest": 3502.24, "DTC": 11263.85, "Sprouts": 19478.48, "Whole Foods": 19187.65, "Regional Group": 15130.71, "Kroger": 27769.83, "Walmart": 26524.77, "Costco": 17449.75},
+    "2025-04-01": {"UNFI": 8075.80, "KeHE": 8913.31, "DPI Northwest": 3857.31, "DTC": 12889.56, "Sprouts": 16901.08, "Whole Foods": 18934.56, "Regional Group": 9780.97, "Kroger": 21531.21, "Walmart": 21935.87, "Costco": 12883.91},
+    "2025-07-01": {"UNFI": 8190.04, "KeHE": 8050.50, "DPI Northwest": 3847.73, "DTC": 12123.76, "Sprouts": 16737.16, "Whole Foods": 21645.01, "Regional Group": 11270.85, "Kroger": 23463.80, "Walmart": 21785.53, "Costco": 14708.27},
+    "2025-10-01": {"UNFI": 12093.89, "KeHE": 8664.94, "DPI Northwest": 4398.03, "DTC": 18808.01, "Sprouts": 18960.81, "Whole Foods": 21947.92, "Regional Group": 13714.33, "Kroger": 25283.86, "Walmart": 29446.72, "Costco": 15161.51},
+    "2026-01-01": {"UNFI": 809.72, "KeHE": 849.62, "DPI Northwest": 268.56, "DTC": 582.63, "Sprouts": 431.30, "Whole Foods": 1306.17, "Regional Group": 519.00, "Kroger": 257.71, "Walmart": 613.63, "Costco": 177.62},
 }
 
 QUARTER_LABELS = {
@@ -252,9 +265,14 @@ def compute_channel_data():
         gross_margin = round(revenue - cogs, 2)
 
         deductions = DEDUCTIONS.get(name, {})
-        trade_ded = round(sum(deductions.get(t, (0, 0))[0] for t in TRADE_TYPES) / YEARS, 2)
-        quality_fines = round(sum(deductions.get(t, (0, 0))[0] for t in ["label_fine", "spoilage", "damaged", "pallet_fine"]) / YEARS, 2)
-        logistics_fines = round(deductions.get("late_delivery", (0, 0))[0] / YEARS, 2)
+        if CHANNEL_TYPES[name] == "DTC":
+            trade_ded = round(sum(deductions.get(t, (0, 0))[0] for t in DTC_CHANNEL_COST_TYPES) / YEARS, 2)
+            quality_fines = round(sum(deductions.get(t, (0, 0))[0] for t in DTC_RETURNS_TYPES) / YEARS, 2)
+            logistics_fines = 0
+        else:
+            trade_ded = round(sum(deductions.get(t, (0, 0))[0] for t in TRADE_TYPES) / YEARS, 2)
+            quality_fines = round(sum(deductions.get(t, (0, 0))[0] for t in ["label_fine", "spoilage", "damaged", "pallet_fine"]) / YEARS, 2)
+            logistics_fines = round(deductions.get("late_delivery", (0, 0))[0] / YEARS, 2)
         total_deductions = round(trade_ded + quality_fines + logistics_fines, 2)
 
         promo = PROMO_COSTS_ANNUAL.get(name, 0)
@@ -330,13 +348,14 @@ def generate_layers(channel_data):
         ]
     })
 
-    # Layer 2: After Trade Deductions
+    # Layer 2: After Trade Deductions (DTC: channel operating costs)
     layer2_channels = []
     for ch in channel_data:
         name = ch["channel_name"]
         breakdown = []
+        types_l2 = DTC_CHANNEL_COST_TYPES if CHANNEL_TYPES[name] == "DTC" else TRADE_TYPES
         if name in DEDUCTIONS:
-            for dtype in TRADE_TYPES:
+            for dtype in types_l2:
                 amount, count = DEDUCTIONS[name].get(dtype, (0, 0))
                 if amount > 0:
                     breakdown.append({"label": TYPE_LABELS[dtype], "type": dtype,
@@ -356,13 +375,14 @@ def generate_layers(channel_data):
         "channels": layer2_channels
     })
 
-    # Layer 3: After Compliance Fines
+    # Layer 3: After Compliance Fines (DTC: returns & chargebacks)
     layer3_channels = []
     for ch in channel_data:
         name = ch["channel_name"]
         breakdown = []
+        types_l3 = DTC_RETURNS_TYPES if CHANNEL_TYPES[name] == "DTC" else COMPLIANCE_TYPES
         if name in DEDUCTIONS:
-            for dtype in COMPLIANCE_TYPES:
+            for dtype in types_l3:
                 amount, count = DEDUCTIONS[name].get(dtype, (0, 0))
                 if amount > 0:
                     breakdown.append({"label": TYPE_LABELS[dtype], "type": dtype,

@@ -291,9 +291,22 @@
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 155873.17,
+        "value": 107723.65,
         "previous_value": 155873.17,
-        "breakdown": []
+        "breakdown": [
+          {
+            "label": "Shipping & Fulfillment",
+            "type": "shipping_fulfillment",
+            "amount": 37961.75,
+            "count": 6166
+          },
+          {
+            "label": "Platform & Payment Fees",
+            "type": "platform_payment_fees",
+            "amount": 10187.78,
+            "count": 6166
+          }
+        ]
       },
       {
         "channel_name": "Sprouts",
@@ -581,9 +594,22 @@
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 155873.17,
-        "previous_value": 155873.17,
-        "breakdown": []
+        "value": 99704.65,
+        "previous_value": 107723.65,
+        "breakdown": [
+          {
+            "label": "Returns & Refunds",
+            "type": "returns_refunds",
+            "amount": 7322.26,
+            "count": 273
+          },
+          {
+            "label": "Chargebacks",
+            "type": "chargebacks_dtc",
+            "amount": 696.73,
+            "count": 24
+          }
+        ]
       },
       {
         "channel_name": "Sprouts",
@@ -847,8 +873,8 @@
       {
         "channel_name": "DTC",
         "channel_type": "DTC",
-        "value": 155873.17,
-        "previous_value": 155873.17,
+        "value": 99704.65,
+        "previous_value": 99704.65,
         "breakdown": []
       },
       {

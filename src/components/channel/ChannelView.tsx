@@ -173,12 +173,12 @@ export default function ChannelView({ channelName, layers, trends, periodLabel }
         gap: '32px',
       }}>
         <BreakdownSection
-          title="Trade Deductions"
+          title={channelName === 'DTC' ? 'Channel Operating Costs' : 'Trade Deductions'}
           items={summary.deductionBreakdown}
           color={WATERFALL_COLORS.cost}
         />
         <BreakdownSection
-          title="Compliance Fines"
+          title={channelName === 'DTC' ? 'Returns & Damages' : 'Compliance Fines'}
           items={summary.fineBreakdown}
           color={WATERFALL_COLORS.cost}
         />
@@ -190,6 +190,19 @@ export default function ChannelView({ channelName, layers, trends, periodLabel }
           />
         )}
       </div>
+
+      {channelName === 'DTC' && (
+        <p style={{
+          fontFamily: FONTS.sans,
+          fontSize: '12px',
+          color: CHART_COLORS.axisText,
+          marginTop: '24px',
+          lineHeight: 1.5,
+          fontStyle: 'italic',
+        }}>
+          DTC margin excludes customer acquisition costs (paid social, email, influencer), which are classified as marketing expenses rather than channel costs.
+        </p>
+      )}
 
       <div style={{ marginTop: '48px' }}>
         <h3 style={{
@@ -204,7 +217,7 @@ export default function ChannelView({ channelName, layers, trends, periodLabel }
         <MarginEvolutionChart
           trends={trends}
           channelFilter={[channelName]}
-          footnote="All quarters"
+          footnote={periodLabel}
         />
       </div>
     </div>
