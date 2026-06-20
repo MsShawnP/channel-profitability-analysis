@@ -85,14 +85,14 @@ live query. Confirm live when auth is restored.
 Work in vertical slices. Visualizations get reviewed in their own slice.
 
 - [x] Run /clarify to scope the redesign — 2026-06-19
-- [ ] Deploy maintenance page (take current site dark)
-- [ ] Scout Postgres quarterly granularity for fines + overhead
+- [x] Deploy maintenance page (take current site dark) — 2026-06-19
+- [x] Scout Postgres quarterly granularity for fines + overhead — 2026-06-19
 - [ ] Run /office-hours to stress-test the redesign idea
 - [ ] Run /plan-ceo-review for product gate
 - [ ] Run /plan-eng-review for architecture gate
 - [ ] Run /ce:brainstorm to spec the approach
 - [ ] Run /ce:plan to create implementation plan
-- [ ] Run /ce:work to execute
+- [x] Run /ce:work to execute — 2026-06-20 (§1–§7 + chart width fix, all deployed)
 - [ ] Run /ce:review (reviewer ensemble)
 - [ ] Run /qa (browser testing)
 

@@ -49,6 +49,11 @@ Each entry:
 
 ---
 
+### 2026-06-20 — Strategic recommendations use full-range data regardless of time filter
+- **Why:** Capital-allocation action cards show strategic recommendations (grow retail, restructure disputes, review Costco). These are portfolio-level conclusions that shouldn't shift when a user selects a single quarter. Synthesized time-filtered data also lacks dispute granularity (trends.json combines all post-COGS erosion). Computing from baseLayers/baseChannels ensures stable, complete figures.
+- **Scope:** ActionCards component and any future strategic/recommendation sections
+- **Do not:** Compute strategic recommendation metrics from time-filtered data. If a new recommendation needs time-varying data, add it as a separate time-aware section, not in the action cards.
+
 ### 2026-05-17 — Quarterly trend margin excludes fines and operational overhead
 - **Why:** Compliance fines and operational overhead are reported with quarterly lags and would produce misleading quarter-by-quarter trends. The annual contribution margin includes all five layers; the quarterly trend uses a three-layer formula (revenue − COGS − deductions) / revenue. This is disclosed in the trends section footnote.
 - **Scope:** Trends section (06-trends.mdx) and trends.json generation

@@ -194,7 +194,7 @@ FAILURES.md. Project brief exists in Downloads as reference.
 - CRITICAL: Fixed DTC channel_type case mismatch (`"dtc"` → `"DTC"`) — live site was showing empty DTC charts across 5 sections
 - CRITICAL: Rewrote `refresh_data.py` — was referencing non-existent tables (`fct_orders`, `fct_deductions`) and wrong columns. Now uses correct schema (`fct_retailer_orders`, `fct_distributor_orders`, `fct_dtc_orders`, `fct_retailer_deductions`, `fct_distributor_deductions`) and covers both retailers and distributors
 - CRITICAL: Rewrote `verify_math.py` — was using hardcoded stale values with wrong channel indices. Now derives all values from JSON (160+ checks)
-- CRITICAL: Rewrote `verify_roi.py` — was completely stale. Now derives from layers.json
+- CRITICAL: Rewrote `verify_roi.py` — was completely stale. Now derives from JSON
 - IMPORTANT: Rewrote README.md with correct revenue ($76.8M), stack, setup, pipeline, and validation docs
 - IMPORTANT: Filled in CLAUDE.md Stack section (was "TBD"), corrected revenue figure
 - IMPORTANT: Populated DECISIONS.md with 4 documented decisions (quarterly margin formula, Postgres SSOT, output format, voice)
@@ -237,5 +237,24 @@ FAILURES.md. Project brief exists in Downloads as reference.
 **State:** Maintenance page live at channels.lailarallc.com. PLAN.md has full redesign scope. /clarify complete. Critical data dependency resolved (all layers have quarterly grain). DB auth needs credential reset before next data refresh.
 
 **Next:** Fix DB auth (credential reset on Fly.io). Then continue Heavy-tier workflow: /office-hours → /plan-ceo-review → /plan-eng-review → /ce:brainstorm → /ce:plan → /ce:work.
+
+---
+
+## 2026-06-20 20:30 — Redesign build complete (session wrap)
+
+**Started from:** Redesign sections 1–4 committed. Section 5 charts built but uncommitted.
+
+**Did:**
+- Committed §5 (RevenueChart, MarginEvolutionChart, OverheadScatterChart — 3 D3 chart components)
+- Built and committed §6 (capital-allocation dark callout cards — 3 data-driven #1a1a1a cards with full-range metrics)
+- Built and committed §7 (sortable per-channel table — click-to-sort columns, segment color dots)
+- Verified §8 (data fidelity — client-side math reconciles to pipeline: Walmart 47.9%, DTC 82.6%, UNFI 45.0%; COGS sourced as real dollars; generate_json.py confirmed)
+- Completed §9 (build + deploy to Cloudflare Pages)
+- Fixed chart width issue: removed maxWidth caps on 4 chart containers so charts fill the 1200px container
+- Two deploys to Cloudflare Pages — both successful
+
+**State:** All 9 redesign spec sections complete. Interactive drill-down tool live at channels.lailarallc.com with time filter, segment/channel waterfalls, 3 D3 charts, sortable table, and dark action cards. Clean working tree. 9 commits ahead of origin (unpushed).
+
+**Next:** Push to origin. Remaining open item: document Astro frame pattern for reuse. Consider running /improve (due 2026-06-22). Otherwise project in maintenance mode — redesign arc complete.
 
 ---

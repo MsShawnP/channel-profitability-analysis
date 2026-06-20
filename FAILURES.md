@@ -69,3 +69,31 @@ failed and may have its own entry below]
 **Status:** Open — needs credential reset before next data refresh
 
 **Tags:** flyctl, postgres, auth, password, fly.io, database
+
+---
+
+### 2026-06-20 — Action cards computed overhead from time-filtered data (returned $0)
+
+**Attempted:** Computed capital-allocation card metrics (dispute overhead, Walmart disputes) from the time-filtered `channels`/`layers` data, same as the rest of the landing view.
+
+**Why it didn't work:** Synthesized data from trends.json has `disputes_filed = 0` and combines all post-COGS erosion into a single "deductions" field. The overhead and dispute breakdown only exists in the full-range `baseLayers`/`baseChannels` data. Card showed "$0 annual dispute overhead" and "0 disputes/yr."
+
+**What we tried instead:** Passed `baseChannels` as a new prop to LandingView. Computed all action card metrics from full-range data (`baseLayers`/`baseChannels`) since these are strategic recommendations that shouldn't change with time filter. Figures now match the MDX source exactly.
+
+**Status:** Resolved
+
+**Tags:** time-filter, synthesized-data, trends-json, action-cards, data-granularity
+
+---
+
+### 2026-06-20 — Preview tool viewport collapsed to 3px mid-session
+
+**Attempted:** Used `preview_eval` to measure chart container widths after removing maxWidth constraints. Expected 1152px widths.
+
+**Why it didn't work:** The headless browser viewport silently collapsed to `innerWidth: 3`. All `offsetWidth`/`clientWidth` measurements returned 0. The "desktop" preset in `preview_resize` didn't restore it. Earlier measurements in the same session had worked correctly at 1152px.
+
+**What we tried instead:** Used `preview_resize` with explicit pixel dimensions (1280×800) instead of the "desktop" preset. This restored the viewport and measurements returned correct values.
+
+**Status:** Resolved
+
+**Tags:** preview-tool, viewport, headless-browser, measurement, debugging
