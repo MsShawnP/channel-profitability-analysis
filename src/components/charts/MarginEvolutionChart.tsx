@@ -86,8 +86,10 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
       .attr('fill', CHART_COLORS.axisText)
       .text(d => shortQuarter(d));
 
+    const singleQuarter = quarters.length === 1;
+
     const lineFn = d3Line<{ quarter: string; margin: number }>()
-      .x(d => x(d.quarter)!)
+      .x(d => singleQuarter ? innerW / 2 : x(d.quarter)!)
       .y(d => y(d.margin));
 
     const labelData: { channel: string; naturalY: number; resolvedY: number; color: string; opacity: number; margin: number }[] = [];
@@ -102,15 +104,26 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
       const color = COLOR_MAP[chType] ?? CHART_COLORS.axisText;
       const opacity = isolated ? (ch === isolated ? 1 : DIM_OPACITY) : 0.8;
 
-      g.append('path')
-        .datum(series)
-        .attr('fill', 'none')
-        .attr('stroke', color)
-        .attr('stroke-width', isolated === ch ? 2.5 : 1.5)
-        .attr('stroke-opacity', opacity)
-        .attr('d', lineFn)
-        .style('cursor', 'pointer')
-        .on('click', () => setIsolated(prev => prev === ch ? null : ch));
+      if (singleQuarter) {
+        g.append('circle')
+          .attr('cx', innerW / 2)
+          .attr('cy', y(series[0].margin))
+          .attr('r', isolated === ch ? 5 : 4)
+          .attr('fill', color)
+          .attr('opacity', opacity)
+          .style('cursor', 'pointer')
+          .on('click', () => setIsolated(prev => prev === ch ? null : ch));
+      } else {
+        g.append('path')
+          .datum(series)
+          .attr('fill', 'none')
+          .attr('stroke', color)
+          .attr('stroke-width', isolated === ch ? 2.5 : 1.5)
+          .attr('stroke-opacity', opacity)
+          .attr('d', lineFn)
+          .style('cursor', 'pointer')
+          .on('click', () => setIsolated(prev => prev === ch ? null : ch));
+      }
 
       const last = series[series.length - 1];
       labelData.push({
