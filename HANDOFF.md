@@ -240,6 +240,26 @@ FAILURES.md. Project brief exists in Downloads as reference.
 
 ---
 
+## 2026-06-20 — UI polish + dispute data pipeline fix (session wrap)
+
+**Started from:** Redesign deployed. User reported iterative UI issues and $0 dispute overhead bug.
+
+**Did:**
+- Fixed MarginEvolutionChart: 2% y-axis tick intervals, label collision avoidance, click-to-isolate "Show all" exit button
+- Added inline median row to MarginTable at correct sorted position (works for all sort columns)
+- Reverted DTC color to Singapore-55 (#ee8a2a)
+- Iterated segment card backgrounds (Chicago-95 → London-95 → white + 4px colored left border with box-shadow hover)
+- **Key fix:** Diagnosed and fixed $0 dispute overhead in Capital Allocation cards. Root cause: `synthesizeFromTrends()` hardcoded `disputes_filed: 0` and mapped layers 2/3/4 all to `contribution`. Fix: added `fines`, `overhead`, `disputes_filed` fields to `generate_json.py` trends output; updated `TrendChannel` interface and `synthesizeFromTrends()` to build distinct layers (layer 2 = contribution + fines, layer 3 = contribution, layer 4 = contribution - overhead). Fines split from deductions using structural ratio; overhead/disputes prorated by revenue share.
+- Updated scatter chart footnote from hardcoded "Full range, annual data" to dynamic `periodLabel`
+- Deployed both otif-blind-spot and channel-profitability-analysis via OAuth fallback (API token was stale)
+- User set new CLOUDFLARE_API_TOKEN via `setx` — will take effect next session
+
+**State:** Site live at channels.lailarallc.com. Capital Allocation cards now show real dispute figures for all time filters (FY2026: $148K overhead, ~513 Walmart disputes; Full Range: $186K, ~637). All changes committed and pushed to origin. Clean working tree.
+
+**Next:** Maintenance mode. `/improve` audit due 2026-06-22. PLAN.md Goal section still has stale margin figures (cosmetic). DEDUCTIONS and DISPUTE_DATA constants in generate_json.py were updated by a linter mid-session — verify the new values are correct if figures look off.
+
+---
+
 ## 2026-06-20 20:30 — Redesign build complete (session wrap)
 
 **Started from:** Redesign sections 1–4 committed. Section 5 charts built but uncommitted.
