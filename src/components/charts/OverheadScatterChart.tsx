@@ -35,7 +35,7 @@ export default function OverheadScatterChart({ items, footnote }: OverheadScatte
     svg.selectAll('*').remove();
     if (filtered.length === 0) return;
 
-    const width = svgRef.current?.parentElement?.clientWidth ?? 600;
+    const width = svgRef.current?.parentElement?.clientWidth || 600;
     const innerW = width - MARGIN.left - MARGIN.right;
     const innerH = HEIGHT - MARGIN.top - MARGIN.bottom;
 
@@ -121,7 +121,7 @@ export default function OverheadScatterChart({ items, footnote }: OverheadScatte
 
   return (
     <div>
-      <svg ref={svgRef} role="img" aria-label="Dispute overhead scatter" style={{ display: 'block' }} />
+      <svg ref={svgRef} width="100%" height={HEIGHT} role="img" aria-label="Dispute overhead scatter" style={{ display: 'block', overflow: 'visible' }} />
       {footnote && (
         <p style={{
           fontFamily: FONTS.sans, fontSize: '11px', fontStyle: 'italic',

@@ -15,7 +15,7 @@ interface RevenueChartProps {
   footnote?: string;
 }
 
-const MARGIN = { top: 4, right: 72, bottom: 4, left: 120 };
+const MARGIN = { top: 18, right: 72, bottom: 4, left: 120 };
 const BAR_HEIGHT = 22;
 
 const COLOR_MAP: Record<string, string> = {
@@ -37,7 +37,7 @@ export default function RevenueChart({ items, footnote }: RevenueChartProps) {
     svg.selectAll('*').remove();
     if (sorted.length === 0) return;
 
-    const width = svgRef.current?.parentElement?.clientWidth ?? 600;
+    const width = svgRef.current?.parentElement?.clientWidth || 600;
     const innerW = width - MARGIN.left - MARGIN.right;
 
     svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`);
@@ -100,14 +100,14 @@ export default function RevenueChart({ items, footnote }: RevenueChartProps) {
       .attr('x', x(medianRevenue) + 4)
       .attr('y', -2)
       .attr('font-family', FONTS.sans)
-      .attr('font-size', '10px')
-      .attr('fill', CHART_COLORS.reference)
+      .attr('font-size', '12px')
+      .attr('fill', CHART_COLORS.axisText)
       .text('median');
   }, [sorted, height]);
 
   return (
     <div>
-      <svg ref={svgRef} role="img" aria-label="Revenue by channel" style={{ display: 'block' }} />
+      <svg ref={svgRef} width="100%" height={height} role="img" aria-label="Revenue by channel" style={{ display: 'block', overflow: 'visible' }} />
       {footnote && (
         <p style={{
           fontFamily: FONTS.sans, fontSize: '11px', fontStyle: 'italic',

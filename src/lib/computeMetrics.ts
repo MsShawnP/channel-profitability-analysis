@@ -15,6 +15,9 @@ export interface TrendChannel {
   revenue: number;
   cogs: number;
   deductions: number;
+  fines: number;
+  overhead: number;
+  disputes_filed: number;
   contribution: number;
   margin_pct: number;
 }
@@ -42,19 +45,29 @@ export function getQuartersForFilter(filter: string): string[] {
   if (filter === 'full') return ALL_QUARTERS;
   const fy = FISCAL_YEARS.find(f => f.label === filter);
   if (fy) return fy.quarters;
-  if (ALL_QUARTERS.includes(filter)) return [filter];
-  return ALL_QUARTERS;
+  return [filter];
 }
 
 export function getFilterLabel(filter: string): string {
-  if (filter === 'full') return 'FY2024–FY2026';
+  if (filter === 'full') return 'Full Range';
   const fy = FISCAL_YEARS.find(f => f.label === filter);
   if (fy) return fy.label;
-  if (ALL_QUARTERS.includes(filter)) {
-    const [q, yr] = filter.split(' ');
-    return `${q}’${yr.slice(2)}`;
+  const parts = filter.split(' ');
+  if (parts.length === 2) {
+    return parts[0] + "'" + parts[1].slice(2);
   }
-  return 'FY2024–FY2026';
+  return 'Full Range';
+}
+
+interface TrendAgg {
+  type: string;
+  revenue: number;
+  cogs: number;
+  deductions: number;
+  fines: number;
+  overhead: number;
+  disputes_filed: number;
+  contribution: number;
 }
 
 export function synthesizeFromTrends(
@@ -63,13 +76,16 @@ export function synthesizeFromTrends(
 ): { channels: Channel[]; layers: Layer[] } {
   const filtered = trends.filter(t => quarters.includes(t.quarter));
 
-  const agg = new Map<string, { type: string; revenue: number; cogs: number; deductions: number; contribution: number }>();
+  const agg = new Map<string, TrendAgg>();
   for (const q of filtered) {
     for (const c of q.channels) {
-      const prev = agg.get(c.channel_name) ?? { type: c.channel_type, revenue: 0, cogs: 0, deductions: 0, contribution: 0 };
+      const prev = agg.get(c.channel_name) ?? { type: c.channel_type, revenue: 0, cogs: 0, deductions: 0, fines: 0, overhead: 0, disputes_filed: 0, contribution: 0 };
       prev.revenue += c.revenue;
       prev.cogs += c.cogs;
       prev.deductions += c.deductions;
+      prev.fines += c.fines;
+      prev.overhead += c.overhead;
+      prev.disputes_filed += c.disputes_filed;
       prev.contribution += c.contribution;
       agg.set(c.channel_name, prev);
     }
@@ -82,11 +98,11 @@ export function synthesizeFromTrends(
     gross_revenue: d.revenue,
     total_cogs: d.cogs,
     total_deductions: d.deductions,
-    disputes_filed: 0,
+    disputes_filed: Math.round(d.disputes_filed),
     total_deduction_events: 0,
   }));
 
-  const layerChannels = (fn: (d: { type: string; revenue: number; cogs: number; deductions: number; contribution: number }) => number): LayerChannel[] =>
+  const layerChannels = (fn: (d: TrendAgg) => number): LayerChannel[] =>
     Array.from(agg.entries()).map(([name, d]) => ({
       channel_name: name,
       channel_type: d.type,
@@ -96,9 +112,9 @@ export function synthesizeFromTrends(
   const layers: Layer[] = [
     { id: 0, label: 'Revenue', subtitle: '', channels: layerChannels(d => d.revenue) },
     { id: 1, label: 'Gross Margin', subtitle: '', channels: layerChannels(d => d.revenue - d.cogs) },
-    { id: 2, label: 'After Deductions', subtitle: '', channels: layerChannels(d => d.contribution) },
+    { id: 2, label: 'After Deductions', subtitle: '', channels: layerChannels(d => d.contribution + d.fines) },
     { id: 3, label: 'After Fines', subtitle: '', channels: layerChannels(d => d.contribution) },
-    { id: 4, label: 'Net Contribution', subtitle: '', channels: layerChannels(d => d.contribution) },
+    { id: 4, label: 'Net Contribution', subtitle: '', channels: layerChannels(d => d.contribution - d.overhead) },
   ];
 
   return { channels, layers };

@@ -19,13 +19,11 @@ interface LandingViewProps {
   channels: Channel[];
   layers: Layer[];
   trends: TrendQuarter[];
-  baseChannels: Channel[];
-  baseLayers: Layer[];
   periodLabel: string;
   onDrillToSegment: (segmentType: string) => void;
 }
 
-export default function LandingView({ channels, layers, trends, baseChannels, baseLayers, periodLabel, onDrillToSegment }: LandingViewProps) {
+export default function LandingView({ channels, layers, trends, periodLabel, onDrillToSegment }: LandingViewProps) {
   const segments = useMemo(
     () => computeSegmentSummaries(channels, layers),
     [channels, layers],
@@ -37,34 +35,34 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
   );
 
   const overheadItems = useMemo(() => {
-    const l4 = baseLayers.find(l => l.id === 4);
-    const l3 = baseLayers.find(l => l.id === 3);
+    const l4 = layers.find(l => l.id === 4);
+    const l3 = layers.find(l => l.id === 3);
     if (!l4 || !l3) return [];
     return channels.filter(c => c.disputes_filed > 0).map(c => {
       const prev = l3.channels.find(lc => lc.channel_name === c.channel_name)?.value ?? 0;
       const net = l4.channels.find(lc => lc.channel_name === c.channel_name)?.value ?? 0;
       return { name: c.channel_name, type: c.channel_type, disputes: c.disputes_filed, overhead: prev - net, revenue: c.gross_revenue };
     });
-  }, [channels, baseLayers]);
+  }, [channels, layers]);
 
   const actionCardData = useMemo(() => {
-    const baseSegments = computeSegmentSummaries(baseChannels, baseLayers);
-    const retailSeg = baseSegments.find(s => s.type === 'retailer');
-    const distSeg = baseSegments.find(s => s.type === 'distributor');
-    const costco = computeChannelSummary('Costco', baseLayers);
-    const walmart = baseChannels.find(c => c.channel_name === 'Walmart');
-    const walmartSummary = computeChannelSummary('Walmart', baseLayers);
+    const segs = computeSegmentSummaries(channels, layers);
+    const retailSeg = segs.find(s => s.type === 'retailer');
+    const distSeg = segs.find(s => s.type === 'distributor');
+    const costco = computeChannelSummary('Costco', layers);
+    const walmart = channels.find(c => c.channel_name === 'Walmart');
+    const walmartSummary = computeChannelSummary('Walmart', layers);
 
     return {
       retailMarginPct: retailSeg?.marginPct ?? 0,
       distributorMarginPct: distSeg?.marginPct ?? 0,
-      totalOverhead: baseSegments.reduce((s, seg) => s + seg.disputeOverhead, 0),
+      totalOverhead: segs.reduce((s, seg) => s + seg.disputeOverhead, 0),
       walmartOverhead: walmartSummary?.disputeOverhead ?? 0,
       walmartDisputes: walmart?.disputes_filed ?? 0,
       costcoMarginPct: costco?.marginPct ?? 0,
       costcoDeductionRate: costco ? (costco.tradeDeductions / costco.revenue) * 100 : 0,
     };
-  }, [baseChannels, baseLayers]);
+  }, [channels, layers]);
 
   const tableRows = useMemo(() => {
     return channels.map(c => {
@@ -97,14 +95,15 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
             key={seg.type}
             onClick={() => onDrillToSegment(seg.type)}
             style={{
-              border: `1px solid ${CHART_COLORS.gridline}`,
+              background: 'white',
+              borderLeft: `4px solid ${color}`,
               borderRadius: '2px',
               padding: '24px 16px',
               cursor: 'pointer',
-              transition: 'border-color 0.15s',
+              transition: 'box-shadow 0.12s ease',
             }}
-            onMouseEnter={e => (e.currentTarget.style.borderColor = color)}
-            onMouseLeave={e => (e.currentTarget.style.borderColor = CHART_COLORS.gridline)}
+            onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.08)')}
+            onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
           >
             <h3 style={{
               fontFamily: FONTS.serif,
@@ -185,7 +184,7 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
       <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
         Margin Evolution
       </h3>
-      <MarginEvolutionChart trends={trends} footnote="All quarters, all channels" />
+      <MarginEvolutionChart trends={trends} footnote={`${periodLabel}, all channels`} />
     </div>
 
     {overheadItems.length > 0 && (
@@ -193,7 +192,7 @@ export default function LandingView({ channels, layers, trends, baseChannels, ba
         <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
           Dispute Overhead
         </h3>
-        <OverheadScatterChart items={overheadItems} footnote="Full range, annual data" />
+        <OverheadScatterChart items={overheadItems} footnote={periodLabel} />
       </div>
     )}
 

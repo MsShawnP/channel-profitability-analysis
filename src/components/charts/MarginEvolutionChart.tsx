@@ -12,8 +12,8 @@ interface MarginEvolutionChartProps {
   footnote?: string;
 }
 
-const MARGIN = { top: 16, right: 100, bottom: 28, left: 44 };
-const HEIGHT = 280;
+const MARGIN = { top: 20, right: 140, bottom: 40, left: 50 };
+const HEIGHT = 400;
 
 const COLOR_MAP: Record<string, string> = {
   retailer: SEGMENT_COLORS.retailer,
@@ -35,7 +35,7 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
     svg.selectAll('*').remove();
     if (trends.length === 0) return;
 
-    const width = svgRef.current?.parentElement?.clientWidth ?? 700;
+    const width = svgRef.current?.parentElement?.clientWidth || 700;
     const innerW = width - MARGIN.left - MARGIN.right;
     const innerH = HEIGHT - MARGIN.top - MARGIN.bottom;
 
@@ -49,11 +49,16 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
 
     const x = scalePoint<string>().domain(quarters).range([0, innerW]);
     const allMargins = trends.flatMap(t => t.channels.filter(c => channels.includes(c.channel_name)).map(c => c.margin_pct));
-    const yMin = Math.floor((min(allMargins) ?? 40) / 5) * 5;
-    const yMax = Math.ceil((max(allMargins) ?? 90) / 5) * 5;
+    const rawMin = min(allMargins) ?? 40;
+    const rawMax = max(allMargins) ?? 90;
+    const yMin = Math.floor((rawMin - 1) / 2) * 2;
+    const yMax = Math.ceil((rawMax + 1) / 2) * 2;
     const y = scaleLinear().domain([yMin, yMax]).range([innerH, 0]);
 
-    const gridTicks = y.ticks(6);
+    const gridTicks: number[] = [];
+    for (let v = yMin; v <= yMax; v += 2) {
+      gridTicks.push(v);
+    }
     g.selectAll('.grid')
       .data(gridTicks)
       .enter().append('line')
@@ -66,7 +71,7 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
       .enter().append('text')
       .attr('x', -8).attr('y', d => y(d))
       .attr('dy', '0.35em').attr('text-anchor', 'end')
-      .attr('font-family', FONTS.sans).attr('font-size', '10px')
+      .attr('font-family', FONTS.sans).attr('font-size', '11px')
       .attr('fill', CHART_COLORS.axisText)
       .text(d => `${d}%`);
 
@@ -77,13 +82,15 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
       .attr('x', d => x(d)!)
       .attr('y', innerH + 18)
       .attr('text-anchor', 'middle')
-      .attr('font-family', FONTS.sans).attr('font-size', '10px')
+      .attr('font-family', FONTS.sans).attr('font-size', '11px')
       .attr('fill', CHART_COLORS.axisText)
       .text(d => shortQuarter(d));
 
     const lineFn = d3Line<{ quarter: string; margin: number }>()
       .x(d => x(d.quarter)!)
       .y(d => y(d.margin));
+
+    const labelData: { channel: string; naturalY: number; resolvedY: number; color: string; opacity: number; margin: number }[] = [];
 
     for (const ch of channels) {
       const series = trends.map(t => {
@@ -106,31 +113,78 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
         .on('click', () => setIsolated(prev => prev === ch ? null : ch));
 
       const last = series[series.length - 1];
+      labelData.push({
+        channel: ch,
+        naturalY: y(last.margin),
+        resolvedY: y(last.margin),
+        color,
+        opacity,
+        margin: last.margin,
+      });
+    }
+
+    const MIN_GAP = 14;
+    labelData.sort((a, b) => a.naturalY - b.naturalY);
+    for (let i = 1; i < labelData.length; i++) {
+      if (labelData[i].resolvedY - labelData[i - 1].resolvedY < MIN_GAP) {
+        labelData[i].resolvedY = labelData[i - 1].resolvedY + MIN_GAP;
+      }
+    }
+    if (labelData.length > 0 && labelData[labelData.length - 1].resolvedY > innerH) {
+      const excess = labelData[labelData.length - 1].resolvedY - innerH;
+      for (const l of labelData) l.resolvedY -= excess;
+    }
+
+    for (const label of labelData) {
       g.append('text')
         .attr('x', innerW + 6)
-        .attr('y', y(last.margin))
+        .attr('y', label.resolvedY)
         .attr('dy', '0.35em')
         .attr('font-family', FONTS.sans)
-        .attr('font-size', '10px')
-        .attr('fill', color)
-        .attr('opacity', opacity)
+        .attr('font-size', '11px')
+        .attr('fill', label.color)
+        .attr('opacity', label.opacity)
         .style('cursor', 'pointer')
-        .text(`${ch} ${last.margin.toFixed(1)}%`)
-        .on('click', () => setIsolated(prev => prev === ch ? null : ch));
+        .text(`${label.channel} ${label.margin.toFixed(1)}%`)
+        .on('click', () => setIsolated(prev => prev === label.channel ? null : label.channel));
     }
   }, [trends, channelFilter, isolated]);
 
   return (
     <div>
-      <svg ref={svgRef} role="img" aria-label="Margin evolution over time" style={{ display: 'block' }} />
-      {footnote && (
+      <svg ref={svgRef} width="100%" height={HEIGHT} role="img" aria-label="Margin evolution over time" style={{ display: 'block', overflow: 'visible' }} />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'baseline',
+        marginTop: '4px',
+        minHeight: '16px',
+      }}>
         <p style={{
           fontFamily: FONTS.sans, fontSize: '11px', fontStyle: 'italic',
-          color: CHART_COLORS.axisText, marginTop: '4px',
+          color: CHART_COLORS.axisText, margin: 0,
         }}>
-          {footnote}{isolated ? ` · Showing ${isolated}` : ' · Click a line to isolate'}
+          {footnote && <>{footnote} · </>}
+          {isolated ? `Showing ${isolated}` : 'Click a line to isolate'}
         </p>
-      )}
+        {isolated && (
+          <button
+            onClick={() => setIsolated(null)}
+            style={{
+              fontFamily: FONTS.sans,
+              fontSize: '11px',
+              color: CHART_COLORS.reference,
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+              textDecoration: 'underline',
+            }}
+          >
+            Show all
+          </button>
+        )}
+      </div>
     </div>
   );
 }

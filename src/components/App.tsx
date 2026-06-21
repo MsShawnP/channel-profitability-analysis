@@ -23,20 +23,22 @@ type DrillState =
 const baseChannels = channelsData as Channel[];
 const baseLayers = layersData as Layer[];
 const trends = trendsData as TrendQuarter[];
+const allDataQuarters = trends.map(t => t.quarter);
 const DEFAULT_TIME_FILTER = 'FY2026';
 
 export default function App() {
   const [drill, setDrill] = useState<DrillState>({ level: 'all' });
   const [timeFilter, setTimeFilter] = useState(DEFAULT_TIME_FILTER);
 
-  const { channels, layers, periodLabel } = useMemo(() => {
+  const { channels, layers, periodLabel, filteredTrends } = useMemo(() => {
     const label = getFilterLabel(timeFilter);
     if (timeFilter === 'full') {
-      return { channels: baseChannels, layers: baseLayers, periodLabel: label };
+      return { channels: baseChannels, layers: baseLayers, periodLabel: label, filteredTrends: trends };
     }
     const quarters = getQuartersForFilter(timeFilter);
     const synth = synthesizeFromTrends(trends, quarters);
-    return { channels: synth.channels, layers: synth.layers, periodLabel: label };
+    const ft = trends.filter(t => quarters.includes(t.quarter));
+    return { channels: synth.channels, layers: synth.layers, periodLabel: label, filteredTrends: ft };
   }, [timeFilter]);
 
   const drillToSegment = useCallback((segmentType: string) => {
@@ -61,7 +63,7 @@ export default function App() {
   return (
     <div>
       <div style={{ marginBottom: '20px' }}>
-        <TimeFilter value={timeFilter} onChange={setTimeFilter} />
+        <TimeFilter value={timeFilter} onChange={setTimeFilter} allQuarters={allDataQuarters} />
       </div>
 
       <div style={{
@@ -74,30 +76,39 @@ export default function App() {
       }}>
         <nav aria-label="Drill-down breadcrumb" style={{
           fontFamily: FONTS.sans,
-          fontSize: '14px',
+          fontSize: '15px',
           color: CHART_COLORS.axisText,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0',
         }}>
           <span
             onClick={navigateAll}
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => { if (e.key === 'Enter') navigateAll(); }}
             style={{
               cursor: drill.level !== 'all' ? 'pointer' : 'default',
               color: drill.level !== 'all' ? '#1f2e7a' : CHART_COLORS.ink,
-              fontWeight: drill.level === 'all' ? 600 : 400,
+              fontWeight: drill.level === 'all' ? 600 : 500,
               textDecoration: drill.level !== 'all' ? 'underline' : 'none',
             }}
           >
-            All Segments
+            {drill.level !== 'all' ? '← All Channels' : 'All Channels'}
           </span>
 
           {drill.level !== 'all' && (
             <>
-              <span style={{ margin: '0 8px', color: CHART_COLORS.disabled }}>/</span>
+              <span style={{ margin: '0 8px', color: CHART_COLORS.disabled }}>{'›'}</span>
               <span
                 onClick={() => navigateSegment(drill.segmentType)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => { if (e.key === 'Enter') navigateSegment(drill.segmentType); }}
                 style={{
                   cursor: drill.level === 'channel' ? 'pointer' : 'default',
                   color: drill.level === 'channel' ? '#1f2e7a' : CHART_COLORS.ink,
-                  fontWeight: drill.level === 'segment' ? 600 : 400,
+                  fontWeight: drill.level === 'segment' ? 600 : 500,
                   textDecoration: drill.level === 'channel' ? 'underline' : 'none',
                 }}
               >
@@ -108,7 +119,7 @@ export default function App() {
 
           {drill.level === 'channel' && (
             <>
-              <span style={{ margin: '0 8px', color: CHART_COLORS.disabled }}>/</span>
+              <span style={{ margin: '0 8px', color: CHART_COLORS.disabled }}>{'›'}</span>
               <span style={{ fontWeight: 600, color: CHART_COLORS.ink }}>
                 {drill.channelName}
               </span>
@@ -117,14 +128,15 @@ export default function App() {
         </nav>
 
         <select
-          value={drill.level === 'channel' ? drill.channelName : ''}
+          value=""
           onChange={e => {
             const val = e.target.value;
             if (!val) return;
-            if (drill.level === 'all') {
-              drillToSegment(val);
+            if (val.startsWith('seg:')) {
+              drillToSegment(val.slice(4));
             } else {
-              drillToChannel(drill.segmentType, val);
+              const segType = drill.level !== 'all' ? drill.segmentType : '';
+              if (segType) drillToChannel(segType, val);
             }
           }}
           style={{
@@ -138,22 +150,18 @@ export default function App() {
             cursor: 'pointer',
           }}
         >
-          {drill.level === 'all' ? (
-            <>
-              <option value="">Select segment…</option>
-              <option value="retailer">Retailers</option>
-              <option value="distributor">Distributors</option>
-              <option value="DTC">DTC</option>
-            </>
-          ) : (
-            <>
-              <option value="">Select channel…</option>
+          <option value="">Drill into…</option>
+          <option value="seg:retailer">Retailers</option>
+          <option value="seg:distributor">Distributors</option>
+          <option value="seg:DTC">DTC</option>
+          {drill.level !== 'all' && segmentChannels.length > 0 && (
+            <optgroup label={`${SEGMENT_DISPLAY[drill.segmentType]} channels`}>
               {segmentChannels.map(c => (
                 <option key={c.channel_name} value={c.channel_name}>
                   {c.channel_name}
                 </option>
               ))}
-            </>
+            </optgroup>
           )}
         </select>
       </div>
@@ -162,9 +170,7 @@ export default function App() {
         <LandingView
           channels={channels}
           layers={layers}
-          trends={trends}
-          baseChannels={baseChannels}
-          baseLayers={baseLayers}
+          trends={filteredTrends}
           periodLabel={periodLabel}
           onDrillToSegment={drillToSegment}
         />
@@ -184,7 +190,7 @@ export default function App() {
         <ChannelView
           channelName={drill.channelName}
           layers={layers}
-          trends={trends}
+          trends={filteredTrends}
           periodLabel={periodLabel}
         />
       )}

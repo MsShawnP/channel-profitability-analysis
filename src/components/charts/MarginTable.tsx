@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Fragment } from 'react';
 import { FONTS, CHART_COLORS, SEGMENT_COLORS, formatCompact } from './chartUtils';
 
 export interface MarginRow {
@@ -36,6 +36,13 @@ export default function MarginTable({ rows, highlight, periodLabel }: MarginTabl
   const [sortKey, setSortKey] = useState<SortKey>('margin_pct');
   const [sortAsc, setSortAsc] = useState(false);
 
+  const medianMargin = useMemo(() => {
+    const margins = rows.map(r => r.margin_pct).sort((a, b) => a - b);
+    if (margins.length === 0) return 0;
+    const mid = Math.floor(margins.length / 2);
+    return margins.length % 2 !== 0 ? margins[mid] : (margins[mid - 1] + margins[mid]) / 2;
+  }, [rows]);
+
   const sorted = useMemo(() => {
     const copy = [...rows];
     copy.sort((a, b) => {
@@ -48,6 +55,10 @@ export default function MarginTable({ rows, highlight, periodLabel }: MarginTabl
     });
     return copy;
   }, [rows, sortKey, sortAsc]);
+
+  const medianInsertIndex = useMemo(() => {
+    return sorted.filter(r => r.margin_pct >= medianMargin).length;
+  }, [sorted, medianMargin]);
 
   const handleSort = (key: SortKey) => {
     if (key === sortKey) {
@@ -87,40 +98,95 @@ export default function MarginTable({ rows, highlight, periodLabel }: MarginTabl
           </tr>
         </thead>
         <tbody>
-          {sorted.map(m => (
-            <tr
-              key={m.channel_name}
-              style={{
-                borderBottom: `1px solid ${CHART_COLORS.gridline}`,
-                backgroundColor: highlight && m.channel_name === highlight ? '#e4f5f0' : 'transparent',
-              }}
-            >
-              <td style={{ padding: '8px 12px' }}>
-                <span style={{
-                  display: 'inline-block',
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  backgroundColor: SEGMENT_DOT[m.channel_type] ?? CHART_COLORS.axisText,
-                  marginRight: '8px',
-                  verticalAlign: 'middle',
-                }} />
-                {m.channel_name}
-              </td>
-              <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
-                {formatCompact(m.revenue)}
-              </td>
-              <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
-                {formatCompact(m.contribution)}
-              </td>
-              <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
-                {m.margin_pct.toFixed(1)}%
-              </td>
-              <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
-                {formatCompact(m.erosion)}
-              </td>
-            </tr>
+          {sorted.map((m, i) => (
+            <Fragment key={m.channel_name}>
+              {i === medianInsertIndex && (
+                <tr style={{
+                  borderTop: `2px dashed ${CHART_COLORS.reference}`,
+                  borderBottom: `2px dashed ${CHART_COLORS.reference}`,
+                }}>
+                  <td style={{
+                    padding: '8px 12px',
+                    fontWeight: 600,
+                    fontStyle: 'italic',
+                    color: CHART_COLORS.reference,
+                  }}>
+                    Median
+                  </td>
+                  <td style={{ padding: '8px 12px' }} />
+                  <td style={{ padding: '8px 12px' }} />
+                  <td style={{
+                    padding: '8px 12px',
+                    textAlign: 'right',
+                    fontWeight: 600,
+                    fontVariantNumeric: 'tabular-nums',
+                    color: CHART_COLORS.reference,
+                  }}>
+                    {medianMargin.toFixed(1)}%
+                  </td>
+                  <td style={{ padding: '8px 12px' }} />
+                </tr>
+              )}
+              <tr
+                style={{
+                  borderBottom: `1px solid ${CHART_COLORS.gridline}`,
+                  backgroundColor: highlight && m.channel_name === highlight ? '#e4f5f0' : 'transparent',
+                }}
+              >
+                <td style={{ padding: '8px 12px' }}>
+                  <span style={{
+                    display: 'inline-block',
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    backgroundColor: SEGMENT_DOT[m.channel_type] ?? CHART_COLORS.axisText,
+                    marginRight: '8px',
+                    verticalAlign: 'middle',
+                  }} />
+                  {m.channel_name}
+                </td>
+                <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
+                  {formatCompact(m.revenue)}
+                </td>
+                <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
+                  {formatCompact(m.contribution)}
+                </td>
+                <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
+                  {m.margin_pct.toFixed(1)}%
+                </td>
+                <td style={{ padding: '8px 12px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
+                  {formatCompact(m.erosion)}
+                </td>
+              </tr>
+            </Fragment>
           ))}
+          {medianInsertIndex >= sorted.length && (
+            <tr style={{
+              borderTop: `2px dashed ${CHART_COLORS.reference}`,
+              borderBottom: `2px dashed ${CHART_COLORS.reference}`,
+            }}>
+              <td style={{
+                padding: '8px 12px',
+                fontWeight: 600,
+                fontStyle: 'italic',
+                color: CHART_COLORS.reference,
+              }}>
+                Median
+              </td>
+              <td style={{ padding: '8px 12px' }} />
+              <td style={{ padding: '8px 12px' }} />
+              <td style={{
+                padding: '8px 12px',
+                textAlign: 'right',
+                fontWeight: 600,
+                fontVariantNumeric: 'tabular-nums',
+                color: CHART_COLORS.reference,
+              }}>
+                {medianMargin.toFixed(1)}%
+              </td>
+              <td style={{ padding: '8px 12px' }} />
+            </tr>
+          )}
         </tbody>
       </table>
       {periodLabel && (

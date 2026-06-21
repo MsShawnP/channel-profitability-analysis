@@ -126,7 +126,7 @@ export function formatCompact(value: number): string {
       ? `$${thousands}K`
       : `$${parseFloat(thousands.toFixed(1))}K`;
   } else {
-    formatted = `$${absValue}`;
+    formatted = `$${Math.round(absValue)}`;
   }
 
   return isNegative ? `-${formatted}` : formatted;
