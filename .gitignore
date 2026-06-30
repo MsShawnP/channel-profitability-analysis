@@ -47,3 +47,7 @@ credentials.*
 *.csv
 *.parquet
 !data/sample/
+
+# Security - secret leak prevention
+.env.*
+secrets.*
