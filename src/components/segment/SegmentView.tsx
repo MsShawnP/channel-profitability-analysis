@@ -74,7 +74,7 @@ export default function SegmentView({ segmentType, channels, layers, periodLabel
           color: CHART_COLORS.axisText,
           margin: '0 0 24px',
         }}>
-          {segment.channelCount} channels · {formatCompact(segment.revenue)} revenue · {formatCompact(segment.netContribution)} net contribution
+          {segment.channelCount} {segment.channelCount === 1 ? 'channel' : 'channels'} · {formatCompact(segment.revenue)} revenue · {formatCompact(segment.netContribution)} net contribution
         </p>
 
         <div>
@@ -90,7 +90,11 @@ export default function SegmentView({ segmentType, channels, layers, periodLabel
           <WaterfallChart
             steps={steps}
             height={210}
-            footnote={`${periodLabel}, all ${segment.channelCount} ${SEGMENT_DISPLAY[segmentType].toLowerCase()}`}
+            footnote={
+              segmentType === 'DTC'
+                ? `${periodLabel}, DTC channel`
+                : `${periodLabel}, all ${segment.channelCount} ${SEGMENT_DISPLAY[segmentType].toLowerCase()}`
+            }
           />
         </div>
       </div>
