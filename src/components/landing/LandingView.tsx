@@ -100,10 +100,10 @@ export default function LandingView({ channels, layers, trends, periodLabel, onD
               borderRadius: '2px',
               padding: '24px 16px',
               cursor: 'pointer',
-              transition: 'box-shadow 0.12s ease',
+              transition: 'background-color 0.1s ease',
             }}
-            onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.08)')}
-            onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
+            onMouseEnter={e => (e.currentTarget.style.background = '#e8eaf4')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'white')}
           >
             <h3 style={{
               fontFamily: FONTS.serif,
@@ -166,7 +166,11 @@ export default function LandingView({ channels, layers, trends, periodLabel, onD
             <WaterfallChart
               steps={steps}
               height={190}
-              footnote={`${periodLabel}, all ${seg.channelCount} ${seg.type === 'DTC' ? 'DTC' : seg.name.toLowerCase()}`}
+              footnote={
+                seg.type === 'DTC'
+                  ? `${periodLabel}, DTC channel`
+                  : `${periodLabel}, all ${seg.channelCount} ${seg.name.toLowerCase()}`
+              }
             />
           </div>
         );
