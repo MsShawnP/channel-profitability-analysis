@@ -137,7 +137,7 @@ export default function LandingView({ channels, layers, trends, periodLabel, onD
                   textTransform: 'uppercase' as const,
                   letterSpacing: '0.5px',
                 }}>
-                  Net Margin
+                  Contribution Margin
                 </span>
                 <span style={{
                   fontFamily: FONTS.serif,
