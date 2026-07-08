@@ -19,9 +19,9 @@ export const totalDisputes = channels.reduce((sum, c) => sum + c.disputes_filed,
 
 Every deduction and fine generates downstream work: someone has to triage the claim, decide whether to dispute, file the paperwork, and track the resolution. This labour is real cost that rarely appears in channel profitability models.
 
-Cinderhaven files {totalDisputes.toLocaleString()} disputes per year across all channels (annual average, FY2024–FY2026) — roughly 2,584 from retailers and 308 from distributors. At $35 per hour fully loaded, that dispute workload totals $186.0K/yr in operational overhead, invisible on the income statement but real in headcount.
+Cinderhaven files {totalDisputes.toLocaleString()} disputes per year across all channels (annual average, FY2024–FY2026) — roughly 1,934 from retailers and 255 from distributors. At $35 per hour fully loaded, that dispute workload totals $141.1K/yr in operational overhead, invisible on the income statement but real in headcount.
 
-Walmart accounts for $41.8K/yr of that overhead, the highest of any channel — 637 disputes per year consuming ~1,195 hours of finance-team time. Kroger is close behind at $36.5K/yr on ~572 disputes. Among distributors, dispute volumes are far lower, reflecting simpler deduction profiles (five deduction types versus nine for retailers).
+Walmart accounts for $28.7K/yr of that overhead, the highest of any channel — 442 disputes per year consuming ~819 hours of finance-team time. Kroger is close behind at $26.1K/yr on ~404 disputes. Among distributors, dispute volumes are far lower, reflecting simpler deduction profiles (five deduction types versus nine for retailers).
 
 <p class="segment-label">Retailers</p>
 
@@ -50,4 +50,4 @@ Walmart accounts for $41.8K/yr of that overhead, the highest of any channel — 
   valueLabel="net contribution"
 />
 
-<p class="chart-footnote">Source: Operational overhead estimated at $35/hr fully loaded &times; ~4.3 hrs average per dispute (triage, investigation, filing, resolution), applied to dispute counts from the deductions ledger, annual average FY2024–FY2026. Average resolution time varies by channel and deduction type.</p>
+<p class="chart-footnote">Source: Operational overhead estimated at $35/hr fully loaded &times; ~1.8 hrs average per dispute (triage, investigation, filing, resolution), applied to dispute counts from the deductions ledger, annual average FY2024–FY2026. Average resolution time varies by channel and deduction type.</p>

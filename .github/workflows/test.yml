@@ -1,0 +1,31 @@
+name: Tests
+
+# Enforces the README's promise that "the narrative cannot drift from the data":
+# every prose number in the MDX is validated against the JSON on every push and PR.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  prose-validation:
+    name: Prose vs data validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run test suite (prose vs data + canonical regression)
+        run: python -m pytest tests/ -v
