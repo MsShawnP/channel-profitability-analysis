@@ -30,13 +30,17 @@ export interface TrendQuarter {
 export interface FiscalYear {
   label: string;
   quarters: string[];
+  partial?: boolean;
 }
 
-// FY runs Q2-Q1 (e.g. FY2026 = Q2'25 through Q1'26)
+// FY runs Q2-Q1 (e.g. FY2026 = Q2'25 through Q1'26). FY2026 is still in
+// progress: its Q1'26 is a stub (~3% of a normal quarter), so the year totals
+// ~$20.3M, not a full ~$25.6M. Flagged partial so the default view and labels
+// don't contradict the "$25.6M annual" hero.
 export const FISCAL_YEARS: FiscalYear[] = [
   { label: 'FY2024', quarters: ['Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024'] },
   { label: 'FY2025', quarters: ['Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025'] },
-  { label: 'FY2026', quarters: ['Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026'] },
+  { label: 'FY2026', quarters: ['Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026'], partial: true },
 ];
 
 export const ALL_QUARTERS = FISCAL_YEARS.flatMap(fy => fy.quarters);

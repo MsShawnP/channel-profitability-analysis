@@ -24,7 +24,10 @@ const baseChannels = channelsData as Channel[];
 const baseLayers = layersData as Layer[];
 const trends = trendsData as TrendQuarter[];
 const allDataQuarters = trends.map(t => t.quarter);
-const DEFAULT_TIME_FILTER = 'FY2026';
+// Default to the most recent COMPLETE fiscal year. FY2026 is still in progress
+// (Q1'26 is a stub) and would total ~$20.3M, contradicting the "$25.6M annual"
+// hero; FY2025 is a full four quarters (~$25.6M) so the landing view ties out.
+const DEFAULT_TIME_FILTER = 'FY2025';
 
 export default function App() {
   const [drill, setDrill] = useState<DrillState>({ level: 'all' });
