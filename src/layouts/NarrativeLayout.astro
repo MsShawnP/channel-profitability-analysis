@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+import '../styles/print.css';
+
 interface Props {
   title: string;
 }
@@ -19,7 +22,6 @@ const { title } = Astro.props;
     <link rel="preload" href="/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/lailara-frame.css" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <div class="lailara-page">
