@@ -97,3 +97,17 @@ failed and may have its own entry below]
 **Status:** Resolved
 
 **Tags:** preview-tool, viewport, headless-browser, measurement, debugging
+
+---
+
+### 2026-07-24 — Wrangler deploy fails without CLOUDFLARE_API_TOKEN in non-interactive env
+
+**Attempted:** Deployed to Cloudflare Pages via `npx wrangler pages deploy` from Claude Code's Bash tool after committing reviewer fixes.
+
+**Why it didn't work:** Wrangler requires `CLOUDFLARE_API_TOKEN` in non-interactive environments. The first deploy earlier in the session worked (likely inherited from a prior interactive auth), but the second attempt errored with "In a non-interactive environment, it's necessary to set a CLOUDFLARE_API_TOKEN."
+
+**What we tried instead:** Noted for manual re-deploy from the user's terminal where the token is set via `setx`.
+
+**Status:** Open — needs manual re-deploy
+
+**Tags:** wrangler, cloudflare, deploy, api-token, non-interactive

@@ -240,6 +240,18 @@ FAILURES.md. Project brief exists in Downloads as reference.
 
 ---
 
+## 2026-07-24 — Single-quarter chart fix + compound doc (session wrap)
+
+**Started from:** Previous session completed full redesign (§1–§7), deployed, wrapped. Unpushed commits and no tag.
+
+**Did:** Pushed to origin and tagged `v2.0-redesign`. Fixed single-quarter Margin Evolution chart bug (scalePoint mapped lone domain value to x=0, d3Line produced degenerate path). Ran `/ce-compound` full with session history — produced solution doc. Compound reviewers caught two bonus issues: dead `singleQuarter` ternary in `lineFn` (removed) and x-axis label misalignment in single-quarter view (fixed). Confirmed design system documents dark card tokens.
+
+**State:** Main branch pushed with 3 new commits. Tag `v2.0-redesign` on origin. Live site has initial dot fix deployed but not the label alignment fix (Wrangler auth failed on second deploy — needs manual re-deploy). TrendChart.tsx flagged as having the same latent scalePoint bug (task spawned).
+
+**Next:** Re-deploy to Cloudflare Pages with label alignment fix. Apply single-quarter guard to TrendChart.tsx. Run `/ce:review` and `/qa` for Heavy tier gates. `/improve` overdue (due 2026-06-22).
+
+---
+
 ## 2026-06-20 — UI polish + dispute data pipeline fix (session wrap)
 
 **Started from:** Redesign deployed. User reported iterative UI issues and $0 dispute overhead bug.
