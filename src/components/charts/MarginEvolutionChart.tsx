@@ -79,7 +79,7 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
     g.selectAll('.x-label')
       .data(xLabels)
       .enter().append('text')
-      .attr('x', d => x(d)!)
+      .attr('x', d => quarters.length === 1 ? innerW / 2 : x(d)!)
       .attr('y', innerH + 18)
       .attr('text-anchor', 'middle')
       .attr('font-family', FONTS.sans).attr('font-size', '11px')
@@ -89,7 +89,7 @@ export default function MarginEvolutionChart({ trends, channelFilter, footnote }
     const singleQuarter = quarters.length === 1;
 
     const lineFn = d3Line<{ quarter: string; margin: number }>()
-      .x(d => singleQuarter ? innerW / 2 : x(d.quarter)!)
+      .x(d => x(d.quarter)!)
       .y(d => y(d.margin));
 
     const labelData: { channel: string; naturalY: number; resolvedY: number; color: string; opacity: number; margin: number }[] = [];
