@@ -69,11 +69,22 @@ class TestCinderhavenCanonicalRegression:
     # Revenue sanity
     # ------------------------------------------------------------------
 
-    def test_total_revenue_range(self, channels):
-        """Total gross revenue should be ~$25.5M/yr (reasonable range: $23M-$28M)."""
+    def test_total_revenue_matches_canonical(self, channels):
+        """Total gross revenue vs canonical combined_invoiced CY2025, ±2%.
+
+        SSOT: reference/canonical_values.json, vendored from
+        MsShawnP/cinderhaven-data-platform@7533264 reference/canonical_values.yml
+        (VERIFIED-AGAINST-PRODUCTION 2026-07-29). Tolerance matches
+        check_canonical.py (2% for dollar amounts).
+        """
+        canon = json.loads(
+            (Path(__file__).resolve().parent.parent / "reference" / "canonical_values.json").read_text()
+        )
+        target = canon["revenue"]["combined_invoiced"]["cy2025"]
         total = sum(c["gross_revenue"] for c in channels)
-        assert 23_000_000 < total < 28_000_000, (
-            f"Total revenue ${total:,.0f} outside expected range"
+        assert abs(total - target) / target < 0.02, (
+            f"Total revenue ${total:,.0f} drifted >2% from canonical "
+            f"combined_invoiced cy2025 ${target:,.0f}"
         )
 
     def test_every_channel_has_positive_revenue(self, channels):
