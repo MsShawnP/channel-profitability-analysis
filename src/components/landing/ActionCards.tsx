@@ -70,7 +70,7 @@ export default function ActionCards({
           <div style={{
             fontFamily: FONTS.sans,
             fontSize: '12px',
-            color: '#808080',
+            color: '#666666', // London-40
             textTransform: 'uppercase' as const,
             letterSpacing: '1px',
             marginBottom: '8px',
@@ -98,7 +98,7 @@ export default function ActionCards({
           <div style={{
             fontFamily: FONTS.sans,
             fontSize: '11px',
-            color: '#808080',
+            color: '#666666', // London-40
             marginBottom: '16px',
           }}>
             {card.metricLabel}
