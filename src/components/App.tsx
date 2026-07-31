@@ -25,23 +25,26 @@ const baseLayers = layersData as Layer[];
 const trends = trendsData as TrendQuarter[];
 const allDataQuarters = trends.map(t => t.quarter);
 // Default to the most recent COMPLETE fiscal year. FY2026 is still in progress
-// (Q1'26 is a stub) and would total ~$20.3M, contradicting the "$25.6M annual"
-// hero; FY2025 is a full four quarters (~$25.6M) so the landing view ties out.
+// (Q1'26 is a stub) and would total ~$20.3M; FY2025 is a full four quarters
+// (~$25.7M combined, Q2'24–Q1'25). The hero cites CY2025 combined ~$25.3M —
+// the canonical default period — with its window named inline.
 const DEFAULT_TIME_FILTER = 'FY2025';
 
 export default function App() {
   const [drill, setDrill] = useState<DrillState>({ level: 'all' });
   const [timeFilter, setTimeFilter] = useState(DEFAULT_TIME_FILTER);
 
-  const { channels, layers, periodLabel, filteredTrends } = useMemo(() => {
+  const { channels, layers, periodLabel, trendsLabel, filteredTrends } = useMemo(() => {
     const label = getFilterLabel(timeFilter);
     if (timeFilter === 'full') {
-      return { channels: baseChannels, layers: baseLayers, periodLabel: label, filteredTrends: trends };
+      // channels/layers are annual averages, but the trend charts still plot
+      // quarterly series — label them by their real window, not the average.
+      return { channels: baseChannels, layers: baseLayers, periodLabel: label, trendsLabel: 'Quarterly, Q1 2023 – Q1 2026', filteredTrends: trends };
     }
     const quarters = getQuartersForFilter(timeFilter);
     const synth = synthesizeFromTrends(trends, quarters);
     const ft = trends.filter(t => quarters.includes(t.quarter));
-    return { channels: synth.channels, layers: synth.layers, periodLabel: label, filteredTrends: ft };
+    return { channels: synth.channels, layers: synth.layers, periodLabel: label, trendsLabel: label, filteredTrends: ft };
   }, [timeFilter]);
 
   const drillToSegment = useCallback((segmentType: string) => {
@@ -175,6 +178,7 @@ export default function App() {
           layers={layers}
           trends={filteredTrends}
           periodLabel={periodLabel}
+          trendsLabel={trendsLabel}
           onDrillToSegment={drillToSegment}
         />
       )}
@@ -195,6 +199,7 @@ export default function App() {
           layers={layers}
           trends={filteredTrends}
           periodLabel={periodLabel}
+          trendsLabel={trendsLabel}
         />
       )}
     </div>

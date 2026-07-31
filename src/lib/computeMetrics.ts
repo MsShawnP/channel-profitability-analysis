@@ -35,8 +35,9 @@ export interface FiscalYear {
 
 // FY runs Q2-Q1 (e.g. FY2026 = Q2'25 through Q1'26). FY2026 is still in
 // progress: its Q1'26 is a stub (~3% of a normal quarter), so the year totals
-// ~$20.3M, not a full ~$25.6M. Flagged partial so the default view and labels
-// don't contradict the "$25.6M annual" hero.
+// ~$20.3M, not a full ~$25.7M (FY2025 combined). Flagged partial so the default
+// view and labels don't overstate a partial year. (Hero cites CY2025 combined
+// ~$25.3M; cumulative 2023-2025 is $76.44M.)
 export const FISCAL_YEARS: FiscalYear[] = [
   { label: 'FY2024', quarters: ['Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024'] },
   { label: 'FY2025', quarters: ['Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025'] },
@@ -53,14 +54,16 @@ export function getQuartersForFilter(filter: string): string[] {
 }
 
 export function getFilterLabel(filter: string): string {
-  if (filter === 'full') return 'Full Range';
+  // channels.json / layers.json hold ANNUAL AVERAGES (full corpus / 3), so the
+  // unfiltered view must say so — "Full Range" would misread as 3-year totals.
+  if (filter === 'full') return 'Annual average (2023–2025)';
   const fy = FISCAL_YEARS.find(f => f.label === filter);
   if (fy) return fy.label;
   const parts = filter.split(' ');
   if (parts.length === 2) {
     return parts[0] + "'" + parts[1].slice(2);
   }
-  return 'Full Range';
+  return 'Annual average (2023–2025)';
 }
 
 interface TrendAgg {
@@ -113,12 +116,17 @@ export function synthesizeFromTrends(
       value: fn(d),
     }));
 
+  // trends.json `contribution` = revenue - cogs - deductions; fines and overhead
+  // are NOT netted in the quarterly rows (holds for every row in the file). The
+  // layer stack must therefore subtract fines and overhead explicitly so filtered
+  // views match the layers.json / methodology-note definition:
+  // net contribution = revenue - COGS - deductions - fines - overhead.
   const layers: Layer[] = [
     { id: 0, label: 'Revenue', subtitle: '', channels: layerChannels(d => d.revenue) },
     { id: 1, label: 'Gross Margin', subtitle: '', channels: layerChannels(d => d.revenue - d.cogs) },
-    { id: 2, label: 'After Deductions', subtitle: '', channels: layerChannels(d => d.contribution + d.fines) },
-    { id: 3, label: 'After Fines', subtitle: '', channels: layerChannels(d => d.contribution) },
-    { id: 4, label: 'Net Contribution', subtitle: '', channels: layerChannels(d => d.contribution - d.overhead) },
+    { id: 2, label: 'After Deductions', subtitle: '', channels: layerChannels(d => d.contribution) },
+    { id: 3, label: 'After Fines', subtitle: '', channels: layerChannels(d => d.contribution - d.fines) },
+    { id: 4, label: 'Net Contribution', subtitle: '', channels: layerChannels(d => d.contribution - d.fines - d.overhead) },
   ];
 
   return { channels, layers };

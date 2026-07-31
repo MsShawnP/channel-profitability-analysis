@@ -8,7 +8,9 @@ interface TimeFilterProps {
 }
 
 const FY_OPTIONS = [
-  { value: 'full', label: 'Full Range', partial: false },
+  // The 'full' option renders channels.json/layers.json, which are annual
+  // averages (full corpus / 3) — label it as such, not as a range of totals.
+  { value: 'full', label: 'Annual Average', partial: false },
   ...FISCAL_YEARS.map(fy => ({ value: fy.label, label: fy.label, partial: !!fy.partial })),
 ];
 
@@ -94,7 +96,7 @@ export default function TimeFilter({ value, onChange, allQuarters }: TimeFilterP
           color: CHART_COLORS.axisText,
           margin: '8px 0 0',
         }}>
-          * {PARTIAL_LABELS.join(', ')} is in progress — a partial year (data ends early in Q1), so its totals are below a full ~$25.6M year.
+          * {PARTIAL_LABELS.join(', ')} is in progress — a partial year (data ends early in Q1), so its totals are below a full fiscal year (FY2025: ~$25.7M).
         </p>
       )}
     </div>

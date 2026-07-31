@@ -20,10 +20,13 @@ interface LandingViewProps {
   layers: Layer[];
   trends: TrendQuarter[];
   periodLabel: string;
+  /** Label for the quarterly trend chart — differs from periodLabel when the
+   *  channels/layers shown are annual averages but the trend series is quarterly. */
+  trendsLabel?: string;
   onDrillToSegment: (segmentType: string) => void;
 }
 
-export default function LandingView({ channels, layers, trends, periodLabel, onDrillToSegment }: LandingViewProps) {
+export default function LandingView({ channels, layers, trends, periodLabel, trendsLabel, onDrillToSegment }: LandingViewProps) {
   const segments = useMemo(
     () => computeSegmentSummaries(channels, layers),
     [channels, layers],
@@ -188,7 +191,7 @@ export default function LandingView({ channels, layers, trends, periodLabel, onD
       <h3 style={{ fontFamily: FONTS.serif, fontSize: '22px', fontWeight: 700, color: CHART_COLORS.ink, margin: '0 0 12px' }}>
         Margin Evolution
       </h3>
-      <MarginEvolutionChart trends={trends} footnote={`${periodLabel}, all channels`} />
+      <MarginEvolutionChart trends={trends} footnote={`${trendsLabel ?? periodLabel}, all channels`} />
     </div>
 
     {overheadItems.length > 0 && (

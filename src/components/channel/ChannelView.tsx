@@ -10,6 +10,9 @@ interface ChannelViewProps {
   layers: Layer[];
   trends: TrendQuarter[];
   periodLabel: string;
+  /** Label for the quarterly trend chart — differs from periodLabel when the
+   *  layers shown are annual averages but the trend series is quarterly. */
+  trendsLabel?: string;
 }
 
 function BreakdownSection({ title, items, color }: { title: string; items: BreakdownItem[]; color: string }) {
@@ -92,7 +95,7 @@ function BreakdownSection({ title, items, color }: { title: string; items: Break
   );
 }
 
-export default function ChannelView({ channelName, layers, trends, periodLabel }: ChannelViewProps) {
+export default function ChannelView({ channelName, layers, trends, periodLabel, trendsLabel }: ChannelViewProps) {
   const summary = useMemo(
     () => computeChannelSummary(channelName, layers),
     [channelName, layers],
@@ -217,7 +220,7 @@ export default function ChannelView({ channelName, layers, trends, periodLabel }
         <MarginEvolutionChart
           trends={trends}
           channelFilter={[channelName]}
-          footnote={periodLabel}
+          footnote={trendsLabel ?? periodLabel}
         />
       </div>
     </div>

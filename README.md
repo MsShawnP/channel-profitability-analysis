@@ -8,7 +8,7 @@ Channel-by-channel profitability analysis showing where a specialty food brand a
 
 ## What it does
 
-An interactive analytical narrative for Cinderhaven, a fictional specialty food brand invoicing ~$25.3M in FY2025 ($76.4M cumulative invoiced, 2023–2025). It examines contribution margin across all 10 of the brand's sales channels — 6 contracted retailers (Walmart, Costco, Whole Foods, Sprouts, Kroger, Regional Group), 3 distributors (UNFI, KeHE, DPI Northwest), and Shopify DTC — through a five-layer cost waterfall: revenue, COGS, trade deductions, compliance fines, and operational overhead.
+An interactive analytical narrative for Cinderhaven, a fictional specialty food brand invoicing ~$25.3M in CY2025 (combined invoiced; $76.4M cumulative, 2023–2025). It examines contribution margin across all 10 of the brand's sales channels — 6 contracted retailers (Walmart, Costco, Whole Foods, Sprouts, Kroger, Regional Group), 3 distributors (UNFI, KeHE, DPI Northwest), and Shopify DTC — through a five-layer cost waterfall: revenue, COGS, trade deductions, compliance fines, and operational overhead.
 
 The result is a channel-level P&L a leadership team can act on: which channels earn their shelf space, which quietly erode margin, and where the next dollar of capital should go.
 

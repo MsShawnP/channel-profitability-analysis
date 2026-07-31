@@ -8,7 +8,7 @@ Read `../lailara-design-system/LAILARA_DESIGN_SYSTEM.md` before any visual work 
 ## What this project is
 
 Channel-by-channel profitability analysis for a fictional specialty
-food brand (Cinderhaven, $25.6M/yr annual average (3yr cumulative $76.8M) across 10 channels).
+food brand (Cinderhaven, ~$25.5M/yr annual average (cumulative $76.44M, 2023–2025) across 10 channels).
 First buyer-facing consumer of the Cinderhaven Data Platform. Tier 1
 flagship portfolio piece.
 
