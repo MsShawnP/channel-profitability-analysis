@@ -70,6 +70,26 @@ src/data/           Generated JSON consumed by the site
 tests/              Prose-vs-data validation checks
 ```
 
+## Client engagement use
+
+The demo renders the committed Cinderhaven dataset. To analyze a **client's own
+channel P&L** in place — validated, never committed, never deployed — use client
+mode (see [INPUT-SPEC.md](INPUT-SPEC.md)):
+
+```bash
+pip install -e ../engagement-template/lib      # the shared lailara_engagement scaffold
+python client_mode.py --config engagement.yml --input client-data/channels.csv \
+    --out client-output [--final]
+```
+
+It builds the five-layer contribution waterfall per channel — revenue → gross
+margin → after deductions → **after compliance fines** → net contribution — with
+fines subtracted explicitly in every view (they never vanish from net). Output to
+`client-output/` (gitignored): a branded, provenance-footed, DRAFT-watermarked
+`channel-profitability-summary.html` + `summary.json`, or a Data Readiness Report
+if a required column (including `fines`) is missing. The demo app is never edited
+(golden-locked).
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
