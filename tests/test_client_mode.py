@@ -79,6 +79,29 @@ def test_clean_run_fines_subtracted(tmp_path):
     assert "36 months" in html
 
 
+def test_window_label_tracks_config_not_hardcoded(tmp_path):
+    """The rendered window ('N months (label)') must come from
+    basis.window_months / window_label, not a hardcoded default. The clean-run
+    test asserts only the demo's own '36 months' — a positive-only check a
+    hardcoded '36' would also pass, the gap that let trade-spend quote 26 weeks
+    of data as 'trailing 52 weeks'.
+
+    Both halves: feed a distinctive window and assert it tracks, AND assert the
+    demo default is absent. (margin left as-is: 'contribution' also appears in
+    the fixed 'net contribution' headline, so it is not a clean absence marker.)"""
+    cfg = tmp_path / "engagement.yml"
+    cfg.write_text(_CONFIG.replace("window_months: 36", "window_months: 41")
+                          .replace('window_label: "2023-2025"', 'window_label: "FY2024-FY2026"'),
+                   encoding="utf-8")
+    src = _write(tmp_path, "ch.csv", _CLEAN)
+    result = client_mode.run(str(cfg), src, str(tmp_path / "out"))
+    assert result["status"] == "ok"
+    html = open(result["report"], encoding="utf-8").read()
+    assert "41 months (FY2024-FY2026)" in html
+    assert "36 months" not in html                       # demo default must not survive
+    assert "2023-2025" not in html
+
+
 def test_missing_required_column_blocks(tmp_path):
     # no fines column -> blocked (fines are required; they must never be optional)
     src = _write(tmp_path, "bad.csv",
