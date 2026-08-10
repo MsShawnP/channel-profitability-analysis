@@ -18,6 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Engagement guard
+        run: python3 scripts/engagement_guard.py
+
       # Gate deploy on the prose-vs-data suite so drifted narrative never ships.
       - name: Setup Python
         uses: actions/setup-python@v5

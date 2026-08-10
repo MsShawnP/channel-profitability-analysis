@@ -24,11 +24,13 @@ const baseChannels = channelsData as Channel[];
 const baseLayers = layersData as Layer[];
 const trends = trendsData as TrendQuarter[];
 const allDataQuarters = trends.map(t => t.quarter);
-// Default to the most recent COMPLETE fiscal year. FY2026 is still in progress
-// (Q1'26 is a stub) and would total ~$20.3M; FY2025 is a full four quarters
-// (~$25.7M combined, Q2'24–Q1'25). The hero cites CY2025 combined ~$25.3M —
-// the canonical default period — with its window named inline.
-const DEFAULT_TIME_FILTER = 'FY2025';
+// Default to the annual-average view so the interactive landing state matches
+// the headline narrative's basis (both read channels.json = the 3-year annual
+// average, ~$25.5M/yr). Previously the default was FY2025 (~$25.7M) while the
+// headline cited the annual average — one period in the narrative, a different
+// one in the chart below it. Standardized to a single labelled period ("Annual
+// Average", named inline); users can still drill into any fiscal year.
+const DEFAULT_TIME_FILTER = 'full';
 
 export default function App() {
   const [drill, setDrill] = useState<DrillState>({ level: 'all' });

@@ -1,0 +1,22 @@
+# Lailara LLC — Engagement config (DEMO). Canonical demo identity; demo: true so
+# the deploy guard ignores it. A real client run uses engagement.yml with the
+# client's own channel P&L.
+client:
+  name: "Cinderhaven Provisions (demo)"
+engagement:
+  id: "CINDERHAVEN-DEMO"
+as_of_date: "2026-01-31"
+prepared_by: "Lailara LLC"
+demo: true
+basis:
+  margin: "contribution"          # net contribution basis, printed on the output
+  window_months: 36
+  window_label: "annual average, 2023–2025"
+columns:
+  channel_name: "channel_name"
+  channel_type: "channel_type"
+  revenue: "revenue"
+  cogs: "cogs"
+  deductions: "deductions"
+  fines: "fines"
+  overhead: "overhead"

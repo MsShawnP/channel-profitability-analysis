@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "npm run build && wrangler pages deploy dist"
+    "deploy": "node scripts/engagement-guard.mjs && npm run build && wrangler pages deploy dist"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
